@@ -21,7 +21,7 @@ class ReviewSeeder extends Seeder
         foreach($reviews as $review) {
             $newReview = new Review(); 
 
-            $newReview->musician_id = 1; 
+            $newReview->musician_id = 2; 
             $newReview->name = "Michela";
             $newReview->surname = "Franchini"; 
             $newReview->email = "michela@email.com"; 

@@ -21,7 +21,7 @@ class MessageSeeder extends Seeder
         foreach($messages as $message) {
             $newMessage = new Message(); 
 
-            $newMessage->musician_id = 1; 
+            $newMessage->musician_id = 2; 
             $newMessage->name = "Michela";
             $newMessage->surname = "Franchini"; 
             $newMessage->email = "michela@email.com"; 
