@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
     SHOW PROFILO
+    
     {{-- <div>
         <h2>Nome</h2>
         <h3>{{$musician->name}}</h3>

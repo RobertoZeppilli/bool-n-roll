@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller; 
 use App\User;
 use Illuminate\Support\Facades\View;  
+use Illuminate\Support\Facades\Auth;
 
 class MusicianController extends Controller
 {
@@ -27,7 +28,7 @@ class MusicianController extends Controller
      */
     public function index()
     {
-        //
+        return Musician::where('user_id', Auth::id())->with('user')->get();
     }
 
     /**
@@ -57,12 +58,11 @@ class MusicianController extends Controller
      * @param  \App\Musician  $musician
      * @return \Illuminate\Http\Response
      */
-    public function show(Musician $musician)
+    public function show(Musician $musician, User $user)
 
     {
-        //dd($musician); 
-        //return view('admin.musicians.show', compact('musician')); 
-        return View::make('admin.musicians.show')->with(compact('musician')); 
+    
+        return view('admin.musicians.show', compact('user', 'musician'));
     }
 
     /**

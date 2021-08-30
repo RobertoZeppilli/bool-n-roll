@@ -38,6 +38,6 @@ class User extends Authenticatable
     ];
 
     public function musician() {
-        return $this->belongsTo('App\Musician'); 
+        return $this->hasOne('App\Musician'); 
     }
 }
