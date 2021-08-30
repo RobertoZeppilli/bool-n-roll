@@ -1,12 +1,25 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Musician;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller; 
+use App\User;
+use Illuminate\Support\Facades\View;  
 
 class MusicianController extends Controller
 {
+    private $validationArray = [
+        'name' => 'required|max:20', 
+        'surname' => 'required|max:50', 
+        'stagename' => 'required|max:50', 
+        'bio' => 'required', 
+        'services' => 'required', 
+        'cover' => 'nullable|image', 
+        'genres' => 'exists:genres,id'
+    ]; 
+
     /**
      * Display a listing of the resource.
      *
@@ -45,8 +58,11 @@ class MusicianController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Musician $musician)
+
     {
-        //
+        //dd($musician); 
+        //return view('admin.musicians.show', compact('musician')); 
+        return View::make('admin.musicians.show')->with(compact('musician')); 
     }
 
     /**
