@@ -2,26 +2,47 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Genre;
 use App\Musician;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller; 
 use App\User;
 use Illuminate\Support\Facades\View;  
 use Illuminate\Support\Facades\Auth;
+
+use App\Genre;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class MusicianController extends Controller
 {
     private $validationArray = [
-        'name' => 'required|max:20', 
-        'surname' => 'required|max:50', 
+        // 'name' => 'required|max:20', 
+        // 'surname' => 'required|max:50', 
         'stagename' => 'required|max:50', 
         'bio' => 'required', 
-        'services' => 'required', 
+        // 'services' => 'required', 
         'cover' => 'nullable|image', 
-        'genres' => 'exists:genres,id'
+        'typology' => 'required',
+        'genres' => 'required|exists:genres,id'
     ]; 
+
+    private function createSlug($data)
+    {
+        $slug = Str::slug($data["stagename"], "-");
+        $musicianExist = Musician::where('slug', $slug)->first();
+
+        $starterSlug = $slug;
+        $counter = 1;
+
+        while ($musicianExist) {
+            $slug = $starterSlug . '-' . $counter;
+
+            $musicianExist = Musician::where('slug', $slug)->first();
+            $counter++;
+        }
+
+        return $slug;
+    }
 
     /**
      * Display a listing of the resource.
@@ -30,7 +51,7 @@ class MusicianController extends Controller
      */
     public function index()
     {
-        return Musician::where('user_id', Auth::id())->with('user')->get();
+        // return Musician::where('user_id', Auth::id())->first();
     }
 
     /**
@@ -40,10 +61,7 @@ class MusicianController extends Controller
      */
     public function create()
     {
-        $user = Auth::user();
-        $genres = Genre::all(); 
-        $musician = Musician::where('user_id',Auth::id())->get(); 
-        return view('admin.musicians.create', compact('genres','user','musician'));
+        //
     }
 
     /**
@@ -54,36 +72,7 @@ class MusicianController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all(); 
-
-        $request->validate($this->validationArray); 
-
-        $newMusician = Musician::create([
-            'stagename' => $request->stagename, 
-            'user_id' => Auth::id(),
-            'bio' => $request->bio,
-            'services' => $request->services, 
-            'typology' => $request->typology, 
-            
-        ]); 
-
-        $data['user_id'] = Auth::id(); 
-        
-        if (array_key_exists('cover', $data)) {
-            $data['cover'] = Storage::put('covers', $data['cover']);
-        }
-
-        $newMusician->fill($data);
-
-        $newMusician->save();
-        
-        if (array_key_exists('genres', $data)) {
-            $newMusician->genres()->attach($data['genres']);
-        }
-        
-
-        return redirect()->route('admin.musicians.index', $newMusician->id); 
-
+        //
     }
 
     /**
@@ -106,10 +95,10 @@ class MusicianController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Musician $musician)
-    {
-        $user = Auth::user(); 
-        $genres = Genre::all(); 
-        return view('admin.musicians.edit', compact('musician','genres','user')); 
+    {   
+        $genres = Genre::all();
+
+        return view('admin.musicians.edit', compact('musician', 'genres'));
     }
 
     /**
@@ -121,29 +110,36 @@ class MusicianController extends Controller
      */
     public function update(Request $request, Musician $musician)
     {
-        $data = $request->all(); 
+        $data = $request->all();
 
-        //dd($data); 
+        // dd($data);
 
-        $request->validate($this->validationArray); 
+        $request->validate($this->validationArray);
 
-        $musician->update($data); 
+        if ($musician->stagename != $data['stagename']) {
+            $slug = $this->createSlug($data);
+            $data['slug'] = $slug;
+        }
 
-        if(array_key_exists('cover',$data)) {
-            if($musician->cover) {
+        if (array_key_exists('cover', $data)) {
+            if ($musician->cover) {
                 Storage::delete($musician->cover);
             }
+
             $data['cover'] = Storage::put('covers', $data['cover']);
         }
-        
-        if(array_key_exists('genres',$data)) {
-            $musician->genres()->sync($data['genres']); 
+
+        $musician->update($data);
+
+        if (array_key_exists('genres', $data)) {
+            $musician->genres()->sync($data['genres']);
         } else {
-            $musician->genres()->detach(); 
+            $musician->genres()->detach();
         }
 
-        return redirect()->route('admin.musicians.show', $musician->id)->with('message','Il profilo è stato modificato correttamente'); 
-
+        return redirect()
+            ->route('admin.musicians.show', $musician->id)
+            ->with('message', 'Profile updated!');
     }
 
     /**
