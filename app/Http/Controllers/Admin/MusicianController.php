@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Genre;
 use App\Musician;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller; 
 use App\User;
 use Illuminate\Support\Facades\View;  
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class MusicianController extends Controller
 {
@@ -36,9 +38,11 @@ class MusicianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Musician $musician)
     {
-        //
+        $user = Auth::user();
+        $genres = Genre::all(); 
+        return view('admin.musicians.create', compact('genres','user','musician'));
     }
 
     /**
@@ -49,7 +53,27 @@ class MusicianController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all(); 
+
+        $request->validate($this->validationArray); 
+
+        $newMusician = new Musician(); 
+        
+        if (array_key_exists('cover', $data)) {
+            $data['cover'] = Storage::put('covers', $data['cover']);
+        }
+
+        $newMusician->fill($data);
+
+        
+        if (array_key_exists('genres', $data)) {
+            $newMusician->genres()->attach($data['genres']);
+        }
+        
+        $newMusician->save();
+
+        return redirect()->route('admin.musicians.index', $newMusician->id); 
+
     }
 
     /**
@@ -73,7 +97,9 @@ class MusicianController extends Controller
      */
     public function edit(Musician $musician)
     {
-        //
+        $user = Auth::user(); 
+        $genres = Genre::all(); 
+        return view('admin.musicians.edit', compact('musician','genres','user')); 
     }
 
     /**
@@ -85,7 +111,29 @@ class MusicianController extends Controller
      */
     public function update(Request $request, Musician $musician)
     {
-        //
+        $data = $request->all(); 
+
+        //dd($data); 
+
+        $request->validate($this->validationArray); 
+
+        $musician->update($data); 
+
+        if(array_key_exists('cover',$data)) {
+            if($musician->cover) {
+                Storage::delete($musician->cover);
+            }
+            $data['cover'] = Storage::put('covers', $data['cover']);
+        }
+        
+        if(array_key_exists('genres',$data)) {
+            $musician->genres()->sync($data['genres']); 
+        } else {
+            $musician->genres()->detach(); 
+        }
+
+        return redirect()->route('admin.musicians.show', $musician->id)->with('message','Il profilo è stato modificato correttamente'); 
+
     }
 
     /**

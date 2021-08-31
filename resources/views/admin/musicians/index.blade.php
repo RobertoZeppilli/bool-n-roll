@@ -2,51 +2,70 @@
 
 @section('content')
 <div class="container">
-    {{-- <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
+    <h1>Benvenuto {{ $user->name }}</h1>
+    {{-- questo è per capire se prendevo dati dalla relazione 1a1 --}}
+    {{-- {{$user->musician->stagename}}  --}}
+    <div class="card-container d-flex">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">Crea Profilo</h5>
+            <p class="card-text">Clicca qui per vedere creare il tuo profilo completo</p>
+            {{-- la rotta prende l'id del musicista legato all'utente autenticato --}}
+            <a class="btn btn-primary" href="{{ route('admin.musicians.create', $user->musician->id) }}">Vedi il profilo</a>
             </div>
         </div>
-    </div> --}}
-    <h1>Dashboard musicista</h1>
-
-    <div class="profile">
-        <h2>Vedi il tuo profilo</h2>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">Il tuo Profilo</h5>
+            <p class="card-text">Clicca qui per vedere il tuo profilo completo</p>
+            {{-- la rotta prende l'id del musicista legato all'utente autenticato --}}
+            <a class="btn btn-primary" href="{{ route('admin.musicians.show', $user->musician->id) }}">Vedi il profilo</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">Modifica Profilo</h5>
+            <p class="card-text">Clicca qui per vedere il tuo profilo completo</p>
+            <a class="btn btn-primary" href="{{ route('admin.musicians.edit', $user->musician->id, $user->id) }}">Modifica profilo</a>
+            </div>
+        </div>
+        {{-- <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">I tuoi messaggi</h5>
+            <p class="card-text">Clicca qui per vedere i messaggi ricevuti</p>
+            <a class="btn btn-primary" href="{{ route('admin.musicians.messages', $user->musician->id) }}">Vai ai messaggi</a>
+            </div>
+        </div> --}}
+        {{-- <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">Le tue Recensioni</h5>
+            <p class="card-text">Clicca qui per vedere le recensioni ricevute</p>
+            <a class="btn btn-primary" href="{{ route('admin.musicians.reviews', $user->musician->id) }}">Vai alle recensioni</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">Sponsorizzazioni</h5>
+            <p class="card-text">Clicca qui per boostare il tuo profilo</p>
+            <a class="btn btn-primary" href="{{ route('admin.musicians.sponsor', $user->musician->id) }}">Sponsorizza</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">Statistiche</h5>
+            <p class="card-text">Clicca qui per vedere le tue statistiche mensili</p>
+            <a class="btn btn-primary" href="{{ route('admin.musicians.stats', $user->musician->id) }}">Statistiche</a>
+            </div>
+        </div> --}}
         
-        {{-- la rotta prende l'id del musicista legato all'utente autenticato --}}
-        <a class="btn btn-warning" href="{{ route('admin.musicians.show', $user->musician->id) }}">Vedi il profilo</a>
-        {{ $user->name }}
-        {{$user->id}}
 
-        {{-- questo è per capire se prendevo dati dalla relazione 1a1 --}}
-        {{$user->musician->stagename}} 
-
-
-        
     </div>
-    <div class="edit_profile">
-        <h2>Modifica il tuo profilo</h2>
-    </div>
-    <div class="messages">
-        <h2>Vedi i tuoi messaggi</h2>
-    </div>
-    <div class="reviews">
-        <h2>Vedi le recensioni</h2>
-    </div>
-    <div class="sponsor">
-        <h2>Scegli il piano di sponsorizzazione</h2>
-    </div>
-
 </div>
 @endsection
