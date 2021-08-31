@@ -23,11 +23,17 @@
 
     <div class="profile">
         <h2>Vedi il tuo profilo</h2>
-        {{-- <a class="btn btn-warning" href="{{ route('admin.musicians.show', $musician->id) }}">Vedi il profilo</a> --}}
         
-    </div>
-    <div class="edit_profile">
-        <h2>Modifica il tuo profilo</h2>
+        {{-- la rotta prende l'id del musicista legato all'utente autenticato --}}
+        <a class="btn btn-warning" href="{{ route('admin.musicians.show', $user->musician->id) }}">Vedi il profilo</a>
+        {{ $user->name }}
+        {{$user->id}}
+
+        {{-- questo è per capire se prendevo dati dalla relazione 1a1 --}}
+        {{$user->musician->stagename}} 
+
+
+        
     </div>
     <div class="messages">
         <h2>Vedi i tuoi messaggi</h2>
