@@ -28,8 +28,9 @@ Route::middleware('auth')
     ->prefix('admin')
     ->group(function() {
 
-        Route::get('/', 'HomeController@index')->name('welcome');
+        Route::get('/', 'HomeController@index')->name('home');
         Route::resource('musicians', 'MusicianController'); 
+        //Route::get('/musicians/{id}', 'MusicianController@index')->name('musician.index'); 
     }); 
 
 

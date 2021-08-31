@@ -38,10 +38,11 @@ class MusicianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Musician $musician)
+    public function create()
     {
         $user = Auth::user();
         $genres = Genre::all(); 
+        $musician = Musician::where('user_id',Auth::id())->get(); 
         return view('admin.musicians.create', compact('genres','user','musician'));
     }
 
@@ -57,7 +58,16 @@ class MusicianController extends Controller
 
         $request->validate($this->validationArray); 
 
-        $newMusician = new Musician(); 
+        $newMusician = Musician::create([
+            'stagename' => $request->stagename, 
+            'user_id' => Auth::id(),
+            'bio' => $request->bio,
+            'services' => $request->services, 
+            'typology' => $request->typology, 
+            
+        ]); 
+
+        $data['user_id'] = Auth::id(); 
         
         if (array_key_exists('cover', $data)) {
             $data['cover'] = Storage::put('covers', $data['cover']);
@@ -65,12 +75,12 @@ class MusicianController extends Controller
 
         $newMusician->fill($data);
 
+        $newMusician->save();
         
         if (array_key_exists('genres', $data)) {
             $newMusician->genres()->attach($data['genres']);
         }
         
-        $newMusician->save();
 
         return redirect()->route('admin.musicians.index', $newMusician->id); 
 

@@ -12,7 +12,7 @@
             <h5 class="card-title">Crea Profilo</h5>
             <p class="card-text">Clicca qui per vedere creare il tuo profilo completo</p>
             {{-- la rotta prende l'id del musicista legato all'utente autenticato --}}
-            <a class="btn btn-primary" href="{{ route('admin.musicians.create', $user->musician->id) }}">Vedi il profilo</a>
+            <a class="btn btn-primary" href="{{ route('admin.musicians.create', $user->id) }}">Vedi il profilo</a>
             </div>
         </div>
         <div class="card" style="width: 18rem;">
@@ -21,7 +21,7 @@
             <h5 class="card-title">Il tuo Profilo</h5>
             <p class="card-text">Clicca qui per vedere il tuo profilo completo</p>
             {{-- la rotta prende l'id del musicista legato all'utente autenticato --}}
-            <a class="btn btn-primary" href="{{ route('admin.musicians.show', $user->musician->id) }}">Vedi il profilo</a>
+            <a class="btn btn-primary" href="{{ route('admin.musicians.show', $user->id) }}">Vedi il profilo</a>
             </div>
         </div>
         <div class="card" style="width: 18rem;">
@@ -29,7 +29,7 @@
             <div class="card-body">
             <h5 class="card-title">Modifica Profilo</h5>
             <p class="card-text">Clicca qui per vedere il tuo profilo completo</p>
-            <a class="btn btn-primary" href="{{ route('admin.musicians.edit', $user->musician->id, $user->id) }}">Modifica profilo</a>
+            <a class="btn btn-primary" href="{{ route('admin.musicians.edit', $user->id) }}">Modifica profilo</a>
             </div>
         </div>
         {{-- <div class="card" style="width: 18rem;">
