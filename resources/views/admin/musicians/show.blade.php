@@ -8,14 +8,22 @@
         </div>
     @endif
     SHOW PROFILO
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 494bc296ffcdf37e5ba602ccc0e7c9a61321c697
     <img class="img-fluid" src="{{ asset('storage/'.$musician->cover) }}" alt="">
     <p>Nome d'arte: {{ $musician->stagename }}</p>
     {{-- @dd($musician) --}}
     <p>Servizi: {{ $musician->services }}</p>
     <p>Bio: {{ $musician->bio }}</p>
     <p>Tipologia: {{ $musician->typology }}</p>
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 494bc296ffcdf37e5ba602ccc0e7c9a61321c697
     <h2>Generi</h2>
     @if ($musician->genres)
         <ul>
@@ -32,7 +40,11 @@
     <div>
         <a href="{{ route('admin.welcome') }}">Torna alla dashboard</a>
     </div>
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 494bc296ffcdf37e5ba602ccc0e7c9a61321c697
     {{-- <div>
         <h2>Nome</h2>
         <h3>{{$musician->name}}</h3>

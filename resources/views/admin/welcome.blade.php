@@ -5,7 +5,7 @@
     {{-- <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ ('Dashboard') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ ('You are logged in!') }}
                 </div>
             </div>
         </div>
@@ -23,7 +23,11 @@
 
     <div class="profile">
         <h2>Vedi il tuo profilo</h2>
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 494bc296ffcdf37e5ba602ccc0e7c9a61321c697
         {{-- la rotta prende l'id del musicista legato all'utente autenticato --}}
         <a class="btn btn-warning" href="{{ route('admin.musicians.show', $user->musician->id) }}">Vedi il profilo</a>
         {{ $user->name }}
@@ -33,7 +37,11 @@
         {{$user->musician->stagename}} 
 
 
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 494bc296ffcdf37e5ba602ccc0e7c9a61321c697
     </div>
     <div class="messages">
         <h2>Vedi i tuoi messaggi</h2>
