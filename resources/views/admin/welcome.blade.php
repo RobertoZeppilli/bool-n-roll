@@ -19,7 +19,7 @@
             </div>
         </div>
     </div> --}}
-    <h1>Dashboard musicistaaasdadasd</h1>
+    <h1>Dashboard musicista</h1>
 
     <div class="profile">
         <h2>Vedi il tuo profilo</h2>
