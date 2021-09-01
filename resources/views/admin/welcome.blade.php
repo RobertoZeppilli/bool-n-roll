@@ -16,7 +16,7 @@
                 <i class="fas fa-eye card-image-top fa-4x text-center title-purple"></i>
                 <div class="card-body text-center  ">
                   <h5 class="card-title">Profilo</h5>
-                  <a class="btn btn-purple text-white" href="{{ route('admin.musicians.show', $user->id) }}">Mostra</a>
+                  <a class="btn btn-purple text-white" href="{{ route('admin.musicians.show', $user->musician->id) }}">Mostra</a>
                 </div>
             </div>
         </div>

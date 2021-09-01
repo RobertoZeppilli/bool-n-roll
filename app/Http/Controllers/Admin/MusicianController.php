@@ -113,7 +113,7 @@ class MusicianController extends Controller
     public function show(Musician $musician, User $user)
 
     {
-    
+        
         return view('admin.musicians.show', compact('user', 'musician'));
     }
 
