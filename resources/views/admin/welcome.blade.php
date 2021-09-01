@@ -24,16 +24,20 @@
             </div>
         </div>
         @endif
-        <div class="col-xs-6 col-md-4 col-lg-4 mb-4">
-            <div class="card shadow p-4">
-                <i class="far fa-address-card card-image-top fa-4x text-center title-pink"></i>
-                <div class="card-body text-center ">
-                  <h5 class="card-title">Crea profilo</h5>
-                  <p class="title-pink bg-pale rounded py-2">Crea subito il tuo profilo da musicista!</p>
-                  <a class="btn btn-pink text-white" href="{{ route('admin.musicians.create', $user->id) }}">Crea</a>
+        @if($user->musician)
+            
+        @elseif(!$user->musician)
+            <div class="col-xs-6 col-md-4 col-lg-4 mb-4">
+                <div class="card shadow p-4">
+                    <i class="far fa-address-card card-image-top fa-4x text-center title-pink"></i>
+                    <div class="card-body text-center ">
+                    <h5 class="card-title">Crea profilo</h5>
+                    <p class="title-pink bg-pale rounded py-2">Crea subito il tuo profilo da musicista!</p>
+                    <a class="btn btn-pink text-white" href="{{ route('admin.musicians.create', $user->id) }}">Crea</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
         <div class="col-xs-6 col-md-4 col-lg-4 mb-4">
             <div class="card shadow p-4">
                 <i class="far fa-envelope card-image-top fa-4x text-center title-petrol"></i>
