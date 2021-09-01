@@ -10,6 +10,7 @@
 
 // Variables
 @import 'variables';
+@import 'general';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
@@ -29,16 +30,16 @@ body {
 .btn-purple {
     background-color: $myPurple;
 }
-.btn-cyan {
+.btn-petrol {
     background-color: $myPetrol;
 }
-.btn-teal {
+.btn-wine {
     background-color: $myWine;
 }
-.btn-indigo {
+.btn-pink {
     background-color: $myPink;
 }
-.btn-red {
+.btn-yellow {
     background-color: $myYellow;
 }
 .btn-green {
@@ -47,13 +48,12 @@ body {
 
 .title-purple {
     color: $myPurple;
-    font-weight: bold;
 }
-.title-red {
+.title-yellow {
     color: $myYellow;
     font-weight: bold;
 }
-.title-indigo {
+.title-pink {
     color: $myPink;
     font-weight: bold;
 }
@@ -61,11 +61,11 @@ body {
     color: $myGreen;
     font-weight: bold;
 }
-.title-cyan {
+.title-petrol {
     color: $myPetrol;
     font-weight: bold;
 }
-.title-teal {
+.title-wine {
     color: $myWine;
     font-weight: bold;
 }
@@ -77,4 +77,8 @@ body {
 .register-link {
     border: 1px solid $logoColor;
     background-color: transparent;
+}
+
+.bg-pale {
+    background-color: $myWhite;
 }

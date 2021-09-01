@@ -17099,19 +17099,19 @@ body {
   background-color: #301a47;
 }
 
-.btn-cyan {
+.btn-petrol {
   background-color: #08a38f;
 }
 
-.btn-teal {
+.btn-wine {
   background-color: #671649;
 }
 
-.btn-indigo {
+.btn-pink {
   background-color: #f08799;
 }
 
-.btn-red {
+.btn-yellow {
   background-color: #f7af1a;
 }
 
@@ -17121,15 +17121,14 @@ body {
 
 .title-purple {
   color: #301a47;
-  font-weight: bold;
 }
 
-.title-red {
+.title-yellow {
   color: #f7af1a;
   font-weight: bold;
 }
 
-.title-indigo {
+.title-pink {
   color: #f08799;
   font-weight: bold;
 }
@@ -17139,12 +17138,12 @@ body {
   font-weight: bold;
 }
 
-.title-cyan {
+.title-petrol {
   color: #08a38f;
   font-weight: bold;
 }
 
-.title-teal {
+.title-wine {
   color: #671649;
   font-weight: bold;
 }
@@ -17156,5 +17155,9 @@ body {
 .register-link {
   border: 1px solid #ec5e25;
   background-color: transparent;
+}
+
+.bg-pale {
+  background-color: #eceff5;
 }
 
