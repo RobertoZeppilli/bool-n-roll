@@ -12,6 +12,7 @@ class Musician extends Model
         'slug', 
         'description',
         'bio',
+        'services',
         'typology',
         'cover'
     ]; 

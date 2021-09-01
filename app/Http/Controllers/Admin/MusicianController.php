@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
 
 use App\Genre;
+
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -20,7 +21,7 @@ class MusicianController extends Controller
         // 'surname' => 'required|max:50', 
         'stagename' => 'required|max:50', 
         'bio' => 'required', 
-        // 'services' => 'required', 
+        'services' => 'required', 
         'cover' => 'nullable|image', 
         'typology' => 'required',
         'genres' => 'required|exists:genres,id'
@@ -59,9 +60,11 @@ class MusicianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(Musician $musician)
+    {   
+        $genres = Genre::all();
+
+        return view('admin.musicians.create', compact('genres', 'musician'));
     }
 
     /**
@@ -72,7 +75,32 @@ class MusicianController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $request->validate($this->validationArray);
+        
+        $musician = new Musician();
+
+        $slug = $this->createSlug($data);
+        $data['slug'] = $slug;
+
+        if (array_key_exists('cover', $data)) {
+            $data['cover'] = Storage::put('covers', $data['cover']);
+        }
+
+        $musician->user_id = Auth::id();
+
+        $musician->fill($data);
+
+        $musician->save();
+
+        if (array_key_exists('genres', $data)) {
+            $musician->genres()->attach($data['genres']);
+        }
+
+        return redirect()
+            ->route('admin.musicians.show', $musician->id)
+            ->with('message', 'New musician created!');
     }
 
     /**
@@ -112,8 +140,6 @@ class MusicianController extends Controller
     {
         $data = $request->all();
 
-        // dd($data);
-
         $request->validate($this->validationArray);
 
         if ($musician->stagename != $data['stagename']) {
@@ -149,7 +175,13 @@ class MusicianController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Musician $musician)
-    {
-        //
+    {   
+        if($musician->cover) {
+            Storage::delete($musician->cover);
+        }
+
+        $musician->delete();
+
+        return redirect()->route('admin.welcome')->with('message', 'Profilo eliminato');
     }
 }

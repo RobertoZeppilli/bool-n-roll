@@ -32,6 +32,16 @@
     <div>
         <a href="{{ route('admin.welcome') }}">Torna alla dashboard</a>
     </div>
+
+    <div>
+        <form action="{{ route('admin.musicians.destroy', $musician->id) }}" method="POST" onSubmit="return confirm('Are you sure you want to delete {{ $musician->stagename }}?')">
+            @csrf
+            @method('DELETE')
+
+            <button class="btn btn-dark" type="submit">Elimina</button>
+        </form>
+        
+    </div>
     
     {{-- <div>
         <h2>Nome</h2>

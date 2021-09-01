@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     public function index() {
+        
         $user = Auth::user();
         $musician = Musician::where('user_id', Auth::id())->first();
         // return Musician::where('user_id', Auth::id())->first();
