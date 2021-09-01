@@ -89,9 +89,10 @@ class MusicianController extends Controller
             $data['cover'] = Storage::put('covers', $data['cover']);
         }
 
-        $musician->user_id = Auth::id();
-
+        
         $musician->fill($data);
+        
+        $musician->user_id = Auth::id();
 
         $musician->save();
 

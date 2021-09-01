@@ -10,11 +10,10 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    public function index(Musician $musician) {
+    public function index() {
 
         $user = Auth::user();
-        $musician = Musician::where('user_id', Auth::id())->get();
-        // return Musician::where('user_id', Auth::id())->first();
+        $musician = Musician::where('user_id', Auth::id())->first();
 
         return view('admin.welcome', compact('musician', 'user')); 
     }

@@ -11,16 +11,19 @@
     
     {{-- @dd($musician) --}}
     <div class="row">
+        @if($user->musician)
         <div class="col-xs-6 col-md-4 col-lg-4 mb-4">
             <div class="card shadow p-4">
                 <i class="fas fa-eye card-image-top fa-4x text-center title-purple"></i>
                 <div class="card-body text-center  ">
                   <h5 class="card-title">Profilo</h5>
                   <p class="title-purple bg-pale rounded py-2">Qui potrai vedere il tuo profilo, modificarlo o cancellarlo.</p>
-                  <a class="btn btn-purple text-white" href="{{ route('admin.musicians.show', $user->musician->id) }}">Mostra</a>
+                  
+                    <a class="btn btn-purple text-white" href="{{ route('admin.musicians.show', $user->musician->id) }}">Mostra</a>
                 </div>
             </div>
         </div>
+        @endif
         <div class="col-xs-6 col-md-4 col-lg-4 mb-4">
             <div class="card shadow p-4">
                 <i class="far fa-address-card card-image-top fa-4x text-center title-pink"></i>
