@@ -63,8 +63,9 @@ class MusicianController extends Controller
     public function create(Musician $musician)
     {   
         $genres = Genre::all();
+        $user = Auth::user();
 
-        return view('admin.musicians.create', compact('genres', 'musician'));
+        return view('admin.musicians.create', compact('genres', 'user' ,'musician'));
     }
 
     /**

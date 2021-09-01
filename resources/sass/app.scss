@@ -1,8 +1,80 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+// @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap');
+
+// Font-Awesome
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
 
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+body {
+    font-family: 'RocknRoll One', sans-serif;
+}
+
+.badge-purple {
+    background-color: $myPurple;
+    padding: 10px;
+}
+
+.btn-orange {
+    background-color: $logoColor;
+}
+.btn-purple {
+    background-color: $myPurple;
+}
+.btn-cyan {
+    background-color: $myPetrol;
+}
+.btn-teal {
+    background-color: $myWine;
+}
+.btn-indigo {
+    background-color: $myPink;
+}
+.btn-red {
+    background-color: $myYellow;
+}
+.btn-green {
+    background-color: $myGreen;
+}
+
+.title-purple {
+    color: $myPurple;
+    font-weight: bold;
+}
+.title-red {
+    color: $myYellow;
+    font-weight: bold;
+}
+.title-indigo {
+    color: $myPink;
+    font-weight: bold;
+}
+.title-green {
+    color: $myGreen;
+    font-weight: bold;
+}
+.title-cyan {
+    color: $myPetrol;
+    font-weight: bold;
+}
+.title-teal {
+    color: $myWine;
+    font-weight: bold;
+}
+
+
+.login-link {
+    background-color: $logoColor;
+}
+.register-link {
+    border: 1px solid $logoColor;
+    background-color: transparent;
+}

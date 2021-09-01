@@ -2,32 +2,36 @@
 
 @section('content')
 <div class="container">
-    <h1>Crea profilo</h1>
+    <h1>Ciao {{ ucfirst($user->name) }}, crea il tuo profilo!</h1>
     <form action="{{ route('admin.musicians.store', $musician->id) }}" method="POST" class="mt-3" enctype="multipart/form-data"> 
 
         @csrf
         @method('POST')
         
         <div class="form-group">
+            <label for="stagename">Nome d'arte</label>
             <input type="text" class="form-control @error('stagename') is-invalid @enderror" name="stagename" id="stagename" value="{{ old('stagename') }}">
             @error('stagename')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
         <div class="form-group">
+            <label for="typology">Tipologia</label>
             <input type="text" class="form-control @error('typology') is-invalid @enderror" name="typology" id="typology" value="{{ old('typology') }}">
             @error('typology')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
         <div class="form-group">
+            <label for="bio">Biografia</label>
             <textarea name="bio" id="bio" class="form-control @error('bio') is-invalid @enderror" rows="10">{{ old('bio') }}</textarea>
             @error('bio')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
         <div class="form-group">
-            <textarea name="services" id="services" rows="10">{{ old('services') }}</textarea>
+            <label for="services">Servizi</label>
+            <textarea name="services" id="services" class="form-control @error('services') is-invalid @enderror" rows="10">{{ old('services') }}</textarea>
             @error('services')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
@@ -73,6 +77,9 @@
         
 
         <div class="d-flex justify-content-between align-items-center">
+            <a class="btn btn-secondary" href="{{ route('admin.welcome') }}">
+                <i class="far fa-hand-point-left text-white"></i>
+            </a>
             <button type="submit" class="btn btn-primary my-5">
                 Save
             </button>
