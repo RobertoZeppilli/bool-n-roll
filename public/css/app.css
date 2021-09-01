@@ -17148,6 +17148,11 @@ body {
   font-weight: bold;
 }
 
+.title-orange {
+  color: #ec5e25;
+  font-weight: bold;
+}
+
 .login-link {
   background-color: #ec5e25;
 }
@@ -17159,5 +17164,17 @@ body {
 
 .bg-pale {
   background-color: #eceff5;
+}
+
+.gold {
+  color: #d4af37;
+}
+
+.platinum {
+  color: #8b9396;
+}
+
+.diamond {
+  color: #eceff5;
 }
 

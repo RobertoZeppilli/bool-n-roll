@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
 
 use App\Genre;
+use App\Sponsorship;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -91,7 +92,7 @@ class MusicianController extends Controller
 
         
         $musician->fill($data);
-        
+
         $musician->user_id = Auth::id();
 
         $musician->save();
@@ -185,5 +186,11 @@ class MusicianController extends Controller
         $musician->delete();
 
         return redirect()->route('admin.welcome')->with('message', 'Profilo eliminato');
+    }
+
+    public function showSponsorPage() {
+        $user = Auth::user();
+        $sponsorships = Sponsorship::all();
+        return view('admin.musicians.sponsor', compact('user', 'sponsorships'));
     }
 }

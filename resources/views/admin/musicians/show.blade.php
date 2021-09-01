@@ -7,25 +7,43 @@
             <h6>{{ session('message') }}</h6>
         </div>
     @endif
-    <h2>Il profilo di {{ $musician->stagename }}</h2>
+    <h2 class="py-2">Il profilo di {{ $musician->stagename }}</h2>
     
     
-        <div class="row">
+        <div class="row mt-2">
             <div class="col-xs-12 col-md-6 col lg-6">
                 <img class="img-fluid rounded shadow-lg" src="{{ asset('storage/'.$musician->cover) }}" alt="">
             </div>
             <div class="col-xs-12 col-md-6 col-lg-6">
-                <p>Nome d'arte: {{ $musician->stagename }}</p>
-        
-                <p>Servizi: {{ $musician->services }}</p>
-                <p>Bio: {{ $musician->bio }}</p>
-                <p>Tipologia: {{ $musician->typology }}</p>
+
+                <div class="mb-2">
+                    <h5 class="title-yellow">Nome d'arte <span><i class="fas fa-palette"></i></span></h5>
+                    <p>{{ $musician->stagename }}</p>
+                </div>
                 
-                <ul class="m-0 p-0 d-flex">
-                    @foreach ($musician->genres as $genre)
-                    <li class="badge badge-purple text-white mr-2">{{ $genre->name }}</li> 
-                    @endforeach
-                </ul> 
+                <div class="mb-2">
+                    <h5 class="title-wine">Servizi <span><i class="fas fa-business-time"></i></span></h5>
+                    <p>{{ $musician->services }}</p>
+                </div>
+
+                <div class="mb-2">
+                    <h5 class="title-petrol">Biografia <span><i class="fas fa-users"></i></span></h5>
+                    <small>{{ $musician->bio }}</small>
+                </div>
+
+                <div class="mb-2">
+                    <h5 class="title-pink">Tipologia <span><i class="fas fa-guitar"></i></span></h5>
+                    <p>{{ $musician->typology }}</p>
+                </div>
+                
+                <div>
+                    <h5 class="title-orange">Generi <span><i class="fas fa-tasks"></i></span></h5>
+                    <ul class="m-0 p-0 d-flex">
+                        @foreach ($musician->genres as $genre)
+                        <li class="badge badge-purple text-white mr-2">{{ $genre->name }}</li> 
+                        @endforeach
+                    </ul> 
+                </div>
                 
             </div>
         </div>

@@ -31,6 +31,7 @@ Route::middleware('auth')
         Route::get('/', 'HomeController@index')->name('welcome');
         Route::resource('musicians', 'MusicianController'); 
         //Route::get('/musicians/{id}', 'MusicianController@index')->name('musician.index'); 
+        Route::get('musicians/{id}/sponsor', 'MusicianController@showSponsorPage')->name('musicians.sponsor');
     }); 
 
 
