@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Benvenuto {{ $user->name }}</h1>
+    <h1>Benvenutooooo {{ $user->name }}</h1>
     {{-- questo è per capire se prendevo dati dalla relazione 1a1 --}}
     {{-- {{$user->musician->stagename}}  --}}
     <div class="card-container d-flex">
