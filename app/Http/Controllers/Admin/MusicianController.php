@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Genre;
 use App\Sponsorship;
 
+use Braintree;
+
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -189,8 +191,20 @@ class MusicianController extends Controller
     }
 
     public function showSponsorPage() {
+        
+        $gateway = new Braintree\Gateway([
+            'environment' => config('services.braintree.environment'),
+            'merchantId' => config('services.braintree.merchantId'),
+            'publicKey' => config('services.braintree.publicKey'),
+            'privateKey' => config('services.braintree.privateKey')
+        ]);
+    
+        $token = $gateway->ClientToken()->generate();
+
         $user = Auth::user();
         $sponsorships = Sponsorship::all();
-        return view('admin.musicians.sponsor', compact('user', 'sponsorships'));
+        return view('admin.musicians.sponsor', compact('user', 'token', 'sponsorships'));
     }
+
+   
 }

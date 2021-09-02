@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\Auth;
 
+use Symfony\Component\HttpFoundation\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,9 +31,17 @@ Route::middleware('auth')
     ->group(function() {
 
         Route::get('/', 'HomeController@index')->name('welcome');
-        Route::resource('musicians', 'MusicianController'); 
-        //Route::get('/musicians/{id}', 'MusicianController@index')->name('musician.index'); 
+        Route::resource('musicians', 'MusicianController');
+
         Route::get('musicians/{id}/sponsor', 'MusicianController@showSponsorPage')->name('musicians.sponsor');
+
+        // Route::get('/payment/make', 'SponsorshipController@make')->name('payment.make');
+        // Route::get('/payment', 'SponsorshipController@payment')->name('musicians.payment');
+        // Route::post('/checkout', 'SponsorshipController@payment');
+
+        // Route::get('payment', 'SponsorshipController@showSponsorPage')->name('payment.index');
+
+        Route::post('payment/checkout', 'SponsorshipController@payment')->name('paga');
     }); 
 
 

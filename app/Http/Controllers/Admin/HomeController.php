@@ -8,6 +8,8 @@ use App\Musician;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
+use Braintree;
+
 class HomeController extends Controller
 {
     public function index() {
