@@ -17082,13 +17082,13 @@ a.text-dark:focus {
   }
 }
 
-body {
-  font-family: "RocknRoll One", sans-serif;
-}
-
 .badge-purple {
   background-color: #301a47;
   padding: 10px;
+}
+
+.bg-pale {
+  background-color: #eceff5;
 }
 
 .btn-orange {
@@ -17162,10 +17162,6 @@ body {
   background-color: transparent;
 }
 
-.bg-pale {
-  background-color: #eceff5;
-}
-
 .gold {
   color: #d4af37;
 }
@@ -17176,5 +17172,9 @@ body {
 
 .diamond {
   color: #eceff5;
+}
+
+body {
+  font-family: "RocknRoll One", sans-serif;
 }
 

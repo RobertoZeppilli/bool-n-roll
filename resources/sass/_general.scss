@@ -1,0 +1,82 @@
+// genres badge color
+.badge-purple {
+    background-color: $myPurple;
+    padding: 10px;
+}
+
+// custom background color
+.bg-pale {
+    background-color: $myWhite;
+}
+
+// welcome buttons colors
+.btn-orange {
+    background-color: $logoColor;
+}
+.btn-purple {
+    background-color: $myPurple;
+}
+.btn-petrol {
+    background-color: $myPetrol;
+}
+.btn-wine {
+    background-color: $myWine;
+}
+.btn-pink {
+    background-color: $myPink;
+}
+.btn-yellow {
+    background-color: $myYellow;
+}
+.btn-green {
+    background-color: $myGreen;
+}
+
+// title colors 
+.title-purple {
+    color: $myPurple;
+}
+.title-yellow {
+    color: $myYellow;
+    font-weight: bold;
+}
+.title-pink {
+    color: $myPink;
+    font-weight: bold;
+}
+.title-green {
+    color: $myGreen;
+    font-weight: bold;
+}
+.title-petrol {
+    color: $myPetrol;
+    font-weight: bold;
+}
+.title-wine {
+    color: $myWine;
+    font-weight: bold;
+}
+.title-orange {
+    color: $logoColor;
+    font-weight: bold;
+}
+
+// login/register links
+.login-link {
+    background-color: $logoColor;
+}
+.register-link {
+    border: 1px solid $logoColor;
+    background-color: transparent;
+}
+
+// sponsorships colors
+.gold {
+    color: $gold;
+}
+.platinum {
+    color: $platino;
+}
+.diamond {
+    color: $myWhite;
+}
