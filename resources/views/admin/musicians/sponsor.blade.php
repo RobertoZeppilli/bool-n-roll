@@ -70,7 +70,7 @@
                 <button class="button btn btn-primary" type="submit"><span>Test Transaction</span></button>
             </form>
         </div>
-        <button id="submit-button" class="btn btn-success">Request payment method</button>
+        {{-- <button id="submit-button" class="btn btn-success">Request payment method</button> --}}
 
         <div class="d-flex justify-content-between align-items-center">
             <a class="btn btn-secondary" href="{{ route('admin.welcome') }}">

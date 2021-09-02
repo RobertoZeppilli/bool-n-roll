@@ -16,17 +16,20 @@ class SponsorshipSeeder extends Seeder
             [
                 'name' => 'Oro', 
                 'price' => 2.99, 
-                'description' => 'Descrizione promo Oro'
+                'description' => 'Per 24 ore il tuo profilo sarà messo in cima nelle ricerche.',
+                'duration' => 24
             ], 
             [
                 'name' => 'Platino', 
                 'price' => 5.99, 
-                'description' => 'Descrizione promo Platino'
+                'description' => 'Per 72 ore il tuo profilo sarà messo in cima nelle ricerche.',
+                'duration' => 72
             ],
             [
                 'name' => 'Diamante', 
                 'price' => 9.99, 
-                'description' => 'Descrizione promo Diamante'
+                'description' => 'Per 144 ore il tuo profilo sarà messo in cima nelle ricerche.',
+                'duration' => 144
             ],
         ]; 
 
@@ -36,6 +39,7 @@ class SponsorshipSeeder extends Seeder
             $newSponsorship->name = $sponsorship['name']; 
             $newSponsorship->price = $sponsorship['price'];
             $newSponsorship->description =  $sponsorship['description'];
+            $newSponsorship->duration = $sponsorship['duration'];
 
             $newSponsorship->save(); 
         }
