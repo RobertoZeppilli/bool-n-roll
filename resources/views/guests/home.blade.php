@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -78,7 +78,7 @@
                 </div>
             @endif
 
-            <div class="content">
+            {{-- <div class="content">
                 <div class="title m-b-md">
                     Laravel
                 </div>
@@ -93,7 +93,18 @@
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+            </div> --}}
+            {{-- <div id="app">
+                <example-component></example-component>
             </div>
         </div>
     </body>
-</html>
+</html>  --}}
+
+@extends('layouts.app')
+
+@section('content')
+    <div id="app">
+        <example-component></example-component>
+    </div>
+@endsection

@@ -17093,30 +17093,65 @@ a.text-dark:focus {
 
 .btn-orange {
   background-color: #ec5e25;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-orange:hover {
+  background-color: #b53f10;
 }
 
 .btn-purple {
   background-color: #301a47;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-purple:hover {
+  background-color: #0a050f;
 }
 
 .btn-petrol {
   background-color: #08a38f;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-petrol:hover {
+  background-color: #045a4f;
 }
 
 .btn-wine {
   background-color: #671649;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-wine:hover {
+  background-color: #28091c;
 }
 
 .btn-pink {
   background-color: #f08799;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-pink:hover {
+  background-color: #e8435f;
 }
 
 .btn-yellow {
   background-color: #f7af1a;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-yellow:hover {
+  background-color: #be8207;
 }
 
 .btn-green {
   background-color: #68ba93;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-green:hover {
+  background-color: #43936d;
 }
 
 .title-purple {
@@ -17153,8 +17188,29 @@ a.text-dark:focus {
   font-weight: bold;
 }
 
+.register-link.title-orange {
+  transition: all 0.5s ease-in-out;
+}
+
+.register-link.title-orange:hover {
+  color: #ec5e25;
+  transform: scale(0.8);
+}
+
+.title-orange:hover {
+  color: #b53f10;
+}
+
+.btn-orange:hover {
+  background-color: #b53f10;
+}
+
 .login-link {
   background-color: #ec5e25;
+}
+
+.login-link:hover {
+  background-color: #b53f10;
 }
 
 .register-link {
@@ -17174,16 +17230,12 @@ a.text-dark:focus {
   color: #eceff5;
 }
 
-body {
-  font-family: "RocknRoll One", sans-serif;
-}
-
 .prova {
-  align-self: flex-end;
+  transition: all 0.3s ease-in-out;
 }
 
-.clamp-size {
-  font-size: clamp(.8rem, 1rem + 10vw, .5rem);
+.prova:hover {
+  transform: scale(1.1);
 }
 
 .inputGroup {
@@ -17265,5 +17317,27 @@ body {
   transform: translateY(-50%);
   cursor: pointer;
   visibility: hidden;
+}
+
+body {
+  font-family: "RocknRoll One", sans-serif;
+  background-color: #ede9e7;
+}
+
+.bg-jumbotron {
+  background-color: #fefefe;
+}
+
+.bg-nav {
+  background-color: #f8fafc;
+}
+
+.headline {
+  font-size: 3.5rem;
+  max-width: 30%;
+}
+
+.clamp-size {
+  font-size: clamp(.8rem, 1rem + 10vw, .5rem);
 }
 

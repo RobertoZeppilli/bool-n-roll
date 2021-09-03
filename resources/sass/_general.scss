@@ -9,28 +9,57 @@
     background-color: $myWhite;
 }
 
-// welcome buttons colors
+// welcome buttons colors & hovers
 .btn-orange {
     background-color: $logoColor;
+    transition: all .3s ease-in-out;
+    &:hover {
+        background-color: darken($logoColor, 15%);
+    }
 }
 .btn-purple {
     background-color: $myPurple;
+    transition: all .3s ease-in-out;
+    &:hover {
+        background-color: darken($myPurple, 15%);
+    }
 }
 .btn-petrol {
     background-color: $myPetrol;
+    transition: all .3s ease-in-out;
+    &:hover {
+        background-color: darken($myPetrol, 15%);
+    }
 }
 .btn-wine {
     background-color: $myWine;
+    transition: all .3s ease-in-out;
+    &:hover {
+        background-color: darken($myWine, 15%);
+    }
 }
 .btn-pink {
     background-color: $myPink;
+    transition: all .3s ease-in-out;
+    &:hover {
+        background-color: darken($myPink, 15%);
+    }
 }
 .btn-yellow {
     background-color: $myYellow;
+    transition: all .3s ease-in-out;
+    &:hover {
+        background-color: darken($myYellow, 15%);
+    }
 }
 .btn-green {
     background-color: $myGreen;
+    transition: all .3s ease-in-out;
+    &:hover {
+        background-color: darken($myGreen, 15%);
+    }
 }
+
 
 // title colors 
 .title-purple {
@@ -58,12 +87,33 @@
 }
 .title-orange {
     color: $logoColor;
-    font-weight: bold;
+    font-weight: bold;    
+}
+.register-link.title-orange {
+    transition: all .5s ease-in-out;
+    &:hover{
+        color: $logoColor;
+        transform: scale(0.8);
+    }
 }
 
+.title-orange {
+    &:hover {
+        color: darken($logoColor, 15%);
+    }
+}
+.btn-orange {
+    &:hover {
+        background-color: darken($logoColor, 15%);
+    }
+}
 // login/register links
 .login-link {
     background-color: $logoColor;
+
+    &:hover {
+        background-color: darken($logoColor, 15%);
+    }
 }
 .register-link {
     border: 1px solid $logoColor;
@@ -80,3 +130,11 @@
 .diamond {
     color: $myWhite;
 }
+
+.prova {
+    transition: all .3s ease-in-out;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+

@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md shadow-sm bg-nav fixed-nav">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img style="height: 50px;" src="{{ asset('images/logorock.png') }}" alt="">
@@ -45,12 +45,12 @@
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item register-link rounded ml-2">
-                                    <a class="nav-link text-danger" href="{{ route('register') }}">{{ __('Sei un musicista? Registrati!') }}</a>
+                                    <a class="nav-link title-orange" href="{{ route('register') }}">{{ __('Sei un musicista? Registrati!') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle title-orange" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ ucfirst(Auth::user()->name) }}
                                 </a>
 
