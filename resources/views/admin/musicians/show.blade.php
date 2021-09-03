@@ -7,9 +7,20 @@
             <h6>{{ session('message') }}</h6>
         </div>
     @endif
-    <h2 class="py-2">Il profilo di {{ $musician->stagename }}</h2>
-    
-    
+        <div class="row">
+            <div class="col-xs-6 col-md-6 col-lg-6">
+                <h2 class="py-2">Il profilo di {{ $musician->stagename }}</h2>
+            </div>
+            <div class="col-xs-6 col-md-6 col-lg-6">
+                @if ($musician->sponsorships)
+                    @foreach ($musician->sponsorships as $sponsorship)
+                        <div class="prova alert-success p-3 rounded">
+                            Il tuo profilo è sponsorizzato fino al {{$sponsorship->pivot->end_date}}
+                        </div>  
+                    @endforeach
+                @endif
+            </div>
+        </div>
         <div class="row mt-2">
             <div class="col-xs-12 col-md-6 col lg-6">
                 <img class="img-fluid rounded shadow-lg" src="{{ asset('storage/'.$musician->cover) }}" alt="">

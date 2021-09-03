@@ -45,69 +45,60 @@
                 @csrf
                 @method('POST')
                 <section>
-                    
-                    {{-- <label for="amount">
-                        <span class="input-label">Amount</span>
-                        <div class="input-wrapper amount-wrapper">
-                            <input id="amount" name="amount" type="tel" placeholder="Amount" value="{{ $sponsorship->price }}" disabled>
-                        </div>
-                    </label> --}}
                     @foreach ($sponsorships as $sponsorship)
-                        <div>
+                        <div class="inputGroup">
                             <input type="radio" name="price" id="sponsorship-{{ $sponsorship->id }}" value="{{ $sponsorship->price }}">
-                            <label for="sponsorship-{{ $sponsorship->id }}">
-                                <strong>{{ $sponsorship->name }}:</strong> {{ $sponsorship->description }}
+                            <label class="clamp-size" for="sponsorship-{{ $sponsorship->id }}">
+                                {{ $sponsorship->description }}
                             </label>
                         </div>
                     @endforeach
     
                     <div class="bt-drop-in-wrapper">
-                        <div id="bt-dropin"></div>
+                        <div id="bt-dropin" class="text-center">
+                        </div>
                     </div>
                 </section>
-    
-                <input id="nonce" name="payment_method_nonce" type="hidden" />
-                <button class="button btn btn-primary" type="submit"><span>Test Transaction</span></button>
+                
+                <div class="d-flex justify-content-between align-items-center">
+                    <a class="btn btn-secondary" href="{{ route('admin.welcome') }}">
+                        <i class="far fa-hand-point-left text-white"></i>
+                    </a>
+                    <input id="nonce" name="payment_method_nonce" type="hidden" />
+                    <button class="button btn btn-primary" type="submit">
+                        Paga
+                    </button>
+                </div>
             </form>
         </div>
-        {{-- <button id="submit-button" class="btn btn-success">Request payment method</button> --}}
-
-        <div class="d-flex justify-content-between align-items-center">
-            <a class="btn btn-secondary" href="{{ route('admin.welcome') }}">
-                <i class="far fa-hand-point-left text-white"></i>
-            </a>
-        </div>
+        
     </div>
-<script src="https://js.braintreegateway.com/web/dropin/1.31.2/js/dropin.min.js"></script>
-<script>
-    var form = document.querySelector('#payment-form');
-    var client_token = "{{ $token }}";
-    braintree.dropin.create({
-        authorization: client_token,
-        selector: '#bt-dropin',
-        // paypal: {
-        // flow: 'vault'
-        // },
-        // option : {
-        //     verifyCard : true
-        // } 
-    }, function (createErr, instance) {
-        if (createErr) {
-        console.log('Create Error', createErr);
-        return;
-        }
-        form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        instance.requestPaymentMethod(function (err, payload) {
-            if (err) {
-            console.log('Request Payment Method Error', err);
-            return;
-            }
-            // Add the nonce to the form and submit
-            document.querySelector('#nonce').value = payload.nonce;
-            form.submit();
-        });
-        });
-    });
-</script>
+    @section('script')
+        <script src="https://js.braintreegateway.com/web/dropin/1.31.2/js/dropin.min.js"></script>
+        <script>
+            var form = document.querySelector('#payment-form');
+            var client_token = "{{ $token }}";
+            braintree.dropin.create({
+                authorization: client_token,
+                selector: '#bt-dropin',
+            }, function (createErr, instance) {
+                if (createErr) {
+                console.log('Create Error', createErr);
+                return;
+                }
+                form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                instance.requestPaymentMethod(function (err, payload) {
+                    if (err) {
+                    console.log('Request Payment Method Error', err);
+                    return;
+                    }
+                    // Add the nonce to the form and submit
+                    document.querySelector('#nonce').value = payload.nonce;
+                    form.submit();
+                });
+                });
+            });
+        </script>
+    @endsection
 @endsection

@@ -9,10 +9,11 @@ class Sponsorship extends Model
     protected $fillable = [
         'name', 
         'price', 
+        'duration',
         'description'
     ]; 
 
     public function musicians() {
-        return $this->belongsToMany('App\Musician'); 
+        return $this->belongsToMany('App\Musician')->withPivot('end_date'); 
     }
 }

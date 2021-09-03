@@ -7,9 +7,11 @@ use App\Sponsorship;
 
 use Braintree;
 
-use DateTime;
 
-use DateInterval;
+use Illuminate\Support\Facades\DB;
+
+
+use Illuminate\Support\Carbon;
 
 use App\Musician;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +32,7 @@ class SponsorshipController extends Controller
     //     return response()->json($status);
     // }
 
-    public function payment(Request $request) {
+    public function payment(Request $request, Sponsorship $sponsorship) {
        
         $data = $request->all();
         // dd($data['price']);
@@ -64,51 +66,33 @@ class SponsorshipController extends Controller
             $transaction = $result->transaction;
             // header("Location: transaction.php?id=" . $transaction->id);
             
-            // $musician = Musician::with('sponsorships')->find(Auth::id());
+            $musician = Musician::where('user_id', Auth::id())->first();
 
-            // $end_date = new DateTime();
+            $sponsorship = Sponsorship::where('price', $data['price'])->first();
+            
+            $end_date = Carbon::now('Europe/Rome')->addHour($sponsorship->duration);
 
-            // if($sponsorship->name == 'Oro') {
-            //     $end_date->add(new DateInterval('PT'. 24 .'H'));
-            // } else if ($sponsorship->name == 'Platino') {
-            //     $end_date->add(new DateInterval('PT'. 72 .'H'));
-            // } else {
-            //     $end_date->add(new DateInterval('PT'. 144 .'H'));
-            // }
+            $musician->sponsorships()->attach($musician, [
+                'sponsorship_id' => $sponsorship->id, 
+                'musician_id' => $musician->id, 
+                'end_date' => $end_date
+            ]);
+            
+            if($end_date == Carbon::now()) {
+                $musician->sponsorships()->detach();
+            }
 
-            // $musician->sponsorships()->attach($sponsorship->id, ["end_date" => $end_date], $musician->id);
-
-            return back()->with('success_message', 'Transaction successful. The ID is: '. $transaction->id);
+            return back()->with('success_message', 'Transazione avvenuta con successo. L\'ID è: '. $transaction->id);
         } else {
             $errorString = "";
     
             foreach ($result->errors->deepAll() as $error) {
-                $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+                $errorString .= 'Errore: ' . $error->code . ": " . $error->message . "\n";
             }
     
             // $_SESSION["errors"] = $errorString;
             // header("Location: index.php");
-            return back()->withErrors('An error occurred with the message: '.$result->message);
+            return back()->withErrors('C\'è stato un errore: '.$result->message);
         }
-        // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        // if ($status->success) {
-        //     $doctor = User::with('sponsors')
-        //         ->find(Auth::id());
-
-        //     $end_date = new DateTime();
-        //     $end_date->add(new DateInterval('PT'.$sponsor->duration.'H'));
-
-        //     /* TODO: gestire i pagamenti dopo il primo (estensione del periodo di sponsor)
-        //     if ($doctor->sponsors->count() > 0) {
-        //         $db_date = $doctor->sponsors->first();
-        //         $end_date = $db_date->add(new DateInterval('PT'.$sponsor->duration.'H'));
-        //     }
-        //     */
-
-        //     $doctor->sponsors()->attach($sponsor->id, ['end_date' => $end_date]);
-        // }
-
-        // return response()->json($status);
-    // }
     }
 }

@@ -26,7 +26,7 @@ class Musician extends Model
     }
 
     public function sponsorships() {
-        return $this->belongsToMany('App\Sponsorship'); 
+        return $this->belongsToMany('App\Sponsorship')->withPivot('end_date'); 
     }
 
     public function messages() {
