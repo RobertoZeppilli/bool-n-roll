@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container-fluid p-0 m-0">
         <div class="jumbotron bg-jumbotron">
             <div class="row">
                 <div class="col-xs-6 col-md-6 col-lg-6">
