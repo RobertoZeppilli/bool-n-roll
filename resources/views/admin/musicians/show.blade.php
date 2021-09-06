@@ -14,7 +14,7 @@
             <div class="col-xs-6 col-md-6 col-lg-6">
                 @if ($musician->sponsorships)
                     @foreach ($musician->sponsorships as $sponsorship)
-                        <div class="prova alert-success p-3 rounded">
+                        <div class="alert-success p-3 rounded">
                             Il tuo profilo è sponsorizzato fino al {{$sponsorship->pivot->end_date}}
                         </div>  
                     @endforeach

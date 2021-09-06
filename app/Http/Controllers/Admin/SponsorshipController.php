@@ -71,17 +71,21 @@ class SponsorshipController extends Controller
             $sponsorship = Sponsorship::where('price', $data['price'])->first();
             
             $end_date = Carbon::now('Europe/Rome')->addHour($sponsorship->duration);
+            $created_at = Carbon::now('Europe/Rome');
 
-            $musician->sponsorships()->attach($musician, [
-                'sponsorship_id' => $sponsorship->id, 
-                'musician_id' => $musician->id, 
-                'end_date' => $end_date
-            ]);
-            
-            if($end_date == Carbon::now()) {
+            // dd($sponsorship);
+
+            if($created_at != $end_date) {
+                $musician->sponsorships()->attach($musician, [
+                    'sponsorship_id' => $sponsorship->id, 
+                    'musician_id' => $musician->id, 
+                    'end_date' => $end_date,
+                    'created_at' => $created_at
+                ]);
+            } else {
                 $musician->sponsorships()->detach();
             }
-
+            
             return back()->with('success_message', 'Transazione avvenuta con successo. L\'ID è: '. $transaction->id);
         } else {
             $errorString = "";

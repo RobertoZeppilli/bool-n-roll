@@ -20,7 +20,9 @@
 body {
     font-family: 'RocknRoll One', sans-serif;
     // background-color: darken(#dfe6ef, 7%);
-    background-color: lighten(#e2dcd9, 5%);
+    // background-color: lighten(#e2dcd9, 5%);
+    // background-color: lighten(#e3e3e3, 3%);
+    background-color: #fefefe;
 }
 
 
@@ -38,9 +40,5 @@ body {
 .clamp-size {
   font-size: clamp(.8rem, 1rem + 10vw, .5rem);
 }
-
-
-
-
 
 
