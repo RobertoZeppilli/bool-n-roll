@@ -1943,6 +1943,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FilteredMusicians",
   data: function data() {
@@ -2407,6 +2409,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Home",
@@ -2453,6 +2458,14 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_MessageForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/MessageForm */ "./resources/js/components/MessageForm.vue");
 /* harmony import */ var _components_ReviewForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/ReviewForm */ "./resources/js/components/ReviewForm.vue");
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -38245,36 +38258,51 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _vm._l(_vm.musicians, function(musician, index) {
-        return _c("div", { key: index, staticClass: "card mb-2" }, [
-          _c("img", {
-            staticClass: "img-fluid",
-            attrs: { src: "/storage/" + musician.cover }
-          }),
-          _vm._v(" "),
-          _c(
+      _c(
+        "div",
+        { staticClass: "row my-5 text-center" },
+        _vm._l(_vm.musicians, function(musician, index) {
+          return _c(
             "div",
-            { staticClass: "card-body" },
+            {
+              key: index,
+              staticClass: "card mb-2 col-xs-12 col-md-4 col-lg-4"
+            },
             [
-              _c("h5", { staticClass: "card-title" }, [
-                _vm._v(_vm._s(musician.stagename))
-              ]),
+              _c("img", {
+                staticClass: "w-100",
+                attrs: { src: "/storage/" + musician.cover }
+              }),
               _vm._v(" "),
               _c(
-                "router-link",
-                {
-                  staticClass: "btn btn-orange text-white",
-                  attrs: {
-                    to: { name: "musician", params: { slug: musician.slug } }
-                  }
-                },
-                [_vm._v("Vedi profilo")]
+                "div",
+                { staticClass: "card-body" },
+                [
+                  _c("h5", { staticClass: "card-title" }, [
+                    _vm._v(_vm._s(musician.stagename))
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "btn btn-orange text-white",
+                      attrs: {
+                        to: {
+                          name: "musician",
+                          params: { slug: musician.slug }
+                        }
+                      }
+                    },
+                    [_vm._v("Vedi profilo")]
+                  )
+                ],
+                1
               )
-            ],
-            1
+            ]
           )
-        ])
-      }),
+        }),
+        0
+      ),
       _vm._v(" "),
       _c(
         "router-link",
@@ -38285,7 +38313,7 @@ var render = function() {
         [_vm._v("Indietro")]
       )
     ],
-    2
+    1
   )
 }
 var staticRenderFns = []
@@ -38891,7 +38919,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("Jumbotron")
+  return _c("div", [_c("Jumbotron")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -38969,11 +38997,37 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "pt-300" }, [
-        _c("h1", [_vm._v(_vm._s(_vm.musician.stagename))]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.musician.bio))])
-      ]),
+      _c(
+        "div",
+        { staticClass: "pt-300 text-center" },
+        [
+          _c("h1", { staticClass: "my-5" }, [
+            _vm._v(_vm._s(_vm.musician.stagename))
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.musician.genres, function(genre, index) {
+            return _c(
+              "span",
+              {
+                key: index,
+                staticClass: "badge_profile badge badge-purple text-white mr-2"
+              },
+              [_vm._v(_vm._s(genre.name) + "\n      ")]
+            )
+          }),
+          _vm._v(" "),
+          _c("p", { staticClass: "my-5" }, [_vm._v(_vm._s(_vm.musician.bio))]),
+          _vm._v(" "),
+          _c(
+            "h4",
+            { staticClass: "title-purple text-uppercase font-weight-bold" },
+            [_vm._v("I nostri servizi")]
+          ),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.musician.services))])
+        ],
+        2
+      ),
       _vm._v(" "),
       _c(
         "button",
@@ -55220,8 +55274,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\rober\boolean-php\bool-n-roll\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\rober\boolean-php\bool-n-roll\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Mikilò\Desktop\boolean\bool-n-roll\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Mikilò\Desktop\boolean\bool-n-roll\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

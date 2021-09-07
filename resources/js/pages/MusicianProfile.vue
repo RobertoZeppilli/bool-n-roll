@@ -4,9 +4,17 @@
       <div class="position d-flex align-items-center justify-content-center">
         <img class="profile-img" :src="'/storage/' + musician.cover" alt="" />
       </div>
-      <div class="pt-300">
-        <h1>{{ musician.stagename }}</h1>
-        <p>{{ musician.bio }}</p>
+      <div class="pt-300 text-center">
+        <h1 class="my-5">{{ musician.stagename }}</h1>
+        <span v-for="genre, index in musician.genres" 
+        :key="index"
+        class="badge_profile badge badge-purple text-white mr-2">{{genre.name}}
+        </span>
+        <p class="my-5">{{ musician.bio }}</p>
+
+        <h4 class="title-purple text-uppercase font-weight-bold">I nostri servizi</h4>
+        <p>{{musician.services}}</p>
+
       </div>
       <button class="btn btn-primary" @click="hide()">
         Manda un messaggio o scrivi una recensione
