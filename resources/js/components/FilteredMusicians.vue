@@ -1,12 +1,14 @@
 <template>
   <div class="container">
     <!-- {{musicians}} -->
-    <div v-for="(musician, index) in musicians" :key="index" class="card mb-2">
-      <img class="img-fluid" :src="'/storage/' + musician.cover" />
-      <div class="card-body">
-        <h5 class="card-title">{{ musician.stagename }}</h5>
-        
-        <router-link class="btn btn-orange text-white" :to="{ name: 'musician', params: { slug: musician.slug }}">Vedi profilo</router-link>
+    <div class="row my-5 text-center">
+      <div v-for="(musician, index) in musicians" :key="index" class="card mb-2 col-xs-12 col-md-4 col-lg-4">
+        <img class="w-100" :src="'/storage/' + musician.cover" />
+        <div class="card-body">
+          <h5 class="card-title">{{ musician.stagename }}</h5>
+          
+          <router-link class="btn btn-orange text-white" :to="{ name: 'musician', params: { slug: musician.slug }}">Vedi profilo</router-link>
+        </div>    
       </div>
     </div>
 
