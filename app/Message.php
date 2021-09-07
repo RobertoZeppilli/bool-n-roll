@@ -14,6 +14,8 @@ class Message extends Model
         'musician_id'
     ]; 
 
+   
+
     public function musician() {
         return $this->belongsTo('App\Musician'); 
     }

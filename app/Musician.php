@@ -17,6 +17,7 @@ class Musician extends Model
         'cover'
     ]; 
 
+
     public function user() {
         return $this->hasOne('App\User'); 
     }
@@ -30,10 +31,10 @@ class Musician extends Model
     }
 
     public function messages() {
-        return $this->belongsToMany('App\Message'); 
+        return $this->hasMany('App\Message'); 
     }
 
     public function reviews() {
-        return $this->belongsToMany('App\Review'); 
+        return $this->hasMany('App\Review'); 
     }
 }

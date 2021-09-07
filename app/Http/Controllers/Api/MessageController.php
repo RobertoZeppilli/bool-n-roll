@@ -24,12 +24,7 @@ class MessageController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(
-                [
-                    'message' => 'invalid',
-                    'errors' => $validator->errors()
-                ]
-            );
+            return response()->json(['errors' => $validator->errors()]);
         } else {
             $newMessage = new Message();
 

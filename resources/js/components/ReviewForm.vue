@@ -11,10 +11,17 @@
           type="email"
           class="form-control"
           placeholder="Inserisci qui la tua mail..."
-          required
           name="email"
           id="email"
         />
+        <div v-if="errors">
+          <small
+            class="text-danger"
+            v-for="(error, index) in errors.email"
+            :key="`err-email-${index}`"
+            >{{ error }}</small
+          >
+        </div>
       </div>
 
       <div class="form-group">
@@ -27,8 +34,15 @@
           id="name"
           rows="5"
           placeholder="Il tuo nome..."
-          required
         />
+        <div v-if="errors">
+          <small
+            class="text-danger"
+            v-for="(error, index) in errors.name"
+            :key="`err-name-${index}`"
+            >{{ error }}</small
+          >
+        </div>
       </div>
       <!-- <div class="form-group">
         <label for="text_message">Cognome</label>
@@ -51,9 +65,16 @@
           name="review"
           id="review"
           rows="5"
-          required
           placeholder="Scrivi una recensione..."
         ></textarea>
+        <div v-if="errors">
+          <small
+            class="text-danger"
+            v-for="(error, index) in errors.review"
+            :key="`err-rev-${index}`"
+            >{{ error }}</small
+          >
+        </div>
       </div>
 
       <div class="form-group">
@@ -65,6 +86,14 @@
           <option value="4">★★★★</option>
           <option value="5">★★★★★</option>
         </select>
+        <div v-if="errors">
+          <small
+            class="text-danger"
+            v-for="(error, index) in errors.vote"
+            :key="`err-vote-${index}`"
+            >{{ error }}</small
+          >
+        </div>
       </div>
 
       <!-- <vs-button type="submit" >invia il messaggio</vs-button> -->
@@ -89,6 +118,7 @@ export default {
         review: "",
         vote: "",
       },
+      errors: null,
       sending: false,
     };
   },
@@ -104,12 +134,20 @@ export default {
       axios
         .post("http://127.0.0.1:8000/api/review", this.review)
         .then((res) => {
-          // console.log(this.message)
-          // this.message.id = this.musicianId;
-          console.log(res);
-          this.sending = false;
+          this.sending = false
 
-          this.$router.push({ name: "review-confirm" });
+          if (res.data.errors) {
+            this.errors = res.data.errors;
+            // this.success = true;
+            this.sending = false
+            // this.$route.push({ name: 'home' })
+          } else {
+            
+            // this.sending = false;
+            this.errors = {};
+            this.review = {};
+            this.$router.push({ name: "review-confirm" });
+          }
         })
         .catch((err) => {
           console.log(err);

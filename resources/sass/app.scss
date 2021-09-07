@@ -22,7 +22,7 @@ body {
     // background-color: darken(#dfe6ef, 7%);
     // background-color: lighten(#e2dcd9, 5%);
     // background-color: lighten(#e3e3e3, 3%);
-    background-color: #fefefe;
+    background-color: #c6d8d3;
 }
 
 
@@ -41,4 +41,11 @@ body {
   font-size: clamp(.8rem, 1rem + 10vw, .5rem);
 }
 
+.myCard {
+  min-height: 350px;
+  margin-bottom: 20px;
+}
 
+.date {
+  font-size: .6rem;
+}

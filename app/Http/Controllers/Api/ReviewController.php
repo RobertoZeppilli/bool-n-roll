@@ -4,22 +4,38 @@ namespace App\Http\Controllers\Api;
 
 use App\Review;
 
+use Illuminate\Support\Facades\Validator;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $review = $request->all();
 
-        $newReview = new Review();
+        $validator = Validator::make($review, [
+            'name' => 'required',
+            'email' => 'required',
+            'review' => 'required',
+            'vote' => 'required',
+            // 'password_confirmation' => 'required'
+        ]);
 
-        $newReview['musician_id'] = $review['musician_id'];
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()]);
+        } else {
 
-        $newReview->fill($review);
+            $newReview = new Review();
 
-        $newReview->save();
+            $newReview['musician_id'] = $review['musician_id'];
 
-        return response()->json($newReview);
+            $newReview->fill($review);
+
+            $newReview->save();
+
+            return response()->json($newReview);
+        }
     }
 }

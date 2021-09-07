@@ -17230,6 +17230,10 @@ a.text-dark:focus {
   color: #eceff5;
 }
 
+.star {
+  color: #f7af1a;
+}
+
 .myHover {
   transition: all 0.3s ease-in-out;
 }
@@ -17349,7 +17353,7 @@ a.text-dark:focus {
 
 body {
   font-family: "RocknRoll One", sans-serif;
-  background-color: #fefefe;
+  background-color: #c6d8d3;
 }
 
 .bg-jumbotron {
@@ -17367,5 +17371,14 @@ body {
 
 .clamp-size {
   font-size: clamp(.8rem, 1rem + 10vw, .5rem);
+}
+
+.myCard {
+  min-height: 350px;
+  margin-bottom: 20px;
+}
+
+.date {
+  font-size: 0.6rem;
 }
 

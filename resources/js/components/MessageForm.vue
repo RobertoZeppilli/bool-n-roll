@@ -2,26 +2,28 @@
   <div>
     <h2>Manda un messaggio</h2>
     <form method="POST" @submit.prevent="sendMessage(musicianId)">
-
-
       <div class="form-group">
-        <label for="mail">Inserisci la tua email*</label>
+        <label for="email">Inserisci la tua email*</label>
         <input
           type="email"
           class="form-control"
           placeholder="Inserisci qui la tua mail..."
-          required
           v-model="message.email"
           name="email"
           id="email"
         />
-        
-          <!-- <small class="text-danger" v-for="error, index in errors.email" :key="`err-email-${index}`">{{ error }}</small> -->
-        
+        <div v-if="errors">
+          <small
+            class="text-danger"
+            v-for="(error, index) in errors.email"
+            :key="`err-email-${index}`"
+            >{{ error }}</small
+          >
+        </div>
       </div>
 
       <div class="form-group">
-        <label for="patient_name">Nome*</label>
+        <label for="name">Nome*</label>
         <input
           type="text"
           class="form-control"
@@ -30,14 +32,18 @@
           rows="5"
           v-model="message.name"
           placeholder="Il tuo nome..."
-          required
         />
-        
-          <!-- <small class="text-danger" v-for="error, index in errors.name" :key="`err-name-${index}`">{{ error }}</small> -->
-        
+        <div v-if="errors">
+          <small
+            class="text-danger"
+            v-for="(error, index) in errors.name"
+            :key="`err-name-${index}`"
+            >{{ error }}</small
+          >
+        </div>
       </div>
       <div class="form-group">
-        <label for="text_message">Cognome</label>
+        <label for="surname">Cognome</label>
         <input
           type="text"
           class="form-control"
@@ -46,27 +52,36 @@
           rows="5"
           v-model="message.surname"
           placeholder="Il tuo cognome..."
-          required
         />
-        
-          <!-- <small class="text-danger" v-for="error, index in errors.surname" :key="`err-sur-${index}`">{{ error }}</small> -->
-        
+        <div v-if="errors">
+          <small
+            class="text-danger"
+            v-for="(error, index) in errors.surname"
+            :key="`err-sur-${index}`"
+            >{{ error }}</small
+          >
+        </div>
       </div>
 
       <div class="form-group">
-        <label for="text_message">Messaggio</label>
+        <label for="message">Messaggio</label>
         <textarea
           class="form-control"
           name="message"
           id="message"
           rows="5"
           v-model="message.message"
-          required
           placeholder="Scrivi il tuo messaggio..."
         ></textarea>
-        
-          <!-- <small class="text-danger" v-for="error, index in errors.message" :key="`err-msg-${index}`">{{ error }}</small> -->
-        
+
+        <div v-if="errors">
+          <small
+            class="text-danger"
+            v-for="(error, index) in errors.message"
+            :key="`err-msg-${index}`"
+            >{{ error }}</small
+          >
+        </div>
       </div>
 
       <!-- <vs-button type="submit" >invia il messaggio</vs-button> -->
@@ -91,33 +106,40 @@ export default {
         email: "",
         message: "",
       },
-      // errors: {},
+      errors: null,
       sending: false,
     };
   },
 
-  props: ['musicianId'],
+  props: ["musicianId"],
 
   methods: {
     sendMessage(id) {
       this.sending = true;
 
-      this.message.musician_id = id
+      this.message.musician_id = id;
       // this.message.id = this.musicianId;
       axios
         .post("http://127.0.0.1:8000/api/message", this.message)
-        .then(() => {
+        .then((res) => {
+
+          this.sending = false
           // console.log(this.message)
           // this.message.id = this.musicianId;
           // console.log(res.data.errors)
-          // if(res.data.errors) {
-          //   this.errors = res.data.errors;
-
-          //   // this.$route.push({ name: 'home' })
-          // }
-          this.sending = false;
-
-          this.$router.push({ name: 'message-confirm' });
+          console.log(res.data);
+          if (res.data.errors) {
+            this.errors = res.data.errors;
+            // this.success = true
+            this.sending = false
+            // this.$route.push({ name: 'home' })
+          } else {
+            this.errors = {};
+            // this.sending = false;
+            // this.success = true
+            this.message = {};
+            this.$router.push({ name: "message-confirm" });
+          }
         })
         .catch((err) => {
           console.log(err);

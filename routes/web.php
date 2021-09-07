@@ -34,7 +34,8 @@ Route::middleware('auth')
         Route::resource('musicians', 'MusicianController');
 
         Route::get('musicians/{id}/sponsor', 'MusicianController@showSponsorPage')->name('musicians.sponsor');
-
+        Route::get('musicians/{id}/messages', 'MusicianController@showMessagePage')->name('musicians.messages');
+        Route::get('musicians/{id}/reviews', 'MusicianController@showReviewPage')->name('musicians.reviews');
         // Route::get('/payment/make', 'SponsorshipController@make')->name('payment.make');
         // Route::get('/payment', 'SponsorshipController@payment')->name('musicians.payment');
         // Route::post('/checkout', 'SponsorshipController@payment');

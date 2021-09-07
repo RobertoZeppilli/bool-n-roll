@@ -131,6 +131,10 @@
     color: $myWhite;
 }
 
+.star {
+    color: $myYellow;
+}
+
 .myHover {
     transition: all .3s ease-in-out;
     &:hover {

@@ -18,27 +18,6 @@
   @endif
         <h1>Sponsorizza il tuo profilo!</h1>
         <p>Scegli il piano più adatto a te.</p>
-        
-        {{-- <div class="row">
-            @foreach ($sponsorships as $sponsorship)
-                <div class="col-xs-12 col-md-4 col-lg-4">
-                    <div class="card p-4 shadow mb-2 text-center">
-                        @if ($sponsorship->name == 'Oro')
-                            <i class="fas fa-compact-disc gold fa-4x text-center"></i>
-                        @elseif($sponsorship->name == 'Platino')   
-                            <i class="fas fa-compact-disc platinum fa-4x text-center"></i>
-                        @else 
-                            <i class="fas fa-compact-disc diamond fa-4x text-center"></i>    
-                        @endif
-                        <div class="card-body">
-                        <h5 class="card-title">{{ $sponsorship->name }}</h5>
-                        <p class="card-text">{{ $sponsorship->description }}</p>
-                        <a href="{{ route('admin.musicians.payment', $sponsorship->price) }}" class="btn btn-yellow text-white">{{ $sponsorship->price }} &euro;</a>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div> --}}
 
         <div id="dropin-container">
             <form method="POST" id="payment-form" action="{{ route('admin.paga') }}">

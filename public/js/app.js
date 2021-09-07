@@ -2161,6 +2161,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MessageForm",
   data: function data() {
@@ -2172,11 +2187,11 @@ __webpack_require__.r(__webpack_exports__);
         email: "",
         message: ""
       },
-      // errors: {},
+      errors: null,
       sending: false
     };
   },
-  props: ['musicianId'],
+  props: ["musicianId"],
   methods: {
     sendMessage: function sendMessage(id) {
       var _this = this;
@@ -2184,19 +2199,27 @@ __webpack_require__.r(__webpack_exports__);
       this.sending = true;
       this.message.musician_id = id; // this.message.id = this.musicianId;
 
-      axios.post("http://127.0.0.1:8000/api/message", this.message).then(function () {
-        // console.log(this.message)
+      axios.post("http://127.0.0.1:8000/api/message", this.message).then(function (res) {
+        _this.sending = false; // console.log(this.message)
         // this.message.id = this.musicianId;
         // console.log(res.data.errors)
-        // if(res.data.errors) {
-        //   this.errors = res.data.errors;
-        //   // this.$route.push({ name: 'home' })
-        // }
-        _this.sending = false;
 
-        _this.$router.push({
-          name: 'message-confirm'
-        });
+        console.log(res.data);
+
+        if (res.data.errors) {
+          _this.errors = res.data.errors; // this.success = true
+
+          _this.sending = false; // this.$route.push({ name: 'home' })
+        } else {
+          _this.errors = {}; // this.sending = false;
+          // this.success = true
+
+          _this.message = {};
+
+          _this.$router.push({
+            name: "message-confirm"
+          });
+        }
       })["catch"](function (err) {
         console.log(err);
       });
@@ -2293,6 +2316,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ReviewForm",
   data: function data() {
@@ -2304,6 +2356,7 @@ __webpack_require__.r(__webpack_exports__);
         review: "",
         vote: ""
       },
+      errors: null,
       sending: false
     };
   },
@@ -2316,14 +2369,21 @@ __webpack_require__.r(__webpack_exports__);
       this.review.musician_id = id; // this.message.id = this.musicianId;
 
       axios.post("http://127.0.0.1:8000/api/review", this.review).then(function (res) {
-        // console.log(this.message)
-        // this.message.id = this.musicianId;
-        console.log(res);
         _this.sending = false;
 
-        _this.$router.push({
-          name: "review-confirm"
-        });
+        if (res.data.errors) {
+          _this.errors = res.data.errors; // this.success = true;
+
+          _this.sending = false; // this.$route.push({ name: 'home' })
+        } else {
+          // this.sending = false;
+          _this.errors = {};
+          _this.review = {};
+
+          _this.$router.push({
+            name: "review-confirm"
+          });
+        }
       })["catch"](function (err) {
         console.log(err);
       });
@@ -38362,7 +38422,7 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "mail" } }, [
+          _c("label", { attrs: { for: "email" } }, [
             _vm._v("Inserisci la tua email*")
           ]),
           _vm._v(" "),
@@ -38379,7 +38439,6 @@ var render = function() {
             attrs: {
               type: "email",
               placeholder: "Inserisci qui la tua mail...",
-              required: "",
               name: "email",
               id: "email"
             },
@@ -38392,11 +38451,25 @@ var render = function() {
                 _vm.$set(_vm.message, "email", $event.target.value)
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _vm.errors
+            ? _c(
+                "div",
+                _vm._l(_vm.errors.email, function(error, index) {
+                  return _c(
+                    "small",
+                    { key: "err-email-" + index, staticClass: "text-danger" },
+                    [_vm._v(_vm._s(error))]
+                  )
+                }),
+                0
+              )
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "patient_name" } }, [_vm._v("Nome*")]),
+          _c("label", { attrs: { for: "name" } }, [_vm._v("Nome*")]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -38413,8 +38486,7 @@ var render = function() {
               name: "name",
               id: "name",
               rows: "5",
-              placeholder: "Il tuo nome...",
-              required: ""
+              placeholder: "Il tuo nome..."
             },
             domProps: { value: _vm.message.name },
             on: {
@@ -38425,11 +38497,25 @@ var render = function() {
                 _vm.$set(_vm.message, "name", $event.target.value)
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _vm.errors
+            ? _c(
+                "div",
+                _vm._l(_vm.errors.name, function(error, index) {
+                  return _c(
+                    "small",
+                    { key: "err-name-" + index, staticClass: "text-danger" },
+                    [_vm._v(_vm._s(error))]
+                  )
+                }),
+                0
+              )
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "text_message" } }, [_vm._v("Cognome")]),
+          _c("label", { attrs: { for: "surname" } }, [_vm._v("Cognome")]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -38446,8 +38532,7 @@ var render = function() {
               name: "surname",
               id: "surname",
               rows: "5",
-              placeholder: "Il tuo cognome...",
-              required: ""
+              placeholder: "Il tuo cognome..."
             },
             domProps: { value: _vm.message.surname },
             on: {
@@ -38458,13 +38543,25 @@ var render = function() {
                 _vm.$set(_vm.message, "surname", $event.target.value)
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _vm.errors
+            ? _c(
+                "div",
+                _vm._l(_vm.errors.surname, function(error, index) {
+                  return _c(
+                    "small",
+                    { key: "err-sur-" + index, staticClass: "text-danger" },
+                    [_vm._v(_vm._s(error))]
+                  )
+                }),
+                0
+              )
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "text_message" } }, [
-            _vm._v("Messaggio")
-          ]),
+          _c("label", { attrs: { for: "message" } }, [_vm._v("Messaggio")]),
           _vm._v(" "),
           _c("textarea", {
             directives: [
@@ -38480,7 +38577,6 @@ var render = function() {
               name: "message",
               id: "message",
               rows: "5",
-              required: "",
               placeholder: "Scrivi il tuo messaggio..."
             },
             domProps: { value: _vm.message.message },
@@ -38492,7 +38588,21 @@ var render = function() {
                 _vm.$set(_vm.message, "message", $event.target.value)
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _vm.errors
+            ? _c(
+                "div",
+                _vm._l(_vm.errors.message, function(error, index) {
+                  return _c(
+                    "small",
+                    { key: "err-msg-" + index, staticClass: "text-danger" },
+                    [_vm._v(_vm._s(error))]
+                  )
+                }),
+                0
+              )
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c(
@@ -38563,7 +38673,6 @@ var render = function() {
             attrs: {
               type: "email",
               placeholder: "Inserisci qui la tua mail...",
-              required: "",
               name: "email",
               id: "email"
             },
@@ -38576,7 +38685,21 @@ var render = function() {
                 _vm.$set(_vm.review, "email", $event.target.value)
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _vm.errors
+            ? _c(
+                "div",
+                _vm._l(_vm.errors.email, function(error, index) {
+                  return _c(
+                    "small",
+                    { key: "err-email-" + index, staticClass: "text-danger" },
+                    [_vm._v(_vm._s(error))]
+                  )
+                }),
+                0
+              )
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
@@ -38597,8 +38720,7 @@ var render = function() {
               name: "name",
               id: "name",
               rows: "5",
-              placeholder: "Il tuo nome...",
-              required: ""
+              placeholder: "Il tuo nome..."
             },
             domProps: { value: _vm.review.name },
             on: {
@@ -38609,7 +38731,21 @@ var render = function() {
                 _vm.$set(_vm.review, "name", $event.target.value)
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _vm.errors
+            ? _c(
+                "div",
+                _vm._l(_vm.errors.name, function(error, index) {
+                  return _c(
+                    "small",
+                    { key: "err-name-" + index, staticClass: "text-danger" },
+                    [_vm._v(_vm._s(error))]
+                  )
+                }),
+                0
+              )
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
@@ -38629,7 +38765,6 @@ var render = function() {
               name: "review",
               id: "review",
               rows: "5",
-              required: "",
               placeholder: "Scrivi una recensione..."
             },
             domProps: { value: _vm.review.review },
@@ -38641,7 +38776,21 @@ var render = function() {
                 _vm.$set(_vm.review, "review", $event.target.value)
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _vm.errors
+            ? _c(
+                "div",
+                _vm._l(_vm.errors.review, function(error, index) {
+                  return _c(
+                    "small",
+                    { key: "err-rev-" + index, staticClass: "text-danger" },
+                    [_vm._v(_vm._s(error))]
+                  )
+                }),
+                0
+              )
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
@@ -38688,7 +38837,21 @@ var render = function() {
               _vm._v(" "),
               _c("option", { attrs: { value: "5" } }, [_vm._v("★★★★★")])
             ]
-          )
+          ),
+          _vm._v(" "),
+          _vm.errors
+            ? _c(
+                "div",
+                _vm._l(_vm.errors.vote, function(error, index) {
+                  return _c(
+                    "small",
+                    { key: "err-vote-" + index, staticClass: "text-danger" },
+                    [_vm._v(_vm._s(error))]
+                  )
+                }),
+                0
+              )
+            : _vm._e()
         ]),
         _vm._v(" "),
         _c(

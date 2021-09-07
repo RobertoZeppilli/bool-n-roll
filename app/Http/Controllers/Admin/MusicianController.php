@@ -206,5 +206,17 @@ class MusicianController extends Controller
         return view('admin.musicians.sponsor', compact('user', 'token', 'sponsorships'));
     }
 
+    public function showMessagePage() {
+        $user = Auth::user();
+        return view('admin.musicians.messages', compact('user'));
+    }
+    
+    public function showReviewPage() {
+        $user = Auth::user();
+        return view('admin.musicians.reviews', compact('user'));
+    }
+
+
+
    
 }

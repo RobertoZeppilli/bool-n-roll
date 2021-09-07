@@ -30,7 +30,7 @@
                     <div class="card-body text-center ">
                       <h5 class="card-title">Messaggi</h5>
                       <p class="bg-pale title-petrol py-2 rounded">Qui troverai tutti i messaggi in entrata.</p>
-                      <a class="btn btn-petrol text-white">Messaggi</a>
+                      <a class="btn btn-petrol text-white" href="{{ route('admin.musicians.messages', $user->musician->id) }}">Messaggi</a>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                     <div class="card-body text-center ">
                       <h5 class="card-title">Recensioni</h5>
                       <p class="title-wine rounded bg-pale py-2">Qui potrai leggere le recensioni su di te.</p>
-                      <a class="btn btn-wine text-white">Recensioni</a>
+                      <a class="btn btn-wine text-white" href="{{ route('admin.musicians.reviews', $user->musician->id) }}">Recensioni</a>
                     </div>
                 </div>
             </div>

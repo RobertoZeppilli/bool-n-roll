@@ -15,7 +15,7 @@ class HomeController extends Controller
     public function index() {
 
         $user = Auth::user();
-        $musician = Musician::where('user_id', Auth::id())->first();
+        $musician = Musician::where('user_id', Auth::id())->with('messages', 'reviews')->first();
 
         return view('admin.welcome', compact('musician', 'user')); 
     }
