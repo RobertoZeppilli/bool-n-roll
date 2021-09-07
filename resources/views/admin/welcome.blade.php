@@ -14,7 +14,7 @@
     <div class="row">
         @if($user->musician)
             <div class="col-xs-6 col-md-6 col-lg-4 mb-4">
-                <div class="card shadow p-4 prova">
+                <div class="card shadow p-4 myHover">
                     <i class="fas fa-eye card-image-top fa-4x text-center title-purple"></i>
                     <div class="card-body text-center  ">
                     <h5 class="card-title">Profilo</h5>
@@ -25,7 +25,7 @@
                 </div>
             </div>    
             <div class="col-xs-6 col-md-6 col-lg-4 mb-4">
-                <div class="card shadow p-4 prova">
+                <div class="card shadow p-4 myHover">
                     <i class="far fa-envelope card-image-top fa-4x text-center title-petrol"></i>
                     <div class="card-body text-center ">
                       <h5 class="card-title">Messaggi</h5>
@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="col-xs-6 col-md-6 col-lg-4 mb-4">
-                <div class="card shadow p-4 prova">
+                <div class="card shadow p-4 myHover">
                     <i class="fas fa-rocket card-image-top fa-4x text-center title-green"></i>
                     <div class="card-body text-center ">
                       <h5 class="card-title">Sponsorizza</h5>
@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="col-xs-6 col-md-6 col-lg-4 mb-4">
-                <div class="card shadow p-4 prova">
+                <div class="card shadow p-4 myHover">
                     <i class="fas fa-chart-pie card-image-top fa-4x text-center title-yellow"></i>
                     <div class="card-body text-center ">
                       <h5 class="card-title">Statistiche</h5>
@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="col-xs-6 col-md-6 col-lg-4 mb-4">
-                <div class="card shadow p-4 prova">
+                <div class="card shadow p-4 myHover">
                     <i class="far fa-comments card-image-top fa-4x text-center title-wine"></i>
                     <div class="card-body text-center ">
                       <h5 class="card-title">Recensioni</h5>
@@ -67,7 +67,7 @@
           
         @elseif(!$user->musician)
             <div class="col-xs-6 col-md-6 col-lg-4 mb-4">
-                <div class="card shadow p-4 prova">
+                <div class="card shadow p-4 myHover">
                     <i class="far fa-address-card card-image-top fa-4x text-center title-pink"></i>
                     <div class="card-body text-center ">
                     <h5 class="card-title">Crea profilo</h5>

@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md shadow-sm bg-nav fixed-nav">
+        <nav class="navbar navbar-expand-md  shadow-sm bg-nav fixed-nav">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img style="height: 50px;" src="{{ asset('images/logorock.png') }}" alt="">
@@ -40,12 +40,12 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item login-link rounded">
-                                <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <li class="nav-item login-link rounded ml-2">
+                                <a class="nav-link text-white px-2" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item register-link rounded ml-2">
-                                    <a class="nav-link title-orange" href="{{ route('register') }}">{{ __('Sei un musicista? Registrati!') }}</a>
+                                    <a class="nav-link title-orange px-2" href="{{ route('register') }}">{{ __('Sei un musicista? Registrati!') }}</a>
                                 </li>
                             @endif
                         @else

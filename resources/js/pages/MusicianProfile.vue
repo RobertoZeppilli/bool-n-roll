@@ -1,84 +1,87 @@
 <template>
-<div class="pattern">
-  <div class="container">
-      <div class="prova d-flex align-items-center justify-content-center">
-        <img  :src="'/storage/' + musician.cover" alt="">
+  <div class="pattern">
+    <div class="container myContainer">
+      <div class="position d-flex align-items-center justify-content-center">
+        <img class="profile-img" :src="'/storage/' + musician.cover" alt="" />
       </div>
-      <div class="prova2">
+      <div class="pt-300">
         <h1>{{ musician.stagename }}</h1>
         <p>{{ musician.bio }}</p>
       </div>
-      <button class="btn btn-primary" @click="show = !show">Invia un messaggio</button>  
+      <button class="btn btn-primary" @click="hide()">
+        Manda un messaggio o scrivi una recensione
+      </button>
+      <!-- <button class="btn btn-primary" @click="hide()">
+        Lascia una recensione
+      </button> -->
 
-      <MessageForm v-if="show" />
-      <!-- <router-link :to="{ name:'musicians', params:{ id: musician.id }}">Indietro</router-link> -->
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-6">
+          <MessageForm :musicianId="musician.id" v-if="show" />
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6">
+          <ReviewForm :musicianId="musician.id" v-if="review"/>
+        </div>
+      </div>
+
+      <a class="btn btn-primary text-white" @click="$router.go(-1)">
+        Indietro
+      </a>
+    </div>
   </div>
-
-</div>
 </template>
 
 <script>
-import MessageForm from '../components/MessageForm';
+
+import MessageForm from "../components/MessageForm";
+import ReviewForm from '../components/ReviewForm';
+
 export default {
-    name: 'MusicianProfile',
-    
-    components: {
-        MessageForm
+  name: "MusicianProfile",
+
+  components: {
+    MessageForm,
+    ReviewForm
+  },
+
+  data() {
+    return {
+      musician: {},
+      genres: [],
+      show: true,
+      review: false,
+    };
+  },
+
+  methods: {
+    getMusician(slug) {
+      axios
+        .get(`http://127.0.0.1:8000/api/musician/${slug}`)
+        .then((res) => {
+          this.musician = res.data;
+
+          this.genres = this.musician.genres;
+
+          console.log(this.genres);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
 
-    data() {
-        return {
-            musician: {},
-            show: false
-        }
+    hide() {
+      if (!this.show && this.review) {
+        this.show = true;
+        this.review = false;
+      } else {
+        this.show = false;
+        this.review = true;
+      }
     },
+  },
 
-    methods: {
-        getMusician(id) {
-            axios.get(`http://127.0.0.1:8000/api/musician/${id}`)
-            .then( res => {
-                this.musician = res.data;
-                console.log( res.data )
-            })
-            .catch( err => {
-                console.log( err )
-            })
-        }
-    },
-
-    created() {
-        this.getMusician(this.$route.params.id)
-    }
-}
+  created() {
+    this.getMusician(this.$route.params.slug);
+  },
+};
 </script>
-
-<style lang="scss" scoped>
-.pattern {
-   background-image: url('/images/pattern3.jpg');
-   background-size: cover;
-   background-position: center top;
-   height: 200px;
-}
-
-img {
-    border-radius: 10px;
-    height: 200px;
-    width: auto;
-}
-
-.container {
-    position: relative;
-}
-
-.prova {
-    position: absolute;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-
-}
-
-.prova2 {
-    padding-top: 300px;
-}
-</style>

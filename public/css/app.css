@@ -17230,12 +17230,40 @@ a.text-dark:focus {
   color: #eceff5;
 }
 
-.prova {
+.myHover {
   transition: all 0.3s ease-in-out;
 }
 
-.prova:hover {
+.myHover:hover {
   transform: scale(1.1);
+}
+
+.pattern {
+  background-image: url("/images/pattern3.jpg");
+  background-size: cover;
+  background-position: center top;
+  height: 200px;
+}
+
+.profile-img {
+  border-radius: 10px;
+  height: 200px;
+  width: auto;
+}
+
+.myContainer {
+  position: relative;
+}
+
+.position {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pt-300 {
+  padding-top: 300px;
 }
 
 .inputGroup {

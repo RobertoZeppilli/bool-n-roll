@@ -1,67 +1,129 @@
 <template>
-  <form>
-    <!-- <input type="hidden" name="user_id" id="user_id" :value="doctorId" > -->
+  <div>
+    <h2>Manda un messaggio</h2>
+    <form method="POST" @submit.prevent="sendMessage(musicianId)">
 
-    <div class="form-group">
-      <label for="mail">Inserisci la tua email*</label>
-      <input
-        type="email"
-        class="form-control"
-        placeholder="Inserisci qui la tua mail"
-        required
-        name="patient_mail"
-        id="patient_mail"
-      />
-    </div>
 
-    <div class="form-group">
-      <label for="patient_name">Nome*</label>
-      <input
-        type="text"
-        class="form-control"
-        name="patient_name"
-        id="patient_name"
-        rows="5"
-        placeholder="Il tuo nome"
-        required
-      />
-    </div>
-    <div class="form-group">
-      <label for="text_message">Cognome</label>
-      <input
-        type="text"
-        class="form-control"
-        name="patient_surname"
-        id="patient_surname"
-        rows="5"
-        placeholder="Il tuo cognome"
-        required
-      />
-    </div>
+      <div class="form-group">
+        <label for="mail">Inserisci la tua email*</label>
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Inserisci qui la tua mail..."
+          required
+          v-model="message.email"
+          name="email"
+          id="email"
+        />
+        
+          <!-- <small class="text-danger" v-for="error, index in errors.email" :key="`err-email-${index}`">{{ error }}</small> -->
+        
+      </div>
 
-    <div class="form-group">
-      <label for="text_message">Message</label>
-      <textarea
-        class="form-control"
-        name="text_message"
-        id="text_message"
-        rows="5"
-        required
-        placeholder="Cosa vorresti dire al dottore? Spiega brevemente la tua richiesta"
-      ></textarea>
-    </div>
+      <div class="form-group">
+        <label for="patient_name">Nome*</label>
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          id="name"
+          rows="5"
+          v-model="message.name"
+          placeholder="Il tuo nome..."
+          required
+        />
+        
+          <!-- <small class="text-danger" v-for="error, index in errors.name" :key="`err-name-${index}`">{{ error }}</small> -->
+        
+      </div>
+      <div class="form-group">
+        <label for="text_message">Cognome</label>
+        <input
+          type="text"
+          class="form-control"
+          name="surname"
+          id="surname"
+          rows="5"
+          v-model="message.surname"
+          placeholder="Il tuo cognome..."
+          required
+        />
+        
+          <!-- <small class="text-danger" v-for="error, index in errors.surname" :key="`err-sur-${index}`">{{ error }}</small> -->
+        
+      </div>
 
-    <!-- <vs-button type="submit" >invia il messaggio</vs-button> -->
-    <button type="submit" class="btn btn-grad mt-3">
-      <!-- {{ sending ? "Invio in corso..." : "Invia Messaggio" }} -->
-      Invia
-    </button>
-  </form>
+      <div class="form-group">
+        <label for="text_message">Messaggio</label>
+        <textarea
+          class="form-control"
+          name="message"
+          id="message"
+          rows="5"
+          v-model="message.message"
+          required
+          placeholder="Scrivi il tuo messaggio..."
+        ></textarea>
+        
+          <!-- <small class="text-danger" v-for="error, index in errors.message" :key="`err-msg-${index}`">{{ error }}</small> -->
+        
+      </div>
+
+      <!-- <vs-button type="submit" >invia il messaggio</vs-button> -->
+      <button type="submit" class="btn btn-orange">
+        {{ sending ? "Invio in corso..." : "Invia Messaggio" }}
+        <!-- Invia -->
+      </button>
+    </form>
+  </div>
 </template>
 
 <script>
 export default {
+  name: "MessageForm",
 
+  data() {
+    return {
+      message: {
+        musician_id: "",
+        name: "",
+        surname: "",
+        email: "",
+        message: "",
+      },
+      // errors: {},
+      sending: false,
+    };
+  },
+
+  props: ['musicianId'],
+
+  methods: {
+    sendMessage(id) {
+      this.sending = true;
+
+      this.message.musician_id = id
+      // this.message.id = this.musicianId;
+      axios
+        .post("http://127.0.0.1:8000/api/message", this.message)
+        .then(() => {
+          // console.log(this.message)
+          // this.message.id = this.musicianId;
+          // console.log(res.data.errors)
+          // if(res.data.errors) {
+          //   this.errors = res.data.errors;
+
+          //   // this.$route.push({ name: 'home' })
+          // }
+          this.sending = false;
+
+          this.$router.push({ name: 'message-confirm' });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
 };
 </script>
 

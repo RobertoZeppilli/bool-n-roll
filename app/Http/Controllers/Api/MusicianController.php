@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 
 class MusicianController extends Controller
 {
-    public function show($id) {
-        $musician = Musician::where('id', $id)->first();
+    public function show($slug) {
+        $musician = Musician::where('slug', $slug)->with('genres')->first();
 
         return response()->json($musician);
     }

@@ -12,6 +12,6 @@ class Genre extends Model
     ]; 
 
     public function musicians() {
-        return $this->belongsToMany('App\Musician'); 
+        return $this->belongsToMany('App\Musician');
     }
 }

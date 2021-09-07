@@ -21,8 +21,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::namespace('Api')->group( function() {
 
     Route::get('/genres', 'GenreController@index');
-    Route::get('/filter/{id}', 'GenreController@filter');
-    Route::get('musicians/{genre}', 'GenreController@filter');
+    
+    Route::get('musicians/{genreSlug}', 'GenreController@filterMusicians');
 
-    Route::get('musician/{id}', 'MusicianController@show');
+    Route::get('musician/{musicianSlug}', 'MusicianController@show');
+
+    Route::post('message', 'MessageController@store');
+    Route::post('review', 'ReviewController@store');
 });

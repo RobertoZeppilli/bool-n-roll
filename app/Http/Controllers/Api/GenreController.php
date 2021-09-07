@@ -16,9 +16,9 @@ class GenreController extends Controller
         return response()->json($genres);
     }
 
-    public function filter($id) {
+    public function filterMusicians($slug) {
 
-        $genres = Genre::where('id', $id)->with('musicians')->get();
+        $genres = Genre::where('slug', $slug)->with('musicians')->get();
 
         return response()->json($genres);
     }

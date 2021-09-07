@@ -7,12 +7,12 @@
 
           <div class="form-group">
             <select
-              @change="filter(genre_id)"
-              v-model="genre_id"
+              @change="searchMusicians(slug)"
+              v-model="slug"
               class="form-control mb-2"
               autocomplete="on"
             >
-              <option :value="genre.id" v-for="genre in genres" :key="genre.id">
+              <option :value="genre.slug" v-for="genre in genres" :key="genre.id">
                 {{ genre.name }}
               </option>
             </select>
@@ -55,7 +55,7 @@ export default {
     return {
       genres: [],
       musicians: [],
-      genre_id: "",
+      slug: "",
     };
   },
 
@@ -72,13 +72,13 @@ export default {
         });
     },
 
-    filter(id) {
+    searchMusicians(slug) {
       axios
-        .get(`http://127.0.0.1:8000/api/filter/${id}`)
+        .get(`http://127.0.0.1:8000/api/musicians/${slug}`)
         .then((res) => {
           res.data.forEach((el) => {
             this.musicians = el.musicians;
-            this.$router.push({ name: 'musicians', params: { id: this.genre_id }})
+            this.$router.push({ name: 'musicians', params: { slug: this.slug }})
           });
         //   console.log(this.musicians);
         })

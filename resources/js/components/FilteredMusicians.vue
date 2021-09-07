@@ -5,15 +5,12 @@
       <img class="img-fluid" :src="'/storage/' + musician.cover" />
       <div class="card-body">
         <h5 class="card-title">{{ musician.stagename }}</h5>
-        <!-- <p class="card-text">
-         {{musician.bio}}
-        </p> -->
-        <!-- <a href="#" class="btn btn-primary">Vedi profilo</a> -->
-        <router-link :to="{ name: 'musician', params: { id: musician.id}}">Vedi profilo</router-link>
+        
+        <router-link class="btn btn-orange text-white" :to="{ name: 'musician', params: { slug: musician.slug }}">Vedi profilo</router-link>
       </div>
     </div>
 
-    <router-link :to="{ name: 'home' }">Indietro</router-link>
+    <router-link class="btn btn-orange text-white" :to="{ name: 'home' }">Indietro</router-link>
   </div>
 </template>
 
@@ -28,9 +25,9 @@ export default {
   },
 
   methods: {
-    getMusicians(id) {
+    getMusicians(slug) {
       axios
-        .get(`http://127.0.0.1:8000/api/filter/${id}`)
+        .get(`http://127.0.0.1:8000/api/musicians/${slug}`)
         .then((res) => {
           res.data.forEach((el) => {
             this.musicians = el.musicians;
@@ -43,7 +40,7 @@ export default {
   },
 
   created() {
-    this.getMusicians(this.$route.params.id);
+    this.getMusicians(this.$route.params.slug);
   },
 };
 </script>
