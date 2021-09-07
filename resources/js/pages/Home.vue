@@ -1,5 +1,9 @@
 <template>
-  <Jumbotron />
+  <div>
+    <Jumbotron />
+    <h2>Qui ci vanno un sacco di cose</h2>
+  </div>
+
 </template>
 
 <script>
