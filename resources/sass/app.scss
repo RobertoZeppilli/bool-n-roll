@@ -25,7 +25,9 @@ body {
     background-color: #c6d8d3;
 }
 
-
+ul {
+  list-style: none;
+}
 .bg-jumbotron {
   background-color: $bgJumbo;
 }
@@ -50,6 +52,20 @@ body {
   font-size: .6rem;
 }
 
+.musician-img {
+  min-height: 300px;
+  width: 100%;
+  // object-fit: contain;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .badge_profile {
   font-size: 20px;  
+}
+
+.main-height {
+  height: calc(100vh - 70px);
 }

@@ -5,6 +5,10 @@
         <div class="col-xs-6 col-md-6 col-lg-6">
           <h1 class="headline">Playing the mood</h1>
 
+          <div class="my-2">
+            <p class="platinum">Cerca un musicista scegliendo il genere che preferisci!</p>
+          </div>
+
           <div class="form-group">
             <select
               @change="searchMusicians(slug)"
@@ -17,29 +21,13 @@
               </option>
             </select>
 
-            <!-- <router-link
-              :to="{ name: 'musicians', params: { id: genre_id } }"
-              class="btn btn-primary text-white"
-              >Cerca</router-link
-            > -->
-
-            <!-- <router-link
-              :to="{ name: 'tag', params: { slug: tag.slug } }"
-              class="badge badge-warning mr-2"
-              v-for="tag in post.tags"
-              :key="`tag-${tag.id}`"
-              >{{ tag.name }}</router-link
-            > -->
           </div>
         </div>
-        <!-- <div v-for="musician in musicians" :key="musician.id">
-                        {{ musician.stagename }}
-                    </div> -->
+        
         <div class="col-xs-6 col-md-6 col-lg-6">
           <img class="img-fluid" src="images/jumboimg.png" alt="Jumbtron" />
         </div>
 
-        <!-- <FilteredMusicians :musicians="musicians"/> -->
       </div>
     </div>
   </div>

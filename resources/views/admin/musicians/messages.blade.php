@@ -32,7 +32,7 @@
             @endif
         </div>
         <div>
-            <a class="btn btn-secondary" href="{{ route('admin.welcome') }}">
+            <a class="btn btn-petrol" href="{{ route('admin.welcome') }}">
                 <i class="far fa-hand-point-left text-white"></i>
             </a>
         </div>

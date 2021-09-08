@@ -32,8 +32,9 @@ class SponsorshipController extends Controller
     //     return response()->json($status);
     // }
 
-    public function payment(Request $request, Sponsorship $sponsorship) {
-       
+    public function payment(Request $request, Sponsorship $sponsorship)
+    {
+
         $data = $request->all();
         // dd($data['price']);
 
@@ -43,11 +44,11 @@ class SponsorshipController extends Controller
             'publicKey' => config('services.braintree.publicKey'),
             'privateKey' => config('services.braintree.privateKey')
         ]);
-        
+
         $amount = $data['price'];
         // dd($amount);c
         $nonce = 'fake-valid-nonce';
-    
+
         $result = $gateway->transaction()->sale([
             'amount' => $amount,
             'paymentMethodNonce' => $nonce,
@@ -60,43 +61,41 @@ class SponsorshipController extends Controller
                 'submitForSettlement' => true
             ]
         ]);
-    
-    
+
+
         if ($result->success) {
             $transaction = $result->transaction;
             // header("Location: transaction.php?id=" . $transaction->id);
-            
+
             $musician = Musician::where('user_id', Auth::id())->first();
 
             $sponsorship = Sponsorship::where('price', $data['price'])->first();
-            
+
             $end_date = Carbon::now('Europe/Rome')->addHour($sponsorship->duration);
             $created_at = Carbon::now('Europe/Rome');
 
             // dd($sponsorship);
 
-            if($created_at != $end_date) {
-                $musician->sponsorships()->attach($musician, [
-                    'sponsorship_id' => $sponsorship->id, 
-                    'musician_id' => $musician->id, 
-                    'end_date' => $end_date,
-                    'created_at' => $created_at
-                ]);
-            } else {
-                $musician->sponsorships()->detach();
-            }
-            
-            return back()->with('success_message', 'Transazione avvenuta con successo. L\'ID è: '. $transaction->id);
+
+            $musician->sponsorships()->attach($musician, [
+                'sponsorship_id' => $sponsorship->id,
+                'musician_id' => $musician->id,
+                'end_date' => $end_date,
+                'created_at' => $created_at
+            ]);
+
+
+            return back()->with('success_message', 'Transazione avvenuta con successo. L\'ID è: ' . $transaction->id);
         } else {
             $errorString = "";
-    
+
             foreach ($result->errors->deepAll() as $error) {
                 $errorString .= 'Errore: ' . $error->code . ": " . $error->message . "\n";
             }
-    
+
             // $_SESSION["errors"] = $errorString;
             // header("Location: index.php");
-            return back()->withErrors('C\'è stato un errore: '.$result->message);
+            return back()->withErrors('C\'è stato un errore: ' . $result->message);
         }
     }
 }

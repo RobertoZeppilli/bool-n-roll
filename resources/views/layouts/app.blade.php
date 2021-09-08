@@ -78,6 +78,54 @@
         <main>
             @yield('content')
         </main>
+
+        <footer class="bg-dark text-white py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-4 col-lg-4">
+                        <img style="height: 50px;" src="{{ asset('/images/footer-logo.png') }}" alt="">
+                    </div>
+                    <div class="col-xs-12 col-md-4 col-lg-4">
+                        <ul>
+                            <li>prova</li>
+                            <li>prova</li>
+                            <li>prova</li>
+                            <li>prova</li>
+                            <li>prova</li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-md-4 col-lg-4">
+                        <ul>
+                            <li>prova</li>
+                            <li>prova</li>
+                            <li>prova</li>
+                            <li>prova</li>
+                            <li>prova</li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-md-4 col-lg-4">
+                        <ul>
+                            <li>prova</li>
+                            <li>prova</li>
+                            <li>prova</li>
+                            <li>prova</li>
+                            <li>prova</li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-md-4 col-lg-4">
+                        <ul>
+                            <li>prova</li>
+                            <li>prova</li>
+                            <li>prova</li>
+                            <li>prova</li>
+                            <li>prova</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </footer>
     </div>
 
     @yield('script')

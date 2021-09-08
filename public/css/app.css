@@ -17223,7 +17223,7 @@ a.text-dark:focus {
 }
 
 .platinum {
-  color: #8b9396;
+  color: #7e878a;
 }
 
 .diamond {
@@ -17261,13 +17261,21 @@ a.text-dark:focus {
 
 .position {
   position: absolute;
-  top: 100px;
+  top: -100px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .pt-300 {
-  padding-top: 300px;
+  padding-top: 100px;
+}
+
+.sponsor-size {
+  font-size: 0.9rem;
+}
+
+.myCard {
+  width: calc(100% / 3);
 }
 
 .inputGroup {
@@ -17356,6 +17364,10 @@ body {
   background-color: #c6d8d3;
 }
 
+ul {
+  list-style: none;
+}
+
 .bg-jumbotron {
   background-color: #fefefe;
 }
@@ -17382,7 +17394,21 @@ body {
   font-size: 0.6rem;
 }
 
+.musician-img {
+  min-height: 300px;
+  width: 100%;
+}
+
+.musician-img img {
+  width: 100%;
+  height: 100%;
+}
+
 .badge_profile {
   font-size: 20px;
+}
+
+.main-height {
+  height: calc(100vh - 70px);
 }
 

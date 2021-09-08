@@ -40,7 +40,7 @@
                 </section>
                 
                 <div class="d-flex justify-content-between align-items-center">
-                    <a class="btn btn-secondary" href="{{ route('admin.welcome') }}">
+                    <a class="btn btn-petrol" href="{{ route('admin.welcome') }}">
                         <i class="far fa-hand-point-left text-white"></i>
                     </a>
                     <input id="nonce" name="payment_method_nonce" type="hidden" />

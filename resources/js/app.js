@@ -10,6 +10,13 @@ window.Vue = require('vue');
 
 import router from './router';
 
+var dayjs = require('dayjs')
+dayjs().format()
+
+import Vue from 'vue';
+import VueCarousel from 'vue-carousel';
+Vue.use(VueCarousel);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -31,5 +38,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    dayjs,
 });

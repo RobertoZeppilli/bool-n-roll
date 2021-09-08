@@ -26,6 +26,8 @@ Route::namespace('Api')->group( function() {
 
     Route::get('musician/{musicianSlug}', 'MusicianController@show');
 
+    Route::get('sponsored', 'MusicianController@showSponsoredMusicians');
+
     Route::post('message', 'MessageController@store');
     Route::post('review', 'ReviewController@store');
 });

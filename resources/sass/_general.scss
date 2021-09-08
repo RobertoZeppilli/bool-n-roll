@@ -125,7 +125,7 @@
     color: $gold;
 }
 .platinum {
-    color: $platino;
+    color: darken($platino, 5%);
 }
 .diamond {
     color: $myWhite;
@@ -161,11 +161,33 @@
 
 .position {
     position: absolute;
-    top: 100px;
+    top: -100px;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .pt-300 {
-    padding-top: 300px;
+    padding-top: 100px;
 }
+
+.sponsor-size {
+    font-size: .9rem;
+}
+
+.myCard {
+    width: calc(100% / 3);
+}
+
+// .VueCarousel-dot {
+//     color: $logoColor;
+// }
+
+// .VueCarousel-dot--active {
+//     color: lighten($logoColor, 10%);
+// }
+
+// .prova {
+//     background-image: url('https://i.pinimg.com/originals/bd/c8/2b/bdc82b2585b05b9309d717df84ce1916.png');
+//     background-size: cover;
+//     background-repeat: no-repeat;
+// }
