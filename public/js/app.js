@@ -2213,6 +2213,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MessageForm",
   data: function data() {
@@ -2275,6 +2278,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -2657,7 +2663,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       musician: {},
       genres: [],
-      show: true,
+      show: false,
       review: false,
       reviews: []
     };
@@ -2673,16 +2679,16 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         console.log(err);
       });
-    },
-    hide: function hide() {
-      if (!this.show && this.review) {
-        this.show = true;
-        this.review = false;
-      } else {
-        this.show = false;
-        this.review = true;
-      }
-    }
+    } // hide() {
+    //   if (!this.show && this.review) {
+    //     this.show = true;
+    //     this.review = false;
+    //   } else {
+    //     this.show = false;
+    //     this.review = true;
+    //   }
+    // },
+
   },
   created: function created() {
     this.getMusician(this.$route.params.slug);
@@ -38821,7 +38827,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "message" } }, [_vm._v("Messaggio")]),
+          _c("label", { attrs: { for: "message" } }, [_vm._v("Messaggio*")]),
           _vm._v(" "),
           _c("textarea", {
             directives: [
@@ -38865,9 +38871,14 @@ var render = function() {
             : _vm._e()
         ]),
         _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
         _c(
           "button",
-          { staticClass: "btn btn-orange", attrs: { type: "submit" } },
+          {
+            staticClass: "btn btn-petrol text-white",
+            attrs: { type: "submit" }
+          },
           [
             _vm._v(
               "\n      " +
@@ -38880,7 +38891,16 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "my-3" }, [
+      _c("small", [_vm._v("I campi con (*) sono obbligatori")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -38918,7 +38938,7 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
+          _c("label", { attrs: { for: "email" } }, [_vm._v("Email*")]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -39008,8 +39028,10 @@ var render = function() {
             : _vm._e()
         ]),
         _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "review" } }, [_vm._v("Recensione")]),
+          _c("label", { attrs: { for: "review" } }, [_vm._v("Recensione*")]),
           _vm._v(" "),
           _c("textarea", {
             directives: [
@@ -39054,7 +39076,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "vote" } }, [_vm._v("Voto")]),
+          _c("label", { attrs: { for: "vote" } }, [_vm._v("Voto*")]),
           _vm._v(" "),
           _c(
             "select",
@@ -39114,13 +39136,18 @@ var render = function() {
             : _vm._e()
         ]),
         _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
         _c(
           "button",
-          { staticClass: "btn btn-orange", attrs: { type: "submit" } },
+          {
+            staticClass: "btn btn-petrol text-white",
+            attrs: { type: "submit" }
+          },
           [
             _vm._v(
               "\n      " +
-                _vm._s(_vm.sending ? "Invio in corso..." : "Invia Messaggio") +
+                _vm._s(_vm.sending ? "Invio in corso..." : "Invia Recensione") +
                 "\n      "
             )
           ]
@@ -39129,7 +39156,35 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "text_message" } }, [_vm._v("Cognome")]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          name: "surname",
+          id: "surname",
+          rows: "5",
+          placeholder: "Il tuo cognome"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "my-3" }, [
+      _c("small", [_vm._v("I campi con (*) sono obbligatori")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -39351,38 +39406,24 @@ var render = function() {
           2
         ),
         _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-primary",
-            on: {
-              click: function($event) {
-                return _vm.hide()
-              }
-            }
-          },
-          [
-            _vm._v(
-              "\n        Manda un messaggio o scrivi una recensione\n      "
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          _vm._l(_vm.reviews, function(review) {
-            return _c("small", { key: review.id, staticClass: "text-danger" }, [
-              _vm._v("\n          " + _vm._s(review.vote) + "\n        ")
-            ])
-          }),
-          0
-        ),
-        _vm._v(" "),
         _c("div", { staticClass: "row" }, [
           _c(
             "div",
-            { staticClass: "col-xs-12 col-md-6 col-lg-6" },
+            { staticClass: "col-xs-12 col-md-6 col-lg-6 text-center" },
             [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-orange text-white my-5 p-3",
+                  on: {
+                    click: function($event) {
+                      _vm.show = !_vm.show
+                    }
+                  }
+                },
+                [_vm._v("\n            Manda un messaggio\n          ")]
+              ),
+              _vm._v(" "),
               _vm.show
                 ? _c("MessageForm", { attrs: { musicianId: _vm.musician.id } })
                 : _vm._e()
@@ -39392,8 +39433,21 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col-xs-12 col-md-6 col-lg-6" },
+            { staticClass: "col-xs-12 col-md-6 col-lg-6 text-center" },
             [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-orange text-white my-5 p-3",
+                  on: {
+                    click: function($event) {
+                      _vm.review = !_vm.review
+                    }
+                  }
+                },
+                [_vm._v("\n            Scrivi una recensione\n          ")]
+              ),
+              _vm._v(" "),
               _vm.review
                 ? _c("ReviewForm", { attrs: { musicianId: _vm.musician.id } })
                 : _vm._e()
@@ -39402,12 +39456,13 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", [
-          _c("h3", [_vm._v("Recensioni su " + _vm._s(_vm.musician.stagename))]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "row" },
+        _c(
+          "div",
+          [
+            _c("h3", { staticClass: "my-3 mt-3" }, [
+              _vm._v("Recensioni su " + _vm._s(_vm.musician.stagename))
+            ]),
+            _vm._v(" "),
             _vm._l(_vm.musician.reviews, function(review) {
               return _c(
                 "div",
@@ -39435,7 +39490,9 @@ var render = function() {
                       0
                     ),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(review.review))]),
+                    _c("p", { staticClass: "font-italic" }, [
+                      _vm._v(_vm._s(review.review))
+                    ]),
                     _vm._v(" "),
                     _c("p", { staticClass: "text-right" }, [
                       _c("small", [
@@ -39445,15 +39502,15 @@ var render = function() {
                   ])
                 ]
               )
-            }),
-            0
-          )
-        ]),
+            })
+          ],
+          2
+        ),
         _vm._v(" "),
         _c(
           "a",
           {
-            staticClass: "btn btn-primary text-white my-2",
+            staticClass: "btn btn-yellow text-black my-5",
             on: {
               click: function($event) {
                 return _vm.$router.go(-1)

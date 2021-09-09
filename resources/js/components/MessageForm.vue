@@ -64,7 +64,7 @@
       </div>
 
       <div class="form-group">
-        <label for="message">Messaggio</label>
+        <label for="message">Messaggio*</label>
         <textarea
           class="form-control"
           name="message"
@@ -83,9 +83,12 @@
           >
         </div>
       </div>
+      <div class="my-3">
+        <small>I campi con (*) sono obbligatori</small>
+      </div>
 
       <!-- <vs-button type="submit" >invia il messaggio</vs-button> -->
-      <button type="submit" class="btn btn-orange">
+      <button type="submit" class="btn btn-petrol text-white">
         {{ sending ? "Invio in corso..." : "Invia Messaggio" }}
         <!-- Invia -->
       </button>

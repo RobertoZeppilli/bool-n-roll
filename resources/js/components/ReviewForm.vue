@@ -5,7 +5,7 @@
       <!-- <input type="hidden" name="user_id" id="user_id" :value="doctorId" > -->
 
       <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email">Email*</label>
         <input
           v-model="review.email"
           type="email"
@@ -34,6 +34,7 @@
           id="name"
           rows="5"
           placeholder="Il tuo nome..."
+          
         />
         <div v-if="errors">
           <small
@@ -44,21 +45,20 @@
           >
         </div>
       </div>
-      <!-- <div class="form-group">
+      <div class="form-group">
         <label for="text_message">Cognome</label>
         <input
           type="text"
           class="form-control"
-          name="patient_surname"
-          id="patient_surname"
+          name="surname"
+          id="surname"
           rows="5"
           placeholder="Il tuo cognome"
-          required
         />
-      </div> -->
+      </div>
 
       <div class="form-group">
-        <label for="review">Recensione</label>
+        <label for="review">Recensione*</label>
         <textarea
           v-model="review.review"
           class="form-control"
@@ -78,7 +78,7 @@
       </div>
 
       <div class="form-group">
-        <label for="vote">Voto</label>
+        <label for="vote">Voto*</label>
         <select v-model="review.vote" name="vote" id="vote">
           <option value="1">★</option>
           <option value="2">★★</option>
@@ -95,10 +95,13 @@
           >
         </div>
       </div>
+      <div class="my-3">
+        <small>I campi con (*) sono obbligatori</small>
+      </div>
 
       <!-- <vs-button type="submit" >invia il messaggio</vs-button> -->
-      <button type="submit" class="btn btn-orange">
-        {{ sending ? "Invio in corso..." : "Invia Messaggio" }}
+      <button type="submit" class="btn btn-petrol text-white">
+        {{ sending ? "Invio in corso..." : "Invia Recensione" }}
         <!-- Invia -->
       </button>
     </form>

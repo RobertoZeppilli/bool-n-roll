@@ -7,10 +7,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    {{-- <title>{{ config("app.name", "Bool n Roll") }}</title> --}}
+    <title>Bool 'n' Roll</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <link rel="icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon"/>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -84,6 +87,7 @@
                 <div class="row text-center">
                     <div class="col-xs-12 col-md-4 col-lg-4">
                         <img style="height: 50px;" src="{{ asset('/images/footer-logo.png') }}" alt="">
+                        <h5 class="my-3">Made with <span class="title-pink">&hearts;</span> from Team 4</h5>
                     </div>
 
                     <div class="col-xs-12 col-md-4 col-lg-4">
@@ -96,11 +100,10 @@
                         </ul>
                     </div>
                     <div class="col-xs-12 col-md-4 col-lg-4">
-                        <h5>Sei un musicista?</h5>
-                        <h6>Iscriviti subito</h6>
+                        <h5 class="my-3">Sei un musicista?</h5>
                         <ul class="list-unstyled">
                             <li class="nav-item register-link rounded">
-                                <a class="nav-link title-orange" href="{{ route('register') }}">{{ __('Sei un musicista? Registrati!') }}</a>
+                                <a class="nav-link title-orange" href="{{ route('register') }}">{{ __('Registrati subito!') }}</a>
                             </li>
                         </ul>
                     </div>
