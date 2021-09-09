@@ -2,10 +2,12 @@
   <div class="jumbotron bg-jumbotron">
     <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-6 col-lg-6">
-          <h1 class="headline">Playing the mood</h1>
+        <div class="col-xs-6 col-md-6 col-lg-6 d-flex flex-column align-items-center justify-content-center">
+          <div class="text-center">
+            <h1 class="headline">Playing the mood</h1>
+          </div>
 
-          <div class="my-2">
+          <div class="my-2 text-center">
             <p class="platinum">Cerca un musicista scegliendo il genere che preferisci!</p>
           </div>
 
@@ -13,7 +15,7 @@
             <select
               @change="searchMusicians(slug)"
               v-model="slug"
-              class="form-control mb-2"
+              class="form-control mb-2 decorated"
               autocomplete="on"
             >
               <option value="" selected="selected" disabled>Scegli un genere</option>

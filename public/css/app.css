@@ -17278,6 +17278,10 @@ a.text-dark:focus {
   width: calc(100% / 3);
 }
 
+.footer-list:hover {
+  color: #eceff5 !important;
+}
+
 .inputGroup {
   background-color: #fff;
   display: block;
@@ -17377,8 +17381,20 @@ ul {
 }
 
 .headline {
-  font-size: 3.5rem;
-  max-width: 30%;
+  font-size: 5.5rem;
+}
+
+p.platinum {
+  font-size: 1.5rem;
+}
+
+select.form-control.mb-2 {
+  width: 350px;
+}
+
+.form-control:focus {
+  border-color: #301a47;
+  box-shadow: 0 0 0 0.2rem rgba(48, 26, 71, 0.5);
 }
 
 .clamp-size {
@@ -17410,5 +17426,14 @@ ul {
 
 .main-height {
   height: calc(100vh - 70px);
+}
+
+aside {
+  width: 30%;
+  background-color: red;
+}
+
+.fa-star {
+  color: #f7af1a;
 }
 

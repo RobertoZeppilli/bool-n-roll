@@ -2061,6 +2061,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 // import FilteredMusicians from './FilteredMusicians';
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Jumbotron",
@@ -2569,6 +2571,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_MessageForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/MessageForm */ "./resources/js/components/MessageForm.vue");
 /* harmony import */ var _components_ReviewForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/ReviewForm */ "./resources/js/components/ReviewForm.vue");
+/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dayjs */ "./node_modules/dayjs/dayjs.min.js");
+/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(dayjs__WEBPACK_IMPORTED_MODULE_2__);
 //
 //
 //
@@ -2618,6 +2622,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2660,6 +2687,11 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.getMusician(this.$route.params.slug);
     this.$emit('prova', this.reviews);
+  },
+  computed: {
+    dateFormat: function dateFormat() {
+      return dayjs__WEBPACK_IMPORTED_MODULE_2___default()(this.created_at).format('DD-MM-YYYY');
+    }
   }
 });
 
@@ -38502,73 +38534,82 @@ var render = function() {
   return _c("div", { staticClass: "jumbotron bg-jumbotron" }, [
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-xs-6 col-md-6 col-lg-6" }, [
-          _c("h1", { staticClass: "headline" }, [_vm._v("Playing the mood")]),
-          _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.slug,
-                    expression: "slug"
-                  }
-                ],
-                staticClass: "form-control mb-2",
-                attrs: { autocomplete: "on" },
-                on: {
-                  change: [
-                    function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.slug = $event.target.multiple
-                        ? $$selectedVal
-                        : $$selectedVal[0]
-                    },
-                    function($event) {
-                      return _vm.searchMusicians(_vm.slug)
+        _c(
+          "div",
+          {
+            staticClass:
+              "col-xs-6 col-md-6 col-lg-6 d-flex flex-column align-items-center justify-content-center"
+          },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.slug,
+                      expression: "slug"
                     }
-                  ]
-                }
-              },
-              [
-                _c(
-                  "option",
-                  { attrs: { value: "", selected: "selected", disabled: "" } },
-                  [_vm._v("Scegli un genere")]
-                ),
-                _vm._v(" "),
-                _vm._l(_vm.genres, function(genre) {
-                  return _c(
-                    "option",
-                    { key: genre.id, domProps: { value: genre.slug } },
-                    [
-                      _vm._v(
-                        "\n              " +
-                          _vm._s(genre.name) +
-                          "\n            "
-                      )
+                  ],
+                  staticClass: "form-control mb-2 decorated",
+                  attrs: { autocomplete: "on" },
+                  on: {
+                    change: [
+                      function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.slug = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      },
+                      function($event) {
+                        return _vm.searchMusicians(_vm.slug)
+                      }
                     ]
-                  )
-                })
-              ],
-              2
-            )
-          ])
-        ]),
+                  }
+                },
+                [
+                  _c(
+                    "option",
+                    {
+                      attrs: { value: "", selected: "selected", disabled: "" }
+                    },
+                    [_vm._v("Scegli un genere")]
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.genres, function(genre) {
+                    return _c(
+                      "option",
+                      { key: genre.id, domProps: { value: genre.slug } },
+                      [
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(genre.name) +
+                            "\n            "
+                        )
+                      ]
+                    )
+                  })
+                ],
+                2
+              )
+            ])
+          ]
+        ),
         _vm._v(" "),
-        _vm._m(1)
+        _vm._m(2)
       ])
     ])
   ])
@@ -38578,7 +38619,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "my-2" }, [
+    return _c("div", { staticClass: "text-center" }, [
+      _c("h1", { staticClass: "headline" }, [_vm._v("Playing the mood")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "my-2 text-center" }, [
       _c("p", { staticClass: "platinum" }, [
         _vm._v("Cerca un musicista scegliendo il genere che preferisci!")
       ])
@@ -39251,112 +39300,169 @@ var render = function() {
   return _c("div", [
     _c("div", { staticClass: "pattern" }),
     _vm._v(" "),
-    _c("div", { staticClass: "container myContainer" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "position d-flex align-items-center justify-content-center"
-        },
-        [
-          _c("img", {
-            staticClass: "profile-img",
-            attrs: { src: "/storage/" + _vm.musician.cover, alt: "" }
-          })
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "pt-300 text-center" },
-        [
-          _c("h1", { staticClass: "my-5" }, [
-            _vm._v(_vm._s(_vm.musician.stagename))
-          ]),
-          _vm._v(" "),
-          _vm._l(_vm.musician.genres, function(genre, index) {
-            return _c(
-              "span",
-              {
-                key: index,
-                staticClass: "badge_profile badge badge-purple text-white mr-2"
-              },
-              [_vm._v(_vm._s(genre.name) + "\n      ")]
-            )
-          }),
-          _vm._v(" "),
-          _c("p", { staticClass: "my-5" }, [_vm._v(_vm._s(_vm.musician.bio))]),
-          _vm._v(" "),
-          _c(
-            "h4",
-            { staticClass: "title-purple text-uppercase font-weight-bold" },
-            [_vm._v("\n        I nostri servizi\n      ")]
-          ),
-          _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(_vm.musician.services))])
-        ],
-        2
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary",
-          on: {
-            click: function($event) {
-              return _vm.hide()
-            }
-          }
-        },
-        [_vm._v("\n      Manda un messaggio o scrivi una recensione\n    ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        _vm._l(_vm.reviews, function(review) {
-          return _c("small", { key: review.id, staticClass: "text-danger" }, [
-            _vm._v("\n        " + _vm._s(review.vote) + "\n      ")
-          ])
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "container-xl main_page d-flex" }, [
+      _c("div", { staticClass: "container myContainer" }, [
         _c(
           "div",
-          { staticClass: "col-xs-12 col-md-6 col-lg-6" },
+          {
+            staticClass:
+              "position d-flex align-items-center justify-content-center"
+          },
           [
-            _vm.show
-              ? _c("MessageForm", { attrs: { musicianId: _vm.musician.id } })
-              : _vm._e()
-          ],
-          1
+            _c("img", {
+              staticClass: "profile-img",
+              attrs: { src: "/storage/" + _vm.musician.cover, alt: "" }
+            })
+          ]
         ),
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "col-xs-12 col-md-6 col-lg-6" },
+          { staticClass: "pt-300 text-center" },
           [
-            _vm.review
-              ? _c("ReviewForm", { attrs: { musicianId: _vm.musician.id } })
-              : _vm._e()
+            _c("h1", { staticClass: "my-5" }, [
+              _vm._v(_vm._s(_vm.musician.stagename))
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.musician.genres, function(genre, index) {
+              return _c(
+                "span",
+                {
+                  key: index,
+                  staticClass:
+                    "badge_profile badge badge-purple text-white mr-2"
+                },
+                [_vm._v(_vm._s(genre.name) + "\n        ")]
+              )
+            }),
+            _vm._v(" "),
+            _c("p", { staticClass: "my-5" }, [
+              _vm._v(_vm._s(_vm.musician.bio))
+            ]),
+            _vm._v(" "),
+            _c(
+              "h4",
+              { staticClass: "title-purple text-uppercase font-weight-bold" },
+              [_vm._v("\n          I nostri servizi\n        ")]
+            ),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.musician.services))])
           ],
-          1
-        )
-      ]),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-primary text-white",
-          on: {
-            click: function($event) {
-              return _vm.$router.go(-1)
+          2
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            on: {
+              click: function($event) {
+                return _vm.hide()
+              }
             }
-          }
-        },
-        [_vm._v("\n      Indietro\n    ")]
-      )
+          },
+          [
+            _vm._v(
+              "\n        Manda un messaggio o scrivi una recensione\n      "
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          _vm._l(_vm.reviews, function(review) {
+            return _c("small", { key: review.id, staticClass: "text-danger" }, [
+              _vm._v("\n          " + _vm._s(review.vote) + "\n        ")
+            ])
+          }),
+          0
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            { staticClass: "col-xs-12 col-md-6 col-lg-6" },
+            [
+              _vm.show
+                ? _c("MessageForm", { attrs: { musicianId: _vm.musician.id } })
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-xs-12 col-md-6 col-lg-6" },
+            [
+              _vm.review
+                ? _c("ReviewForm", { attrs: { musicianId: _vm.musician.id } })
+                : _vm._e()
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("h3", [_vm._v("Recensioni su " + _vm._s(_vm.musician.stagename))]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "row" },
+            _vm._l(_vm.musician.reviews, function(review) {
+              return _c(
+                "div",
+                {
+                  key: review.id,
+                  staticClass:
+                    "card w-100 my-2 card_review shadow p-3 mb-2 bg-body rounded"
+                },
+                [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("h5", { staticClass: "title-wine" }, [
+                      _vm._v(_vm._s(review.name))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "rating my-2" },
+                      _vm._l(5, function(index) {
+                        return _c("i", {
+                          key: index,
+                          staticClass: "fa-star",
+                          class: index <= review.vote ? "fas" : "far"
+                        })
+                      }),
+                      0
+                    ),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(review.review))]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "text-right" }, [
+                      _c("small", [
+                        _vm._v("Inviato il " + _vm._s(_vm.dateFormat))
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-primary text-white my-2",
+            on: {
+              click: function($event) {
+                return _vm.$router.go(-1)
+              }
+            }
+          },
+          [_vm._v("\n        Indietro\n      ")]
+        )
+      ])
     ])
   ])
 }
@@ -55565,8 +55671,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\rober\boolean-php\bool-n-roll\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\rober\boolean-php\bool-n-roll\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Mikilò\Desktop\boolean\bool-n-roll\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Mikilò\Desktop\boolean\bool-n-roll\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -81,46 +81,30 @@
 
         <footer class="bg-dark text-white py-5">
             <div class="container">
-                <div class="row">
+                <div class="row text-center">
                     <div class="col-xs-12 col-md-4 col-lg-4">
                         <img style="height: 50px;" src="{{ asset('/images/footer-logo.png') }}" alt="">
                     </div>
+
                     <div class="col-xs-12 col-md-4 col-lg-4">
-                        <ul>
-                            <li>prova</li>
-                            <li>prova</li>
-                            <li>prova</li>
-                            <li>prova</li>
-                            <li>prova</li>
+                        <h5>Dev Team</h5>
+                        <ul class="list-unstyled">
+                            <li><a class="footer-list title-yellow" href="https://github.com/RobertoZeppilli">Roberto Zeppilli</a></li>
+                            <li><a class="footer-list title-petrol" href="https://github.com/Edomak">Edoardo Maccherini</a></li>
+                            <li><a class="footer-list title-orange" href="https://github.com/fabiopiro">Fabio Piroddi</a></li>
+                            <li><a class="footer-list title-pink" href="https://github.com/michelafranchini">Michela Franchini</a></li>
                         </ul>
                     </div>
                     <div class="col-xs-12 col-md-4 col-lg-4">
-                        <ul>
-                            <li>prova</li>
-                            <li>prova</li>
-                            <li>prova</li>
-                            <li>prova</li>
-                            <li>prova</li>
+                        <h5>Sei un musicista?</h5>
+                        <h6>Iscriviti subito</h6>
+                        <ul class="list-unstyled">
+                            <li class="nav-item register-link rounded">
+                                <a class="nav-link title-orange" href="{{ route('register') }}">{{ __('Sei un musicista? Registrati!') }}</a>
+                            </li>
                         </ul>
                     </div>
-                    <div class="col-xs-12 col-md-4 col-lg-4">
-                        <ul>
-                            <li>prova</li>
-                            <li>prova</li>
-                            <li>prova</li>
-                            <li>prova</li>
-                            <li>prova</li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 col-md-4 col-lg-4">
-                        <ul>
-                            <li>prova</li>
-                            <li>prova</li>
-                            <li>prova</li>
-                            <li>prova</li>
-                            <li>prova</li>
-                        </ul>
-                    </div>
+                    
                     
                 </div>
 

@@ -36,9 +36,31 @@ ul {
   background-color: $bgNav;
 }
 .headline {
-  font-size: 3.5rem;
-  max-width: 30%;
+  font-size: 5.5rem;
+  // max-width: 30%;
 }
+
+p.platinum {
+  font-size: 1.5rem;
+}
+
+select.form-control.mb-2 {
+  width: 350px;
+}
+
+.form-control:focus {
+  border-color: $myPurple;
+  box-shadow: 0 0 0 0.2rem rgb(48 26 71 / 50%);
+
+  // option {
+
+  //   &:hover {
+  //     color: red!important;
+  //   }
+  // }
+
+}
+
 .clamp-size {
   font-size: clamp(.8rem, 1rem + 10vw, .5rem);
 }
@@ -69,3 +91,13 @@ ul {
 .main-height {
   height: calc(100vh - 70px);
 }
+
+aside {
+  width: 30%;
+  background-color: red;
+}
+
+.fa-star {
+  color: $myYellow;
+}
+
