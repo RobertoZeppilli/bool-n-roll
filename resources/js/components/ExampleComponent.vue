@@ -6,5 +6,9 @@
 export default {
   name: "ExampleComponent",
 
+  methods: {
+
+  }
+
 };
 </script>

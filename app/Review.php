@@ -15,6 +15,6 @@ class Review extends Model
     ]; 
 
     public function musician() {
-        return $this->belongsTo('App\Musician'); 
+        return $this->belongsTo('App\Musician')->with('reviews'); 
     }
 }

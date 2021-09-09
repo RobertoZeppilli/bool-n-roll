@@ -56,19 +56,13 @@ import Jumbotron from "../components/Jumbotron";
 
 import dayjs from "dayjs";
 
-// import { slider, slideritem } from "vue-concise-slider";
-
 import { Carousel, Slide } from "vue-carousel";
-
-// import Vue from 'vue';
-// import VueCarousel from 'vue-carousel';
 
 export default {
   name: "Home",
 
   data() {
     return {
-      // sponsors: [],
       musicians: [],
       activePaginateColor: "#ec5e25",
       paginateColor: "rgba(236, 93, 37, 0.363)",
@@ -78,39 +72,20 @@ export default {
 
   components: {
     Jumbotron,
-    // slider,
-    // slideritem,
     Carousel,
     Slide,
   },
 
-  // computed: {
-  //   getSponsor() {
-  //     let array = []
-
-  //     this.sponsors.forEach( el => {
-  //       array = el.musicians
-  //     })
-
-  //     return array
-  //   }
-  // },
 
   methods: {
     getSponsoredMusicians() {
       axios
         .get("http://127.0.0.1:8000/api/sponsored")
         .then((res) => {
-          // this.sponsors = res.data;
-          console.log(res.data.sponsorship);
+          
+          console.log(res.data);
           this.musicians = res.data.sponsorship;
 
-          // this.sponsors.forEach((el) => {
-          //   if (el.musicians.length > 0) {
-          //     this.musicians = el.musicians;
-          //     console.log(this.musicians);
-          //   }
-          // });
         })
         .catch((err) => {
           console.log(err);

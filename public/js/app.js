@@ -1913,7 +1913,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ExampleComponent"
+  name: "ExampleComponent",
+  methods: {}
 });
 
 /***/ }),
@@ -1975,11 +1976,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FilteredMusicians",
   data: function data() {
     return {
-      musicians: []
+      musicians: [],
+      reviews: [],
+      filteredReviews: [] // newReviews: [],
+
     };
   },
   methods: {
@@ -1987,16 +1999,53 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("http://127.0.0.1:8000/api/musicians/".concat(slug)).then(function (res) {
+        // console.log("data", res.data);
         res.data.forEach(function (el) {
+          // console.log(el)
           _this.musicians = el.musicians;
+          console.log(_this.musicians);
         });
+        _this.filteredReviews = _this.musicians.filter(function (data) {
+          return data.reviews.length > 0;
+        });
+        console.log(_this.reviews);
+
+        _this.reviews.forEach(function (x) {
+          _this.reviews = x.reviews;
+        }); // this.musicians = res.data.musicians
+        // this.musicians.forEach( el => {
+        //   // this.musicians = el;
+        //   this.reviews = el.reviews
+        // })
+        // console.log(res.data.musicians)
+
       })["catch"](function (err) {
         console.log(err);
       });
-    }
+    } // setVotes(prova) {
+    //   console.log(prova)
+    //   return this.reviews = prova
+    // }
+    // getVotes() {
+    //   axios
+    //     .get("http://127.0.0.1:8000/api/vote")
+    //     .then((res) => {
+    //       // console.log( res.data.reviews )
+    //       console.log(res.data.musicians)
+    //       res.data.musicians.forEach((el) => {
+    //         this.newReviews = el.reviews;
+    //       });
+    //       console.log(this.newReviews);
+    //       //this.reviews = res.data
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // },
+
   },
   created: function created() {
-    this.getMusicians(this.$route.params.slug);
+    this.getMusicians(this.$route.params.slug); // this.getVotes();
   }
 });
 
@@ -2011,6 +2060,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -2481,16 +2531,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
- // import { slider, slideritem } from "vue-concise-slider";
 
- // import Vue from 'vue';
-// import VueCarousel from 'vue-carousel';
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Home",
   data: function data() {
     return {
-      // sponsors: [],
       musicians: [],
       activePaginateColor: "#ec5e25",
       paginateColor: "rgba(236, 93, 37, 0.363)",
@@ -2499,33 +2545,16 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     Jumbotron: _components_Jumbotron__WEBPACK_IMPORTED_MODULE_0__["default"],
-    // slider,
-    // slideritem,
     Carousel: vue_carousel__WEBPACK_IMPORTED_MODULE_2__["Carousel"],
     Slide: vue_carousel__WEBPACK_IMPORTED_MODULE_2__["Slide"]
   },
-  // computed: {
-  //   getSponsor() {
-  //     let array = []
-  //     this.sponsors.forEach( el => {
-  //       array = el.musicians
-  //     })
-  //     return array
-  //   }
-  // },
   methods: {
     getSponsoredMusicians: function getSponsoredMusicians() {
       var _this = this;
 
       axios.get("http://127.0.0.1:8000/api/sponsored").then(function (res) {
-        // this.sponsors = res.data;
-        console.log(res.data.sponsorship);
-        _this.musicians = res.data.sponsorship; // this.sponsors.forEach((el) => {
-        //   if (el.musicians.length > 0) {
-        //     this.musicians = el.musicians;
-        //     console.log(this.musicians);
-        //   }
-        // });
+        console.log(res.data);
+        _this.musicians = res.data.sponsorship;
       })["catch"](function (err) {
         console.log(err);
       });
@@ -2620,6 +2649,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2633,7 +2666,8 @@ __webpack_require__.r(__webpack_exports__);
       musician: {},
       genres: [],
       show: true,
-      review: false
+      review: false,
+      reviews: []
     };
   },
   methods: {
@@ -2642,8 +2676,8 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("http://127.0.0.1:8000/api/musician/".concat(slug)).then(function (res) {
         _this.musician = res.data;
-        _this.genres = _this.musician.genres;
-        console.log(_this.genres);
+        _this.genres = _this.musician.genres; // this.reviews = this.musician.reviews;
+        // console.log(this.genres, this.reviews);
       })["catch"](function (err) {
         console.log(err);
       });
@@ -2660,6 +2694,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getMusician(this.$route.params.slug);
+    this.$emit('prova', this.reviews);
   }
 });
 
@@ -38429,6 +38464,14 @@ var render = function() {
                     _vm._v(_vm._s(musician.stagename))
                   ]),
                   _vm._v(" "),
+                  _vm._l(_vm.reviews, function(review) {
+                    return _c("div", { key: review.id }, [
+                      _vm._v(
+                        "\n            " + _vm._s(review) + "\n            "
+                      )
+                    ])
+                  }),
+                  _vm._v(" "),
                   _c(
                     "router-link",
                     {
@@ -38443,7 +38486,7 @@ var render = function() {
                     [_vm._v("Vedi profilo")]
                   )
                 ],
-                1
+                2
               )
             ])
           ]
@@ -38534,18 +38577,28 @@ var render = function() {
                   ]
                 }
               },
-              _vm._l(_vm.genres, function(genre) {
-                return _c(
+              [
+                _c(
                   "option",
-                  { key: genre.id, domProps: { value: genre.slug } },
-                  [
-                    _vm._v(
-                      "\n              " + _vm._s(genre.name) + "\n            "
-                    )
-                  ]
-                )
-              }),
-              0
+                  { attrs: { value: "", selected: "selected", disabled: "" } },
+                  [_vm._v("Scegli un genere")]
+                ),
+                _vm._v(" "),
+                _vm._l(_vm.genres, function(genre) {
+                  return _c(
+                    "option",
+                    { key: genre.id, domProps: { value: genre.slug } },
+                    [
+                      _vm._v(
+                        "\n              " +
+                          _vm._s(genre.name) +
+                          "\n            "
+                      )
+                    ]
+                  )
+                })
+              ],
+              2
             )
           ])
         ]),
@@ -39291,6 +39344,16 @@ var render = function() {
           }
         },
         [_vm._v("\n      Manda un messaggio o scrivi una recensione\n    ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        _vm._l(_vm.reviews, function(review) {
+          return _c("small", { key: review.id, staticClass: "text-danger" }, [
+            _vm._v("\n        " + _vm._s(review.vote) + "\n      ")
+          ])
+        }),
+        0
       ),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [

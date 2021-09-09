@@ -16,6 +16,7 @@
               class="form-control mb-2"
               autocomplete="on"
             >
+              <option value="" selected="selected" disabled>Scegli un genere</option>
               <option :value="genre.slug" v-for="genre in genres" :key="genre.id">
                 {{ genre.name }}
               </option>

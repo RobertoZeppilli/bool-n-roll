@@ -26,7 +26,11 @@
       <!-- <button class="btn btn-primary" @click="hide()">
         Lascia una recensione
       </button> -->
-
+      <div>
+        <small class="text-danger" v-for="review in reviews" :key="review.id">
+          {{ review.vote }}
+        </small>
+      </div>
       <div class="row">
         <div class="col-xs-12 col-md-6 col-lg-6">
           <MessageForm :musicianId="musician.id" v-if="show" />
@@ -61,6 +65,7 @@ export default {
       genres: [],
       show: true,
       review: false,
+      reviews: []
     };
   },
 
@@ -72,8 +77,8 @@ export default {
           this.musician = res.data;
 
           this.genres = this.musician.genres;
-
-          console.log(this.genres);
+          // this.reviews = this.musician.reviews;
+          // console.log(this.genres, this.reviews);
         })
         .catch((err) => {
           console.log(err);
@@ -93,6 +98,7 @@ export default {
 
   created() {
     this.getMusician(this.$route.params.slug);
+    this.$emit('prova', this.reviews);
   },
 };
 </script>

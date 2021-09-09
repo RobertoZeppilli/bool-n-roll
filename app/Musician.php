@@ -17,6 +17,10 @@ class Musician extends Model
         'cover'
     ]; 
 
+    protected $with = [
+        'reviews'
+    ];
+
 
     public function user() {
         return $this->hasOne('App\User'); 
@@ -35,6 +39,6 @@ class Musician extends Model
     }
 
     public function reviews() {
-        return $this->hasMany('App\Review'); 
+        return $this->hasMany('App\Review');
     }
 }

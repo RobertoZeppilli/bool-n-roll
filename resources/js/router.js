@@ -25,7 +25,8 @@ const router = new VueRouter({
         {
             path: '/musician/:slug',
             name: 'musician',
-            component: MusicianProfile
+            component: MusicianProfile,
+            
         },
         {
             path: '/message-confirm',

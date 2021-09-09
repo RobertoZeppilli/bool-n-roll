@@ -28,6 +28,8 @@ Route::namespace('Api')->group( function() {
 
     Route::get('sponsored', 'MusicianController@showSponsoredMusicians');
 
+    Route::get('vote', 'GenreController@filterPerVote');
+
     Route::post('message', 'MessageController@store');
     Route::post('review', 'ReviewController@store');
 });
