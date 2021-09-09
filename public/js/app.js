@@ -2002,50 +2002,15 @@ __webpack_require__.r(__webpack_exports__);
         // console.log("data", res.data);
         res.data.forEach(function (el) {
           // console.log(el)
-          _this.musicians = el.musicians;
-          console.log(_this.musicians);
+          _this.musicians = el.musicians; // console.log( this.musicians )
         });
-        _this.filteredReviews = _this.musicians.filter(function (data) {
-          return data.reviews.length > 0;
-        });
-        console.log(_this.reviews);
-
-        _this.reviews.forEach(function (x) {
-          _this.reviews = x.reviews;
-        }); // this.musicians = res.data.musicians
-        // this.musicians.forEach( el => {
-        //   // this.musicians = el;
-        //   this.reviews = el.reviews
-        // })
-        // console.log(res.data.musicians)
-
       })["catch"](function (err) {
         console.log(err);
       });
-    } // setVotes(prova) {
-    //   console.log(prova)
-    //   return this.reviews = prova
-    // }
-    // getVotes() {
-    //   axios
-    //     .get("http://127.0.0.1:8000/api/vote")
-    //     .then((res) => {
-    //       // console.log( res.data.reviews )
-    //       console.log(res.data.musicians)
-    //       res.data.musicians.forEach((el) => {
-    //         this.newReviews = el.reviews;
-    //       });
-    //       console.log(this.newReviews);
-    //       //this.reviews = res.data
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
-    // },
-
+    }
   },
   created: function created() {
-    this.getMusicians(this.$route.params.slug); // this.getVotes();
+    this.getMusicians(this.$route.params.slug);
   }
 });
 
@@ -38464,10 +38429,10 @@ var render = function() {
                     _vm._v(_vm._s(musician.stagename))
                   ]),
                   _vm._v(" "),
-                  _vm._l(_vm.reviews, function(review) {
+                  _vm._l(musician.reviews, function(review) {
                     return _c("div", { key: review.id }, [
                       _vm._v(
-                        "\n            " + _vm._s(review) + "\n            "
+                        "\n            " + _vm._s(review.vote) + "\n          "
                       )
                     ])
                   }),
