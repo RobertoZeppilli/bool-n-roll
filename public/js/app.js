@@ -1974,24 +1974,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FilteredMusicians",
   data: function data() {
     return {
-      musicians: [],
-      reviews: [],
-      filteredReviews: [] // newReviews: [],
-
+      musicians: []
     };
   },
   methods: {
@@ -1999,14 +1986,18 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("http://127.0.0.1:8000/api/musicians/".concat(slug)).then(function (res) {
-        // console.log("data", res.data);
         res.data.forEach(function (el) {
-          // console.log(el)
-          _this.musicians = el.musicians; // console.log( this.musicians )
+          _this.musicians = el.musicians;
         });
       })["catch"](function (err) {
         console.log(err);
       });
+    },
+    getAverageVotes: function getAverageVotes(reviews) {
+      var sum = reviews.reduce(function (acc, review) {
+        return acc += review.vote;
+      }, 0);
+      return Math.ceil(sum / reviews.length);
     }
   },
   created: function created() {
@@ -2025,6 +2016,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2091,7 +2096,7 @@ __webpack_require__.r(__webpack_exports__);
           _this2.musicians = el.musicians;
 
           _this2.$router.push({
-            name: 'musicians',
+            name: "musicians",
             params: {
               slug: _this2.slug
             }
@@ -2385,9 +2390,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ReviewForm",
   data: function data() {
@@ -2503,6 +2505,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2531,6 +2546,12 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         console.log(err);
       });
+    },
+    getAverageVotes: function getAverageVotes(reviews) {
+      var sum = reviews.reduce(function (acc, review) {
+        return acc += review.vote;
+      }, 0);
+      return Math.ceil(sum / reviews.length);
     }
   },
   created: function created() {
@@ -38467,13 +38488,21 @@ var render = function() {
                     _vm._v(_vm._s(musician.stagename))
                   ]),
                   _vm._v(" "),
-                  _vm._l(musician.reviews, function(review) {
-                    return _c("div", { key: review.id }, [
-                      _vm._v(
-                        "\n            " + _vm._s(review.vote) + "\n          "
-                      )
-                    ])
-                  }),
+                  _c(
+                    "span",
+                    { staticClass: "d-block py-2" },
+                    _vm._l(5, function(index) {
+                      return _c("i", {
+                        key: index,
+                        staticClass: "fa-star",
+                        class:
+                          index <= _vm.getAverageVotes(musician.reviews)
+                            ? "fas"
+                            : "far"
+                      })
+                    }),
+                    0
+                  ),
                   _vm._v(" "),
                   _c(
                     "router-link",
@@ -38489,7 +38518,7 @@ var render = function() {
                     [_vm._v("Vedi profilo")]
                   )
                 ],
-                2
+                1
               )
             ])
           ]
@@ -38544,7 +38573,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              "col-xs-6 col-md-6 col-lg-6 d-flex flex-column align-items-center justify-content-center"
+              "\n          col-xs-6 col-md-6 col-lg-6\n          d-flex\n          flex-column\n          align-items-center\n          justify-content-center\n        "
           },
           [
             _vm._m(0),
@@ -38592,7 +38621,7 @@ var render = function() {
                     {
                       attrs: { value: "", selected: "selected", disabled: "" }
                     },
-                    [_vm._v("Scegli un genere")]
+                    [_vm._v("\n              Scegli un genere\n            ")]
                   ),
                   _vm._v(" "),
                   _vm._l(_vm.genres, function(genre) {
@@ -38635,7 +38664,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "my-2 text-center" }, [
       _c("p", { staticClass: "platinum" }, [
-        _vm._v("Cerca un musicista scegliendo il genere che preferisci!")
+        _vm._v(
+          "\n            Cerca un musicista scegliendo il genere che preferisci!\n          "
+        )
       ])
     ])
   },
@@ -39148,7 +39179,7 @@ var render = function() {
             _vm._v(
               "\n      " +
                 _vm._s(_vm.sending ? "Invio in corso..." : "Invia Recensione") +
-                "\n      "
+                "\n    "
             )
           ]
         )
@@ -39220,9 +39251,13 @@ var render = function() {
           _c(
             "carousel",
             {
+              staticClass: "py-5",
               attrs: {
                 perPage: 1,
-                perPageCustom: [[768, 3]],
+                perPageCustom: [
+                  [768, 2],
+                  [996, 3]
+                ],
                 paginationActiveColor: _vm.activePaginateColor,
                 paginationColor: _vm.paginateColor
               }
@@ -39255,6 +39290,22 @@ var render = function() {
                         _vm._v(_vm._s(musician.stagename))
                       ])
                     ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "py-2" },
+                      _vm._l(5, function(index) {
+                        return _c("i", {
+                          key: index,
+                          staticClass: "fa-star",
+                          class:
+                            index <= _vm.getAverageVotes(musician.reviews)
+                              ? "fas"
+                              : "far"
+                        })
+                      }),
+                      0
+                    ),
                     _vm._v(" "),
                     _c(
                       "router-link",
@@ -55728,8 +55779,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Mikilò\Desktop\boolean\bool-n-roll\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Mikilò\Desktop\boolean\bool-n-roll\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\rober\boolean-php\bool-n-roll\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\rober\boolean-php\bool-n-roll\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -2,13 +2,23 @@
   <div class="jumbotron bg-jumbotron">
     <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-6 col-lg-6 d-flex flex-column align-items-center justify-content-center">
+        <div
+          class="
+            col-xs-6 col-md-6 col-lg-6
+            d-flex
+            flex-column
+            align-items-center
+            justify-content-center
+          "
+        >
           <div class="text-center">
             <h1 class="headline">Playing the mood</h1>
           </div>
 
           <div class="my-2 text-center">
-            <p class="platinum">Cerca un musicista scegliendo il genere che preferisci!</p>
+            <p class="platinum">
+              Cerca un musicista scegliendo il genere che preferisci!
+            </p>
           </div>
 
           <div class="form-group">
@@ -18,19 +28,23 @@
               class="form-control mb-2 decorated"
               autocomplete="on"
             >
-              <option value="" selected="selected" disabled>Scegli un genere</option>
-              <option :value="genre.slug" v-for="genre in genres" :key="genre.id">
+              <option value="" selected="selected" disabled>
+                Scegli un genere
+              </option>
+              <option
+                :value="genre.slug"
+                v-for="genre in genres"
+                :key="genre.id"
+              >
                 {{ genre.name }}
               </option>
             </select>
-
           </div>
         </div>
-        
+
         <div class="col-xs-6 col-md-6 col-lg-6">
           <img class="img-fluid" src="images/jumboimg.png" alt="Jumbtron" />
         </div>
-
       </div>
     </div>
   </div>
@@ -69,9 +83,12 @@ export default {
         .then((res) => {
           res.data.forEach((el) => {
             this.musicians = el.musicians;
-            this.$router.push({ name: 'musicians', params: { slug: this.slug }})
+            this.$router.push({
+              name: "musicians",
+              params: { slug: this.slug },
+            });
           });
-        //   console.log(this.musicians);
+          //   console.log(this.musicians);
         })
         .catch((err) => {
           console.log(err);
@@ -86,5 +103,3 @@ export default {
 };
 </script>
 
-<style>
-</style>

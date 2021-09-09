@@ -34,7 +34,6 @@
           id="name"
           rows="5"
           placeholder="Il tuo nome..."
-          
         />
         <div v-if="errors">
           <small
@@ -76,7 +75,6 @@
           >
         </div>
       </div>
-
       <div class="form-group">
         <label for="vote">Voto*</label>
         <select v-model="review.vote" name="vote" id="vote">
@@ -95,14 +93,13 @@
           >
         </div>
       </div>
+
       <div class="my-3">
         <small>I campi con (*) sono obbligatori</small>
       </div>
 
-      <!-- <vs-button type="submit" >invia il messaggio</vs-button> -->
       <button type="submit" class="btn btn-petrol text-white">
         {{ sending ? "Invio in corso..." : "Invia Recensione" }}
-        <!-- Invia -->
       </button>
     </form>
   </div>
@@ -137,15 +134,14 @@ export default {
       axios
         .post("http://127.0.0.1:8000/api/review", this.review)
         .then((res) => {
-          this.sending = false
+          this.sending = false;
 
           if (res.data.errors) {
             this.errors = res.data.errors;
             // this.success = true;
-            this.sending = false
+            this.sending = false;
             // this.$route.push({ name: 'home' })
           } else {
-            
             // this.sending = false;
             this.errors = {};
             this.review = {};

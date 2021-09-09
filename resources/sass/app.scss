@@ -19,9 +19,6 @@
 
 body {
     font-family: 'RocknRoll One', sans-serif;
-    // background-color: darken(#dfe6ef, 7%);
-    // background-color: lighten(#e2dcd9, 5%);
-    // background-color: lighten(#e3e3e3, 3%);
     background-color: #c6d8d3;
 }
 
@@ -52,12 +49,6 @@ select.form-control.mb-2 {
   border-color: $myPurple;
   box-shadow: 0 0 0 0.2rem rgb(48 26 71 / 50%);
 
-  // option {
-
-  //   &:hover {
-  //     color: red!important;
-  //   }
-  // }
 
 }
 

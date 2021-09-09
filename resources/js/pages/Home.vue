@@ -5,11 +5,12 @@
       <div class="py-4 text-center">
         <h2>I nostri musicisti in evidenza</h2>
       </div>
-      <carousel 
+      <carousel
         :perPage="1"
-        :perPageCustom="[[768, 3]]"
+        :perPageCustom="[[768, 2], [996, 3]]"
         :paginationActiveColor="activePaginateColor"
         :paginationColor="paginateColor"
+        class="py-5"
       >
         <slide v-for="(musician, index) in musicians" :key="index">
           <div
@@ -35,6 +36,18 @@
             <div class="card-body">
               <h5 class="card-title">{{ musician.stagename }}</h5>
             </div>
+
+            <div class="py-2">
+              <i
+                class="fa-star"
+                v-for="index in 5"
+                :key="index"
+                :class="
+                  index <= getAverageVotes(musician.reviews) ? 'fas' : 'far'
+                "
+              ></i>
+            </div>
+
             <router-link
               class="btn btn-orange text-white"
               :to="{
@@ -76,20 +89,22 @@ export default {
     Slide,
   },
 
-
   methods: {
     getSponsoredMusicians() {
       axios
         .get("http://127.0.0.1:8000/api/sponsored")
         .then((res) => {
-          
           console.log(res.data);
           this.musicians = res.data.sponsorship;
-
         })
         .catch((err) => {
           console.log(err);
         });
+    },
+
+    getAverageVotes(reviews) {
+      const sum = reviews.reduce((acc, review) => (acc += review.vote), 0);
+      return Math.ceil(sum / reviews.length);
     },
   },
 

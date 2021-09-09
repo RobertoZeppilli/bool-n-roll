@@ -13,7 +13,7 @@
                         <div class="card-body">
                             <h5 class="card-title"><span>Inviata da:</span> {{ $review->name }}</h5>
                             {{-- <i class="fas fa-megaphone"></i> --}}
-                            <i class="fas fa-bullhorn fa-4x mb-2 my-3"></i>
+                            <i class="fas fa-bullhorn fa-4x my-3"></i>
                             <p class="card-text font-italic">{{ $review->review }}</p>
                             @for ($i = 1; $i <= 5; $i++)
                                 <i class="star {{ $i <= $review->vote ? 'fas fa-star' : 'far fa-star' }}"></i>

@@ -20,11 +20,7 @@ class GenreController extends Controller
 
     public function filterMusicians($slug) {
 
-        // $musicians
         $genres = Genre::where('slug', $slug)->with('musicians')->get();
-
-        // $musicians = Musician::has('reviews')->with('reviews')->get();
-        
 
         return response()->json($genres);
     }
