@@ -10,8 +10,11 @@
     {{-- <title>{{ config("app.name", "Bool n Roll") }}</title> --}}
     <title>Bool 'n' Roll</title>
 
-    <!-- Scripts -->
+    
     <script src="{{ asset('js/app.js') }}" defer></script>
+    
+    {{-- <script type="aplication/javascript" src="demo_defer.js" defer></script> --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> --}}
 
     <link rel="icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon"/>
 
@@ -116,8 +119,6 @@
     </div>
 
     @yield('script')
-    
-    
     
 </body>
 </html>

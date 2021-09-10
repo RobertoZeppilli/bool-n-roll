@@ -11,7 +11,7 @@ window.Vue = require('vue');
 import router from './router';
 
 var dayjs = require('dayjs')
-dayjs().format()
+// dayjs().format()
 
 import Vue from 'vue';
 import VueCarousel from 'vue-carousel';

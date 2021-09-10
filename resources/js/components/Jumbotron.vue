@@ -4,7 +4,7 @@
       <div class="row">
         <div
           class="
-            col-xs-6 col-md-6 col-lg-6
+            col-xs-6 col-md-12 col-lg-6
             d-flex
             flex-column
             align-items-center
@@ -42,7 +42,7 @@
           </div>
         </div>
 
-        <div class="col-xs-6 col-md-6 col-lg-6">
+        <div class="col-xs-6 col-md-12 col-lg-6">
           <img class="img-fluid" src="images/jumboimg.png" alt="Jumbtron" />
         </div>
       </div>

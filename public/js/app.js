@@ -39521,7 +39521,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              "\n          col-xs-6 col-md-6 col-lg-6\n          d-flex\n          flex-column\n          align-items-center\n          justify-content-center\n        "
+              "\n          col-xs-6 col-md-12 col-lg-6\n          d-flex\n          flex-column\n          align-items-center\n          justify-content-center\n        "
           },
           [
             _vm._m(0),
@@ -39622,7 +39622,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-xs-6 col-md-6 col-lg-6" }, [
+    return _c("div", { staticClass: "col-xs-6 col-md-12 col-lg-6" }, [
       _c("img", {
         staticClass: "img-fluid",
         attrs: { src: "images/jumboimg.png", alt: "Jumbtron" }
@@ -56067,9 +56067,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 
-var dayjs = __webpack_require__(/*! dayjs */ "./node_modules/dayjs/dayjs.min.js");
+var dayjs = __webpack_require__(/*! dayjs */ "./node_modules/dayjs/dayjs.min.js"); // dayjs().format()
 
-dayjs().format();
+
 
 
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_carousel__WEBPACK_IMPORTED_MODULE_2___default.a); // import Vue from "vue";
@@ -56872,8 +56872,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Mikilò\Desktop\boolean\bool-n-roll\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Mikilò\Desktop\boolean\bool-n-roll\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\rober\boolean-php\bool-n-roll\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\rober\boolean-php\bool-n-roll\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

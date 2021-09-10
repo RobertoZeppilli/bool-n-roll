@@ -50,7 +50,7 @@
                     <div class="card-body text-center ">
                       <h5 class="card-title">Statistiche</h5>
                       <p class="title-yellow bg-pale rounded py-2">Tieniti aggiornato sulle statistiche.</p>
-                      <a class="btn btn-yellow text-white">Statistiche</a>
+                      <a  href="{{ route('admin.musicians.stats', $user->musician->id) }}" class="btn btn-yellow text-white">Statistiche</a>
                     </div>
                 </div>
             </div>
