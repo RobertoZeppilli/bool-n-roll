@@ -3,14 +3,12 @@
 @section('content')
     <div class="container">
         <h1>{{$user->name}} i tuoi messaggi</h1>
-        {{-- {{$user->musician->messages}} --}}
-        {{-- <div class="row"> --}}
-            {{-- <div class="row"> --}}
+        
                 @if (count($user->musician->messages) > 0)
                     @foreach ($user->musician->messages as $message)
-                        {{-- <div class="d-flex"> --}}
+                        
                             <div class="card rounded shadow mb-3">
-                                {{-- <img class="card-img-top" src="..." alt="Card image cap"> --}}
+                                
                                 <div class="card-body text-center">
                                     <div class="mb-4">
                                         <h5 class="card-title"><span>Inviato da:</span> {{ $message->name }}</h5>
@@ -24,17 +22,16 @@
                                 </div>
     
                                 
-                                {{-- <i class="fas fa-megaphone"></i> --}}
+                                
                             </div>
-                        {{-- </div> --}}
+                        
                     @endforeach
                 @else
                     <div class="col-xs-12 col-md-12 col-lg-12">
                         <h2>Non ci sono messaggi, pezzente!</h2>
                     </div>
                 @endif
-            {{-- </div> --}}
-        {{-- </div> --}}
+           
         <div>
             <a class="btn btn-petrol" href="{{ route('admin.welcome') }}">
                 <i class="far fa-hand-point-left text-white"></i>
@@ -42,4 +39,6 @@
         </div>
     </div>
 @endsection
+
+
 

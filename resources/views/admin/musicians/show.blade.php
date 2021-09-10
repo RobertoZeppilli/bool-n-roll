@@ -44,9 +44,10 @@
             <p>{{$musician->typology}}</p>
         </div>
 
-        <div class="mt-5 d-flex justify-content-between align-items-center">
-            <a class="btn btn-petrol" href="{{ route('admin.welcome') }}">
-                <i class="far fa-hand-point-left text-white"></i>
+        <div class="my-5 d-flex justify-content-between text-center">
+            <a class="btn btn-petrol text-white" href="{{ route('admin.welcome') }}">
+                {{-- <i class="far fa-hand-point-left text-white"></i> --}}
+                Indietro
             </a>
             
             

@@ -166,6 +166,26 @@
     transform: translateX(-50%);
 }
 
+.layover-pattern {
+    // z-index: 4;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgb(0, 0, 0, 0.6);
+        // padding: 10px;
+        // border-radius: 10px;
+    }
+}
+
+.z-index {
+    position: relative;
+    z-index: 100;
+}
+
 .pt-300 {
     padding-top: 100px;
 }
@@ -180,4 +200,8 @@
 
 .footer-list:hover {
     color: $myWhite!important; 
+}
+
+.label-font {
+    font-size: 1.2rem;
 }
