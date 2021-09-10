@@ -4,7 +4,9 @@
       <div class="container h-100">
         <div class="d-flex h-100 align-items-center justify-content-between">
           <div class="form-group z-index">
-            <label for="voteAverage" class="text-white label-font">Filtra per media voto</label>
+            <label for="voteAverage" class="text-white label-font"
+              >Filtra per media voto</label
+            >
             <select v-model="starVote" name="voteAverage" id="voteAverage">
               <option value="">Scegli un voto</option>
               <option value="1">★</option>
@@ -15,7 +17,9 @@
             </select>
           </div>
           <div class="form-group z-index">
-            <label for="reviewAmount" class="text-white label-font">Filtra per numero di recensioni</label>
+            <label for="reviewAmount" class="text-white label-font"
+              >Filtra per numero di recensioni</label
+            >
             <select
               v-model="reviewAmount"
               @change="sortedArray(reviewAmount)"
@@ -35,7 +39,7 @@
         <div
           v-for="musician in filterMusicians"
           :key="musician.id"
-          class="col-xs-12 col-md-4 col-lg-4 my-4"
+          class="col-xs-12 col-md-6 col-lg-4 my-4"
         >
           <div class="card">
             <div class="musician-img">
@@ -48,6 +52,13 @@
               <h5 class="card-title py-2">{{ musician.stagename }}</h5>
               <!-- reviews -->
 
+              <div>
+                <small class="bg-dark rounded text-white p-2">{{
+                  musician.reviews.length == 1
+                    ? musician.reviews.length + " recensione"
+                    : musician.reviews.length + " recensioni"
+                }}</small>
+              </div>
               <span class="d-block py-2">
                 <i
                   class="fa-star"
@@ -114,7 +125,7 @@ export default {
         .then((res) => {
           res.data.forEach((el) => {
             this.musicians = el.musicians;
-            console.log(this.musicians);
+            // console.log(this.musicians);
           });
         })
         .catch((err) => {
@@ -132,9 +143,9 @@ export default {
         return this.musicians;
       } else if (amount == "desc") {
         this.musicians.sort((a, b) => a.reviews.length < b.reviews.length);
-        console.log("desc");
+        // console.log("desc");
       } else {
-        console.log("asc");
+        // console.log("asc");
         this.musicians.sort((a, b) => a.reviews.length > b.reviews.length);
       }
     },

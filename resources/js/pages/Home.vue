@@ -7,7 +7,10 @@
       </div>
       <carousel
         :perPage="1"
-        :perPageCustom="[[768, 2], [996, 3]]"
+        :perPageCustom="[
+          [768, 2],
+          [996, 3],
+        ]"
         :paginationActiveColor="activePaginateColor"
         :paginationColor="paginateColor"
         class="py-5"
@@ -37,6 +40,14 @@
               <h5 class="card-title">{{ musician.stagename }}</h5>
             </div>
 
+            <div>
+              <small class="bg-dark rounded text-white p-2">{{
+                musician.reviews.length == 1
+                  ? musician.reviews.length + " recensione"
+                  : musician.reviews.length + " recensioni"
+              }}</small>
+            </div>
+            
             <div class="py-2">
               <i
                 class="fa-star"
@@ -94,7 +105,7 @@ export default {
       axios
         .get("http://127.0.0.1:8000/api/sponsored")
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           this.musicians = res.data.sponsorship;
         })
         .catch((err) => {
@@ -110,7 +121,7 @@ export default {
 
   created() {
     this.getSponsoredMusicians();
-    console.log(this.getSponsor);
+    // console.log(this.getSponsor);
   },
 };
 </script>

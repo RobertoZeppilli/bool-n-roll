@@ -2012,6 +2012,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FilteredMusicians",
@@ -2042,8 +2053,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("http://127.0.0.1:8000/api/musicians/".concat(slug)).then(function (res) {
         res.data.forEach(function (el) {
-          _this2.musicians = el.musicians;
-          console.log(_this2.musicians);
+          _this2.musicians = el.musicians; // console.log(this.musicians);
         });
       })["catch"](function (err) {
         console.log(err);
@@ -2061,10 +2071,9 @@ __webpack_require__.r(__webpack_exports__);
       } else if (amount == "desc") {
         this.musicians.sort(function (a, b) {
           return a.reviews.length < b.reviews.length;
-        });
-        console.log("desc");
+        }); // console.log("desc");
       } else {
-        console.log("asc");
+        // console.log("asc");
         this.musicians.sort(function (a, b) {
           return a.reviews.length > b.reviews.length;
         });
@@ -2087,25 +2096,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2200,46 +2190,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.getGenres(); // this.filter(this.$routes.params.id)
   },
-  mounted: function mounted() {
-    /* ===== Logic for creating fake Select Boxes ===== */
-    $(".sel").each(function () {
-      $(this).children("select").css("display", "none");
-      var $current = $(this);
-      $(this).find("option").each(function (i) {
-        if (i == 0) {
-          $current.prepend($("<div>", {
-            "class": $current.attr("class").replace(/sel/g, "sel__box")
-          }));
-          var placeholder = $(this).text();
-          $current.prepend($("<span>", {
-            "class": $current.attr("class").replace(/sel/g, "sel__placeholder"),
-            text: placeholder,
-            "data-placeholder": placeholder
-          }));
-          return;
-        }
-
-        $current.children("div").append($("<span>", {
-          "class": $current.attr("class").replace(/sel/g, "sel__box__options"),
-          text: $(this).text()
-        }));
-      });
-    }); // Toggling the `.active` state on the `.sel`.
-
-    $(".sel").click(function () {
-      $(this).toggleClass("active");
-    }); // Toggling the `.selected` state on the options.
-
-    $(".sel__box__options").click(function () {
-      var txt = $(this).text();
-      var index = $(this).index();
-      $(this).siblings(".sel__box__options").removeClass("selected");
-      $(this).addClass("selected");
-      var $currentSel = $(this).closest(".sel");
-      $currentSel.children(".sel__placeholder").text(txt);
-      $currentSel.children("select").prop("selectedIndex", index + 1);
-    });
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -2648,6 +2599,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2671,7 +2633,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("http://127.0.0.1:8000/api/sponsored").then(function (res) {
-        console.log(res.data);
+        // console.log(res.data);
         _this.musicians = res.data.sponsorship;
       })["catch"](function (err) {
         console.log(err);
@@ -2685,8 +2647,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    this.getSponsoredMusicians();
-    console.log(this.getSponsor);
+    this.getSponsoredMusicians(); // console.log(this.getSponsor);
   }
 });
 
@@ -38729,7 +38690,7 @@ var render = function() {
             "div",
             {
               key: musician.id,
-              staticClass: "col-xs-12 col-md-4 col-lg-4 my-4"
+              staticClass: "col-xs-12 col-md-6 col-lg-4 my-4"
             },
             [
               _c("div", { staticClass: "card" }, [
@@ -38748,6 +38709,22 @@ var render = function() {
                   [
                     _c("h5", { staticClass: "card-title py-2" }, [
                       _vm._v(_vm._s(musician.stagename))
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c(
+                        "small",
+                        { staticClass: "bg-dark rounded text-white p-2" },
+                        [
+                          _vm._v(
+                            _vm._s(
+                              musician.reviews.length == 1
+                                ? musician.reviews.length + " recensione"
+                                : musician.reviews.length + " recensioni"
+                            )
+                          )
+                        ]
+                      )
                     ]),
                     _vm._v(" "),
                     _c(
@@ -39552,6 +39529,22 @@ var render = function() {
                       _c("h5", { staticClass: "card-title" }, [
                         _vm._v(_vm._s(musician.stagename))
                       ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c(
+                        "small",
+                        { staticClass: "bg-dark rounded text-white p-2" },
+                        [
+                          _vm._v(
+                            _vm._s(
+                              musician.reviews.length == 1
+                                ? musician.reviews.length + " recensione"
+                                : musician.reviews.length + " recensioni"
+                            )
+                          )
+                        ]
+                      )
                     ]),
                     _vm._v(" "),
                     _c(
