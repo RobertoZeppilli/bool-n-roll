@@ -75,7 +75,7 @@ class SponsorshipController extends Controller
             $created_at = Carbon::now('Europe/Rome');
 
             // dd($sponsorship);
-
+            
 
             $musician->sponsorships()->attach($musician, [
                 'sponsorship_id' => $sponsorship->id,
@@ -83,6 +83,8 @@ class SponsorshipController extends Controller
                 'end_date' => $end_date,
                 'created_at' => $created_at
             ]);
+
+            
 
 
             return back()->with('success_message', 'Transazione avvenuta con successo. L\'ID è: ' . $transaction->id);
