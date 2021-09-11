@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>Bool 'n' Roll - Modifica {{ $musician->stagename }}</title>
+@endsection
+
 @section('content')
 <div class="container">
     <h1>Ciao {{ $musician->stagename }}, modifica il profilo!</h1>

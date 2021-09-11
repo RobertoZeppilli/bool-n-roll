@@ -76,15 +76,13 @@ class SponsorshipController extends Controller
 
             // dd($sponsorship);
             
-
+            
             $musician->sponsorships()->attach($musician, [
                 'sponsorship_id' => $sponsorship->id,
                 'musician_id' => $musician->id,
                 'end_date' => $end_date,
                 'created_at' => $created_at
             ]);
-
-            
 
 
             return back()->with('success_message', 'Transazione avvenuta con successo. L\'ID è: ' . $transaction->id);

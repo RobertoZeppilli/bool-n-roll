@@ -7,13 +7,18 @@
             <label for="voteAverage" class="text-white label-font"
               >Filtra per media voto</label
             >
-            <select v-model="starVote" name="voteAverage" id="voteAverage">
-              <option value="">Scegli un voto</option>
-              <option value="1">★</option>
-              <option value="2">★★</option>
-              <option value="3">★★★</option>
-              <option value="4">★★★★</option>
-              <option value="5">★★★★★</option>
+            <select
+              v-model="starVote"
+              name="voteAverage"
+              id="voteAverage"
+              class="decorated form-control"
+            >
+              <option value="">Tutti</option>
+              <option class="title-yellow" value="1">★</option>
+              <option class="title-yellow" value="2">★★</option>
+              <option class="title-yellow" value="3">★★★</option>
+              <option class="title-yellow" value="4">★★★★</option>
+              <option class="title-yellow" value="5">★★★★★</option>
             </select>
           </div>
           <div class="form-group z-index">
@@ -25,6 +30,7 @@
               @change="sortedArray(reviewAmount)"
               name="reviewAmount"
               id="reviewAmount"
+              class="decorated form-control"
             >
               <option value="" disabled>Nessun filtro selezionato</option>
               <option value="desc">Più recensioni</option>

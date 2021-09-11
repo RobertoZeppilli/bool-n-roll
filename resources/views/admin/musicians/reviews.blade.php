@@ -1,8 +1,11 @@
 @extends('layouts.app')
+@section('title')
+    <title>Bool 'n' Roll - Recensioni {{ $user->musician->stagename }}</title>
+@endsection
 
 @section('content')
 <div class="container">
-    <h1>{{$user->name}} le tue recensioni</h1>
+    <h1>{{$user->musician->stagename}} le {{ $user->musician->typology == 'Band' ? 'vostre ' : 'tue' }} recensioni</h1>
     {{-- {{$user->musician->messages}} --}}
     
         @if (count($user->musician->reviews) > 0)
@@ -11,7 +14,7 @@
                     <div class="card w-100 my-2 card_review shadow p-3 mb-2 bg-body rounded">
                         {{-- <img class="card-img-top" src="..." alt="Card image cap"> --}}
                         <div class="card-body">
-                            <h5 class="card-title"><span>Inviata da:</span> {{ $review->name }}</h5>
+                            <h5 class="card-title"><span>Inviata da:</span> {{ $review->name }} {{ $review->surname ? $review->surname[0] . '.' : '' }}</h5>
                             {{-- <i class="fas fa-megaphone"></i> --}}
                             <i class="fas fa-bullhorn fa-4x my-3"></i>
                             <p class="card-text font-italic">{{ $review->review }}</p>

@@ -8,11 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- <title>{{ config("app.name", "Bool n Roll") }}</title> --}}
-    <title>Bool 'n' Roll</title>
-
-    {{-- braintree --}}
-    
-
+    {{-- <title>Bool 'n' Roll</title> --}}
+    @yield('title')
 
     <link rel="icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon"/>
 
@@ -28,13 +25,15 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md  shadow-sm bg-nav fixed-nav">
+        <nav class="navbar navbar-expand-md shadow-sm bg-nav">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img style="height: 50px;" src="{{ asset('images/logorock.png') }}" alt="">
                 </a>
-                <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler btn-orange" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon">
+                        <i class="fas fa-bars" style="color:#fff; font-size:28px;"></i>
+                    </span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -47,28 +46,34 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item login-link rounded ml-2">
-                                <a class="nav-link text-white px-2" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <li class="nav-item btn-orange btn login-link">
+                                <a class="text-white" href="{{ route('login') }}"><i class="fas fa-user-alt"></i> {{ __('Login') }}</a>
+                                
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item register-link rounded ml-2">
-                                    <a class="nav-link title-orange px-2" href="{{ route('register') }}">{{ __('Sei un musicista? Registrati!') }}</a>
+                                <li class="nav-item btn custom-margin register-link">
+                                    <a class="title-orange" href="{{ route('register') }}"><i class="fas fa-guitar"></i> {{ __('Sei un musicista? Registrati!') }}</a>
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle title-orange" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ ucfirst(Auth::user()->name) }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/admin">
-                                        Dashboard
+                            <li class="nav-item dropdown --mod">
+                                
+                                    <a id="navbarDropdown" class="nav-link title-orange d-flex align-items-center" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <img class="mini-img mr-2" src="{{ asset('storage/'.Auth::user()->musician->cover) }}" alt=""> {{ ucfirst(Auth::user()->name) }} 
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                
+
+                                <div class="dropdown-menu custom-border dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item custom-drop title-orange" href="/admin">
+                                        <i class="fas fa-compact-disc"></i> Dashboard
+                                    </a>
+                                    <a class="dropdown-item custom-drop title-orange" href="/admin/musicians/{{Auth::user()->musician->slug}}">
+                                        <i class="fas fa-user-alt"></i> Profilo
+                                    </a>
+                                    <a class="dropdown-item custom-drop title-orange" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }} 
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -86,7 +91,7 @@
             @yield('content')
         </main>
 
-        <footer class="bg-dark text-white py-5">
+        <footer class="bg-dark text-white" style="padding: 70px 0;">
             <div class="container">
                 <div class="row text-center">
                     <div class="col-xs-12 col-md-4 col-lg-4">
@@ -126,9 +131,5 @@
 
     
     @stack('script')
-
-    
-
-    
 </body>
 </html>

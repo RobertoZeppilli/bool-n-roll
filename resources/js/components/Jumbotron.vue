@@ -27,6 +27,7 @@
               v-model="slug"
               class="form-control mb-2 decorated"
               autocomplete="on"
+              
             >
               <option value="" selected="selected" disabled>
                 Scegli un genere
@@ -40,6 +41,8 @@
               </option>
             </select>
           </div>
+
+          
         </div>
 
         <div class="col-xs-6 col-md-12 col-lg-6">
@@ -51,8 +54,6 @@
 </template>
 
 <script>
-// import FilteredMusicians from './FilteredMusicians';
-
 
 export default {
   name: "Jumbotron",

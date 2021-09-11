@@ -1,29 +1,33 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>Bool 'n' Roll - Profilo {{ $musician->stagename }}</title>
+@endsection
+
 @section('content')
 
-
-    @if (session('message'))
-        <div class="alert alert-success">
-            <h6>{{ session('message') }}</h6>
-        </div>
-    @endif
+    
     <div class="pattern"></div>
-    <div class="container myContainer">
+    <div class="container py-5 myContainer">
+        @if (session('message'))
+            <div class="alert alert-success">
+                <h6>{{ session('message') }}</h6>
+            </div>
+        @endif
         <div class="position d-flex align-items-center justify-content-center">
             <img class="profile-img" src="{{ asset('storage/'.$musician->cover) }}" alt="" />
         </div>
-        <div class="pt-300 text-center">
-            <h2 class="py-2 my-3">Il profilo di {{ $musician->stagename }}</h2>
+        <div class="pt-100 text-center">
+            <h2 class="py-2 my-3">Il profilo {{ $musician->typology == 'Band' ? 'dei ' . $musician->stagename : 'di ' . $musician->stagename  }}</h2>
 
             
                 @if ($musician->sponsorships)
                     <div class="my-4">
                         @foreach ($musician->sponsorships as $sponsorship)
-                            @if (Illuminate\Support\Carbon::now() <= $sponsorship->pivot->end_date) 
+                            @if (Illuminate\Support\Carbon::now('Europe/Rome') <= $sponsorship->pivot->end_date && $loop->last) 
                                 <div class="p-3 rounded">
-                                    <span class="badge badge-success text-white p-2 sponsor-size">Il tuo profilo è sponsorizzato fino al {{$sponsorship->pivot->end_date}}</span>
-                                </div>  
+                                    <span class="badge badge-success text-white p-2 sponsor-size">Il {{ $musician->typology == 'Band' ? 'vostro ' : 'tuo '  }} profilo è sponsorizzato fino al {{$sponsorship->pivot->end_date}}</span>
+                                </div>
                             @endif
                         @endforeach
                     </div>

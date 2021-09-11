@@ -2023,6 +2023,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FilteredMusicians",
@@ -2148,7 +2154,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-// import FilteredMusicians from './FilteredMusicians';
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Jumbotron",
   data: function data() {
@@ -2364,6 +2372,18 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2769,6 +2789,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2799,26 +2850,16 @@ __webpack_require__.r(__webpack_exports__);
         console.log(err);
       });
     },
-    // hide() {
-    //   if (!this.show && this.review) {
-    //     this.show = true;
-    //     this.review = false;
-    //   } else {
-    //     this.show = false;
-    //     this.review = true;
-    //   }
-    // },
     getSendDate: function getSendDate(date) {
-      return dayjs__WEBPACK_IMPORTED_MODULE_2___default()(date).format('DD-MM-YYYY');
+      return dayjs__WEBPACK_IMPORTED_MODULE_2___default()(date).format("DD-MM-YYYY");
+    },
+    getSurnameFirstLetter: function getSurnameFirstLetter(surname) {
+      var firstLetter = surname[0] + ".";
+      return firstLetter;
     }
   },
   created: function created() {
     this.getMusician(this.$route.params.slug); // this.$emit('prova', this.reviews);
-  },
-  computed: {
-    dateFormat: function dateFormat() {
-      return dayjs__WEBPACK_IMPORTED_MODULE_2___default()(this.created_at).format('DD-MM-YYYY');
-    }
   }
 });
 
@@ -39293,6 +39334,7 @@ var render = function() {
                       expression: "starVote"
                     }
                   ],
+                  staticClass: "decorated form-control",
                   attrs: { name: "voteAverage", id: "voteAverage" },
                   on: {
                     change: function($event) {
@@ -39311,19 +39353,37 @@ var render = function() {
                   }
                 },
                 [
-                  _c("option", { attrs: { value: "" } }, [
-                    _vm._v("Scegli un voto")
-                  ]),
+                  _c("option", { attrs: { value: "" } }, [_vm._v("Tutti")]),
                   _vm._v(" "),
-                  _c("option", { attrs: { value: "1" } }, [_vm._v("★")]),
+                  _c(
+                    "option",
+                    { staticClass: "title-yellow", attrs: { value: "1" } },
+                    [_vm._v("★")]
+                  ),
                   _vm._v(" "),
-                  _c("option", { attrs: { value: "2" } }, [_vm._v("★★")]),
+                  _c(
+                    "option",
+                    { staticClass: "title-yellow", attrs: { value: "2" } },
+                    [_vm._v("★★")]
+                  ),
                   _vm._v(" "),
-                  _c("option", { attrs: { value: "3" } }, [_vm._v("★★★")]),
+                  _c(
+                    "option",
+                    { staticClass: "title-yellow", attrs: { value: "3" } },
+                    [_vm._v("★★★")]
+                  ),
                   _vm._v(" "),
-                  _c("option", { attrs: { value: "4" } }, [_vm._v("★★★★")]),
+                  _c(
+                    "option",
+                    { staticClass: "title-yellow", attrs: { value: "4" } },
+                    [_vm._v("★★★★")]
+                  ),
                   _vm._v(" "),
-                  _c("option", { attrs: { value: "5" } }, [_vm._v("★★★★★")])
+                  _c(
+                    "option",
+                    { staticClass: "title-yellow", attrs: { value: "5" } },
+                    [_vm._v("★★★★★")]
+                  )
                 ]
               )
             ]),
@@ -39349,6 +39409,7 @@ var render = function() {
                       expression: "reviewAmount"
                     }
                   ],
+                  staticClass: "decorated form-control",
                   attrs: { name: "reviewAmount", id: "reviewAmount" },
                   on: {
                     change: [
@@ -39669,9 +39730,7 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "email" } }, [
-            _vm._v("Inserisci la tua email*")
-          ]),
+          _c("label", { attrs: { for: "email" } }, [_vm._v("Email*")]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -39877,7 +39936,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "my-3" }, [
+    return _c("div", { staticClass: "py-1" }, [
       _c("small", [_vm._v("I campi con (*) sono obbligatori")])
     ])
   }
@@ -40056,83 +40115,114 @@ var render = function() {
             : _vm._e()
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "vote" } }, [_vm._v("Voto*")]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.review.vote,
-                  expression: "review.vote"
+        _c("div", { staticClass: "d-flex justify-content-between" }, [
+          _c("div", [
+            _c("label", { attrs: { for: "vote" } }, [_vm._v("Voto*")]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.review.vote,
+                    expression: "review.vote"
+                  }
+                ],
+                staticClass: "decorated form-control",
+                attrs: { name: "vote", id: "vote" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.review,
+                      "vote",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
                 }
-              ],
-              attrs: { name: "vote", id: "vote" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.review,
-                    "vote",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
-              }
-            },
-            [
-              _c("option", { attrs: { value: "1" } }, [_vm._v("★")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "2" } }, [_vm._v("★★")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "3" } }, [_vm._v("★★★")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "4" } }, [_vm._v("★★★★")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "5" } }, [_vm._v("★★★★★")])
-            ]
-          ),
+              },
+              [
+                _c("option", { attrs: { value: "", disabled: "" } }, [
+                  _vm._v("Scegli un voto")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "option",
+                  { staticClass: "title-yellow", attrs: { value: "1" } },
+                  [_vm._v("★")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "option",
+                  { staticClass: "title-yellow", attrs: { value: "2" } },
+                  [_vm._v("★★")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "option",
+                  { staticClass: "title-yellow", attrs: { value: "3" } },
+                  [_vm._v("★★★")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "option",
+                  { staticClass: "title-yellow", attrs: { value: "4" } },
+                  [_vm._v("★★★★")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "option",
+                  { staticClass: "title-yellow", attrs: { value: "5" } },
+                  [_vm._v("★★★★★")]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _vm.errors
+              ? _c(
+                  "div",
+                  _vm._l(_vm.errors.vote, function(error, index) {
+                    return _c(
+                      "small",
+                      { key: "err-vote-" + index, staticClass: "text-danger" },
+                      [_vm._v(_vm._s(error))]
+                    )
+                  }),
+                  0
+                )
+              : _vm._e()
+          ]),
           _vm._v(" "),
-          _vm.errors
-            ? _c(
-                "div",
-                _vm._l(_vm.errors.vote, function(error, index) {
-                  return _c(
-                    "small",
-                    { key: "err-vote-" + index, staticClass: "text-danger" },
-                    [_vm._v(_vm._s(error))]
-                  )
-                }),
-                0
-              )
-            : _vm._e()
-        ]),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-petrol text-white",
-            attrs: { type: "submit" }
-          },
-          [
-            _vm._v(
-              "\n      " +
-                _vm._s(_vm.sending ? "Invio in corso..." : "Invia Recensione") +
-                "\n    "
+          _c("div", [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-petrol text-white",
+                attrs: { type: "submit" }
+              },
+              [
+                _vm._v(
+                  "\n          " +
+                    _vm._s(
+                      _vm.sending ? "Invio in corso..." : "Invia Recensione"
+                    ) +
+                    "\n        "
+                )
+              ]
             )
-          ]
-        )
+          ])
+        ])
       ]
     )
   ])
@@ -40161,7 +40251,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "my-3" }, [
+    return _c("div", { staticClass: "py-1" }, [
       _c("small", [_vm._v("I campi con (*) sono obbligatori")])
     ])
   }
@@ -40430,7 +40520,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "pt-300 text-center" },
+          { staticClass: "pt-100 text-center" },
           [
             _c("h1", { staticClass: "my-5" }, [
               _vm._v(_vm._s(_vm.musician.stagename))
@@ -40513,25 +40603,45 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          [
-            _c("h3", { staticClass: "my-3 mt-3" }, [
-              _vm._v("Recensioni su " + _vm._s(_vm.musician.stagename))
-            ]),
-            _vm._v(" "),
+        _c("div", [
+          _c("h3", { staticClass: "my-3 mt-3" }, [
+            _vm._v("Recensioni su " + _vm._s(_vm.musician.stagename))
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.musician.reviews,
+                  expression: "musician.reviews"
+                }
+              ]
+            },
             _vm._l(_vm.musician.reviews, function(review) {
               return _c(
                 "div",
                 {
                   key: review.id,
                   staticClass:
-                    "card w-100 my-2 card_review shadow p-3 mb-2 bg-body rounded"
+                    "\n              card\n              w-100\n              my-2\n              card_review\n              shadow\n              p-3\n              mb-2\n              bg-body\n              rounded\n            "
                 },
                 [
                   _c("div", { staticClass: "card-body" }, [
                     _c("h5", { staticClass: "title-wine" }, [
-                      _vm._v(_vm._s(review.name))
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(review.name) +
+                          "\n                " +
+                          _vm._s(
+                            review.surname
+                              ? _vm.getSurnameFirstLetter(review.surname)
+                              : ""
+                          ) +
+                          "\n              "
+                      )
                     ]),
                     _vm._v(" "),
                     _c(
@@ -40562,15 +40672,15 @@ var render = function() {
                   ])
                 ]
               )
-            })
-          ],
-          2
-        ),
+            }),
+            0
+          )
+        ]),
         _vm._v(" "),
         _c(
           "a",
           {
-            staticClass: "btn btn-yellow text-black my-5",
+            staticClass: "btn btn-yellow text-white my-5",
             on: {
               click: function($event) {
                 return _vm.$router.go(-1)

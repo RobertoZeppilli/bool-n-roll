@@ -17209,13 +17209,31 @@ a.text-dark:focus {
   background-color: #ec5e25;
 }
 
+.login-link a:hover {
+  text-decoration: none;
+}
+
 .login-link:hover {
   background-color: #b53f10;
+  text-decoration: none;
 }
 
 .register-link {
   border: 1px solid #ec5e25;
   background-color: transparent;
+}
+
+a.title-yellow,
+a.title-pink,
+a.title-petrol {
+  transition: all 0.3s ease-in-out;
+}
+
+a.title-yellow:hover,
+a.title-pink:hover,
+a.title-petrol:hover {
+  color: #fff;
+  text-decoration: none;
 }
 
 .gold {
@@ -17281,7 +17299,7 @@ a.text-dark:focus {
   z-index: 100;
 }
 
-.pt-300 {
+.pt-100 {
   padding-top: 100px;
 }
 
@@ -17299,6 +17317,26 @@ a.text-dark:focus {
 
 .label-font {
   font-size: 1.2rem;
+}
+
+.dropdown-item.custom-drop {
+  transition: all 0.3s ease-in-out;
+}
+
+.dropdown-item.custom-drop:hover {
+  background-color: #ec5e25;
+  color: #fff;
+}
+
+.dropdown-menu.custom-border {
+  border: 1px solid #ec5e25;
+}
+
+.mini-img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: 1px solid #ec5e25;
 }
 
 .inputGroup {
@@ -17458,7 +17496,22 @@ aside {
   color: #f7af1a;
 }
 
-.mmm {
-  color: #a07827;
+a.title-orange {
+  transition: all 0.3s ease-in-out;
+}
+
+a.title-orange:hover {
+  text-decoration: none;
+}
+
+.custom-margin {
+  margin-left: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-margin {
+    margin-left: 0;
+    margin-top: 15px;
+  }
 }
 

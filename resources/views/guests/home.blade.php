@@ -103,6 +103,10 @@
 
 @extends('layouts.app')
 
+@section('title')
+<title>Bool 'n' Roll</title>
+@endsection
+
 @section('content')
     <div id="app">
         <example-component></example-component>

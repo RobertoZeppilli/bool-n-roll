@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
+
+@section('title')
+    <title>Bool 'n' Roll - Crea Profilo</title>
+@endsection
 @section('content')
-<div class="container">
+<div class="container  py-5">
     <h1>Ciao {{ ucfirst($user->name) }}, crea il tuo profilo!</h1>
     <form action="{{ route('admin.musicians.store', $musician->id) }}" method="POST" class="mt-3" enctype="multipart/form-data"> 
 
@@ -77,11 +81,11 @@
         
 
         <div class="d-flex justify-content-between align-items-center">
-            <a class="btn btn-petrol" href="{{ route('admin.welcome') }}">
-                <i class="far fa-hand-point-left text-white"></i>
+            <a class="btn btn-petrol text-white" href="{{ route('admin.welcome') }}">
+                Indietro
             </a>
             <button type="submit" class="btn btn-primary my-5">
-                Save
+                Salva
             </button>
         </div>
     </form>

@@ -75,32 +75,44 @@
           >
         </div>
       </div>
-      <div class="form-group">
-        <label for="vote">Voto*</label>
-        <select v-model="review.vote" name="vote" id="vote">
-          <option value="1">★</option>
-          <option value="2">★★</option>
-          <option value="3">★★★</option>
-          <option value="4">★★★★</option>
-          <option value="5">★★★★★</option>
-        </select>
-        <div v-if="errors">
-          <small
-            class="text-danger"
-            v-for="(error, index) in errors.vote"
-            :key="`err-vote-${index}`"
-            >{{ error }}</small
+      <div class="d-flex justify-content-between">
+        <div>
+          <label for="vote">Voto*</label>
+          <select
+            v-model="review.vote"
+            name="vote"
+            id="vote"
+            class="decorated form-control"
           >
+            <option value="" disabled>Scegli un voto</option>
+            <option class="title-yellow" value="1">★</option>
+            <option class="title-yellow" value="2">★★</option>
+            <option class="title-yellow" value="3">★★★</option>
+            <option class="title-yellow" value="4">★★★★</option>
+            <option class="title-yellow" value="5">★★★★★</option>
+          </select>
+          <div v-if="errors">
+            <small
+              class="text-danger"
+              v-for="(error, index) in errors.vote"
+              :key="`err-vote-${index}`"
+              >{{ error }}</small
+            >
+          </div>
+        </div>
+        <div>
+          <div class="py-1">
+            <small>I campi con (*) sono obbligatori</small>
+          </div>
+          <button type="submit" class="btn btn-petrol text-white">
+            {{ sending ? "Invio in corso..." : "Invia Recensione" }}
+          </button>
         </div>
       </div>
 
-      <div class="my-3">
+      <!-- <div class="my-3">
         <small>I campi con (*) sono obbligatori</small>
-      </div>
-
-      <button type="submit" class="btn btn-petrol text-white">
-        {{ sending ? "Invio in corso..." : "Invia Recensione" }}
-      </button>
+      </div> -->
     </form>
   </div>
 </template>

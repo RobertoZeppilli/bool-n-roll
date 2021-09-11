@@ -33,10 +33,10 @@ Route::middleware('auth')
         Route::get('/', 'HomeController@index')->name('welcome');
         Route::resource('musicians', 'MusicianController');
 
-        Route::get('musicians/{id}/sponsor', 'MusicianController@showSponsorPage')->name('musicians.sponsor');
-        Route::get('musicians/{id}/messages', 'MusicianController@showMessagePage')->name('musicians.messages');
-        Route::get('musicians/{id}/reviews', 'MusicianController@showReviewPage')->name('musicians.reviews');
-        Route::get('musicians/{id}/stats', 'StatController@showStats')->name('musicians.stats');
+        Route::get('musicians/{slug}/sponsor', 'MusicianController@showSponsorPage')->name('musicians.sponsor');
+        Route::get('musicians/{slug}/messages', 'MusicianController@showMessagePage')->name('musicians.messages');
+        Route::get('musicians/{slug}/reviews', 'MusicianController@showReviewPage')->name('musicians.reviews');
+        Route::get('musicians/{slug}/stats', 'StatController@showStats')->name('musicians.stats');
         // Route::get('/payment/make', 'SponsorshipController@make')->name('payment.make');
         // Route::get('/payment', 'SponsorshipController@payment')->name('musicians.payment');
         // Route::post('/checkout', 'SponsorshipController@payment');

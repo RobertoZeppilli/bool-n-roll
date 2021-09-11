@@ -1,11 +1,15 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>Bool 'n' Roll - Statistiche {{ $musician->stagename }}</title>
+@endsection
+
 @section('content')
 <div class="container">
   <div class="py-3">
     <h1 class="stat_title">Le tue statistiche</h1>
     @if (count($messages) == 0 && count($reviews) == 0)
-        <h2 id="empty_page">Non hai statistiche disponibili</h2>
+        <h2>Non hai statistiche disponibili</h2>
     @else
   
     <div class="chart_1">
@@ -52,8 +56,14 @@ if (commenti[0]) {
 } else {
   var date1 = now;
 }
-const primaDataMessaggio = messaggi[0].created_at;
-const date2 = dayjs(primaDataMessaggio);
+
+if(!messaggi[0]) {
+   var date2 = now
+} 
+var primaDataMessaggio = messaggi[0].created_at;
+
+var date2 = dayjs(primaDataMessaggio);
+
 var datex;
 if (date2 < date1) {
   datex = date2;

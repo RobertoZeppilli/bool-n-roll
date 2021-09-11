@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>Bool 'n' Roll - Login</title>
+@endsection
+
 @section('content')
 <div class="container main-height">
     <div class="row h-100 d-flex align-items-center justify-content-center">

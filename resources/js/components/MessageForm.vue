@@ -3,7 +3,7 @@
     <h2>Manda un messaggio</h2>
     <form method="POST" @submit.prevent="sendMessage(musicianId)">
       <div class="form-group">
-        <label for="email">Inserisci la tua email*</label>
+        <label for="email">Email*</label>
         <input
           type="email"
           class="form-control"
@@ -83,7 +83,7 @@
           >
         </div>
       </div>
-      <div class="my-3">
+      <div class="py-1">
         <small>I campi con (*) sono obbligatori</small>
       </div>
 

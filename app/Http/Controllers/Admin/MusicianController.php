@@ -114,10 +114,11 @@ class MusicianController extends Controller
      * @param  \App\Musician  $musician
      * @return \Illuminate\Http\Response
      */
-    public function show(Musician $musician, User $user)
+    public function show(User $user)
 
     {
-        
+        $musician = Musician::where('user_id', Auth::id())->first();
+
         return view('admin.musicians.show', compact('user', 'musician'));
     }
 
