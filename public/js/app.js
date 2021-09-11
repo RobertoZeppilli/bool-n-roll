@@ -56093,8 +56093,8 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('example-component', __webp
 
 var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   el: '#app',
-  router: _router__WEBPACK_IMPORTED_MODULE_0__["default"],
-  dayjs: dayjs
+  router: _router__WEBPACK_IMPORTED_MODULE_0__["default"] // dayjs,
+
 });
 
 /***/ }),

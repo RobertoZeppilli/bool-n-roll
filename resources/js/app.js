@@ -6,6 +6,7 @@
 
 require('./bootstrap');
 
+
 window.Vue = require('vue');
 
 import router from './router';
@@ -39,9 +40,12 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
+
 const app = new Vue({
     el: '#app',
     router,
-    dayjs,
-    
+    // dayjs,
+
 });
+
