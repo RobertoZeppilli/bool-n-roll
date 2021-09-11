@@ -2798,7 +2798,8 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         console.log(err);
       });
-    } // hide() {
+    },
+    // hide() {
     //   if (!this.show && this.review) {
     //     this.show = true;
     //     this.review = false;
@@ -2807,11 +2808,12 @@ __webpack_require__.r(__webpack_exports__);
     //     this.review = true;
     //   }
     // },
-
+    getSendDate: function getSendDate(date) {
+      return dayjs__WEBPACK_IMPORTED_MODULE_2___default()(date).format('DD-MM-YYYY');
+    }
   },
   created: function created() {
-    this.getMusician(this.$route.params.slug);
-    this.$emit('prova', this.reviews);
+    this.getMusician(this.$route.params.slug); // this.$emit('prova', this.reviews);
   },
   computed: {
     dateFormat: function dateFormat() {
@@ -40551,7 +40553,10 @@ var render = function() {
                     _vm._v(" "),
                     _c("p", { staticClass: "text-right" }, [
                       _c("small", [
-                        _vm._v("Inviato il " + _vm._s(_vm.dateFormat))
+                        _vm._v(
+                          "Inviato il " +
+                            _vm._s(_vm.getSendDate(review.created_at))
+                        )
                       ])
                     ])
                   ])

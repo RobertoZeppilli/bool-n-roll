@@ -56,7 +56,7 @@
                 ></i>
               </div>
               <p class="font-italic">{{review.review}}</p>
-              <p class="text-right"><small>Inviato il {{dateFormat}}</small></p>
+              <p class="text-right"><small>Inviato il {{ getSendDate(review.created_at) }}</small></p>
             </div>
           </div>  
         </div>
@@ -117,11 +117,15 @@ export default {
     //     this.review = true;
     //   }
     // },
+
+    getSendDate(date) {
+      return dayjs(date).format('DD-MM-YYYY');
+    }
   },
 
   created() {
     this.getMusician(this.$route.params.slug);
-    this.$emit('prova', this.reviews);
+    // this.$emit('prova', this.reviews);
   },
 
   computed: {

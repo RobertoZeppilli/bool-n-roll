@@ -1,22 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="my_container">
-  <h1 class="stat_title">Le tue statistiche</h1>
-  @if (count($messages) == 0 && count($reviews) == 0)
-      <h2 id="empty_page">Non hai statistiche disponibili</h2>
-  @else
+<div class="container">
+  <div class="py-3">
+    <h1 class="stat_title">Le tue statistiche</h1>
+    @if (count($messages) == 0 && count($reviews) == 0)
+        <h2 id="empty_page">Non hai statistiche disponibili</h2>
+    @else
+  
+    <div class="chart_1">
+      <h4>Numero di messaggi e recensioni ricevute ogni mese</h4>
+      <canvas id="myChart"></canvas>
+    </div>
+    <div class="chart_1">
+      <h4>Voti ricevuti ogni mese</h4>
+      <canvas id="myOtherChart"></canvas>
+    </div>
+    @endif
+    <a class="btn btn-petrol text-white" href="{{ route('admin.welcome') }}">
+      {{-- <i class="far fa-hand-point-left text-white"></i> --}}
+      Indietro
+    </a>
 
-  <div class="chart_1">
-    <h4>Numero di messaggi e recensioni ricevute ogni mese</h4>
-    <canvas id="myChart"></canvas>
   </div>
-  <div class="chart_1">
-    <h4>Voti ricevuti ogni mese</h4>
-    <canvas id="myOtherChart"></canvas>
-  </div>
-  @endif
-  <p class="link_dashboard"><a href="{{ route('admin.welcome') }}">Torna alla Dashboard</a></p>
 </div>
 @endsection
 
@@ -142,24 +148,24 @@ var myChart = new Chart(ctx, {
         labels: months,
         datasets: [
           {
-            label: 'Numero di recensioni',
+            label: 'Recensioni',
             data: recensioniMese,
             backgroundColor: [
-                '#0000ff8c',
+                '#08a38f',
             ],
             borderColor: [
-                '#0000ff',
+                '#08a37f',
             ],
             borderWidth: 1
         },
         {
-            label: 'Numero di messaggi ricevuti',
+            label: 'Messaggi',
             data: messaggiMese,
             backgroundColor: [
-                '#ff00c88c',
+                '#f7af1a',
             ],
             borderColor: [
-                '#ff00c8',
+                '#f7af1c',
             ],
             borderWidth: 1
         },
@@ -173,6 +179,25 @@ var myChart = new Chart(ctx, {
                 stepSize: 1
               }
             }
+        },
+        plugins: {
+          legend: {
+            position: 'right',
+            align: 'start',
+            labels: {
+              color: '#eceff5',
+              font: {
+                  size: 14,
+                  // weight: 'bold'
+              }
+            }
+          },
+          deferred: {           // enabled by default
+            xOffset: 150,     // defer until 150px of the canvas width are inside the viewport
+            yOffset: '50%',   // defer until 50% of the canvas height are inside the viewport
+            delay: 500        // delay of 500 ms after the canvas is considered inside the viewport
+        }
+          
         }
     }
 });
@@ -185,10 +210,10 @@ var myChart = new Chart(ct2, {
             label: '1 Stella',
             data: voto1,
             backgroundColor: [
-                '#ff00008c',
+                '#f08799',
             ],
             borderColor: [
-                'red',
+                '#f08798',
             ],
             borderWidth: 1
         },
@@ -196,10 +221,10 @@ var myChart = new Chart(ct2, {
             label: '2 Stelle',
             data: voto2,
             backgroundColor: [
-                '#ffa6008c',
+                '#671649',
             ],
             borderColor: [
-                'orange',
+               '#671649',
             ],
             borderWidth: 1
         },
@@ -207,10 +232,11 @@ var myChart = new Chart(ct2, {
             label: '3 Stelle',
             data: voto3,
             backgroundColor: [
-                '#ffff008c',
+                '#ec5e25',
             ],
             borderColor: [
-                'yellow',
+                '#ec5e25',
+                
             ],
             borderWidth: 1
         },
@@ -218,10 +244,10 @@ var myChart = new Chart(ct2, {
             label: '4 Stelle',
             data: voto4,
             backgroundColor: [
-                '#b7dd298c',
+                '#301a47',
             ],
             borderColor: [
-                '#b7dd29',
+                '#301a47',
             ],
             borderWidth: 1
         },
@@ -229,10 +255,10 @@ var myChart = new Chart(ct2, {
             label: '5 Stelle',
             data: voto5,
             backgroundColor: [
-                '#57e32c8c',
+                '#68ba93',
             ],
             borderColor: [
-                '#57e32c',
+                '#68ba93',
             ],
             borderWidth: 1
         },
@@ -246,7 +272,27 @@ var myChart = new Chart(ct2, {
                 stepSize: 1
               }
             }
+        },
+        plugins: {
+          legend: {
+            position: 'right',
+            align: 'start',
+            labels: {
+              color: '#eceff5',
+              font: {
+                  size: 14,
+                  // weight: 'bold'
+              }
+            }
+          },
+          deferred: {           // enabled by default
+            xOffset: 150,     // defer until 150px of the canvas width are inside the viewport
+            yOffset: '50%',   // defer until 50% of the canvas height are inside the viewport
+            delay: 900        // delay of 500 ms after the canvas is considered inside the viewport
         }
+          
+        },
+
     }
 });
 </script>

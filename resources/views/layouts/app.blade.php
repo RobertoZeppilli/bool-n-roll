@@ -10,11 +10,9 @@
     {{-- <title>{{ config("app.name", "Bool n Roll") }}</title> --}}
     <title>Bool 'n' Roll</title>
 
-   
+    {{-- braintree --}}
     
-    
-    {{-- <script type="aplication/javascript" src="demo_defer.js" defer></script> --}}
-    {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> --}}
+
 
     <link rel="icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon"/>
 
@@ -24,6 +22,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    {{-- <script src="https://js.braintreegateway.com/web/dropin/1.31.1/js/dropin.min.js"></script> --}}
+    
 </head>
 <body>
     <div id="app">
@@ -121,7 +122,11 @@
 
     {{-- ho spostato app.js qui e messo questo @stack per contenere lo script di cahrt.js proveniente da stats.blade --}}
     <script src="{{ asset('js/app.js') }}"></script>
+    
+
+    
     @stack('script')
+
     
 
     
