@@ -1,10 +1,12 @@
 <template>
   <div>
     <Jumbotron />
+    <div class="pattern-home">
+      
+    </div>
     <div class="container">
-      <div class="py-4 text-center" data-aos="zoom-in">
-        <h2>I nostri musicisti in evidenza</h2>
-      </div>
+      <!-- <div class="py-4 text-center" data-aos="zoom-in">
+      </div> -->
       <carousel
         :perPage="1"
         :perPageCustom="[
@@ -81,7 +83,10 @@
             alt=""
           />
         </div>
-        <div class="col-xs-12 col-md-6 col-lg-6 py-4 text-center" data-aos="fade-left">
+        <div
+          class="col-xs-12 col-md-6 col-lg-6 py-4 text-center"
+          data-aos="fade-left"
+        >
           <div
             class="
               d-flex
@@ -111,7 +116,16 @@
               h-100
             "
           >
-            <div class="d-flex justify-content-center align-items-center flex-column text-center" data-aos="fade-right">
+            <div
+              class="
+                d-flex
+                justify-content-center
+                align-items-center
+                flex-column
+                text-center
+              "
+              data-aos="fade-right"
+            >
               <h3 class="py-2">
                 Sei un musicista o vuoi sponsorizzare la tua Band?
               </h3>
@@ -122,7 +136,10 @@
                 profilo
               </p>
               <!-- <div class="register-link rounded text-center"> -->
-              <a style="width: max-content;" class="btn btn-orange text-white" href="/register"
+              <a
+                style="width: max-content"
+                class="btn btn-orange text-white"
+                href="/register"
                 >Registrati</a
               >
               <!-- </div> -->

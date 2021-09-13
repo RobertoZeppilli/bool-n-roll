@@ -2774,6 +2774,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -39780,7 +39797,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "jumbotron bg-jumbotron" }, [
+  return _c("div", { staticClass: "py-5 bg-jumbotron" }, [
     _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row" }, [
         _c(
@@ -40508,12 +40525,12 @@ var render = function() {
     [
       _c("Jumbotron"),
       _vm._v(" "),
+      _c("div", { staticClass: "pattern-home" }),
+      _vm._v(" "),
       _c(
         "div",
         { staticClass: "container" },
         [
-          _vm._m(0),
-          _vm._v(" "),
           _c(
             "carousel",
             {
@@ -40611,7 +40628,7 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _vm._m(1)
+          _vm._m(0)
         ],
         1
       )
@@ -40620,16 +40637,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "py-4 text-center", attrs: { "data-aos": "zoom-in" } },
-      [_c("h2", [_vm._v("I nostri musicisti in evidenza")])]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -40690,7 +40697,7 @@ var staticRenderFns = [
               "div",
               {
                 staticClass:
-                  "d-flex justify-content-center align-items-center flex-column text-center",
+                  "\n              d-flex\n              justify-content-center\n              align-items-center\n              flex-column\n              text-center\n            ",
                 attrs: { "data-aos": "fade-right" }
               },
               [
@@ -56509,10 +56516,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_carousel__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var animate_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! animate.css */ "./node_modules/animate.css/animate.css");
 /* harmony import */ var animate_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(animate_css__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! aos */ "./node_modules/aos/dist/aos.js");
-/* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(aos__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var aos_dist_aos_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! aos/dist/aos.css */ "./node_modules/aos/dist/aos.css");
-/* harmony import */ var aos_dist_aos_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(aos_dist_aos_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! aos */ "./node_modules/aos/dist/aos.js");
+/* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(aos__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var aos_dist_aos_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! aos/dist/aos.css */ "./node_modules/aos/dist/aos.css");
+/* harmony import */ var aos_dist_aos_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(aos_dist_aos_css__WEBPACK_IMPORTED_MODULE_6__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -56557,7 +56564,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   router: _router__WEBPACK_IMPORTED_MODULE_0__["default"],
   // dayjs,
   mounted: function mounted() {
-    aos__WEBPACK_IMPORTED_MODULE_4___default.a.init({
+    aos__WEBPACK_IMPORTED_MODULE_5___default.a.init({
       // Global settings:
       disable: false,
       // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
@@ -57369,8 +57376,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Mikilò\Desktop\boolean\bool-n-roll\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Mikilò\Desktop\boolean\bool-n-roll\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\rober\boolean-php\bool-n-roll\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\rober\boolean-php\bool-n-roll\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

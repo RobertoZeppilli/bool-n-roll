@@ -1,5 +1,5 @@
 <template>
-  <div class="jumbotron bg-jumbotron">
+  <div class="py-5 bg-jumbotron">
     <div class="container">
       <div class="row">
         <div

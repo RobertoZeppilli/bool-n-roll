@@ -17264,11 +17264,32 @@ a.title-petrol:hover {
   transform: scale(1.1);
 }
 
-.pattern {
+.pattern,
+.pattern-home {
   background-image: url("/images/pattern3.jpg");
   background-size: cover;
   background-position: center top;
   height: 200px;
+}
+
+.pattern-home {
+  position: relative;
+}
+
+.pattern-home:before {
+  content: "I nostri musicisti in evidenza";
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font-size: 1.9rem;
+  font-weight: bold;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .profile-img {
