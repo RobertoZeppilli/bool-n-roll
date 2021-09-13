@@ -2104,6 +2104,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FilteredMusicians",
@@ -2137,9 +2148,15 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios.get("http://127.0.0.1:8000/api/musicians/".concat(slug)).then(function (res) {
-        res.data.forEach(function (el) {
-          _this2.musicians = el.musicians; // console.log(this.musicians);
-        });
+        if (JSON.stringify(res.data) == "{}") {
+          _this2.$router.push({
+            name: "not-found"
+          });
+        } else {
+          res.data.forEach(function (el) {
+            _this2.musicians = el.musicians; // console.log(this.musicians);
+          });
+        }
       })["catch"](function (err) {
         console.log(err);
       });
@@ -2811,48 +2828,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -3119,6 +3094,71 @@ __webpack_require__.r(__webpack_exports__);
       return _this2.loaded = true;
     }, 2000);
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/NotFound.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/NotFound.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "NotFound"
 });
 
 /***/ }),
@@ -39677,7 +39717,7 @@ var render = function() {
             _c(
               "div",
               {
-                staticClass: "form-group z-index",
+                staticClass: "form-group form-group-resp z-index",
                 attrs: { "data-aos": "fade-right", "data-aos-duration": "1000" }
               },
               [
@@ -39759,7 +39799,7 @@ var render = function() {
             _c(
               "div",
               {
-                staticClass: "form-group z-index",
+                staticClass: "form-group form-group-resp z-index",
                 attrs: { "data-aos": "fade-left", "data-aos-duration": "1000" }
               },
               [
@@ -39832,7 +39872,7 @@ var render = function() {
       { staticClass: "container py-5" },
       [
         _c("h2", [
-          _vm._v("Risultati per: "),
+          _vm._v("\n      Risultati per:\n      "),
           _c(
             "span",
             { staticClass: "badge_profile badge badge-purple text-white" },
@@ -40816,11 +40856,30 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "card-body" }, [
-                      _c("h5", { staticClass: "card-title" }, [
-                        _vm._v(_vm._s(musician.stagename))
-                      ])
-                    ]),
+                    _c(
+                      "div",
+                      { staticClass: "card-body" },
+                      [
+                        _c("h5", { staticClass: "card-title" }, [
+                          _vm._v(_vm._s(musician.stagename))
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(musician.genres, function(genre) {
+                          return _c(
+                            "small",
+                            { key: genre.id, staticClass: "badge-purple-sm" },
+                            [
+                              _vm._v(
+                                "\n              " +
+                                  _vm._s(genre.name) +
+                                  "\n            "
+                              )
+                            ]
+                          )
+                        })
+                      ],
+                      2
+                    ),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -40859,7 +40918,9 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _vm._m(0)
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1)
         ],
         1
       )
@@ -40872,11 +40933,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row py-5" }, [
+    return _c("div", { staticClass: "showreel showreel-1 py-5" }, [
       _c(
         "div",
         {
-          staticClass: "col-xs-12 col-md-6 col-lg-6 py-4",
+          staticClass: "showreel-img-1",
           attrs: {
             "data-aos": "zoom-in",
             "data-aos-duration": "1000",
@@ -40885,7 +40946,6 @@ var staticRenderFns = [
         },
         [
           _c("img", {
-            staticClass: "text-center",
             staticStyle: { width: "350px" },
             attrs: { src: "/images/musiccassa.svg", alt: "" }
           })
@@ -40895,7 +40955,7 @@ var staticRenderFns = [
       _c(
         "div",
         {
-          staticClass: "col-xs-12 col-md-6 col-lg-6 py-4 text-center",
+          staticClass: "showreel-text showreel-text-1 text-center py-3",
           attrs: {
             "data-aos": "fade-left",
             "data-aos-duration": "1000",
@@ -40903,78 +40963,28 @@ var staticRenderFns = [
           }
         },
         [
-          _c(
-            "div",
-            {
-              staticClass:
-                "\n            d-flex\n            flex-column\n            justify-content-center\n            align-items-center\n            h-100\n          "
-            },
-            [
-              _c("h3", { staticClass: "py-2" }, [
-                _vm._v("Contatta il tuo musicista preferito!")
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "py-2" }, [
-                _vm._v(
-                  "\n            Cercare un musicista per il tuo evento non è mai stato così\n            semplice. Puoi contattarlo direttamente sulla sua pagina profilo e\n            lui ti risponderà nel più breve tempo possibile. Collegati da PC,\n            Tablet o Smartphone e inizia subito la tua ricerca.\n          "
-                )
-              ])
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-xs-12 col-md-6 col-lg-6 py-4" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "\n            d-flex\n            flex-column\n            justify-content-center\n            align-items-center\n            h-100\n          "
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "\n              d-flex\n              justify-content-center\n              align-items-center\n              flex-column\n              text-center\n            ",
-                attrs: {
-                  "data-aos": "fade-right",
-                  "data-aos-duration": "1000",
-                  "data-aos-delay": "1000"
-                }
-              },
-              [
-                _c("h3", { staticClass: "py-2" }, [
-                  _vm._v(
-                    "\n              Sei un musicista o vuoi sponsorizzare la tua Band?\n            "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "py-2" }, [
-                  _vm._v(
-                    "\n              Con un unico strumento puoi gestire i tuoi messaggi, le\n              recensioni, vedere le statistiche mensili e sponsorizzare il tuo\n              profilo\n            "
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-orange text-white",
-                    staticStyle: { width: "max-content" },
-                    attrs: { href: "/register" }
-                  },
-                  [_vm._v("Registrati")]
-                )
-              ]
+          _c("h3", { staticClass: "py-2" }, [
+            _vm._v("Contatta il tuo musicista preferito!")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "py-2" }, [
+            _vm._v(
+              "\n          Cercare un musicista per il tuo evento non è mai stato così\n          semplice. Puoi contattarlo direttamente sulla sua pagina profilo e\n          lui ti risponderà nel più breve tempo possibile. Collegati da PC,\n          Tablet o Smartphone e inizia subito la tua ricerca.\n        "
             )
-          ]
-        )
-      ]),
-      _vm._v(" "),
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "showreel showreel-2 py-5" }, [
       _c(
         "div",
         {
-          staticClass: "col-xs-12 col-md-6 col-lg-6 py-4",
+          staticClass: "showreel-img-2",
           attrs: {
             "data-aos": "zoom-in",
             "data-aos-duration": "1000",
@@ -40982,16 +40992,44 @@ var staticRenderFns = [
           }
         },
         [
+          _c("img", {
+            staticStyle: { width: "350px" },
+            attrs: { src: "/images/musichpone.svg", alt: "" }
+          })
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "text-center py-3 showreel-text showreel-text-2",
+          attrs: {
+            "data-aos": "fade-left",
+            "data-aos-duration": "1000",
+            "data-aos-delay": "1000"
+          }
+        },
+        [
+          _c("h3", { staticClass: "py-2" }, [
+            _vm._v(
+              "\n          Sei un musicista o vuoi sponsorizzare la tua Band?\n        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "py-2" }, [
+            _vm._v(
+              "\n          Con un unico strumento puoi gestire i tuoi messaggi, le recensioni,\n          vedere le statistiche mensili e sponsorizzare il tuo profilo\n        "
+            )
+          ]),
+          _vm._v(" "),
           _c(
-            "div",
-            { staticClass: "d-flex justify-content-end align-items-center" },
-            [
-              _c("img", {
-                staticClass: "text-right",
-                staticStyle: { width: "350px" },
-                attrs: { src: "/images/musichpone.svg", alt: "" }
-              })
-            ]
+            "a",
+            {
+              staticClass: "btn btn-orange text-white",
+              staticStyle: { width: "max-content" },
+              attrs: { href: "/register" }
+            },
+            [_vm._v("Registrati")]
           )
         ]
       )
@@ -41329,6 +41367,97 @@ var render = function() {
   )
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/NotFound.vue?vue&type=template&id=a26bf910&":
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/NotFound.vue?vue&type=template&id=a26bf910& ***!
+  \******************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "container d-flex align-items-center justify-content-center"
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "main-height d-flex align-items-center justify-content-center"
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "\n        card\n        text-center\n        d-flex\n        align-items-center\n        justify-content-center\n        p-5\n        card_review\n        shadow\n        p-3\n        mb-2\n        bg-body\n        rounded\n      "
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "\n          check_container\n          d-flex\n          align-items-center\n          justify-content-center\n        "
+                  },
+                  [
+                    _c("i", {
+                      staticClass:
+                        "\n            far\n            fa-question-circle\n            animate__animated animate__rotateIn\n            fa-4x\n            title-orange\n          "
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("h1", { staticClass: "my-5 text-danger" }, [
+                  _vm._v("Errore 404")
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v("\n        Oops, qualcosa è andato storto "),
+                  _c("br"),
+                  _vm._v(
+                    "La risorsa che stavi cercando non\n        è disponibile.\n      "
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-orange text-white my-3",
+                    attrs: { href: "/" }
+                  },
+                  [_vm._v(" Indietro ")]
+                )
+              ]
+            )
+          ]
+        )
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -57591,6 +57720,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/NotFound.vue":
+/*!*****************************************!*\
+  !*** ./resources/js/pages/NotFound.vue ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _NotFound_vue_vue_type_template_id_a26bf910___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NotFound.vue?vue&type=template&id=a26bf910& */ "./resources/js/pages/NotFound.vue?vue&type=template&id=a26bf910&");
+/* harmony import */ var _NotFound_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NotFound.vue?vue&type=script&lang=js& */ "./resources/js/pages/NotFound.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _NotFound_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _NotFound_vue_vue_type_template_id_a26bf910___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _NotFound_vue_vue_type_template_id_a26bf910___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/NotFound.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/NotFound.vue?vue&type=script&lang=js&":
+/*!******************************************************************!*\
+  !*** ./resources/js/pages/NotFound.vue?vue&type=script&lang=js& ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NotFound_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./NotFound.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/NotFound.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NotFound_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/NotFound.vue?vue&type=template&id=a26bf910&":
+/*!************************************************************************!*\
+  !*** ./resources/js/pages/NotFound.vue?vue&type=template&id=a26bf910& ***!
+  \************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NotFound_vue_vue_type_template_id_a26bf910___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./NotFound.vue?vue&type=template&id=a26bf910& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/NotFound.vue?vue&type=template&id=a26bf910&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NotFound_vue_vue_type_template_id_a26bf910___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NotFound_vue_vue_type_template_id_a26bf910___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/pages/ReviewConfirm.vue":
 /*!**********************************************!*\
   !*** ./resources/js/pages/ReviewConfirm.vue ***!
@@ -57695,9 +57893,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_MusicianProfile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/MusicianProfile */ "./resources/js/pages/MusicianProfile.vue");
 /* harmony import */ var _pages_MessageConfirm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/MessageConfirm */ "./resources/js/pages/MessageConfirm.vue");
 /* harmony import */ var _pages_ReviewConfirm__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/ReviewConfirm */ "./resources/js/pages/ReviewConfirm.vue");
+/* harmony import */ var _pages_NotFound__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/NotFound */ "./resources/js/pages/NotFound.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 
 
 
@@ -57725,12 +57925,11 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/review-confirm',
     name: 'review-confirm',
     component: _pages_ReviewConfirm__WEBPACK_IMPORTED_MODULE_6__["default"]
-  } // {
-  //     path: '*',
-  //     name: 'not-found',
-  //     component: NotFound
-  // }
-  ]
+  }, {
+    path: '*',
+    name: 'not-found',
+    component: _pages_NotFound__WEBPACK_IMPORTED_MODULE_7__["default"]
+  }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
 

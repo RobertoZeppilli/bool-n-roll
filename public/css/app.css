@@ -17201,7 +17201,7 @@ a.text-dark:focus {
   transform: scale(0.8);
 }
 
-.title-orange:hover {
+a.title-orange:hover {
   color: #b53f10;
 }
 
@@ -17279,6 +17279,7 @@ a.title-petrol:hover {
 .pattern-home:before {
   content: "I nostri musicisti in evidenza";
   color: #fff;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17346,6 +17347,7 @@ a.title-petrol:hover {
 
 .dropdown-item.custom-drop {
   transition: all 0.3s ease-in-out;
+  padding: 10px 0;
 }
 
 .dropdown-item.custom-drop:hover {
@@ -17597,6 +17599,49 @@ a.title-orange:hover {
   .dropdown-menu.custom-border {
     border: none;
   }
+
+  .form-group-resp {
+    width: 150px;
+  }
+
+  .form-group-resp label {
+    font-size: 8px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .showreel {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .showreel-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+  }
+
+  .showreel-text p,
+  .showreel-text h3 {
+    text-align: center;
+  }
+
+  .showreel-text-2 {
+    order: 1;
+  }
+
+  .showreel-img-2 {
+    order: 2;
+  }
+}
+
+.showreel-img-1,
+.showreel-img-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .toggle-trigger {
@@ -17616,5 +17661,14 @@ a.title-orange:hover {
 
 a {
   text-decoration: none !important;
+}
+
+.badge-purple-sm {
+  background-color: #301a47;
+  padding: 5px;
+  color: #fff;
+  border-radius: 5px;
+  margin: 0 5px;
+  font-size: 10px;
 }
 

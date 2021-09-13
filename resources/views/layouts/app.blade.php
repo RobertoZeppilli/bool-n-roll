@@ -67,7 +67,7 @@
                                     </a>
                                 
 
-                                <div class="dropdown-menu custom-border dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div  class="dropdown-menu custom-border dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item custom-drop title-orange" href="/admin">
                                         <i class="fas fa-compact-disc"></i> Dashboard
                                     </a>
@@ -141,6 +141,7 @@
     
     @stack('script')
 
+    {{-- script per bottone di risalita --}}
     <script>
         //Get the button
         var mybutton = document.getElementById("myBtn");
@@ -159,11 +160,23 @@
         
         // When the user clicks on the button, scroll to the top of the document
         function topFunction() {
-        //   document.body.scrollTop = 0;
-        //   document.documentElement.scrollTop = 0;
           window.scrollTo({top: 0, behavior: 'smooth'});
-        //   onclick='window.scrollTo({top: 0, behavior: "smooth"});'
         }
+    </script>
+
+    {{-- jQuery per smooth toggle sotto i 768px --}}
+    <script>
+         $(document).ready(function() {
+            
+            $(".nav-link").click(function() {
+
+                $('.dropdown-menu-right').toggle("slow", function () {
+                    $('.dropdown-item').show(400, "ease-in-out")
+                });
+                
+                
+            });
+        });
     </script>
 </body>
 </html>

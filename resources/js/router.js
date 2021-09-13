@@ -9,6 +9,8 @@ import MusicianProfile from './pages/MusicianProfile';
 import MessageConfirm from './pages/MessageConfirm';
 import ReviewConfirm from './pages/ReviewConfirm';
 
+import NotFound from './pages/NotFound';
+
 const router = new VueRouter({
     mode: 'history',
     routes: [
@@ -38,11 +40,11 @@ const router = new VueRouter({
             name: 'review-confirm',
             component: ReviewConfirm
         },
-        // {
-        //     path: '*',
-        //     name: 'not-found',
-        //     component: NotFound
-        // }
+        {
+            path: '*',
+            name: 'not-found',
+            component: NotFound
+        }
     ]
 });
 

@@ -3,7 +3,11 @@
     <div class="pattern position-relative layover-pattern">
       <div class="container h-100">
         <div class="d-flex h-100 align-items-center justify-content-between">
-          <div class="form-group z-index" data-aos="fade-right" data-aos-duration="1000">
+          <div
+            class="form-group form-group-resp z-index"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
             <label for="voteAverage" class="text-white label-font"
               >Filtra per media voto</label
             >
@@ -21,7 +25,11 @@
               <option class="title-yellow" value="5">★★★★★</option>
             </select>
           </div>
-          <div class="form-group z-index" data-aos="fade-left" data-aos-duration="1000">
+          <div
+            class="form-group form-group-resp z-index"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+          >
             <label for="reviewAmount" class="text-white label-font"
               >Filtra per numero di recensioni</label
             >
@@ -41,7 +49,12 @@
       </div>
     </div>
     <div class="container py-5">
-      <h2>Risultati per: <span class="badge_profile badge badge-purple text-white">{{ this.$route.params.slug }}</span></h2>
+      <h2>
+        Risultati per:
+        <span class="badge_profile badge badge-purple text-white">{{
+          this.$route.params.slug
+        }}</span>
+      </h2>
       <div v-if="loaded" class="row py-4">
         <div
           v-for="musician in filterMusicians"
@@ -50,11 +63,11 @@
         >
           <div class="card" data-aos="zoom-in">
             <!-- <div class="musician-img"> -->
-              <img
-                class="profile-pic"
-                :src="'/storage/' + musician.cover"
-                :alt="musician.stagename"
-              />
+            <img
+              class="profile-pic"
+              :src="'/storage/' + musician.cover"
+              :alt="musician.stagename"
+            />
             <!-- </div> -->
             <div class="card-body text-center">
               <h5 class="card-title py-2">{{ musician.stagename }}</h5>
@@ -88,11 +101,9 @@
           </div>
         </div>
       </div>
-      <Loader v-else/> 
+      <Loader v-else />
       <div class="text-center">
-        <router-link
-          class="btn btn-yellow text-white"
-          :to="{ name: 'home' }"
+        <router-link class="btn btn-yellow text-white" :to="{ name: 'home' }"
           >Indietro</router-link
         >
       </div>
@@ -101,19 +112,19 @@
 </template>
 
 <script>
-import Loader from './Loader';
+import Loader from "./Loader";
 
 export default {
   name: "FilteredMusicians",
   components: {
-    Loader
+    Loader,
   },
   data() {
     return {
       musicians: [],
       starVote: "",
       reviewAmount: "",
-      loaded: false
+      loaded: false,
     };
   },
 
@@ -135,10 +146,14 @@ export default {
       axios
         .get(`http://127.0.0.1:8000/api/musicians/${slug}`)
         .then((res) => {
-          res.data.forEach((el) => {
-            this.musicians = el.musicians;
-            // console.log(this.musicians);
-          });
+          if (JSON.stringify(res.data) == "{}") {
+            this.$router.push({ name: "not-found" });
+          } else {
+            res.data.forEach((el) => {
+              this.musicians = el.musicians;
+              // console.log(this.musicians);
+            });
+          }
         })
         .catch((err) => {
           console.log(err);
@@ -165,8 +180,6 @@ export default {
 
   created() {
     this.getMusicians(this.$route.params.slug);
-
-
   },
   mounted() {
     setTimeout(() => (this.loaded = true), 2000);

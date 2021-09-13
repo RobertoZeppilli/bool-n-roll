@@ -30,13 +30,16 @@
               align-items-center
               justify-content-center
             "
-            style="min-height: 300px;"
+            style="min-height: 300px"
           >
-            
-            <vue-load-image >
-              <img style="height: 200px; width: 200px; border-radius: 50%" slot="image"  :src="'/storage/' + musician.cover" />
+            <vue-load-image>
               <img
-                style="height: 100px;"
+                style="height: 200px; width: 200px; border-radius: 50%"
+                slot="image"
+                :src="'/storage/' + musician.cover"
+              />
+              <img
+                style="height: 100px"
                 slot="preloader"
                 src="https://cdn.discordapp.com/attachments/880006994608652299/886981737249402880/Pulse-1s-200px.svg"
               />
@@ -45,6 +48,13 @@
             </vue-load-image>
             <div class="card-body">
               <h5 class="card-title">{{ musician.stagename }}</h5>
+              <small
+                class="badge-purple-sm"
+                v-for="genre in musician.genres"
+                :key="genre.id"
+              >
+                {{ genre.name }}
+              </small>
             </div>
 
             <!-- <div>
@@ -78,107 +88,55 @@
         </slide>
       </carousel>
 
-      <div class="row py-5">
-        <div
-          class="col-xs-12 col-md-6 col-lg-6 py-4"
-          data-aos="zoom-in"
-          data-aos-duration="1000"
-          data-aos-delay="1000"
-        >
-          <img
-            style="width: 350px"
-            class="text-center"
-            src="/images/musiccassa.svg"
-            alt=""
-          />
+      <div class="showreel showreel-1 py-5">
+        <div class="showreel-img-1" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="1000">
+          <img style="width: 350px" src="/images/musiccassa.svg" alt="" />
         </div>
+
         <div
-          class="col-xs-12 col-md-6 col-lg-6 py-4 text-center"
           data-aos="fade-left"
           data-aos-duration="1000"
           data-aos-delay="1000"
+          class="showreel-text showreel-text-1 text-center py-3"
         >
-          <div
-            class="
-              d-flex
-              flex-column
-              justify-content-center
-              align-items-center
-              h-100
-            "
-          >
-            <h3 class="py-2">Contatta il tuo musicista preferito!</h3>
-            <p class="py-2">
-              <!-- Cerca tra i tuoi generi preferiti il musicista o il gruppo che fa per te! -->
-              Cercare un musicista per il tuo evento non è mai stato così
-              semplice. Puoi contattarlo direttamente sulla sua pagina profilo e
-              lui ti risponderà nel più breve tempo possibile. Collegati da PC,
-              Tablet o Smartphone e inizia subito la tua ricerca.
-            </p>
-          </div>
+          <h3 class="py-2">Contatta il tuo musicista preferito!</h3>
+          <p class="py-2">
+            <!-- Cerca tra i tuoi generi preferiti il musicista o il gruppo che fa per te! -->
+            Cercare un musicista per il tuo evento non è mai stato così
+            semplice. Puoi contattarlo direttamente sulla sua pagina profilo e
+            lui ti risponderà nel più breve tempo possibile. Collegati da PC,
+            Tablet o Smartphone e inizia subito la tua ricerca.
+          </p>
         </div>
-        <div class="col-xs-12 col-md-6 col-lg-6 py-4">
-          <div
-            class="
-              d-flex
-              flex-column
-              justify-content-center
-              align-items-center
-              h-100
-            "
-          >
-            <div
-              class="
-                d-flex
-                justify-content-center
-                align-items-center
-                flex-column
-                text-center
-              "
-              data-aos="fade-right"
-              data-aos-duration="1000"
-              data-aos-delay="1000"
-            >
-              <h3 class="py-2">
-                Sei un musicista o vuoi sponsorizzare la tua Band?
-              </h3>
-              <p class="py-2">
-                <!-- Cerca tra i tuoi generi preferiti il musicista o il gruppo che fa per te! -->
-                Con un unico strumento puoi gestire i tuoi messaggi, le
-                recensioni, vedere le statistiche mensili e sponsorizzare il tuo
-                profilo
-              </p>
-              <!-- <div class="register-link rounded text-center"> -->
-              <a
-                style="width: max-content"
-                class="btn btn-orange text-white"
-                href="/register"
-                >Registrati</a
-              >
-              <!-- </div> -->
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-xs-12 col-md-6 col-lg-6 py-4"
-          data-aos="zoom-in"
-          data-aos-duration="1000"
-          data-aos-delay="1000"
-        >
-          <div class="d-flex justify-content-end align-items-center">
-            <img
-              style="width: 350px"
-              class="text-right"
-              src="/images/musichpone.svg"
-              alt=""
-            />
-          </div>
+      </div>
+
+      <div class="showreel showreel-2 py-5">
+        <div class="showreel-img-2" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="1000">
+          <img style="width: 350px" src="/images/musichpone.svg" alt="" />
         </div>
 
-        <!-- <div class="bg-dark w-100 d-flex justify-content-center ">
-         
-        </div> -->
+        <div
+          data-aos="fade-left"
+          data-aos-duration="1000"
+          data-aos-delay="1000"
+          class="text-center py-3 showreel-text showreel-text-2"
+        >
+          <h3 class="py-2">
+            Sei un musicista o vuoi sponsorizzare la tua Band?
+          </h3>
+          <p class="py-2">
+            Con un unico strumento puoi gestire i tuoi messaggi, le recensioni,
+            vedere le statistiche mensili e sponsorizzare il tuo profilo
+          </p>
+          <a
+            style="width: max-content"
+            class="btn btn-orange text-white"
+            href="/register"
+            >Registrati</a
+          >
+        </div>
       </div>
+
     </div>
   </div>
 </template>
@@ -190,7 +148,7 @@ import dayjs from "dayjs";
 
 import { Carousel, Slide } from "vue-carousel";
 
-import VueLoadImage from 'vue-load-image'
+import VueLoadImage from "vue-load-image";
 
 export default {
   name: "Home",
@@ -209,7 +167,7 @@ export default {
     Jumbotron,
     Carousel,
     Slide,
-    VueLoadImage
+    VueLoadImage,
   },
 
   methods: {

@@ -21,7 +21,7 @@ class MusicianController extends Controller
 
     public function showSponsoredMusicians()
     {
-        $sponsoredMusicians = Musician::has('sponsorships')->with('reviews')->get();
+        $sponsoredMusicians = Musician::has('sponsorships')->with('reviews', 'genres')->get();
         $currentDate = Carbon::now('Europe/Rome');
 
         $activeSponsorship = [];
