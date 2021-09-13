@@ -164,6 +164,6 @@
           window.scrollTo({top: 0, behavior: 'smooth'});
         //   onclick='window.scrollTo({top: 0, behavior: "smooth"});'
         }
-        </script>
+    </script>
 </body>
 </html>

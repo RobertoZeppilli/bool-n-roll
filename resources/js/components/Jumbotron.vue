@@ -11,17 +11,17 @@
             justify-content-center
           "
         >
-          <div class="text-center">
+          <div class="text-center animate__animated animate__fadeInLeftBig">
             <h1 class="headline">Playing the mood</h1>
           </div>
 
-          <div class="my-2 text-center">
+          <div class="my-2 text-center animate__animated animate__fadeInUp animate__delay-1s">
             <p class="platinum">
               Cerca un musicista scegliendo il genere che preferisci!
             </p>
           </div>
 
-          <div class="form-group">
+          <div class="form-group animate__animated animate__fadeInUp animate__delay-2s">
             <select
               @change="searchMusicians(slug)"
               v-model="slug"
@@ -45,7 +45,7 @@
           
         </div>
 
-        <div class="col-xs-6 col-md-12 col-lg-6">
+        <div class="col-xs-6 col-md-12 col-lg-6 animate__animated animate__fadeInRight animate__delay-2s">
           <img class="img-fluid" src="images/jumboimg.png" alt="Jumbtron" />
         </div>
       </div>

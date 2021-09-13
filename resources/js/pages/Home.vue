@@ -47,7 +47,7 @@
                   : musician.reviews.length + " recensioni"
               }}</small>
             </div>
-            
+
             <div class="py-2">
               <i
                 class="fa-star"
@@ -70,7 +70,79 @@
           </div>
         </slide>
       </carousel>
-      <!-- </div> -->
+
+      <div class="row py-5">
+        <div class="col-xs-12 col-md-6 col-lg-6 py-4">
+          <img
+            style="width: 350px"
+            class="text-center"
+            src="/images/musiccassa.svg"
+            alt=""
+          />
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6 py-4 text-center">
+          <div
+            class="
+              d-flex
+              flex-column
+              justify-content-center
+              align-items-center
+              h-100
+            "
+          >
+            <h3 class="py-2">Contatta il tuo musicista preferito!</h3>
+            <p class="py-2">
+              <!-- Cerca tra i tuoi generi preferiti il musicista o il gruppo che fa per te! -->
+              Cercare un musicista per il tuo evento non è mai stato così
+              semplice. Puoi contattarlo direttamente sulla sua pagina profilo e
+              lui ti risponderà nel più breve tempo possibile. Collegati da PC,
+              Tablet o Smartphone e inizia subito la tua ricerca.
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6 py-4">
+          <div
+            class="
+              d-flex
+              flex-column
+              justify-content-center
+              align-items-center
+              h-100
+            "
+          >
+            <div class="d-flex justify-content-center align-items-center flex-column text-center">
+              <h3 class="py-2">
+                Sei un musicista o vuoi sponsorizzare la tua Band?
+              </h3>
+              <p class="py-2">
+                <!-- Cerca tra i tuoi generi preferiti il musicista o il gruppo che fa per te! -->
+                Con un unico strumento puoi gestire i tuoi messaggi, le
+                recensioni, vedere le statistiche mensili e sponsorizzare il tuo
+                profilo
+              </p>
+              <!-- <div class="register-link rounded text-center"> -->
+              <a style="width: max-content;" class="btn btn-orange text-white" href="/register"
+                >Registrati</a
+              >
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6 py-4">
+          <div class="d-flex justify-content-end align-items-center">
+            <img
+              style="width: 350px"
+              class="text-right"
+              src="/images/musichpone.svg"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <!-- <div class="bg-dark w-100 d-flex justify-content-center ">
+         
+        </div> -->
+      </div>
     </div>
   </div>
 </template>

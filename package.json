@@ -26,6 +26,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "animate.css": "^4.1.1",
         "chart.js": "^3.5.1",
         "chartjs-plugin-deferred": "^1.0.2",
         "datejs": "^1.0.0-rc3",
