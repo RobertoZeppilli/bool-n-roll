@@ -2,7 +2,7 @@
   <div>
     <Jumbotron />
     <div class="container">
-      <div class="py-4 text-center">
+      <div class="py-4 text-center" data-aos="zoom-in">
         <h2>I nostri musicisti in evidenza</h2>
       </div>
       <carousel
@@ -14,6 +14,7 @@
         :paginationActiveColor="activePaginateColor"
         :paginationColor="paginateColor"
         class="py-5"
+        data-aos="fade-right"
       >
         <slide v-for="(musician, index) in musicians" :key="index">
           <div
@@ -72,7 +73,7 @@
       </carousel>
 
       <div class="row py-5">
-        <div class="col-xs-12 col-md-6 col-lg-6 py-4">
+        <div class="col-xs-12 col-md-6 col-lg-6 py-4" data-aos="zoom-in">
           <img
             style="width: 350px"
             class="text-center"
@@ -80,7 +81,7 @@
             alt=""
           />
         </div>
-        <div class="col-xs-12 col-md-6 col-lg-6 py-4 text-center">
+        <div class="col-xs-12 col-md-6 col-lg-6 py-4 text-center" data-aos="fade-left">
           <div
             class="
               d-flex
@@ -110,7 +111,7 @@
               h-100
             "
           >
-            <div class="d-flex justify-content-center align-items-center flex-column text-center">
+            <div class="d-flex justify-content-center align-items-center flex-column text-center" data-aos="fade-right">
               <h3 class="py-2">
                 Sei un musicista o vuoi sponsorizzare la tua Band?
               </h3>
@@ -128,7 +129,7 @@
             </div>
           </div>
         </div>
-        <div class="col-xs-12 col-md-6 col-lg-6 py-4">
+        <div class="col-xs-12 col-md-6 col-lg-6 py-4" data-aos="zoom-in">
           <div class="d-flex justify-content-end align-items-center">
             <img
               style="width: 350px"

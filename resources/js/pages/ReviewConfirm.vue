@@ -2,7 +2,7 @@
   <div class="container d-flex align-items-center justify-content-center">
     <div class="card text-center d-flex align-items-center justify-content-center p-5 card_review shadow p-3 mb-2 bg-body rounded">
       <div class="check_container d-flex align-items-center justify-content-center">
-        <i class="fas fa-check-circle title-orange"></i>
+        <i class="fas fa-check-circle title-orange animate__animated animate__rotateIn"></i>
       </div>
 
       <h1 class="my-5">Recensione inviata correttamente!</h1>

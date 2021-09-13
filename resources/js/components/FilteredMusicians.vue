@@ -3,7 +3,7 @@
     <div class="pattern position-relative layover-pattern">
       <div class="container h-100">
         <div class="d-flex h-100 align-items-center justify-content-between">
-          <div class="form-group z-index">
+          <div class="form-group z-index" data-aos="fade-right" data-aos-duration="1000">
             <label for="voteAverage" class="text-white label-font"
               >Filtra per media voto</label
             >
@@ -21,7 +21,7 @@
               <option class="title-yellow" value="5">★★★★★</option>
             </select>
           </div>
-          <div class="form-group z-index">
+          <div class="form-group z-index" data-aos="fade-left" data-aos-duration="1000">
             <label for="reviewAmount" class="text-white label-font"
               >Filtra per numero di recensioni</label
             >
@@ -47,7 +47,7 @@
           :key="musician.id"
           class="col-xs-12 col-md-6 col-lg-4 my-4"
         >
-          <div class="card">
+          <div class="card" data-aos="zoom-out">
             <!-- <div class="musician-img"> -->
               <img
                 class="profile-pic"

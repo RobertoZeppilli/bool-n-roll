@@ -63,6 +63,7 @@
                 bg-body
                 rounded
               "
+              data-aos="fade-right"
             >
               <div class="card-body">
                 <h5 class="title-wine">

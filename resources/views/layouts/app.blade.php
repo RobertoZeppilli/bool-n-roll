@@ -96,7 +96,7 @@
         <main>
             @yield('content')
             
-                <i onclick="topFunction()" id="myBtn" title="Torna su" class="fas fa-arrow-circle-up"></i>
+                <i onclick="topFunction()" id="myBtn" title="Torna su" class="fas fa-arrow-circle-up animate__animated animate__fadeInDownBig"></i>
             
         </main>
 

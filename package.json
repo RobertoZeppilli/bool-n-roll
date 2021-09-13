@@ -27,6 +27,7 @@
     },
     "dependencies": {
         "animate.css": "^4.1.1",
+        "aos": "^3.0.0-beta.6",
         "chart.js": "^3.5.1",
         "chartjs-plugin-deferred": "^1.0.2",
         "datejs": "^1.0.0-rc3",
