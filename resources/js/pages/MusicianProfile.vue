@@ -3,9 +3,12 @@
     <div class="pattern"></div>
     <div class="container-xl main_page d-flex">
       <div class="container myContainer">
-        <div class="position d-flex align-items-center justify-content-center">
+        <div  class="position d-flex align-items-center justify-content-center">
           <img class="profile-img" :src="'/storage/' + musician.cover" alt="" />
+          <!-- <img  class="profile-img" src="images/avatar.png" alt="" /> -->
         </div>
+        <!-- <div  class="position d-flex align-items-center justify-content-center">
+        </div> -->
         <div class="pt-100 text-center">
           <h1 class="my-5">{{ musician.stagename }}</h1>
           <span
@@ -21,12 +24,6 @@
           </h4>
           <p>{{ musician.services }}</p>
         </div>
-        <!-- <button class="btn btn-primary" @click="hide()">
-          Manda un messaggio o scrivi una recensione
-        </button> -->
-        <!-- <button class="btn btn-primary" @click="hide()">
-          Lascia una recensione
-        </button> -->
 
         <div class="row">
           <div class="col-xs-12 col-md-6 col-lg-6 text-center">
@@ -51,9 +48,9 @@
 
         <div>
           <h3 class="my-3 mt-3">Recensioni su {{ musician.stagename }}</h3>
-          <div v-show="musician.reviews">
+          <div v-if="musician.reviews">
             <div
-              v-for="review in musician.reviews"
+              v-for="review in sortedReviews"
               :key="review.id"
               class="
                 card
@@ -89,7 +86,8 @@
               </div>
             </div>
           </div>
-          
+
+          <!-- <div v-else>No recensioni</div> -->
         </div>
 
         <a class="btn btn-yellow text-white my-5" @click="$router.go(-1)">
@@ -147,6 +145,14 @@ export default {
       let firstLetter = surname[0] + ".";
       return firstLetter;
     },
+  },
+
+  computed: {
+    sortedReviews() {
+      
+        return _.orderBy(this.musician.reviews, 'created_at', 'desc')
+    
+    }
   },
 
   created() {

@@ -9,16 +9,17 @@
     
     <div class="pattern"></div>
     <div class="container py-5 myContainer">
-        @if (session('message'))
-            <div class="alert alert-success">
-                <h6>{{ session('message') }}</h6>
-            </div>
-        @endif
+        
         <div class="position d-flex align-items-center justify-content-center">
             <img class="profile-img" src="{{ asset('storage/'.$musician->cover) }}" alt="" />
         </div>
+        @if (session('message'))
+            <div class="alert alert-success" style="width: max-content;">
+                <small>{{ session('message') }}</small>
+            </div>
+        @endif
         <div class="pt-100 text-center">
-            <h2 class="py-2 my-3">Il profilo {{ $musician->typology == 'Band' ? 'dei ' . $musician->stagename : 'di ' . $musician->stagename  }}</h2>
+            <h2 class="pb-3">Il profilo {{ $musician->typology == 'Band' ? 'dei ' . $musician->stagename : 'di ' . $musician->stagename  }}</h2>
 
             
                 @if ($musician->sponsorships)
@@ -48,8 +49,8 @@
             <p>{{$musician->typology}}</p>
         </div>
 
-        <div class="my-5 d-flex justify-content-between text-center">
-            <a class="btn btn-petrol text-white" href="{{ route('admin.welcome') }}">
+        <div class="pt-5 d-flex justify-content-between text-center">
+            <a class="btn btn-yellow text-white" href="{{ route('admin.welcome') }}">
                 {{-- <i class="far fa-hand-point-left text-white"></i> --}}
                 Indietro
             </a>

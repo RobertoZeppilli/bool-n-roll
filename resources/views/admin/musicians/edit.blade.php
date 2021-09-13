@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
-<div class="container">
-    <h1>Ciao {{ $musician->stagename }}, modifica il profilo!</h1>
+<div class="container py-5">
+    <h1 class="pb-3">Ciao {{ $musician->stagename }}, modifica il profilo!</h1>
     <form action="{{ route('admin.musicians.update', $musician->id) }}" method="POST" class="mt-3" enctype="multipart/form-data"> 
 
         @csrf
@@ -45,12 +45,16 @@
             <label for="cover">Cover</label>
             @if ($musician->cover)
                 <div class="mb-3">
-                    <small class="d-block">Actual Cover</small>
-                    <img style="width:100px;" src="{{ asset('storage/'.$musician->cover) }}" alt="{{ $musician->stagename }}">
+                    <small class="d-block">La tua cover attuale</small>
+                    <img style="width:250px;" src="{{ asset('storage/'.$musician->cover) }}" alt="{{ $musician->stagename }}">
                 </div>
             @endif
             {{-- preview of the cover before creating  --}}
-            <input name="cover" type="file" id="cover" class="form-control-file mb-2" accept="image/*" onchange="document.getElementById('preview').src = window.URL.createObjectURL(this.files[0])">
+            <label class="custom-file-upload">
+                <input name="cover" type="file" id="cover" class="form-control-file mb-2" accept="image/*" onchange="document.getElementById('preview').src = window.URL.createObjectURL(this.files[0])">
+               
+            </label>
+            {{-- <input name="cover" type="file" id="cover" class="form-control-file mb-2" accept="image/*" onchange="document.getElementById('preview').src = window.URL.createObjectURL(this.files[0])"> --}}
             <img id="preview" style="object-fit: cover;" src="" width="300">
             {{-- /preview of the cover before creating  --}}
             @error('cover')
@@ -88,11 +92,11 @@
         
 
         <div class="d-flex justify-content-between align-items-center">
-            <a class="btn btn-petrol" href="{{ route('admin.welcome') }}">
-                <i class="far fa-hand-point-left text-white"></i>
+            <a class="btn btn-yellow text-white" href="{{ route('admin.welcome') }}">
+                Indietro
             </a>
-            <button type="submit" class="btn btn-primary my-5">
-                Submit
+            <button type="submit" class="btn btn-petrol text-white my-5">
+                Salva
             </button>
         </div>
     </form>

@@ -5,23 +5,23 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container py-5">
         @if (session('success_message'))
-  <div class="alert alert-success">
-    {{ session('success_message')}}
-  </div>
-  @endif
-  @if ($errors->any())
-  <div class="alert alert-danger">
-    <ul>
-      @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-      @endforeach
-    </ul>
-  </div>
-  @endif
-        <h1>Sponsorizza il tuo profilo!</h1>
-        <p>Scegli il piano più adatto a te.</p>
+            <div class="alert alert-success">
+                {{ session('success_message')}}
+            </div>
+        @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+                </ul>
+            </div>
+        @endif
+        <h1 class="pb-3">Sponsorizza il tuo profilo!</h1>
+        <p class="pb-4">Scegli il piano più adatto a te.</p>
 
         <div id="dropin-container">
             <form method="POST" id="payment-form" action="{{ route('admin.paga') }}">
@@ -32,7 +32,7 @@
                         <div class="inputGroup">
                             <input type="radio" name="price" id="sponsorship-{{ $sponsorship->id }}" value="{{ $sponsorship->price }}">
                             <label class="clamp-size" for="sponsorship-{{ $sponsorship->id }}">
-                                {{ $sponsorship->description }}
+                                {{ $sponsorship->description }} Al prezzo di <span class="title-soft-green">{{ $sponsorship->price }} &euro;</span>
                             </label>
                         </div>
                     @endforeach
@@ -43,12 +43,12 @@
                     </div>
                 </section>
                 
-                <div class="d-flex justify-content-between align-items-center">
-                    <a class="btn btn-petrol" href="{{ route('admin.welcome') }}">
-                        <i class="far fa-hand-point-left text-white"></i>
+                <div class="d-flex justify-content-between align-items-center pt-5">
+                    <a class="btn btn-yellow text-white" href="{{ route('admin.welcome') }}">
+                        Indietro
                     </a>
                     <input id="nonce" name="payment_method_nonce" type="hidden" />
-                    <button class="button btn btn-primary" type="submit">
+                    <button class="btn btn-orange text-white" type="submit">
                         Paga
                     </button>
                 </div>

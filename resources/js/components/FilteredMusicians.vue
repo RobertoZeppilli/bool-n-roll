@@ -48,12 +48,13 @@
           class="col-xs-12 col-md-6 col-lg-4 my-4"
         >
           <div class="card">
-            <div class="musician-img">
+            <!-- <div class="musician-img"> -->
               <img
+                class="profile-pic"
                 :src="'/storage/' + musician.cover"
                 :alt="musician.stagename"
               />
-            </div>
+            <!-- </div> -->
             <div class="card-body text-center">
               <h5 class="card-title py-2">{{ musician.stagename }}</h5>
               <!-- reviews -->
@@ -98,7 +99,6 @@
 </template>
 
 <script>
-import vSelect from "vue-select";
 
 export default {
   name: "FilteredMusicians",

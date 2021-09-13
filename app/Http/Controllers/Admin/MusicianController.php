@@ -105,7 +105,7 @@ class MusicianController extends Controller
 
         return redirect()
             ->route('admin.musicians.show', $musician->id)
-            ->with('message', 'New musician created!');
+            ->with('message', 'Profilo Creato!');
     }
 
     /**
@@ -171,7 +171,7 @@ class MusicianController extends Controller
 
         return redirect()
             ->route('admin.musicians.show', $musician->id)
-            ->with('message', 'Profile updated!');
+            ->with('message', 'Profilo modificato!');
     }
 
     /**

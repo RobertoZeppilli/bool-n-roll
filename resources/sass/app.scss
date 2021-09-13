@@ -46,11 +46,14 @@ select.form-control.mb-2 {
   width: 350px;
 }
 
-.form-control:focus {
-  border-color: $myPurple;
-  box-shadow: 0 0 0 0.2rem rgb(48 26 71 / 50%);
-
-
+.form-control {
+  transition: all .3s ease-in-out;
+  outline: none;
+  &:focus,
+  &:hover {
+    border-color: $myPurple;
+    box-shadow: 0 0 0 0.2rem rgb(48 26 71 / 50%);
+  }
 }
 
 .clamp-size {
@@ -106,10 +109,29 @@ a.title-orange {
   margin-left: 15px;
 }
 
+
+.bg-orange {
+  background-color: $logoColor;
+}
+
+
 @media screen and (max-width: 768px) {
   .custom-margin {
     margin-left: 0;
     margin-top: 15px;
   }
+
+  .dropdown-menu.custom-border {
+    border: none;
+    
+  }
 }
 
+.toggle-trigger {
+  cursor: pointer;
+  color: $logoColor;
+  &:hover {
+    text-decoration: none;
+    color: darken($logoColor, 15%);
+  }
+}

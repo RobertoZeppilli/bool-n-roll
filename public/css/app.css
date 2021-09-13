@@ -17188,6 +17188,10 @@ a.text-dark:focus {
   font-weight: bold;
 }
 
+.title-soft-green {
+  color: #54E0C7;
+}
+
 .register-link.title-orange {
   transition: all 0.5s ease-in-out;
 }
@@ -17300,7 +17304,7 @@ a.title-petrol:hover {
 }
 
 .pt-100 {
-  padding-top: 100px;
+  padding-top: 80px;
 }
 
 .sponsor-size {
@@ -17337,6 +17341,51 @@ a.title-petrol:hover {
   width: 30px;
   border-radius: 50%;
   border: 1px solid #ec5e25;
+}
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 26px;
+  color: #ec5e25;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+#myBtn:hover {
+  bottom: 30px;
+}
+
+.custom-file-upload {
+  border: 2px solid #301a47;
+  border-radius: 10px;
+  display: block;
+  padding: 15px;
+  cursor: pointer;
+  width: 300px;
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-file-upload:after {
+  content: "Scegli una cover";
+  color: #301a47;
+}
+
+.custom-file-upload:hover {
+  box-shadow: 0 0 0 0.2rem rgba(48, 26, 71, 0.5);
+}
+
+input[type=file] {
+  display: none;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 250px;
 }
 
 .inputGroup {
@@ -17451,7 +17500,13 @@ select.form-control.mb-2 {
   width: 350px;
 }
 
-.form-control:focus {
+.form-control {
+  transition: all 0.3s ease-in-out;
+  outline: none;
+}
+
+.form-control:focus,
+.form-control:hover {
   border-color: #301a47;
   box-shadow: 0 0 0 0.2rem rgba(48, 26, 71, 0.5);
 }
@@ -17508,10 +17563,28 @@ a.title-orange:hover {
   margin-left: 15px;
 }
 
+.bg-orange {
+  background-color: #ec5e25;
+}
+
 @media screen and (max-width: 768px) {
   .custom-margin {
     margin-left: 0;
     margin-top: 15px;
   }
+
+  .dropdown-menu.custom-border {
+    border: none;
+  }
+}
+
+.toggle-trigger {
+  cursor: pointer;
+  color: #ec5e25;
+}
+
+.toggle-trigger:hover {
+  text-decoration: none;
+  color: #b53f10;
 }
 

@@ -5,14 +5,33 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container py-5">
   <div class="py-3">
-    <h1 class="stat_title">Le tue statistiche</h1>
+    
     @if (count($messages) == 0 && count($reviews) == 0)
-        <h2>Non hai statistiche disponibili</h2>
+    <div class="main-height d-flex align-items-center justify-content-center">
+      <div class="card text-center d-flex align-items-center justify-content-center p-5 card_review shadow p-3 mb-2 bg-body rounded">
+          <div class="check_container d-flex align-items-center justify-content-center">
+              <i class="far fa-frown title-orange fa-4x"></i>
+          </div>
+          
+          <div>
+              <h1 class="my-5">Non hai abbastanza dati a disposizione!</h1>
+              <p>Sponsorizza il tuo profilo, per renderti più visibile!</p>
+          </div>
+          <div class="w-100 d-flex justify-content-between">
+              <a class="btn btn-yellow text-white" href="{{ route('admin.welcome') }}">
+                  Indietro
+                </a>
+              <a class="btn btn-orange text-white" href="{{ route('admin.musicians.sponsor', Auth::user()->musician->slug) }}">Sponsorizza</a>
+
+          </div>
+        </div>
+
+  </div>
     @else
-  
-    <div class="chart_1">
+    <h1 class="stat_title pb-5">Le tue statistiche</h1>
+    <div class="chart_1 mb-5">
       <h4>Numero di messaggi e recensioni ricevute ogni mese</h4>
       <canvas id="myChart"></canvas>
     </div>
@@ -20,11 +39,14 @@
       <h4>Voti ricevuti ogni mese</h4>
       <canvas id="myOtherChart"></canvas>
     </div>
+    <div class="pt-5">
+      <a class="btn btn-yellow text-white" href="{{ route('admin.welcome') }}">
+        {{-- <i class="far fa-hand-point-left text-white"></i> --}}
+        Indietro
+      </a>
+
+    </div>
     @endif
-    <a class="btn btn-petrol text-white" href="{{ route('admin.welcome') }}">
-      {{-- <i class="far fa-hand-point-left text-white"></i> --}}
-      Indietro
-    </a>
 
   </div>
 </div>

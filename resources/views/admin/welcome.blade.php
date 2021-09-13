@@ -7,13 +7,13 @@
 @section('content')
 <div class="container py-5 ">
     @if (session('message'))
-        <div class="alert alert-success">
-            <h6>{{ session('message') }}</h6>
+        <div class="alert alert-success" style="width: max-content;">
+            <small>{{ session('message') }}</small>
         </div>
     @endif
     
     
-    <div class="mb-3">
+    <div class="mb-5 text-center">
         <h1>{{ str_ends_with($user->name, 'a') ? 'Benvenuta' : 'Benvenuto' }} {{ ucfirst($user->name) }}</h1>
     </div>
     <div class="row">
@@ -73,9 +73,9 @@
           
         @elseif(!$user->musician)
             <div class="main-height">
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <h1>{{ str_ends_with($user->name, 'a') ? 'Benvenuta' : 'Benvenuto' }} {{ ucfirst($user->name) }}</h1>
-                </div>
+                </div> --}}
                 <div class="card shadow p-4 myHover">
                     <i class="far fa-address-card card-image-top fa-4x text-center title-pink"></i>
                     <div class="card-body text-center ">

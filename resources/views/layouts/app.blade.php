@@ -59,7 +59,11 @@
                             <li class="nav-item dropdown --mod">
                                 
                                     <a id="navbarDropdown" class="nav-link title-orange d-flex align-items-center" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        <img class="mini-img mr-2" src="{{ asset('storage/'.Auth::user()->musician->cover) }}" alt=""> {{ ucfirst(Auth::user()->name) }} 
+                                        @if (Auth::user()->musician && Auth::user()->musician->cover)
+                                            <img class="mini-img mr-2" src="{{ asset('storage/'.Auth::user()->musician->cover) }}" alt=""> {{ ucfirst(Auth::user()->name) }}
+                                        @else
+                                            <img class="mini-img mr-2" src="{{ asset('/images/avatar.png') }}" alt="Profile Image"> {{ ucfirst(Auth::user()->name) }}
+                                        @endif
                                     </a>
                                 
 
@@ -67,9 +71,11 @@
                                     <a class="dropdown-item custom-drop title-orange" href="/admin">
                                         <i class="fas fa-compact-disc"></i> Dashboard
                                     </a>
-                                    <a class="dropdown-item custom-drop title-orange" href="/admin/musicians/{{Auth::user()->musician->slug}}">
-                                        <i class="fas fa-user-alt"></i> Profilo
-                                    </a>
+                                    @if (Auth::user()->musician && Auth::user()->musician->slug)
+                                        <a class="dropdown-item custom-drop title-orange" href="/admin/musicians/{{Auth::user()->musician->slug}}">
+                                            <i class="fas fa-user-alt"></i> Profilo
+                                        </a>
+                                    @endif
                                     <a class="dropdown-item custom-drop title-orange" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -89,6 +95,9 @@
 
         <main>
             @yield('content')
+            
+                <i onclick="topFunction()" id="myBtn" title="Torna su" class="fas fa-arrow-circle-up"></i>
+            
         </main>
 
         <footer class="bg-dark text-white" style="padding: 70px 0;">
@@ -131,5 +140,30 @@
 
     
     @stack('script')
+
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            mybutton.style.display = "block";
+
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+        //   document.body.scrollTop = 0;
+        //   document.documentElement.scrollTop = 0;
+          window.scrollTo({top: 0, behavior: 'smooth'});
+        //   onclick='window.scrollTo({top: 0, behavior: "smooth"});'
+        }
+        </script>
 </body>
 </html>
