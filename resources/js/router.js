@@ -37,7 +37,12 @@ const router = new VueRouter({
             path: '/review-confirm',
             name: 'review-confirm',
             component: ReviewConfirm
-        }
+        },
+        // {
+        //     path: '*',
+        //     name: 'not-found',
+        //     component: NotFound
+        // }
     ]
 });
 

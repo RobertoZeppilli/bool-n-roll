@@ -12,7 +12,7 @@
     <div class="main-height d-flex align-items-center justify-content-center">
       <div class="card text-center d-flex align-items-center justify-content-center p-5 card_review shadow p-3 mb-2 bg-body rounded">
           <div class="check_container d-flex align-items-center justify-content-center">
-              <i class="far fa-frown title-orange fa-4x"></i>
+              <i class="far fa-frown title-orange fa-4x animate__animated animate__bounceIn"></i>
           </div>
           
           <div>
@@ -217,7 +217,7 @@ var myChart = new Chart(ctx, {
             position: 'right',
             align: 'start',
             labels: {
-              color: '#eceff5',
+              color: '#191919',
               font: {
                   size: 14,
                   // weight: 'bold'
@@ -310,7 +310,7 @@ var myChart = new Chart(ct2, {
             position: 'right',
             align: 'start',
             labels: {
-              color: '#eceff5',
+              color: '#191919',
               font: {
                   size: 14,
                   // weight: 'bold'

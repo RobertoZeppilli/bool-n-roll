@@ -17,9 +17,9 @@ use Symfony\Component\HttpFoundation\Request;
 |
 */
 
-// Route::get('/', function () {
-//     return view('guests.home');
-// });
+Route::get('/', function () {
+    return view('guests.home');
+});
 
 Auth::routes();
 
@@ -47,7 +47,7 @@ Route::middleware('auth')
     }); 
 
 
-Route::get('{any?}', function () {
-    return view ('guests.home'); 
-})->where('any','.*')->name('home');
+// Route::get('{any?}', function () {
+//     return view ('guests.home'); 
+// })->where('any','.*');
 

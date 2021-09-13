@@ -1,9 +1,7 @@
 <template>
   <div>
     <Jumbotron />
-    <div class="pattern-home">
-      
-    </div>
+    <div class="pattern-home"></div>
     <div class="container">
       <!-- <div class="py-4 text-center" data-aos="zoom-in">
       </div> -->
@@ -23,33 +21,39 @@
             class="
               card
               rounded
+              sponsored-card
               mx-2
-              py-4
+              pt-4
               text-center
               d-flex
               flex-column
               align-items-center
               justify-content-center
             "
-            style="min-height: 300px"
+            style="min-height: 300px;"
           >
-            <img
-              class="card-img-top"
-              style="height: 200px; width: 200px; border-radius: 50%"
-              :src="'/storage/' + musician.cover"
-              alt="Card image cap"
-            />
+            
+            <vue-load-image >
+              <img style="height: 200px; width: 200px; border-radius: 50%" slot="image"  :src="'/storage/' + musician.cover" />
+              <img
+                style="height: 100px;"
+                slot="preloader"
+                src="https://cdn.discordapp.com/attachments/880006994608652299/886981737249402880/Pulse-1s-200px.svg"
+              />
+              <!-- <div slot="preloader" class="lds-facebook bg-dark" style="height: 200px; width: 200px;"><div></div><div></div><div></div></div> -->
+              <div class="text-danger" slot="error">No cover found.</div>
+            </vue-load-image>
             <div class="card-body">
               <h5 class="card-title">{{ musician.stagename }}</h5>
             </div>
 
-            <div>
+            <!-- <div>
               <small class="bg-dark rounded text-white p-2">{{
                 musician.reviews.length == 1
                   ? musician.reviews.length + " recensione"
                   : musician.reviews.length + " recensioni"
               }}</small>
-            </div>
+            </div> -->
 
             <div class="py-2">
               <i
@@ -63,7 +67,7 @@
             </div>
 
             <router-link
-              class="btn btn-orange text-white"
+              class="btn-orange btn-rounded text-white w-100"
               :to="{
                 name: 'musician',
                 params: { slug: musician.slug },
@@ -75,7 +79,12 @@
       </carousel>
 
       <div class="row py-5">
-        <div class="col-xs-12 col-md-6 col-lg-6 py-4" data-aos="zoom-in">
+        <div
+          class="col-xs-12 col-md-6 col-lg-6 py-4"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+          data-aos-delay="1000"
+        >
           <img
             style="width: 350px"
             class="text-center"
@@ -86,6 +95,8 @@
         <div
           class="col-xs-12 col-md-6 col-lg-6 py-4 text-center"
           data-aos="fade-left"
+          data-aos-duration="1000"
+          data-aos-delay="1000"
         >
           <div
             class="
@@ -125,6 +136,8 @@
                 text-center
               "
               data-aos="fade-right"
+              data-aos-duration="1000"
+              data-aos-delay="1000"
             >
               <h3 class="py-2">
                 Sei un musicista o vuoi sponsorizzare la tua Band?
@@ -146,7 +159,12 @@
             </div>
           </div>
         </div>
-        <div class="col-xs-12 col-md-6 col-lg-6 py-4" data-aos="zoom-in">
+        <div
+          class="col-xs-12 col-md-6 col-lg-6 py-4"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+          data-aos-delay="1000"
+        >
           <div class="d-flex justify-content-end align-items-center">
             <img
               style="width: 350px"
@@ -172,6 +190,8 @@ import dayjs from "dayjs";
 
 import { Carousel, Slide } from "vue-carousel";
 
+import VueLoadImage from 'vue-load-image'
+
 export default {
   name: "Home",
 
@@ -181,6 +201,7 @@ export default {
       activePaginateColor: "#ec5e25",
       paginateColor: "rgba(236, 93, 37, 0.363)",
       today: dayjs().format("YYYY-MM-DD HH:mm:ss"),
+      link: "https://loading.io/assets/img/c/bg/glory-low-contrast.jpg",
     };
   },
 
@@ -188,6 +209,7 @@ export default {
     Jumbotron,
     Carousel,
     Slide,
+    VueLoadImage
   },
 
   methods: {
@@ -211,8 +233,12 @@ export default {
 
   created() {
     this.getSponsoredMusicians();
+
     // console.log(this.getSponsor);
   },
+
+  // mounted() {
+  // },
 };
 </script>
 

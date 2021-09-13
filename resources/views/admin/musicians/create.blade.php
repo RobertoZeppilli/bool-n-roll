@@ -85,10 +85,10 @@
         
 
         <div class="d-flex justify-content-between align-items-center">
-            <a class="btn btn-petrol text-white" href="{{ route('admin.welcome') }}">
+            <a class="btn btn-yellow text-white" href="{{ route('admin.welcome') }}">
                 Indietro
             </a>
-            <button type="submit" class="btn btn-primary my-5">
+            <button type="submit" class="btn btn-petrol text-white my-5">
                 Salva
             </button>
         </div>

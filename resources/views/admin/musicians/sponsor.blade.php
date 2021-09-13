@@ -48,7 +48,7 @@
                         Indietro
                     </a>
                     <input id="nonce" name="payment_method_nonce" type="hidden" />
-                    <button class="btn btn-orange text-white" type="submit">
+                    <button class="btn btn-petrol text-white" type="submit">
                         Paga
                     </button>
                 </div>

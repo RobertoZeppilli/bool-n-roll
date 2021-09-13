@@ -19,7 +19,7 @@
     <div class="row">
         @if($user->musician)
             
-            <div class="col-xs-6 col-md-6 col-lg-4 mb-4">
+            <div class="col-xs-6 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeIn">
                 <div class="card shadow p-4 myHover">
                     <i class="fas fa-eye card-image-top fa-4x text-center title-purple"></i>
                     <div class="card-body text-center  ">
@@ -30,7 +30,7 @@
                     </div>
                 </div>
             </div>    
-            <div class="col-xs-6 col-md-6 col-lg-4 mb-4">
+            <div class="col-xs-6 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeIn">
                 <div class="card shadow p-4 myHover">
                     <i class="far fa-envelope card-image-top fa-4x text-center title-petrol"></i>
                     <div class="card-body text-center ">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-6 col-md-6 col-lg-4 mb-4">
+            <div class="col-xs-6 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeIn">
                 <div class="card shadow p-4 myHover">
                     <i class="fas fa-rocket card-image-top fa-4x text-center title-green"></i>
                     <div class="card-body text-center ">
@@ -50,17 +50,17 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-6 col-md-6 col-lg-4 mb-4">
+            <div class="col-xs-6 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeIn">
                 <div class="card shadow p-4 myHover">
                     <i class="fas fa-chart-pie card-image-top fa-4x text-center title-yellow"></i>
                     <div class="card-body text-center ">
                       <h5 class="card-title">Statistiche</h5>
-                      <p class="title-yellow bg-pale rounded py-2">Tieniti aggiornato sulle statistiche.</p>
+                      <p class="title-yellow bg-pale rounded py-2">Tieniti aggiornato sulle statistiche del tuo profilo.</p>
                       <a  href="{{ route('admin.musicians.stats', $user->musician->slug) }}" class="btn btn-yellow text-white">Statistiche</a>
                     </div>
                 </div>
             </div>
-            <div class="col-xs-6 col-md-6 col-lg-4 mb-4">
+            <div class="col-xs-6 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeIn">
                 <div class="card shadow p-4 myHover">
                     <i class="far fa-comments card-image-top fa-4x text-center title-wine"></i>
                     <div class="card-body text-center ">
@@ -76,7 +76,7 @@
                 {{-- <div class="mb-3">
                     <h1>{{ str_ends_with($user->name, 'a') ? 'Benvenuta' : 'Benvenuto' }} {{ ucfirst($user->name) }}</h1>
                 </div> --}}
-                    <div class="col-xs-12 col-md-6 col-lg-5">
+                    <div class="col-xs-12 col-md-6 col-lg-5 animate__animated animate__fadeIn">
                         <div class="card shadow p-4 myHover">
                             <i class="far fa-address-card card-image-top fa-4x text-center title-pink"></i>
                             <div class="card-body text-center ">
@@ -86,7 +86,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-none d-md-block col-xs-12 col-md-6 col-lg-7 text-right">
+                    <div class="d-none d-md-block col-xs-12 col-md-6 col-lg-7 text-right animate__animated animate__slideInRight">
                         <img style="width: 30vw;" src="./images/musicprofile.svg" alt="">
                         
                     </div>

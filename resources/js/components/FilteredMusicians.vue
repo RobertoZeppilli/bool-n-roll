@@ -40,14 +40,15 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="row py-4">
+    <div class="container py-5">
+      <h2>Risultati per: <span class="badge_profile badge badge-purple text-white">{{ this.$route.params.slug }}</span></h2>
+      <div v-if="loaded" class="row py-4">
         <div
           v-for="musician in filterMusicians"
           :key="musician.id"
           class="col-xs-12 col-md-6 col-lg-4 my-4"
         >
-          <div class="card" data-aos="zoom-out">
+          <div class="card" data-aos="zoom-in">
             <!-- <div class="musician-img"> -->
               <img
                 class="profile-pic"
@@ -87,9 +88,10 @@
           </div>
         </div>
       </div>
+      <Loader v-else/> 
       <div class="text-center">
         <router-link
-          class="btn btn-orange text-white mb-3"
+          class="btn btn-yellow text-white"
           :to="{ name: 'home' }"
           >Indietro</router-link
         >
@@ -99,15 +101,19 @@
 </template>
 
 <script>
+import Loader from './Loader';
 
 export default {
   name: "FilteredMusicians",
-
+  components: {
+    Loader
+  },
   data() {
     return {
       musicians: [],
       starVote: "",
       reviewAmount: "",
+      loaded: false
     };
   },
 
@@ -159,6 +165,11 @@ export default {
 
   created() {
     this.getMusicians(this.$route.params.slug);
+
+
+  },
+  mounted() {
+    setTimeout(() => (this.loaded = true), 2000);
   },
 };
 </script>

@@ -33,6 +33,7 @@
         "datejs": "^1.0.0-rc3",
         "dayjs": "^1.10.6",
         "vue-carousel": "^0.18.0",
+        "vue-load-image": "^0.2.0",
         "vue-router": "^3.5.2",
         "vue-select": "^3.13.0"
     }
