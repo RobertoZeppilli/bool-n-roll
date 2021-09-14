@@ -61,10 +61,10 @@
           :key="musician.id"
           class="col-xs-12 col-md-6 col-lg-4 my-4"
         >
-          <div class="card" data-aos="zoom-in">
+          <div class="card filter-card rounded" data-aos="zoom-in">
             <!-- <div class="musician-img"> -->
             <img
-              class="profile-pic"
+              class="profile-pic rounded-img"
               :src="'/storage/' + musician.cover"
               :alt="musician.stagename"
             />

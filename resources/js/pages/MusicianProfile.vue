@@ -53,56 +53,48 @@
             </div>
           </div>
 
-          <div>
+          <div v-if="musician.reviews.length > 0">
             <h3 data-aos="fade-right" class="my-3 mt-3">
               Recensioni su {{ musician.stagename }}
             </h3>
-            <div v-if="musician.reviews">
-              <div
-                v-for="review in sortedReviews"
-                :key="review.id"
-                class="
-                  card
-                  w-100
-                  my-2
-                  card_review
-                  shadow
-                  p-3
-                  mb-2
-                  bg-body
-                  rounded
-                "
-                data-aos="fade-right"
-              >
-                <div class="card-body">
-                  <h5 class="title-wine">
-                    {{ review.name }}
-                    {{
-                      review.surname
-                        ? getSurnameFirstLetter(review.surname)
-                        : ""
-                    }}
-                  </h5>
-                  <div class="rating my-2">
-                    <i
-                      class="fa-star"
-                      v-for="index in 5"
-                      :key="index"
-                      :class="index <= review.vote ? 'fas' : 'far'"
-                    ></i>
-                  </div>
-                  <p class="font-italic">{{ review.review }}</p>
-                  <p class="text-right">
-                    <small
-                      >Inviato il {{ getSendDate(review.created_at) }}</small
-                    >
-                  </p>
+            <div
+              v-for="review in sortedReviews"
+              :key="review.id"
+              class="
+                card
+                w-100
+                card_review
+                shadow
+                mb-3
+                bg-body
+                rounded
+              "
+              data-aos="fade-right"
+            >
+              <div class="card-body">
+                <h5 class="title-wine">
+                  {{ review.name }}
+                  {{
+                    review.surname ? getSurnameFirstLetter(review.surname) : ""
+                  }}
+                </h5>
+                <div class="rating my-2">
+                  <i
+                    class="fa-star"
+                    v-for="index in 5"
+                    :key="index"
+                    :class="index <= review.vote ? 'fas' : 'far'"
+                  ></i>
                 </div>
+                <p class="font-italic">{{ review.review }}</p>
+                <p class="m-0 p-0 text-right">
+                  <small>Inviato il {{ getSendDate(review.created_at) }}</small>
+                </p>
               </div>
             </div>
-
-            <!-- <div v-else>No recensioni</div> -->
           </div>
+
+          <!-- <div v-else>No recensioni</div> -->
 
           <a class="btn btn-yellow text-white my-5" @click="$router.go(-1)">
             Indietro
@@ -110,7 +102,7 @@
         </div>
       </div>
     </div>
-    <Loader v-else/>
+    <Loader v-else />
   </div>
 </template>
 
@@ -137,7 +129,7 @@ export default {
       show: false,
       review: false,
       reviews: [],
-       loaded: false
+      loaded: false,
     };
   },
 

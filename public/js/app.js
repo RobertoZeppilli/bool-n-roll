@@ -3030,14 +3030,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -39894,10 +39886,13 @@ var render = function() {
                   [
                     _c(
                       "div",
-                      { staticClass: "card", attrs: { "data-aos": "zoom-in" } },
+                      {
+                        staticClass: "card filter-card rounded",
+                        attrs: { "data-aos": "zoom-in" }
+                      },
                       [
                         _c("img", {
-                          staticClass: "profile-pic",
+                          staticClass: "profile-pic rounded-img",
                           attrs: {
                             src: "/storage/" + musician.cover,
                             alt: musician.stagename
@@ -41263,41 +41258,41 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c("div", [
-                  _c(
-                    "h3",
-                    {
-                      staticClass: "my-3 mt-3",
-                      attrs: { "data-aos": "fade-right" }
-                    },
-                    [
-                      _vm._v(
-                        "\n            Recensioni su " +
-                          _vm._s(_vm.musician.stagename) +
-                          "\n          "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _vm.musician.reviews
-                    ? _c(
-                        "div",
+                _vm.musician.reviews.length > 0
+                  ? _c(
+                      "div",
+                      [
+                        _c(
+                          "h3",
+                          {
+                            staticClass: "my-3 mt-3",
+                            attrs: { "data-aos": "fade-right" }
+                          },
+                          [
+                            _vm._v(
+                              "\n            Recensioni su " +
+                                _vm._s(_vm.musician.stagename) +
+                                "\n          "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
                         _vm._l(_vm.sortedReviews, function(review) {
                           return _c(
                             "div",
                             {
                               key: review.id,
                               staticClass:
-                                "\n                card\n                w-100\n                my-2\n                card_review\n                shadow\n                p-3\n                mb-2\n                bg-body\n                rounded\n              ",
+                                "\n              card\n              w-100\n              card_review\n              shadow\n              mb-3\n              bg-body\n              rounded\n            ",
                               attrs: { "data-aos": "fade-right" }
                             },
                             [
                               _c("div", { staticClass: "card-body" }, [
                                 _c("h5", { staticClass: "title-wine" }, [
                                   _vm._v(
-                                    "\n                  " +
+                                    "\n                " +
                                       _vm._s(review.name) +
-                                      "\n                  " +
+                                      "\n                " +
                                       _vm._s(
                                         review.surname
                                           ? _vm.getSurnameFirstLetter(
@@ -41305,7 +41300,7 @@ var render = function() {
                                             )
                                           : ""
                                       ) +
-                                      "\n                "
+                                      "\n              "
                                   )
                                 ]),
                                 _vm._v(" "),
@@ -41327,7 +41322,7 @@ var render = function() {
                                   _vm._v(_vm._s(review.review))
                                 ]),
                                 _vm._v(" "),
-                                _c("p", { staticClass: "text-right" }, [
+                                _c("p", { staticClass: "m-0 p-0 text-right" }, [
                                   _c("small", [
                                     _vm._v(
                                       "Inviato il " +
@@ -41340,11 +41335,11 @@ var render = function() {
                               ])
                             ]
                           )
-                        }),
-                        0
-                      )
-                    : _vm._e()
-                ]),
+                        })
+                      ],
+                      2
+                    )
+                  : _vm._e(),
                 _vm._v(" "),
                 _c(
                   "a",
