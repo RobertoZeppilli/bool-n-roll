@@ -1985,6 +1985,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ExampleComponent",
   methods: {}
@@ -2371,8 +2374,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getGenres(); // this.filter(this.$routes.params.id)
-  },
-  mounted: function mounted() {}
+  } // mounted() {
+  //   setTimeout(() => (this.loaded = true), 2000);
+  // },
+
 });
 
 /***/ }),
@@ -2900,6 +2905,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2941,9 +2955,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getSponsoredMusicians(); // console.log(this.getSponsor);
-  } // mounted() {
-  // },
-
+  }
 });
 
 /***/ }),
@@ -39744,7 +39756,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("router-view")
+  return _c("div", [_c("router-view")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -40853,6 +40865,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "overflow" },
     [
       _c("Jumbotron"),
       _vm._v(" "),

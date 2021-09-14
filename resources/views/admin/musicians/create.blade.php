@@ -45,7 +45,7 @@
             <label for="cover">Cover</label>
             @if ($musician->cover)
                 <div class="mb-3">
-                    <small class="d-block">Actual Cover</small>
+                    <small class="d-block">La tua cover attuale</small>
                     <img style="width:100px;" src="{{ asset('storage/'.$musician->cover) }}" alt="{{ $musician->stagename }}">
                 </div>
             @endif
@@ -65,7 +65,7 @@
         </div>
 
         <div class="form-group">
-            <h6>Genres</h6>
+            <h6>Generi</h6>
             @foreach ($genres as $genre)
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" name='genres[]' type="checkbox" value="{{ $genre->id }}" id="genre-{{$genre->id}}" {{ in_array($genre->id, old('genres', [])) ? 'checked' : '' }}>

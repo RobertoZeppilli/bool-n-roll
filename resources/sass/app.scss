@@ -306,7 +306,9 @@ a {
     overflow: hidden;
   }
 }
-
+.overflow {
+  overflow-x: hidden;
+}
 /* Style the back side */
 .flip-card-back {
   background-color: $myPetrol;

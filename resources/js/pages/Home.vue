@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="overflow">
     <Jumbotron />
     <div class="pattern-home"></div>
     <div class="container">
@@ -34,7 +34,7 @@
           >
             <vue-load-image>
               <img
-                style="height: 200px; width: 200px; border-radius: 50%;"
+                style="height: 200px; width: 200px; border-radius: 50%"
                 slot="image"
                 :src="'/storage/' + musician.cover"
                 class="img-sponsor"
@@ -90,7 +90,12 @@
       </carousel>
 
       <div class="showreel showreel-1 py-5">
-        <div class="showreel-img-1" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="1000">
+        <div
+          class="showreel-img-1"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+          data-aos-delay="1000"
+        >
           <img style="width: 350px" src="/images/musiccassa.svg" alt="" />
         </div>
 
@@ -112,7 +117,12 @@
       </div>
 
       <div class="showreel showreel-2 py-5">
-        <div class="showreel-img-2" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="1000">
+        <div
+          class="showreel-img-2"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+          data-aos-delay="1000"
+        >
           <img style="width: 350px" src="/images/musichpone.svg" alt="" />
         </div>
 
@@ -137,7 +147,6 @@
           >
         </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -196,8 +205,7 @@ export default {
     // console.log(this.getSponsor);
   },
 
-  // mounted() {
-  // },
+  
 };
 </script>
 

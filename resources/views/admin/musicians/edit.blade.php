@@ -65,7 +65,7 @@
         </div>
 
         <div class="form-group">
-            <h6>Genres</h6>
+            <h6>Generi</h6>
             @foreach ($genres as $genre)
                 <div class="form-check form-check-inline">
                     @if ($errors->any())

@@ -66,6 +66,8 @@ export default {
     };
   },
 
+  
+
   methods: {
     getGenres() {
       axios
@@ -103,9 +105,9 @@ export default {
     // this.filter(this.$routes.params.id)
   },
 
-  mounted() {
-    
-  },
+  // mounted() {
+  //   setTimeout(() => (this.loaded = true), 2000);
+  // },
 };
 </script>
 
