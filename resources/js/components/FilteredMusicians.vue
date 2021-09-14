@@ -59,19 +59,59 @@
         <div
           v-for="musician in filterMusicians"
           :key="musician.id"
-          class="col-xs-12 col-md-6 col-lg-4 my-4"
+          class="d-flex justify-content-between width flex-wrap"
         >
-          <div class="card filter-card rounded" data-aos="zoom-in">
-            <!-- <div class="musician-img"> -->
-            <img
+          <div class="flip-card" data-aos="zoom-in">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  :src="'/storage/' + musician.cover"
+                  :alt="musician.stagename"
+                  class="profile-pic"
+                />
+              </div>
+              <div class="flip-card-back">
+                <div>
+                  <small class="text-white p-2">{{
+                    musician.reviews.length == 1
+                      ? musician.reviews.length + " recensione"
+                      : musician.reviews.length + " recensioni"
+                  }}</small>
+                </div>
+                <router-link
+                  class="btn btn-orange text-white"
+                  :to="{ name: 'musician', params: { slug: musician.slug } }"
+                  >Vai al profilo</router-link
+                >
+                <span class="d-block py-2">
+                  <i
+                    class="fa-star"
+                    v-for="index in 5"
+                    :key="index"
+                    :class="
+                      index <= getAverageVotes(musician.reviews) ? 'fas' : 'far'
+                    "
+                  ></i>
+                </span>
+
+                
+              </div>
+            </div>
+          </div>
+          <div class="text-center w-100 py-2">
+            <h4 >{{ musician.stagename }}</h4>
+          </div>
+          <!-- <div class="card filter-card rounded" data-aos="zoom-in"> -->
+
+          <!-- <img
               class="profile-pic rounded-img"
               :src="'/storage/' + musician.cover"
               :alt="musician.stagename"
-            />
-            <!-- </div> -->
-            <div class="card-body text-center">
+            /> -->
+
+          <!-- <div class="card-body text-center">
               <h5 class="card-title py-2">{{ musician.stagename }}</h5>
-              <!-- reviews -->
+              
 
               <div>
                 <small class="bg-dark rounded text-white p-2">{{
@@ -91,14 +131,45 @@
                 ></i>
               </span>
 
-              <!-- /reviews -->
+              
+              <router-link
+                class="btn btn-orange text-white"
+                :to="{ name: 'musician', params: { slug: musician.slug } }"
+                >Vedi profilo</router-link
+              >
+            </div> -->
+          <!-- </div> -->
+
+          <!-- <div class="musician-img-profile mb-5">
+            <img :src="'/storage/' + musician.cover" alt="" />
+            <div>
+              <div>
+                <h4>{{ musician.stagename }}</h4>
+              </div>
+              <div>
+                <small class="bg-dark rounded text-white p-2">{{
+                  musician.reviews.length == 1
+                    ? musician.reviews.length + " recensione"
+                    : musician.reviews.length + " recensioni"
+                }}</small>
+              </div>
+              <span class="d-block py-2">
+                <i
+                  class="fa-star"
+                  v-for="index in 5"
+                  :key="index"
+                  :class="
+                    index <= getAverageVotes(musician.reviews) ? 'fas' : 'far'
+                  "
+                ></i>
+              </span>
               <router-link
                 class="btn btn-orange text-white"
                 :to="{ name: 'musician', params: { slug: musician.slug } }"
                 >Vedi profilo</router-link
               >
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
       <Loader v-else />

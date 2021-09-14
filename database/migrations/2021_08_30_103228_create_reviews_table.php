@@ -25,7 +25,7 @@ class CreateReviewsTable extends Migration
 
             $table->foreign('musician_id')
                 ->references('id')
-                ->on('musicians'); 
+                ->on('musicians');
 
         });
     }

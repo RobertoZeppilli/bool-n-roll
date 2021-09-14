@@ -70,6 +70,21 @@
                     </div>
                 </div>
             </div>
+            {{-- <div class="col-xs-6 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeIn">
+                <div class="card shadow p-4 myHover">
+                    <i class="far fa-comments card-image-top fa-4x text-center title-wine"></i>
+                    <div class="card-body text-center ">
+                      <h5 class="card-title">Elimina</h5>
+                      <p class="title-wine rounded bg-pale py-2">Qui potrai eliminare il tuo profilo utente.</p>
+                      <form action="{{ route('admin.user.delete', $user->id) }}" method="POST" onSubmit="return confirm('Are you sure you want to delete {{ $musician->stagename }}?')">
+                        @csrf
+                        @method('DELETE')
+            
+                        <button class="btn btn-danger" type="submit">Elimina</button>
+                    </form>
+                    </div>
+                </div>
+            </div> --}}
           
         @elseif(!$user->musician)
             {{-- <div class="main-height"> --}}

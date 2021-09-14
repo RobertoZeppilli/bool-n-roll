@@ -37,11 +37,6 @@ Route::middleware('auth')
         Route::get('/musicians/{slug}/messages', 'MusicianController@showMessagePage')->name('musicians.messages');
         Route::get('/musicians/{slug}/reviews', 'MusicianController@showReviewPage')->name('musicians.reviews');
         Route::get('/musicians/{slug}/stats', 'StatController@showStats')->name('musicians.stats');
-        // Route::get('/payment/make', 'SponsorshipController@make')->name('payment.make');
-        // Route::get('/payment', 'SponsorshipController@payment')->name('musicians.payment');
-        // Route::post('/checkout', 'SponsorshipController@payment');
-
-        // Route::get('payment', 'SponsorshipController@showSponsorPage')->name('payment.index');
 
         Route::post('payment/checkout', 'SponsorshipController@payment')->name('paga');
     }); 

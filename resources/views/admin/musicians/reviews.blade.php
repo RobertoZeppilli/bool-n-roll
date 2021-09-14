@@ -24,12 +24,12 @@
                     </div>
                 </div>
 
+                @endforeach
                 <div class="pt-5">
                     <a class="btn btn-yellow text-white" href="{{ route('admin.welcome') }}">
                         Indietro
                     </a>
                 </div>
-            @endforeach
         @else
         <div class="main-height d-flex align-items-center justify-content-center">
             <div class="card text-center d-flex align-items-center justify-content-center p-5 card_review shadow p-3 mb-2 bg-body rounded">

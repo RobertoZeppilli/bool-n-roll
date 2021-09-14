@@ -2115,6 +2115,77 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FilteredMusicians",
@@ -2685,6 +2756,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_carousel__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var vue_load_image__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-load-image */ "./node_modules/vue-load-image/dist/vue-load-image.js");
 /* harmony import */ var vue_load_image__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_load_image__WEBPACK_IMPORTED_MODULE_3__);
+//
 //
 //
 //
@@ -39881,39 +39953,34 @@ var render = function() {
                   "div",
                   {
                     key: musician.id,
-                    staticClass: "col-xs-12 col-md-6 col-lg-4 my-4"
+                    staticClass:
+                      "d-flex justify-content-between width flex-wrap"
                   },
                   [
                     _c(
                       "div",
                       {
-                        staticClass: "card filter-card rounded",
+                        staticClass: "flip-card",
                         attrs: { "data-aos": "zoom-in" }
                       },
                       [
-                        _c("img", {
-                          staticClass: "profile-pic rounded-img",
-                          attrs: {
-                            src: "/storage/" + musician.cover,
-                            alt: musician.stagename
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "card-body text-center" },
-                          [
-                            _c("h5", { staticClass: "card-title py-2" }, [
-                              _vm._v(_vm._s(musician.stagename))
-                            ]),
-                            _vm._v(" "),
-                            _c("div", [
-                              _c(
-                                "small",
-                                {
-                                  staticClass: "bg-dark rounded text-white p-2"
-                                },
-                                [
+                        _c("div", { staticClass: "flip-card-inner" }, [
+                          _c("div", { staticClass: "flip-card-front" }, [
+                            _c("img", {
+                              staticClass: "profile-pic",
+                              attrs: {
+                                src: "/storage/" + musician.cover,
+                                alt: musician.stagename
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "flip-card-back" },
+                            [
+                              _c("div", [
+                                _c("small", { staticClass: "text-white p-2" }, [
                                   _vm._v(
                                     _vm._s(
                                       musician.reviews.length == 1
@@ -39923,45 +39990,49 @@ var render = function() {
                                             " recensioni"
                                     )
                                   )
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "span",
-                              { staticClass: "d-block py-2" },
-                              _vm._l(5, function(index) {
-                                return _c("i", {
-                                  key: index,
-                                  staticClass: "fa-star",
-                                  class:
-                                    index <=
-                                    _vm.getAverageVotes(musician.reviews)
-                                      ? "fas"
-                                      : "far"
-                                })
-                              }),
-                              0
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "btn btn-orange text-white",
-                                attrs: {
-                                  to: {
-                                    name: "musician",
-                                    params: { slug: musician.slug }
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "router-link",
+                                {
+                                  staticClass: "btn btn-orange text-white",
+                                  attrs: {
+                                    to: {
+                                      name: "musician",
+                                      params: { slug: musician.slug }
+                                    }
                                   }
-                                }
-                              },
-                              [_vm._v("Vedi profilo")]
-                            )
-                          ],
-                          1
-                        )
+                                },
+                                [_vm._v("Vai al profilo")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                { staticClass: "d-block py-2" },
+                                _vm._l(5, function(index) {
+                                  return _c("i", {
+                                    key: index,
+                                    staticClass: "fa-star",
+                                    class:
+                                      index <=
+                                      _vm.getAverageVotes(musician.reviews)
+                                        ? "fas"
+                                        : "far"
+                                  })
+                                }),
+                                0
+                              )
+                            ],
+                            1
+                          )
+                        ])
                       ]
-                    )
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-center w-100 py-2" }, [
+                      _c("h4", [_vm._v(_vm._s(musician.stagename))])
+                    ])
                   ]
                 )
               }),
@@ -40818,6 +40889,7 @@ var render = function() {
                   [
                     _c("vue-load-image", [
                       _c("img", {
+                        staticClass: "img-sponsor",
                         staticStyle: {
                           height: "200px",
                           width: "200px",

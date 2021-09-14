@@ -34,9 +34,10 @@
           >
             <vue-load-image>
               <img
-                style="height: 200px; width: 200px; border-radius: 50%"
+                style="height: 200px; width: 200px; border-radius: 50%;"
                 slot="image"
                 :src="'/storage/' + musician.cover"
+                class="img-sponsor"
               />
               <img
                 style="height: 100px"
