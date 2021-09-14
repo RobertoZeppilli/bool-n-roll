@@ -17724,6 +17724,10 @@ a {
   border-radius: 10px;
 }
 
+.hide-footer {
+  display: none;
+}
+
 /* Do an horizontal flip when you move the mouse over the flip box container */
 
 .flip-card:hover .flip-card-inner {

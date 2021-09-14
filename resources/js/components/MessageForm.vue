@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="animate__animated animate__zoomIn">
     <h2>Manda un messaggio</h2>
     <form method="POST" @submit.prevent="sendMessage(musicianId)">
       <div class="form-group">

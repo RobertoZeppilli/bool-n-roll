@@ -19,7 +19,7 @@
     <div class="row">
         @if($user->musician)
             
-            <div class="col-xs-6 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeIn">
+            <div class="col-xs-6 col-md-6 col-lg-4 mb-4 animate__animated animate__zoomIn">
                 <div class="card shadow p-4 myHover">
                     <i class="fas fa-eye card-image-top fa-4x text-center title-purple"></i>
                     <div class="card-body text-center  ">
@@ -30,7 +30,7 @@
                     </div>
                 </div>
             </div>    
-            <div class="col-xs-6 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeIn">
+            <div class="col-xs-6 col-md-6 col-lg-4 mb-4 animate__animated animate__zoomIn">
                 <div class="card shadow p-4 myHover">
                     <i class="far fa-envelope card-image-top fa-4x text-center title-petrol"></i>
                     <div class="card-body text-center ">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-6 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeIn">
+            <div class="col-xs-6 col-md-6 col-lg-4 mb-4 animate__animated animate__zoomIn">
                 <div class="card shadow p-4 myHover">
                     <i class="fas fa-rocket card-image-top fa-4x text-center title-green"></i>
                     <div class="card-body text-center ">
@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-6 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeIn">
+            <div class="col-xs-6 col-md-6 col-lg-4 mb-4 animate__animated animate__zoomIn">
                 <div class="card shadow p-4 myHover">
                     <i class="fas fa-chart-pie card-image-top fa-4x text-center title-yellow"></i>
                     <div class="card-body text-center ">
@@ -60,7 +60,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-6 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeIn">
+            <div class="col-xs-6 col-md-6 col-lg-4 mb-4 animate__animated animate__zoomIn">
                 <div class="card shadow p-4 myHover">
                     <i class="far fa-comments card-image-top fa-4x text-center title-wine"></i>
                     <div class="card-body text-center ">
@@ -70,7 +70,7 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="col-xs-6 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeIn">
+            {{-- <div class="col-xs-6 col-md-6 col-lg-4 mb-4 animate__animated animate__zoomIn">
                 <div class="card shadow p-4 myHover">
                     <i class="far fa-comments card-image-top fa-4x text-center title-wine"></i>
                     <div class="card-body text-center ">

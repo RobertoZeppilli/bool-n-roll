@@ -17,7 +17,7 @@
                             <h6>{{ $message->email }}</h6>
                             <em class="d-block date">Inviato il: {{ date('d-m-Y \a\l\l\e H:i:s', strtotime($message->created_at)) }}</em>
                         </div>
-                        <p class="card-text message">{{ $message->message }}</p>
+                        <p class="card-text message text-left">{{ $message->message }}</p>
                     </div>
                 </div>
             @endforeach

@@ -2279,6 +2279,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_Loader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Loader */ "./resources/js/components/Loader.vue");
 //
 //
 //
@@ -2334,6 +2335,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Jumbotron",
   data: function data() {
@@ -2342,6 +2344,9 @@ __webpack_require__.r(__webpack_exports__);
       musicians: [],
       slug: ""
     };
+  },
+  components: {
+    Loader: _components_Loader__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   methods: {
     getGenres: function getGenres() {
@@ -2374,10 +2379,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getGenres(); // this.filter(this.$routes.params.id)
-  } // mounted() {
-  //   setTimeout(() => (this.loaded = true), 2000);
-  // },
-
+  }
 });
 
 /***/ }),
@@ -2761,6 +2763,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_carousel__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var vue_load_image__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-load-image */ "./node_modules/vue-load-image/dist/vue-load-image.js");
 /* harmony import */ var vue_load_image__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_load_image__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_Loader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Loader */ "./resources/js/components/Loader.vue");
 //
 //
 //
@@ -2914,6 +2917,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+
 
 
 
@@ -2926,14 +2933,15 @@ __webpack_require__.r(__webpack_exports__);
       activePaginateColor: "#ec5e25",
       paginateColor: "rgba(236, 93, 37, 0.363)",
       today: dayjs__WEBPACK_IMPORTED_MODULE_1___default()().format("YYYY-MM-DD HH:mm:ss"),
-      link: "https://loading.io/assets/img/c/bg/glory-low-contrast.jpg"
+      loaded: false
     };
   },
   components: {
     Jumbotron: _components_Jumbotron__WEBPACK_IMPORTED_MODULE_0__["default"],
     Carousel: vue_carousel__WEBPACK_IMPORTED_MODULE_2__["Carousel"],
     Slide: vue_carousel__WEBPACK_IMPORTED_MODULE_2__["Slide"],
-    VueLoadImage: vue_load_image__WEBPACK_IMPORTED_MODULE_3___default.a
+    VueLoadImage: vue_load_image__WEBPACK_IMPORTED_MODULE_3___default.a,
+    Loader: _components_Loader__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   methods: {
     getSponsoredMusicians: function getSponsoredMusicians() {
@@ -2955,6 +2963,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getSponsoredMusicians(); // console.log(this.getSponsor);
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    setTimeout(function () {
+      return _this2.loaded = true;
+    }, 2000);
   }
 });
 
@@ -3006,6 +3021,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dayjs */ "./node_modules/dayjs/dayjs.min.js");
 /* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(dayjs__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _components_Loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Loader */ "./resources/js/components/Loader.vue");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -40300,7 +40321,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "animate__animated animate__zoomIn" }, [
     _c("h2", [_vm._v("Manda un messaggio")]),
     _vm._v(" "),
     _c(
@@ -40548,7 +40569,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "animate__animated animate__zoomIn" }, [
     _c("h2", [_vm._v("Lascia una recensione")]),
     _vm._v(" "),
     _c(
@@ -40867,9 +40888,17 @@ var render = function() {
     "div",
     { staticClass: "overflow" },
     [
-      _c("Jumbotron"),
-      _vm._v(" "),
-      _c("div", { staticClass: "pattern-home" }),
+      _vm.loaded
+        ? _c(
+            "div",
+            [
+              _c("Jumbotron"),
+              _vm._v(" "),
+              _c("div", { staticClass: "pattern-home" })
+            ],
+            1
+          )
+        : _c("Loader"),
       _vm._v(" "),
       _c(
         "div",
@@ -41263,20 +41292,48 @@ var render = function() {
                       )
                     }),
                     _vm._v(" "),
-                    _c("p", { staticClass: "my-5" }, [
-                      _vm._v(_vm._s(_vm.musician.bio))
+                    _c("div", { staticClass: "my-5" }, [
+                      _c(
+                        "h4",
+                        {
+                          staticClass:
+                            "text-center title-petrol text-uppercase font-weight-bold"
+                        },
+                        [_vm._v("\n              Bio\n            ")]
+                      ),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(_vm.musician.bio))])
                     ]),
                     _vm._v(" "),
-                    _c(
-                      "h4",
-                      {
-                        staticClass:
-                          "title-purple text-uppercase font-weight-bold"
-                      },
-                      [_vm._v("\n            I nostri servizi\n          ")]
-                    ),
+                    _c("div", { staticClass: "my-5" }, [
+                      _c(
+                        "h4",
+                        {
+                          staticClass:
+                            "title-wine text-uppercase font-weight-bold"
+                        },
+                        [
+                          _vm._v(
+                            "\n              I nostri servizi\n            "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(_vm.musician.services))])
+                    ]),
                     _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(_vm.musician.services))])
+                    _c("div", { staticClass: "my-5" }, [
+                      _c(
+                        "h4",
+                        {
+                          staticClass:
+                            "title-pink text-uppercase font-weight-bold"
+                        },
+                        [_vm._v("\n              Tipologia\n            ")]
+                      ),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(_vm.musician.typology))])
+                    ])
                   ],
                   2
                 ),
@@ -41346,16 +41403,23 @@ var render = function() {
                 _vm.musician.reviews.length > 0
                   ? _c(
                       "div",
+                      { staticClass: "mt-5" },
                       [
                         _c(
                           "h3",
                           {
-                            staticClass: "my-3 mt-3",
+                            staticClass: "pb-1",
                             attrs: { "data-aos": "fade-right" }
                           },
                           [
                             _vm._v(
-                              "\n            Recensioni su " +
+                              "\n            Recensioni " +
+                                _vm._s(
+                                  _vm.musician.typology == "Band"
+                                    ? "sui "
+                                    : "su "
+                                ) +
+                                " " +
                                 _vm._s(_vm.musician.stagename) +
                                 "\n          "
                             )
@@ -41368,7 +41432,7 @@ var render = function() {
                             {
                               key: review.id,
                               staticClass:
-                                "\n              card\n              w-100\n              card_review\n              shadow\n              mb-3\n              bg-body\n              rounded\n            ",
+                                "card w-100 card_review shadow mb-3 bg-body rounded",
                               attrs: { "data-aos": "fade-right" }
                             },
                             [

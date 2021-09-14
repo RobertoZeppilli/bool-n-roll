@@ -1,7 +1,10 @@
 <template>
   <div class="overflow">
-    <Jumbotron />
-    <div class="pattern-home"></div>
+    <div v-if="loaded">
+      <Jumbotron />
+      <div class="pattern-home"></div>
+    </div>
+    <Loader v-else/>
     <div class="container">
       <!-- <div class="py-4 text-center" data-aos="zoom-in">
       </div> -->
@@ -160,6 +163,8 @@ import { Carousel, Slide } from "vue-carousel";
 
 import VueLoadImage from "vue-load-image";
 
+import Loader from "../components/Loader";
+
 export default {
   name: "Home",
 
@@ -169,7 +174,7 @@ export default {
       activePaginateColor: "#ec5e25",
       paginateColor: "rgba(236, 93, 37, 0.363)",
       today: dayjs().format("YYYY-MM-DD HH:mm:ss"),
-      link: "https://loading.io/assets/img/c/bg/glory-low-contrast.jpg",
+      loaded: false
     };
   },
 
@@ -178,6 +183,7 @@ export default {
     Carousel,
     Slide,
     VueLoadImage,
+    Loader,
   },
 
   methods: {
@@ -205,7 +211,9 @@ export default {
     // console.log(this.getSponsor);
   },
 
-  
+  mounted() {
+    setTimeout(() => (this.loaded = true), 2000);
+  },
 };
 </script>
 

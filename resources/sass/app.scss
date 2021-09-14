@@ -278,6 +278,10 @@ a {
   
 }
 
+.hide-footer {
+  display: none;
+}
+
 /* Do an horizontal flip when you move the mouse over the flip box container */
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
@@ -309,6 +313,11 @@ a {
 .overflow {
   overflow-x: hidden;
 }
+
+// #footer {
+  
+//   padding-top: 100px;
+// }
 /* Style the back side */
 .flip-card-back {
   background-color: $myPetrol;

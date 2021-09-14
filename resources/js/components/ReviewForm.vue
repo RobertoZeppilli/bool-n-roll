@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="animate__animated animate__zoomIn">
     <h2>Lascia una recensione</h2>
     <form method="POST" @submit.prevent="sendMessage(musicianId)">
       <!-- <input type="hidden" name="user_id" id="user_id" :value="doctorId" > -->

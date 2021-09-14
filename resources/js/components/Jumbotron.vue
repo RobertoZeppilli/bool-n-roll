@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import Loader from '../components/Loader';
 
 export default {
   name: "Jumbotron",
@@ -67,6 +68,9 @@ export default {
   },
 
   
+  components: {
+    Loader
+  },
 
   methods: {
     getGenres() {
@@ -105,9 +109,7 @@ export default {
     // this.filter(this.$routes.params.id)
   },
 
-  // mounted() {
-  //   setTimeout(() => (this.loaded = true), 2000);
-  // },
+  
 };
 </script>
 

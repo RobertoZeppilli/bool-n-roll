@@ -100,7 +100,7 @@
             
         </main>
 
-        <footer class="bg-dark text-white" style="padding: 70px 0;">
+        <footer class="bg-dark text-white hide-footer" id="footer" style="padding: 70px 0;">
             <div class="container">
                 <div class="row text-center">
                     <div class="col-xs-12 col-md-4 col-lg-4">
@@ -162,6 +162,12 @@
         function topFunction() {
           window.scrollTo({top: 0, behavior: 'smooth'});
         }
+    </script>
+
+    <script>
+        setTimeout(function(){
+            document.getElementById('footer').classList.remove('hide-footer');
+        }, 5000);
     </script>
 
     {{-- jQuery per smooth toggle sotto i 768px --}}

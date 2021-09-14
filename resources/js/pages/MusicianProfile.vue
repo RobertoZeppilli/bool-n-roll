@@ -24,12 +24,26 @@
               class="badge_profile badge badge-purple text-white mr-2"
               >{{ genre.name }}
             </span>
-            <p class="my-5">{{ musician.bio }}</p>
-
-            <h4 class="title-purple text-uppercase font-weight-bold">
-              I nostri servizi
-            </h4>
-            <p>{{ musician.services }}</p>
+            <div class="my-5">
+              <h4
+                class="text-center title-petrol text-uppercase font-weight-bold"
+              >
+                Bio
+              </h4>
+              <p>{{ musician.bio }}</p>
+            </div>
+            <div class="my-5">
+              <h4 class="title-wine text-uppercase font-weight-bold">
+                I nostri servizi
+              </h4>
+              <p>{{ musician.services }}</p>
+            </div>
+            <div class="my-5">
+              <h4 class="title-pink text-uppercase font-weight-bold">
+                Tipologia
+              </h4>
+              <p>{{ musician.typology }}</p>
+            </div>
           </div>
 
           <div class="row">
@@ -53,22 +67,14 @@
             </div>
           </div>
 
-          <div v-if="musician.reviews.length > 0">
-            <h3 data-aos="fade-right" class="my-3 mt-3">
-              Recensioni su {{ musician.stagename }}
+          <div v-if="musician.reviews.length > 0" class="mt-5">
+            <h3 data-aos="fade-right" class="pb-1">
+              Recensioni {{ musician.typology == 'Band' ? 'sui ' : 'su ' }} {{ musician.stagename }}
             </h3>
             <div
               v-for="review in sortedReviews"
               :key="review.id"
-              class="
-                card
-                w-100
-                card_review
-                shadow
-                mb-3
-                bg-body
-                rounded
-              "
+              class="card w-100 card_review shadow mb-3 bg-body rounded"
               data-aos="fade-right"
             >
               <div class="card-body">
