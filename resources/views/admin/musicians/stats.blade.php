@@ -32,11 +32,11 @@
     @else
     <h1 class="stat_title pb-5">Le tue statistiche</h1>
     <div class="chart_1 mb-5">
-      <h4>Numero di messaggi e recensioni ricevute ogni mese</h4>
+      <h4 class="text-center">Numero di messaggi e recensioni ricevute ogni mese</h4>
       <canvas id="myChart"></canvas>
     </div>
     <div class="chart_1">
-      <h4>Voti ricevuti ogni mese</h4>
+      <h4 class="text-center">Voti ricevuti ogni mese</h4>
       <canvas id="myOtherChart"></canvas>
     </div>
     <div class="pt-5">
@@ -317,11 +317,12 @@ var myChart = new Chart(ct2, {
               }
             }
           },
+          
           deferred: {           // enabled by default
             xOffset: 150,     // defer until 150px of the canvas width are inside the viewport
             yOffset: '50%',   // defer until 50% of the canvas height are inside the viewport
             delay: 900        // delay of 500 ms after the canvas is considered inside the viewport
-        }
+          }
           
         },
 

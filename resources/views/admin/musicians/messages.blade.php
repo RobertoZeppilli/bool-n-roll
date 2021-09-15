@@ -11,11 +11,17 @@
             <h1 class="pb-5">{{$user->musician->stagename}} i {{ $user->musician->typology == 'Band' ? 'vostri ' : 'tuoi' }} messaggi</h1>
             @foreach ($user->musician->messages->sortByDesc('created_at') as $message)
                 <div  class="card rounded shadow mb-3 ">
-                    <div class="card-body text-center style-single">
+                    <div class="card-body  style-single">
                         <div class="mb-4">
-                            <h5 class="card-title"><span>Inviato da:</span> {{ $message->name }} {{ $message->surname ? $message->surname[0] . '.' : '' }}</h5>
-                            <h6>{{ $message->email }}</h6>
-                            <em class="d-block date">Inviato il: {{ date('d-m-Y \a\l\l\e H:i:s', strtotime($message->created_at)) }}</em>
+                            <div class="d-flex justify-content-between">
+                                <h5 class="card-title">
+                                    <span class="title-orange">Inviato da:</span>
+                                     {{ $message->name }} {{ $message->surname ? ucfirst($message->surname[0]) . '.' : '' }}
+                                </h5>
+                                <em class="date d-block">Ricevuto il: {{ date('d-m-Y \a\l\l\e H:i:s', strtotime($message->created_at)) }}</em>
+                            </div>
+                            <h6 class="text-left font-italic platinum">{{ $message->email }}</h6>
+                            
                         </div>
                         <p class="card-text message text-left">{{ $message->message }}</p>
                     </div>

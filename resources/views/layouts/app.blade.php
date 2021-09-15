@@ -167,7 +167,7 @@
     <script>
         setTimeout(function(){
             document.getElementById('footer').classList.remove('hide-footer');
-        }, 5000);
+        }, 3000);
     </script>
 
     {{-- jQuery per smooth toggle sotto i 768px --}}

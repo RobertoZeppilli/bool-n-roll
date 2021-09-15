@@ -45,7 +45,7 @@
           
         </div>
 
-        <div class="col-xs-6 col-md-12 col-lg-6 animate__animated animate__fadeInRight animate__delay-2s">
+        <div class="col-xs-6 col-md-12 col-lg-6 animate__animated animate__fadeInRightBig">
           <img class="img-fluid" src="images/jumboimg.png" alt="Jumbtron" />
         </div>
       </div>

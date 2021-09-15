@@ -17604,7 +17604,8 @@ a.title-orange:hover {
     width: 150px;
   }
 
-  .form-group-resp label {
+  .form-group-resp label,
+  .form-group-resp select {
     font-size: 8px;
   }
 

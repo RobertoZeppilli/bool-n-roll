@@ -1,10 +1,8 @@
 <template>
   <div class="overflow">
-    <div v-if="loaded">
-      <Jumbotron />
-      <div class="pattern-home"></div>
-    </div>
-    <Loader v-else/>
+    <Jumbotron />
+    <div class="pattern-home"></div>
+
     <div class="container">
       <!-- <div class="py-4 text-center" data-aos="zoom-in">
       </div> -->
@@ -61,13 +59,7 @@
               </small>
             </div>
 
-            <!-- <div>
-              <small class="bg-dark rounded text-white p-2">{{
-                musician.reviews.length == 1
-                  ? musician.reviews.length + " recensione"
-                  : musician.reviews.length + " recensioni"
-              }}</small>
-            </div> -->
+            
 
             <div class="py-2">
               <i
@@ -163,7 +155,7 @@ import { Carousel, Slide } from "vue-carousel";
 
 import VueLoadImage from "vue-load-image";
 
-import Loader from "../components/Loader";
+
 
 export default {
   name: "Home",
@@ -174,7 +166,7 @@ export default {
       activePaginateColor: "#ec5e25",
       paginateColor: "rgba(236, 93, 37, 0.363)",
       today: dayjs().format("YYYY-MM-DD HH:mm:ss"),
-      loaded: false
+      
     };
   },
 
@@ -183,7 +175,7 @@ export default {
     Carousel,
     Slide,
     VueLoadImage,
-    Loader,
+   
   },
 
   methods: {
@@ -211,9 +203,7 @@ export default {
     // console.log(this.getSponsor);
   },
 
-  mounted() {
-    setTimeout(() => (this.loaded = true), 2000);
-  },
+  
 };
 </script>
 

@@ -11,7 +11,7 @@
             @foreach ($user->musician->reviews->sortByDesc('created_at') as $review)
                 <div class="card w-100 my-2 card_review shadow p-3 mb-2 bg-body rounded">
                     <div class="card-body">
-                        <h5 class="card-title"><span>Inviata da:</span> {{ $review->name }} {{ $review->surname ? $review->surname[0] . '.' : '' }}</h5>
+                        <h5 class="card-title"><span class="title-orange">Inviata da:</span> {{ $review->name }} {{ $review->surname ? $review->surname[0] . '.' : '' }}</h5>
 
                         <i class="fas fa-bullhorn fa-4x my-3"></i>
                         <p class="card-text font-italic">{{ $review->review }}</p>

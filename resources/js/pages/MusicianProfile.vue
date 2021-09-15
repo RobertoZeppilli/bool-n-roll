@@ -63,7 +63,7 @@
               >
                 Scrivi una recensione
               </button>
-              <ReviewForm :musicianId="musician.id" v-if="review" />
+              <ReviewForm  :musicianId="musician.id" v-if="review" />
             </div>
           </div>
 
@@ -94,7 +94,7 @@
                 </div>
                 <p class="font-italic">{{ review.review }}</p>
                 <p class="m-0 p-0 text-right">
-                  <small>Inviato il {{ getSendDate(review.created_at) }}</small>
+                  <small>Ricevuta il {{ getSendDate(review.created_at) }}</small>
                 </p>
               </div>
             </div>

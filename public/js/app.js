@@ -2763,7 +2763,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_carousel__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var vue_load_image__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-load-image */ "./node_modules/vue-load-image/dist/vue-load-image.js");
 /* harmony import */ var vue_load_image__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_load_image__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _components_Loader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Loader */ "./resources/js/components/Loader.vue");
 //
 //
 //
@@ -2912,15 +2911,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-
 
 
 
@@ -2932,16 +2922,14 @@ __webpack_require__.r(__webpack_exports__);
       musicians: [],
       activePaginateColor: "#ec5e25",
       paginateColor: "rgba(236, 93, 37, 0.363)",
-      today: dayjs__WEBPACK_IMPORTED_MODULE_1___default()().format("YYYY-MM-DD HH:mm:ss"),
-      loaded: false
+      today: dayjs__WEBPACK_IMPORTED_MODULE_1___default()().format("YYYY-MM-DD HH:mm:ss")
     };
   },
   components: {
     Jumbotron: _components_Jumbotron__WEBPACK_IMPORTED_MODULE_0__["default"],
     Carousel: vue_carousel__WEBPACK_IMPORTED_MODULE_2__["Carousel"],
     Slide: vue_carousel__WEBPACK_IMPORTED_MODULE_2__["Slide"],
-    VueLoadImage: vue_load_image__WEBPACK_IMPORTED_MODULE_3___default.a,
-    Loader: _components_Loader__WEBPACK_IMPORTED_MODULE_4__["default"]
+    VueLoadImage: vue_load_image__WEBPACK_IMPORTED_MODULE_3___default.a
   },
   methods: {
     getSponsoredMusicians: function getSponsoredMusicians() {
@@ -2963,13 +2951,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getSponsoredMusicians(); // console.log(this.getSponsor);
-  },
-  mounted: function mounted() {
-    var _this2 = this;
-
-    setTimeout(function () {
-      return _this2.loaded = true;
-    }, 2000);
   }
 });
 
@@ -40243,7 +40224,7 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "col-xs-6 col-md-12 col-lg-6 animate__animated animate__fadeInRight animate__delay-2s"
+          "col-xs-6 col-md-12 col-lg-6 animate__animated animate__fadeInRightBig"
       },
       [
         _c("img", {
@@ -40888,17 +40869,9 @@ var render = function() {
     "div",
     { staticClass: "overflow" },
     [
-      _vm.loaded
-        ? _c(
-            "div",
-            [
-              _c("Jumbotron"),
-              _vm._v(" "),
-              _c("div", { staticClass: "pattern-home" })
-            ],
-            1
-          )
-        : _c("Loader"),
+      _c("Jumbotron"),
+      _vm._v(" "),
+      _c("div", { staticClass: "pattern-home" }),
       _vm._v(" "),
       _c(
         "div",
@@ -41474,7 +41447,7 @@ var render = function() {
                                 _c("p", { staticClass: "m-0 p-0 text-right" }, [
                                   _c("small", [
                                     _vm._v(
-                                      "Inviato il " +
+                                      "Ricevuta il " +
                                         _vm._s(
                                           _vm.getSendDate(review.created_at)
                                         )
