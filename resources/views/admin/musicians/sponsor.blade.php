@@ -6,13 +6,13 @@
 
 @section('content')
     <div class="container py-5">
-        @if (session('success_message'))
-            <div class="alert alert-success">
-                {{ session('success_message')}}
+        @if (session('message'))
+            <div class="alert alert-success animate__animated animate__zoomIn" style="width: max-content;">
+                <small>{{ session('message') }}</small>
             </div>
         @endif
         @if ($errors->any())
-            <div class="alert alert-danger">
+            <div class="alert alert-danger animate__animated animate__zoomIn">
                 <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>

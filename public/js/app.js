@@ -2335,6 +2335,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Jumbotron",
@@ -40350,6 +40351,9 @@ var render = function() {
           _vm.errors
             ? _c(
                 "div",
+                {
+                  staticClass: "text-danger animate__animated animate__shakeX"
+                },
                 _vm._l(_vm.errors.email, function(error, index) {
                   return _c(
                     "small",
@@ -40396,6 +40400,9 @@ var render = function() {
           _vm.errors
             ? _c(
                 "div",
+                {
+                  staticClass: "text-danger animate__animated animate__shakeX"
+                },
                 _vm._l(_vm.errors.name, function(error, index) {
                   return _c(
                     "small",
@@ -40442,6 +40449,9 @@ var render = function() {
           _vm.errors
             ? _c(
                 "div",
+                {
+                  staticClass: "text-danger animate__animated animate__shakeX"
+                },
                 _vm._l(_vm.errors.surname, function(error, index) {
                   return _c(
                     "small",
@@ -40487,6 +40497,9 @@ var render = function() {
           _vm.errors
             ? _c(
                 "div",
+                {
+                  staticClass: "text-danger animate__animated animate__shakeX"
+                },
                 _vm._l(_vm.errors.message, function(error, index) {
                   return _c(
                     "small",
@@ -40598,6 +40611,9 @@ var render = function() {
           _vm.errors
             ? _c(
                 "div",
+                {
+                  staticClass: "text-danger animate__animated animate__shakeX"
+                },
                 _vm._l(_vm.errors.email, function(error, index) {
                   return _c(
                     "small",
@@ -40644,6 +40660,9 @@ var render = function() {
           _vm.errors
             ? _c(
                 "div",
+                {
+                  staticClass: "text-danger animate__animated animate__shakeX"
+                },
                 _vm._l(_vm.errors.name, function(error, index) {
                   return _c(
                     "small",
@@ -40691,6 +40710,9 @@ var render = function() {
           _vm.errors
             ? _c(
                 "div",
+                {
+                  staticClass: "text-danger animate__animated animate__shakeX"
+                },
                 _vm._l(_vm.errors.review, function(error, index) {
                   return _c(
                     "small",
@@ -40778,6 +40800,9 @@ var render = function() {
             _vm.errors
               ? _c(
                   "div",
+                  {
+                    staticClass: "text-danger animate__animated animate__shakeX"
+                  },
                   _vm._l(_vm.errors.vote, function(error, index) {
                     return _c(
                       "small",

@@ -12,7 +12,7 @@
           name="email"
           id="email"
         />
-        <div v-if="errors">
+        <div v-if="errors" class="text-danger animate__animated animate__shakeX">
           <small
             class="text-danger"
             v-for="(error, index) in errors.email"
@@ -33,9 +33,9 @@
           v-model="message.name"
           placeholder="Il tuo nome..."
         />
-        <div v-if="errors">
+        <div v-if="errors" class="text-danger animate__animated animate__shakeX">
           <small
-            class="text-danger"
+          class="text-danger"
             v-for="(error, index) in errors.name"
             :key="`err-name-${index}`"
             >{{ error }}</small
@@ -53,9 +53,9 @@
           v-model="message.surname"
           placeholder="Il tuo cognome..."
         />
-        <div v-if="errors">
+        <div v-if="errors" class="text-danger animate__animated animate__shakeX">
           <small
-            class="text-danger"
+          class="text-danger"
             v-for="(error, index) in errors.surname"
             :key="`err-sur-${index}`"
             >{{ error }}</small
@@ -74,7 +74,7 @@
           placeholder="Scrivi il tuo messaggio..."
         ></textarea>
 
-        <div v-if="errors">
+        <div v-if="errors" class="text-danger animate__animated animate__shakeX">
           <small
             class="text-danger"
             v-for="(error, index) in errors.message"

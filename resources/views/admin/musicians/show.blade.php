@@ -14,7 +14,7 @@
             <img class="profile-img" src="{{ asset('storage/'.$musician->cover) }}" alt="" />
         </div>
         @if (session('message'))
-            <div class="alert alert-success" style="width: max-content;">
+            <div class="alert alert-success animate__animated animate__zoomIn" style="width: max-content;">
                 <small>{{ session('message') }}</small>
             </div>
         @endif

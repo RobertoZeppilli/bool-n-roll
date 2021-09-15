@@ -14,7 +14,7 @@
           name="email"
           id="email"
         />
-        <div v-if="errors">
+        <div v-if="errors" class="text-danger animate__animated animate__shakeX">
           <small
             class="text-danger"
             v-for="(error, index) in errors.email"
@@ -35,7 +35,7 @@
           rows="5"
           placeholder="Il tuo nome..."
         />
-        <div v-if="errors">
+        <div v-if="errors" class="text-danger animate__animated animate__shakeX">
           <small
             class="text-danger"
             v-for="(error, index) in errors.name"
@@ -66,7 +66,7 @@
           rows="5"
           placeholder="Scrivi una recensione..."
         ></textarea>
-        <div v-if="errors">
+        <div v-if="errors" class="text-danger animate__animated animate__shakeX">
           <small
             class="text-danger"
             v-for="(error, index) in errors.review"
@@ -91,7 +91,7 @@
             <option class="title-yellow" value="4">★★★★</option>
             <option class="title-yellow" value="5">★★★★★</option>
           </select>
-          <div v-if="errors">
+          <div v-if="errors" class="text-danger animate__animated animate__shakeX">
             <small
               class="text-danger"
               v-for="(error, index) in errors.vote"
