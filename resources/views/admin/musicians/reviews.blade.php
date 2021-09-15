@@ -7,7 +7,7 @@
 <div class="container py-5">
     
         @if (count($user->musician->reviews) > 0)
-            <h1 class="pb-5">{{$user->musician->stagename}} le {{ $user->musician->typology == 'Band' ? 'vostre ' : 'tue' }} recensioni</h1>
+            <h1 class="pb-3 heading-title">{{$user->musician->stagename}} le {{ $user->musician->typology == 'Band' ? 'vostre ' : 'tue' }} recensioni</h1>
             @foreach ($user->musician->reviews->sortByDesc('created_at') as $review)
                 <div class="card w-100 my-2 card_review shadow p-3 mb-2 bg-body rounded">
                     <div class="card-body">

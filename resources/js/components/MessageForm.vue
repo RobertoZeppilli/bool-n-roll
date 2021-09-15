@@ -1,6 +1,6 @@
 <template>
   <div class="animate__animated animate__zoomIn">
-    <h2>Manda un messaggio</h2>
+    <h2 class="form-text">Manda un messaggio</h2>
     <form method="POST" @submit.prevent="sendMessage(musicianId)">
       <div class="form-group">
         <label for="email">Email*</label>
@@ -84,12 +84,12 @@
         </div>
       </div>
       <div class="py-1">
-        <small>I campi con (*) sono obbligatori</small>
+        <small class="font-small">I campi con (*) sono obbligatori</small>
       </div>
 
       <!-- <vs-button type="submit" >invia il messaggio</vs-button> -->
       <button type="submit" class="btn btn-petrol text-white">
-        {{ sending ? "Invio in corso..." : "Invia Messaggio" }}
+        {{ sending ? "Invio in corso..." : "Invia" }}
         <!-- Invia -->
       </button>
     </form>

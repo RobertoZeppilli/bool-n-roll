@@ -59,7 +59,7 @@ p.platinum {
   &:hover {
     border-color: $logoColor;
     // box-shadow: 0 0 0 0.2rem rgb(48 26 71 / 50%);
-    transform: scale(1.1);
+    transform: scale(1.01);
     // border-color: darken($logoColor, 15%);
     color: $logoColor;
     outline: none !important;
@@ -178,18 +178,21 @@ a.title-orange {
   position: absolute;
   top: 50%;
   left: 50%;
+
   transform: translate(-50%, -50%);
+  z-index: 13;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 200px;
 
   
 }
 
 .social-footer {
+  padding: 10px;
   transition: all .3s ease-in-out;
   cursor: pointer;
   &:hover {
@@ -239,12 +242,44 @@ a.title-orange {
     height: 500px !important; 
   }
 }
+.sponsor-size {
+  font-size: .5rem;
+}
+.form-text {
+  font-size: 1.3rem;
+}
+.heading-title {
+  font-size: 1.3rem;
+}
 
+.sponsor-bio {
+  font-size: .5rem;
+}
 @media screen and (min-width: 768px) {
   .showreel {
     display: flex;
     justify-content: space-between;
   }
+  .sponsor-bio {
+    font-size: .9rem;
+  }
+  .sponsor-size {
+    font-size: .8rem;
+  }
+  .font-small{
+    font-size: .5rem;
+  } 
+
+  .heading-title{
+    font-size: 2.2rem;
+  }
+  .form-text {
+    font-size: 1.6rem;
+  }
+  .social-footer {
+    padding: 0;
+  }
+  
   .showreel-text {
     display: flex;
     flex-direction: column;

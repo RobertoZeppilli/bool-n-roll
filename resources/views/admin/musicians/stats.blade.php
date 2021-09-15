@@ -219,7 +219,7 @@ var myChart = new Chart(ctx, {
             labels: {
               color: '#191919',
               font: {
-                  size: 14,
+                  size: 9,
                   // weight: 'bold'
               }
             }
@@ -312,7 +312,7 @@ var myChart = new Chart(ct2, {
             labels: {
               color: '#191919',
               font: {
-                  size: 14,
+                  size: 9,
                   // weight: 'bold'
               }
             }

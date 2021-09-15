@@ -19,7 +19,7 @@
             </div>
         @endif
         <div class="pt-100 text-center">
-            <h2 class="pb-3">Il profilo {{ $musician->typology == 'Band' ? 'dei ' . $musician->stagename : 'di ' . $musician->stagename  }}</h2>
+            <h2 class="pb-3 heading-title">Il profilo {{ $musician->typology == 'Band' ? 'dei ' . $musician->stagename : 'di ' . $musician->stagename  }}</h2>
 
             
                 @if ($musician->sponsorships)
@@ -27,7 +27,7 @@
                         @foreach ($musician->sponsorships as $sponsorship)
                             @if (Illuminate\Support\Carbon::now('Europe/Rome') <= $sponsorship->pivot->end_date && $loop->last) 
                                 <div class="p-3 rounded">
-                                    <span class="badge badge-success text-white p-2 sponsor-size">Il {{ $musician->typology == 'Band' ? 'vostro ' : 'tuo '  }} profilo è sponsorizzato fino al {{$sponsorship->pivot->end_date}}</span>
+                                    <span class="badge badge-success text-white p-2 sponsor-size">Il {{ $musician->typology == 'Band' ? 'vostro ' : 'tuo '  }} profilo è sponsorizzato fino al {{date('d-m-Y \a\l\l\e H:i:s', strtotime($sponsorship->pivot->end_date))}}</span>
                                 </div>
                             @endif
                         @endforeach
@@ -62,7 +62,7 @@
                 
                 <div id="delete" class="d-none animate__animated animate__fadeIn">
                     <div class="bg-nav rounded p-5">
-                        <i class="fas fa-exclamation-triangle text-danger fa-4x"></i>
+                        <i class="fas fa-exclamation-triangle title-orange fa-4x"></i>
                         <h3 class="py-3">Sei sicuro di voler eliminare il tuo profilo?</h3>
                         <div class="w-100 d-flex justify-content-between">
                             <button class="btn btn-yellow text-white" onclick="closePopup()">
@@ -100,6 +100,7 @@
 
     const closePopup = () => {
         deleteForm.classList.add('d-none')
+        
         
     }
 

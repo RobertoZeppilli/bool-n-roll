@@ -1,6 +1,6 @@
 <template>
   <div class="animate__animated animate__zoomIn">
-    <h2>Lascia una recensione</h2>
+    <h2 class="form-text">Lascia una recensione</h2>
     <form method="POST" @submit.prevent="sendMessage(musicianId)">
       <!-- <input type="hidden" name="user_id" id="user_id" :value="doctorId" > -->
 
@@ -102,10 +102,10 @@
         </div>
         <div>
           <div class="py-1">
-            <small>I campi con (*) sono obbligatori</small>
+            <small  class="font-small">I campi con (*) sono obbligatori</small>
           </div>
           <button type="submit" class="btn btn-petrol text-white">
-            {{ sending ? "Invio in corso..." : "Invia Recensione" }}
+            {{ sending ? "Invio in corso..." : "Invia" }}
           </button>
         </div>
       </div>

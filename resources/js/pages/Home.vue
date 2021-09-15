@@ -87,7 +87,7 @@
         class="counters"
         data-aos="zoom-in"
         data-aos-duration="1000"
-        data-aos-delay="1000"
+        data-aos-delay="900"
       >
         <div class="d-flex align-items-center justify-content-center">
           <h2 class="mb-5 numbers-title">I nostri numeri</h2>
@@ -258,7 +258,7 @@ export default {
 
         updateCount();
       });
-    }, 1000);
+    }, 1500);
   },
 };
 </script>

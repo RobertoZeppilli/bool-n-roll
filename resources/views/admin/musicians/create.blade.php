@@ -6,7 +6,7 @@
 @endsection
 @section('content')
 <div class="container  py-5">
-    <h1>Ciao {{ ucfirst($user->name) }}, crea il tuo profilo!</h1>
+    <h1 class="pb-3 heading-title">Ciao {{ ucfirst($user->name) }}, crea il tuo profilo!</h1>
     <form action="{{ route('admin.musicians.store', $musician->id) }}" method="POST" class="mt-3" enctype="multipart/form-data"> 
 
         @csrf

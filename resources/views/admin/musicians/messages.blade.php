@@ -8,18 +8,18 @@
 @section('content')
     <div class="container py-5">
         @if (count($user->musician->messages) > 0)
-            <h1 class="pb-5">{{$user->musician->stagename}} i {{ $user->musician->typology == 'Band' ? 'vostri ' : 'tuoi' }} messaggi</h1>
+            <h1 class="pb-3 heading-title">{{$user->musician->stagename}} i {{ $user->musician->typology == 'Band' ? 'vostri ' : 'tuoi' }} messaggi</h1>
             @foreach ($user->musician->messages->sortByDesc('created_at') as $message)
                 <div  class="card rounded shadow mb-3 ">
                     <div class="card-body  style-single">
                         <div class="mb-4">
-                            <div class="d-flex justify-content-between">
+                            {{-- <div class="d-flex justify-content-between"> --}}
+                                <div class="date py-2 text-right">Ricevuto il: {{ date('d-m-Y \a\l\l\e H:i:s', strtotime($message->created_at)) }}</div>
                                 <h5 class="card-title">
                                     <span class="title-orange">Inviato da:</span>
                                      {{ $message->name }} {{ $message->surname ? ucfirst($message->surname[0]) . '.' : '' }}
                                 </h5>
-                                <em class="date d-block">Ricevuto il: {{ date('d-m-Y \a\l\l\e H:i:s', strtotime($message->created_at)) }}</em>
-                            </div>
+                            {{-- </div> --}}
                             <h6 class="text-left font-italic platinum">{{ $message->email }}</h6>
                             
                         </div>

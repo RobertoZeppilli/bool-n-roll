@@ -39,6 +39,8 @@ Route::middleware('auth')
         Route::get('/musicians/{slug}/stats', 'StatController@showStats')->name('musicians.stats');
 
         Route::post('payment/checkout', 'SponsorshipController@payment')->name('paga');
+
+       
     }); 
 
 

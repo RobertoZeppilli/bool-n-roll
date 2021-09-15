@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container py-5">
-    <h1 class="pb-3">Ciao {{ $musician->stagename }}, modifica il profilo!</h1>
+    <h1 class="pb-3 heading-title">Ciao {{ $musician->stagename }}, modifica il profilo!</h1>
     <form action="{{ route('admin.musicians.update', $musician->id) }}" method="POST" class="mt-3" enctype="multipart/form-data"> 
 
         @csrf

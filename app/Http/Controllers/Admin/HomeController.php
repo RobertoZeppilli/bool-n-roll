@@ -20,5 +20,7 @@ class HomeController extends Controller
         return view('admin.welcome', compact('musician', 'user')); 
     }
 
+
+   
     
 }

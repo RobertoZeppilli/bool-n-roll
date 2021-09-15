@@ -71,6 +71,8 @@
                 />
               </div>
               <div class="flip-card-back">
+                
+                
                 <div>
                   <small class="text-white p-2">{{
                     musician.reviews.length == 1
@@ -101,75 +103,7 @@
           <div class="text-center w-100 py-2">
             <h4 >{{ musician.stagename }}</h4>
           </div>
-          <!-- <div class="card filter-card rounded" data-aos="zoom-in"> -->
-
-          <!-- <img
-              class="profile-pic rounded-img"
-              :src="'/storage/' + musician.cover"
-              :alt="musician.stagename"
-            /> -->
-
-          <!-- <div class="card-body text-center">
-              <h5 class="card-title py-2">{{ musician.stagename }}</h5>
-              
-
-              <div>
-                <small class="bg-dark rounded text-white p-2">{{
-                  musician.reviews.length == 1
-                    ? musician.reviews.length + " recensione"
-                    : musician.reviews.length + " recensioni"
-                }}</small>
-              </div>
-              <span class="d-block py-2">
-                <i
-                  class="fa-star"
-                  v-for="index in 5"
-                  :key="index"
-                  :class="
-                    index <= getAverageVotes(musician.reviews) ? 'fas' : 'far'
-                  "
-                ></i>
-              </span>
-
-              
-              <router-link
-                class="btn btn-orange text-white"
-                :to="{ name: 'musician', params: { slug: musician.slug } }"
-                >Vedi profilo</router-link
-              >
-            </div> -->
-          <!-- </div> -->
-
-          <!-- <div class="musician-img-profile mb-5">
-            <img :src="'/storage/' + musician.cover" alt="" />
-            <div>
-              <div>
-                <h4>{{ musician.stagename }}</h4>
-              </div>
-              <div>
-                <small class="bg-dark rounded text-white p-2">{{
-                  musician.reviews.length == 1
-                    ? musician.reviews.length + " recensione"
-                    : musician.reviews.length + " recensioni"
-                }}</small>
-              </div>
-              <span class="d-block py-2">
-                <i
-                  class="fa-star"
-                  v-for="index in 5"
-                  :key="index"
-                  :class="
-                    index <= getAverageVotes(musician.reviews) ? 'fas' : 'far'
-                  "
-                ></i>
-              </span>
-              <router-link
-                class="btn btn-orange text-white"
-                :to="{ name: 'musician', params: { slug: musician.slug } }"
-                >Vedi profilo</router-link
-              >
-            </div>
-          </div> -->
+          
         </div>
       </div>
       <Loader v-else />
@@ -258,5 +192,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+
 </style>

@@ -17361,8 +17361,8 @@ a.title-petrol:hover {
   padding-top: 80px;
 }
 
-.sponsor-size {
-  font-size: 0.9rem;
+.font-small {
+  font-size: 0.3rem;
 }
 
 .myCard {
@@ -17564,7 +17564,7 @@ p.platinum {
 .mySelect:focus,
 .mySelect:hover {
   border-color: #ec5e25;
-  transform: scale(1.1);
+  transform: scale(1.01);
   color: #ec5e25;
   outline: none !important;
   box-shadow: none;
@@ -17686,14 +17686,16 @@ a.title-orange:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 13;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 200px;
 }
 
 .social-footer {
+  padding: 10px;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
@@ -17743,10 +17745,50 @@ a.title-orange:hover {
   }
 }
 
+.sponsor-size {
+  font-size: 0.5rem;
+}
+
+.form-text {
+  font-size: 1.3rem;
+}
+
+.heading-title {
+  font-size: 1.3rem;
+}
+
+.sponsor-bio {
+  font-size: 0.5rem;
+}
+
 @media screen and (min-width: 768px) {
   .showreel {
     display: flex;
     justify-content: space-between;
+  }
+
+  .sponsor-bio {
+    font-size: 0.9rem;
+  }
+
+  .sponsor-size {
+    font-size: 0.8rem;
+  }
+
+  .font-small {
+    font-size: 0.5rem;
+  }
+
+  .heading-title {
+    font-size: 2.2rem;
+  }
+
+  .form-text {
+    font-size: 1.6rem;
+  }
+
+  .social-footer {
+    padding: 0;
   }
 
   .showreel-text {

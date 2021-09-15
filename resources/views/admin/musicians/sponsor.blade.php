@@ -31,8 +31,8 @@
                     @foreach ($sponsorships as $sponsorship)
                         <div class="inputGroup">
                             <input type="radio" name="price" id="sponsorship-{{ $sponsorship->id }}" value="{{ $sponsorship->price }}">
-                            <label class="clamp-size" for="sponsorship-{{ $sponsorship->id }}">
-                                {{ $sponsorship->description }} Al prezzo di <span class="title-soft-green">{{ $sponsorship->price }} &euro;</span>
+                            <label class="sponsor-bio" for="sponsorship-{{ $sponsorship->id }}">
+                                {{ $sponsorship->description }} <span class="title-soft-green">{{ $sponsorship->price }} &euro;</span>
                             </label>
                         </div>
                     @endforeach

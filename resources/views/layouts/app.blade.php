@@ -131,19 +131,19 @@
                     
                 </div>
                 <div class="row mt-5">
-                    <div class="col-xs-12 col-md-6 col-lg-3 text-center animate__animated animate__zoomIn animate__delay-1s">
+                    <div class="col-md-3 col-lg-3 text-center animate__animated animate__zoomIn animate__delay-1s">
                         <i class="fab fa-youtube title-pink fa-2x social-footer"></i>
                         
                     </div>
-                    <div class="col-xs-12 col-md-6 col-lg-3 text-center animate__animated animate__zoomIn animate__delay-1s">
+                    <div class="col-md-3 col-lg-3 text-center animate__animated animate__zoomIn animate__delay-1s">
                         <i class="fab fa-twitter title-orange fa-2x social-footer"></i>
                         
                     </div>
-                    <div class="col-xs-12 col-md-6 col-lg-3 text-center animate__animated animate__zoomIn animate__delay-1s">
+                    <div class="col-md-3 col-lg-3 text-center animate__animated animate__zoomIn animate__delay-1s">
                         <i class="fab fa-facebook title-yellow fa-2x social-footer"></i>
                         
                     </div>
-                    <div class="col-xs-12 col-md-6 col-lg-3 text-center animate__animated animate__zoomIn animate__delay-1s">
+                    <div class="col-md-3 col-lg-3 text-center animate__animated animate__zoomIn animate__delay-1s">
                         <i class="fab fa-linkedin title-petrol fa-2x social-footer"></i>
                         
                     </div>
