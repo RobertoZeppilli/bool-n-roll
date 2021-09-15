@@ -2943,6 +2943,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -41029,7 +41030,7 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "\n            card\n            rounded\n            sponsored-card\n            mx-2\n            mt-4\n            text-center\n            d-flex\n            flex-column\n            align-items-center\n            justify-content-center\n          ",
+                      "\n            card\n            rounded\n            sponsored-card\n            mx-2\n            mt-4\n            pt-3\n            text-center\n            d-flex\n            flex-column\n            align-items-center\n            justify-content-center\n          ",
                     staticStyle: { "min-height": "300px" }
                   },
                   [

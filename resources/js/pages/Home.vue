@@ -25,6 +25,7 @@
               sponsored-card
               mx-2
               mt-4
+              pt-3
               text-center
               d-flex
               flex-column
