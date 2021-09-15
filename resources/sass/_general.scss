@@ -80,7 +80,11 @@
         box-shadow: none;
     }
 }
-
+.btn-danger {
+    &:focus {
+        box-shadow: none;
+    }
+}
 
 // title colors 
 .title-purple {

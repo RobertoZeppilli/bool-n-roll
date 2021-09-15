@@ -70,9 +70,9 @@
                 <div class="form-check form-check-inline">
                     @if ($errors->any())
                         <input class="form-check-input" name='genres[]' type="checkbox" value="{{ $genre->id }}" id="genre-{{$genre->id}}" {{ in_array($genre->id, old('genres', [])) ? 'checked' : '' }}>
-                        <label class="form-check-label" for="genre-{{ $genre->id }}">
+                        {{-- <label class="form-check-label" for="genre-{{ $genre->id }}">
                         {{ $genre->name }}
-                        </label>
+                        </label> --}}
                     @else 
                         <input class="form-check-input" name='genres[]' type="checkbox" value="{{ $genre->id }}" id="genre-{{$genre->id}}" {{ $musician->genres->contains($genre->id) ? 'checked' : '' }}>
                     @endif

@@ -51,7 +51,6 @@
 
         <div class="pt-5 d-flex justify-content-between text-center">
             <a class="btn btn-yellow text-white" href="{{ route('admin.welcome') }}">
-                {{-- <i class="far fa-hand-point-left text-white"></i> --}}
                 Indietro
             </a>
             
@@ -60,15 +59,51 @@
             
     
             <div>
-                <form action="{{ route('admin.musicians.destroy', $musician->id) }}" method="POST" onSubmit="return confirm('Are you sure you want to delete {{ $musician->stagename }}?')">
-                    @csrf
-                    @method('DELETE')
+                
+                <div id="delete" class="d-none animate__animated animate__fadeIn">
+                    <div class="bg-nav rounded p-5">
+                        <i class="fas fa-exclamation-triangle text-danger fa-4x"></i>
+                        <h3 class="py-3">Sei sicuro di voler eliminare il tuo profilo?</h3>
+                        <div class="w-100 d-flex justify-content-between">
+                            <button class="btn btn-yellow text-white" onclick="closePopup()">
+                                Chiudi
+                            </button>
+                            <form action="{{ route('admin.musicians.destroy', $musician->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                    
+                                <button class="btn btn-danger" type="submit">Elimina</button>
+                            </form>
         
-                    <button class="btn btn-danger" type="submit">Elimina</button>
-                </form>
+                        </div>
+                    </div>
+        
+                </div>
+                <button class="btn btn-danger" id="toggle" onclick="popup()" type="submit">Elimina</button>
+
             </div>
         </div>
       
     </div>
 
+    
+
 @endsection
+
+@push('script')
+<script>
+    // let open = false;
+    let deleteForm = document.getElementById('delete');
+    const popup = () => {
+        deleteForm.classList.remove('d-none')
+    }
+
+    const closePopup = () => {
+        deleteForm.classList.add('d-none')
+        
+    }
+
+    
+    
+</script>
+@endpush
