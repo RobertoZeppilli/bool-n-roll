@@ -17100,6 +17100,10 @@ a.text-dark:focus {
   background-color: #b53f10;
 }
 
+.btn-orange:focus {
+  box-shadow: none;
+}
+
 .btn-purple {
   background-color: #301a47;
   transition: all 0.3s ease-in-out;
@@ -17107,6 +17111,10 @@ a.text-dark:focus {
 
 .btn-purple:hover {
   background-color: #0a050f;
+}
+
+.btn-purple:focus {
+  box-shadow: none;
 }
 
 .btn-petrol {
@@ -17118,6 +17126,10 @@ a.text-dark:focus {
   background-color: #045a4f;
 }
 
+.btn-petrol:focus {
+  box-shadow: none;
+}
+
 .btn-wine {
   background-color: #671649;
   transition: all 0.3s ease-in-out;
@@ -17125,6 +17137,10 @@ a.text-dark:focus {
 
 .btn-wine:hover {
   background-color: #28091c;
+}
+
+.btn-wine:focus {
+  box-shadow: none;
 }
 
 .btn-pink {
@@ -17136,6 +17152,10 @@ a.text-dark:focus {
   background-color: #e8435f;
 }
 
+.btn-pink:focus {
+  box-shadow: none;
+}
+
 .btn-yellow {
   background-color: #f7af1a;
   transition: all 0.3s ease-in-out;
@@ -17145,6 +17165,10 @@ a.text-dark:focus {
   background-color: #be8207;
 }
 
+.btn-yellow:focus {
+  box-shadow: none;
+}
+
 .btn-green {
   background-color: #68ba93;
   transition: all 0.3s ease-in-out;
@@ -17152,6 +17176,10 @@ a.text-dark:focus {
 
 .btn-green:hover {
   background-color: #43936d;
+}
+
+.btn-green:focus {
+  box-shadow: none;
 }
 
 .title-purple {
@@ -17398,8 +17426,11 @@ a.title-petrol:hover {
   color: #301a47;
 }
 
-.custom-file-upload:hover {
-  box-shadow: 0 0 0 0.2rem rgba(48, 26, 71, 0.5);
+.custom-file-upload:hover,
+.custom-file-upload:focus {
+  box-shadow: none;
+  border-color: #ec5e25;
+  color: #ec5e25;
 }
 
 input[type=file] {
@@ -17519,19 +17550,79 @@ p.platinum {
   font-size: 1.5rem;
 }
 
-select.form-control.mb-2 {
-  width: 350px;
-}
-
-.form-control {
+.mySelect {
   transition: all 0.3s ease-in-out;
-  outline: none;
+  outline: none !important;
+  border-color: #ec5e25;
+  color: #ec5e25;
 }
 
-.form-control:focus,
-.form-control:hover {
-  border-color: #301a47;
-  box-shadow: 0 0 0 0.2rem rgba(48, 26, 71, 0.5);
+.mySelect:focus,
+.mySelect:hover {
+  border-color: #ec5e25;
+  transform: scale(1.1);
+  color: #ec5e25;
+  outline: none !important;
+  box-shadow: none;
+}
+
+.form-control:hover,
+.form-control:focus {
+  box-shadow: none;
+  border-color: #ec5e25;
+}
+
+.numbers-title {
+  position: relative;
+  text-align: center;
+}
+
+.numbers-title:after {
+  content: "";
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f08799, #ec5e25, #f7af1a, #08a38f);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  -webkit-animation: fillIn;
+          animation: fillIn;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  height: 10px;
+  z-index: -1;
+  border-radius: 8px;
+}
+
+@-webkit-keyframes fillIn {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes fillIn {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.\--custom {
+  width: 400px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.stars {
+  color: #f7af1a;
 }
 
 .clamp-size {
@@ -17584,6 +17675,15 @@ a.title-orange:hover {
 
 .custom-margin {
   margin-left: 15px;
+}
+
+.social-footer {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.social-footer:hover {
+  color: #fff;
 }
 
 .bg-orange {

@@ -24,7 +24,7 @@
               rounded
               sponsored-card
               mx-2
-              pt-4
+              mt-4
               text-center
               d-flex
               flex-column
@@ -59,8 +59,6 @@
               </small>
             </div>
 
-            
-
             <div class="py-2">
               <i
                 class="fa-star"
@@ -83,6 +81,39 @@
           </div>
         </slide>
       </carousel>
+
+      <section
+        class="counters"
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+        data-aos-delay="1000"
+      >
+        <div class="d-flex align-items-center justify-content-center">
+          <h2 class="mb-5 numbers-title">I nostri numeri</h2>
+        </div>
+        <div class="row text-center">
+          <div class="col-xs-12 col-md-6 col-lg-3 mb-5">
+            <i class="fab fa-youtube title-pink fa-4x"></i>
+            <div class="counter title-pink" data-target="60000">0</div>
+            <h3>Iscritti</h3>
+          </div>
+          <div class="col-xs-12 col-md-6 col-lg-3 mb-5">
+            <i class="fab fa-twitter title-orange fa-4x"></i>
+            <div class="counter title-orange" data-target="15000">0</div>
+            <h3>Followers</h3>
+          </div>
+          <div class="col-xs-12 col-md-6 col-lg-3 mb-5">
+            <i class="fab fa-facebook title-yellow fa-4x"></i>
+            <div class="counter title-yellow" data-target="9000">0</div>
+            <h3>Likes</h3>
+          </div>
+          <div class="col-xs-12 col-md-6 col-lg-3 mb-5">
+            <i class="fab fa-linkedin title-petrol fa-4x"></i>
+            <div class="counter title-petrol" data-target="5000">0</div>
+            <h3>Collegamenti</h3>
+          </div>
+        </div>
+      </section>
 
       <div class="showreel showreel-1 py-5">
         <div
@@ -155,8 +186,6 @@ import { Carousel, Slide } from "vue-carousel";
 
 import VueLoadImage from "vue-load-image";
 
-
-
 export default {
   name: "Home",
 
@@ -166,7 +195,6 @@ export default {
       activePaginateColor: "#ec5e25",
       paginateColor: "rgba(236, 93, 37, 0.363)",
       today: dayjs().format("YYYY-MM-DD HH:mm:ss"),
-      
     };
   },
 
@@ -175,7 +203,6 @@ export default {
     Carousel,
     Slide,
     VueLoadImage,
-   
   },
 
   methods: {
@@ -203,9 +230,72 @@ export default {
     // console.log(this.getSponsor);
   },
 
-  
+  mounted() {
+    setTimeout(function () {
+      const counters = document.querySelectorAll(".counter");
+      const speed = 200; // The lower the slower
+
+      counters.forEach((counter) => {
+        const updateCount = () => {
+          const target = +counter.getAttribute("data-target");
+          const count = +counter.innerText;
+
+          // Lower inc to slow and higher to slow
+          const inc = target / speed;
+
+          // console.log(inc);
+          // console.log(count);
+
+          // Check if target is reached
+          if (count < target) {
+            // Add inc to count and output in counter
+            counter.innerText = count + inc;
+            // Call function every ms
+            setTimeout(updateCount, 1);
+          }
+        };
+
+        updateCount();
+      });
+    }, 1000);
+  },
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.counters {
+  /* background: #0f479a; */
+  color: #191919;
+  // padding: 40px 20px;
+  /* border-top: 3px lightskyblue solid; */
+}
+
+.counters .container {
+  // display: grid;
+  // grid-template-columns: repeat(4, 1fr);
+  // grid-gap: 30px;
+  text-align: center;
+}
+
+// .counters i {
+//   color: #ec5e25;
+//   // margin-bottom: 5px;
+// }
+
+.counters .counter {
+  font-size: 45px;
+  // margin: 10px 0;
+}
+
+@media (max-width: 700px) {
+  // .counters .container {
+  //   grid-template-columns: repeat(2, 1fr);
+  // }
+
+  // .counters .container > div:nth-of-type(1),
+  // .counters .container > div:nth-of-type(2) {
+  //   // border-bottom: 1px lightskyblue solid;
+  //   padding-bottom: 20px;
+  // }
+}
 </style>

@@ -15,7 +15,7 @@
               v-model="starVote"
               name="voteAverage"
               id="voteAverage"
-              class="decorated form-control"
+              class="myForm form-control mySelect"
             >
               <option value="">Tutti</option>
               <option class="title-yellow" value="1">★</option>
@@ -38,7 +38,7 @@
               @change="sortedArray(reviewAmount)"
               name="reviewAmount"
               id="reviewAmount"
-              class="decorated form-control"
+              class="mySelect form-control myForm"
             >
               <option value="" disabled>Nessun filtro selezionato</option>
               <option value="desc">Più recensioni</option>

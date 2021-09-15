@@ -82,7 +82,7 @@
             v-model="review.vote"
             name="vote"
             id="vote"
-            class="decorated form-control"
+            class="form-control"
           >
             <option value="" disabled>Scegli un voto</option>
             <option class="title-yellow" value="1">★</option>

@@ -51,7 +51,7 @@
             @endif
             {{-- preview of the cover before creating  --}}
             <label class="custom-file-upload">
-                <input name="cover" type="file" id="cover" class="form-control-file mb-2" accept="image/*" onchange="document.getElementById('preview').src = window.URL.createObjectURL(this.files[0])">
+                <input name="cover" type="file" id="cover" class="form-control mb-2" accept="image/*" onchange="document.getElementById('preview').src = window.URL.createObjectURL(this.files[0])">
                
             </label>
             {{-- <input name="cover" type="file" id="cover" class="form-control-file mb-2" accept="image/*" onchange="document.getElementById('preview').src = window.URL.createObjectURL(this.files[0])"> --}}

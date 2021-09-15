@@ -45,18 +45,80 @@ p.platinum {
   font-size: 1.5rem;
 }
 
-select.form-control.mb-2 {
-  width: 350px;
+// select.form-control.mb-2 {
+//   width: 350px;
+// }
+
+.mySelect {
+  transition: all .3s ease-in-out;
+  outline: none !important;
+  border-color: $logoColor;
+  color: $logoColor;
+
+  &:focus,
+  &:hover {
+    border-color: $logoColor;
+    // box-shadow: 0 0 0 0.2rem rgb(48 26 71 / 50%);
+    transform: scale(1.1);
+    // border-color: darken($logoColor, 15%);
+    color: $logoColor;
+    outline: none !important;
+    box-shadow: none;
+    
+  }
 }
 
 .form-control {
-  transition: all .3s ease-in-out;
-  outline: none;
-  &:focus,
-  &:hover {
-    border-color: $myPurple;
-    box-shadow: 0 0 0 0.2rem rgb(48 26 71 / 50%);
+  &:hover,
+  &:focus {
+    box-shadow: none;
+    border-color: $logoColor;
   }
+}
+
+
+.numbers-title {
+  position: relative;
+ 
+  text-align: center;
+  &:after {
+    content: '';
+   
+background: -webkit-linear-gradient(to right, #f08799, #ec5e25, #f7af1a, #08a38f);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f08799, #ec5e25, #f7af1a, #08a38f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    position: absolute;
+   
+    
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    animation: fillIn;
+    animation-duration: 5s;
+    height: 10px;
+    z-index: -1;
+    border-radius: 8px;
+  }
+}
+
+@keyframes fillIn {
+  from {width: 0;}
+  to {width: 100%;}
+}
+
+// .mySelect {
+//   border: 1px solid $logoColor;
+//   color: $logoColor;
+// }
+
+.--custom {
+  width: 400px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.stars {
+  color: $myYellow;
 }
 
 .clamp-size {
@@ -112,6 +174,13 @@ a.title-orange {
   margin-left: 15px;
 }
 
+.social-footer {
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    color: #fff;
+  }
+}
 
 .bg-orange {
   background-color: $logoColor;

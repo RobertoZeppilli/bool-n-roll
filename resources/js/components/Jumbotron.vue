@@ -25,7 +25,7 @@
             <select
               @change="searchMusicians(slug)"
               v-model="slug"
-              class="form-control mb-2 decorated"
+              class="mySelect --custom mb-2"
               autocomplete="on"
               
             >
