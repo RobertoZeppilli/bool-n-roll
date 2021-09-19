@@ -21,7 +21,7 @@
             </p>
           </div>
 
-          <div class="form-group animate__animated animate__fadeInUp animate__delay-2s">
+          <!-- <div class="form-group animate__animated animate__fadeInUp animate__delay-2s">
             <select
               @change="searchMusicians(slug)"
               v-model="slug"
@@ -40,7 +40,7 @@
                 {{ genre.name }}
               </option>
             </select>
-          </div>
+          </div> -->
           
 
           
@@ -62,8 +62,8 @@ export default {
 
   data() {
     return {
-      genres: [],
-      musicians: [],
+      // genres: [],
+      // musicians: [],
       slug: "",
     };
   },
@@ -74,39 +74,39 @@ export default {
   },
 
   methods: {
-    getGenres() {
-      axios
-        .get("http://127.0.0.1:8000/api/genres")
-        .then((res) => {
-          this.genres = res.data;
-          // console.log( this.genres )
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
+    // getGenres() {
+    //   axios
+    //     .get("http://127.0.0.1:8000/api/genres")
+    //     .then((res) => {
+    //       this.genres = res.data;
+    //       // console.log( this.genres )
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // },
 
-    searchMusicians(slug) {
-      axios
-        .get(`http://127.0.0.1:8000/api/musicians/${slug}`)
-        .then((res) => {
-          res.data.forEach((el) => {
-            this.musicians = el.musicians;
-            this.$router.push({
-              name: "musicians",
-              params: { slug: this.slug },
-            });
-          });
-          //   console.log(this.musicians);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
+    // searchMusicians(slug) {
+    //   axios
+    //     .get(`http://127.0.0.1:8000/api/musicians/${slug}`)
+    //     .then((res) => {
+    //       res.data.forEach((el) => {
+    //         this.musicians = el.musicians;
+    //         this.$router.push({
+    //           name: "musicians",
+    //           params: { slug: this.slug },
+    //         });
+    //       });
+    //       //   console.log(this.musicians);
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // },
   },
 
   created() {
-    this.getGenres();
+    // this.getGenres();
     // this.filter(this.$routes.params.id)
   },
 

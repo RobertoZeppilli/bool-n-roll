@@ -18,7 +18,8 @@ class Musician extends Model
     ]; 
 
     protected $with = [
-        'reviews'
+        'reviews',
+        'messages'
     ];
 
 

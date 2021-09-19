@@ -40,7 +40,9 @@ Route::middleware('auth')
 
         Route::post('payment/checkout', 'SponsorshipController@payment')->name('paga');
 
-       
+        // Route::post('/message/readed', 'MusicianController@readMessage')->name('read');
+        // Route::get('message/readed', 'MusicianController@readMessage');
+        Route::put('{id}/read', 'MusicianController@readMessage')->name('read');
     }); 
 
 

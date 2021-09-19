@@ -14,6 +14,7 @@
                     <div class="card-body  style-single">
                         <div class="mb-4">
                             {{-- <div class="d-flex justify-content-between"> --}}
+                                
                                 <div class="date py-2 text-right">Ricevuto il: {{ date('d-m-Y \a\l\l\e H:i:s', strtotime($message->created_at)) }}</div>
                                 <h5 class="card-title">
                                     <span class="title-orange">Inviato da:</span>
@@ -23,7 +24,19 @@
                             <h6 class="text-left font-italic platinum">{{ $message->email }}</h6>
                             
                         </div>
-                        <p class="card-text message text-left">{{ $message->message }}</p>
+                        @if ($message->readed != 0)
+                            <p class="card-text message text-left">{{ $message->message }}</p>
+                        @else
+                            <form method="POST" action="{{ route('admin.read', $message->id) }}">
+                                @csrf 
+                                @method('PUT')
+
+                                {{-- <input type="hidden" name="message" value="{{ $message->id }}"/> --}}
+                                <button class="btn btn-info text-white" type="submit">
+                                    Leggi
+                                </button>
+                            </form>
+                        @endif
                     </div>
                 </div>
             @endforeach
@@ -55,6 +68,14 @@
         @endif 
     </div>
 @endsection
+
+@push('script')
+    <script>
+        function readMessage(id) {
+
+        }
+    </script>
+@endpush
     
     
 

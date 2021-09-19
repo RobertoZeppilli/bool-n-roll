@@ -14,6 +14,8 @@ use App\Sponsorship;
 
 use Braintree;
 
+use App\Message;
+
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -217,6 +219,25 @@ class MusicianController extends Controller
         return view('admin.musicians.reviews', compact('user'));
     }
 
+
+    // public function readMessage(Musician $musician, $id) {
+    //     foreach($musician->messages as $message) {
+    //         if($message->readed === 0 && $message->id === $id) {
+    //             $message->readed = 1;
+    //         }
+    //     }
+
+    //     return $message;
+    // }
+
+    public function readMessage(Request $request)
+{
+    $message = Message::where('id', $request->id)->first();
+    $message->readed = 1;
+    $message->update();
+
+    return redirect()->back()->with('message', 'visita updated');
+}
     
 
 

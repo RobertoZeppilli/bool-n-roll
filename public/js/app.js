@@ -2275,45 +2275,45 @@ __webpack_require__.r(__webpack_exports__);
   name: "Jumbotron",
   data: function data() {
     return {
-      genres: [],
-      musicians: [],
+      // genres: [],
+      // musicians: [],
       slug: ""
     };
   },
   components: {
     Loader: _components_Loader__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  methods: {
-    getGenres: function getGenres() {
-      var _this = this;
-
-      axios.get("http://127.0.0.1:8000/api/genres").then(function (res) {
-        _this.genres = res.data; // console.log( this.genres )
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    },
-    searchMusicians: function searchMusicians(slug) {
-      var _this2 = this;
-
-      axios.get("http://127.0.0.1:8000/api/musicians/".concat(slug)).then(function (res) {
-        res.data.forEach(function (el) {
-          _this2.musicians = el.musicians;
-
-          _this2.$router.push({
-            name: "musicians",
-            params: {
-              slug: _this2.slug
-            }
-          });
-        }); //   console.log(this.musicians);
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    }
+  methods: {// getGenres() {
+    //   axios
+    //     .get("http://127.0.0.1:8000/api/genres")
+    //     .then((res) => {
+    //       this.genres = res.data;
+    //       // console.log( this.genres )
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // },
+    // searchMusicians(slug) {
+    //   axios
+    //     .get(`http://127.0.0.1:8000/api/musicians/${slug}`)
+    //     .then((res) => {
+    //       res.data.forEach((el) => {
+    //         this.musicians = el.musicians;
+    //         this.$router.push({
+    //           name: "musicians",
+    //           params: { slug: this.slug },
+    //         });
+    //       });
+    //       //   console.log(this.musicians);
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // },
   },
-  created: function created() {
-    this.getGenres(); // this.filter(this.$routes.params.id)
+  created: function created() {// this.getGenres();
+    // this.filter(this.$routes.params.id)
   }
 });
 
@@ -2698,6 +2698,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_carousel__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var vue_load_image__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-load-image */ "./node_modules/vue-load-image/dist/vue-load-image.js");
 /* harmony import */ var vue_load_image__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_load_image__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_Loader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Loader */ "./resources/js/components/Loader.vue");
 //
 //
 //
@@ -2878,6 +2879,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -2887,16 +2921,21 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       musicians: [],
+      filteredMusicians: [],
+      genres: [],
       activePaginateColor: "#ec5e25",
       paginateColor: "rgba(236, 93, 37, 0.363)",
-      today: dayjs__WEBPACK_IMPORTED_MODULE_1___default()().format("YYYY-MM-DD HH:mm:ss")
+      today: dayjs__WEBPACK_IMPORTED_MODULE_1___default()().format("YYYY-MM-DD HH:mm:ss"),
+      slug: "",
+      loaded: false
     };
   },
   components: {
     Jumbotron: _components_Jumbotron__WEBPACK_IMPORTED_MODULE_0__["default"],
     Carousel: vue_carousel__WEBPACK_IMPORTED_MODULE_2__["Carousel"],
     Slide: vue_carousel__WEBPACK_IMPORTED_MODULE_2__["Slide"],
-    VueLoadImage: vue_load_image__WEBPACK_IMPORTED_MODULE_3___default.a
+    VueLoadImage: vue_load_image__WEBPACK_IMPORTED_MODULE_3___default.a,
+    Loader: _components_Loader__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   methods: {
     getSponsoredMusicians: function getSponsoredMusicians() {
@@ -2909,17 +2948,50 @@ __webpack_require__.r(__webpack_exports__);
         console.log(err);
       });
     },
+    searchMusicians: function searchMusicians(slug) {
+      var _this2 = this;
+
+      axios.get("http://127.0.0.1:8000/api/musicians/".concat(slug)).then(function (res) {
+        res.data.forEach(function (el) {
+          _this2.filteredMusicians = el.musicians;
+
+          _this2.$router.push({
+            name: "musicians",
+            params: {
+              slug: _this2.slug
+            }
+          });
+        }); //   console.log(this.musicians);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    clicked: function clicked(slug) {
+      console.log(slug);
+    },
     getAverageVotes: function getAverageVotes(reviews) {
       var sum = reviews.reduce(function (acc, review) {
         return acc += review.vote;
       }, 0);
       return Math.ceil(sum / reviews.length);
+    },
+    getGenres: function getGenres() {
+      var _this3 = this;
+
+      axios.get("http://127.0.0.1:8000/api/genres").then(function (res) {
+        _this3.genres = res.data; // console.log( this.genres )
+      })["catch"](function (err) {
+        console.log(err);
+      });
     }
   },
   created: function created() {
-    this.getSponsoredMusicians(); // console.log(this.getSponsor);
+    this.getSponsoredMusicians();
+    this.getGenres(); // console.log(this.getSponsor);
   },
   mounted: function mounted() {
+    var _this4 = this;
+
     setTimeout(function () {
       var counters = document.querySelectorAll(".counter");
       var speed = 200; // The lower the slower
@@ -2944,6 +3016,9 @@ __webpack_require__.r(__webpack_exports__);
         updateCount();
       });
     }, 1500);
+    setTimeout(function () {
+      return _this4.loaded = true;
+    }, 2000);
   }
 });
 
@@ -40138,143 +40213,69 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "py-5 bg-jumbotron" }, [
-    _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "\n          col-xs-6 col-md-12 col-lg-6\n          d-flex\n          flex-column\n          align-items-center\n          justify-content-center\n        "
-          },
-          [
-            _vm._m(0),
-            _vm._v(" "),
-            _vm._m(1),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "form-group animate__animated animate__fadeInUp animate__delay-2s"
-              },
-              [
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.slug,
-                        expression: "slug"
-                      }
-                    ],
-                    staticClass: "mySelect --custom mb-2",
-                    attrs: { autocomplete: "on" },
-                    on: {
-                      change: [
-                        function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.slug = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        },
-                        function($event) {
-                          return _vm.searchMusicians(_vm.slug)
-                        }
-                      ]
-                    }
-                  },
-                  [
-                    _c(
-                      "option",
-                      {
-                        attrs: { value: "", selected: "selected", disabled: "" }
-                      },
-                      [_vm._v("\n              Scegli un genere\n            ")]
-                    ),
-                    _vm._v(" "),
-                    _vm._l(_vm.genres, function(genre) {
-                      return _c(
-                        "option",
-                        { key: genre.id, domProps: { value: genre.slug } },
-                        [
-                          _vm._v(
-                            "\n              " +
-                              _vm._s(genre.name) +
-                              "\n            "
-                          )
-                        ]
-                      )
-                    })
-                  ],
-                  2
-                )
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _vm._m(2)
-      ])
-    ])
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "text-center animate__animated animate__fadeInLeftBig" },
-      [_c("h1", { staticClass: "headline" }, [_vm._v("Playing the mood")])]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "my-2 text-center animate__animated animate__fadeInUp animate__delay-1s"
-      },
-      [
-        _c("p", { staticClass: "platinum" }, [
-          _vm._v(
-            "\n            Cerca un musicista scegliendo il genere che preferisci!\n          "
+    return _c("div", { staticClass: "py-5 bg-jumbotron" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "\n          col-xs-6 col-md-12 col-lg-6\n          d-flex\n          flex-column\n          align-items-center\n          justify-content-center\n        "
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "text-center animate__animated animate__fadeInLeftBig"
+                },
+                [
+                  _c("h1", { staticClass: "headline" }, [
+                    _vm._v("Playing the mood")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "my-2 text-center animate__animated animate__fadeInUp animate__delay-1s"
+                },
+                [
+                  _c("p", { staticClass: "platinum" }, [
+                    _vm._v(
+                      "\n            Cerca un musicista scegliendo il genere che preferisci!\n          "
+                    )
+                  ])
+                ]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "col-xs-6 col-md-12 col-lg-6 animate__animated animate__fadeInRightBig"
+            },
+            [
+              _c("img", {
+                staticClass: "img-fluid",
+                attrs: { src: "images/jumboimg.png", alt: "Jumbtron" }
+              })
+            ]
           )
         ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "col-xs-6 col-md-12 col-lg-6 animate__animated animate__fadeInRightBig"
-      },
-      [
-        _c("img", {
-          staticClass: "img-fluid",
-          attrs: { src: "images/jumboimg.png", alt: "Jumbtron" }
-        })
-      ]
-    )
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -40939,6 +40940,70 @@ var render = function() {
     [
       _c("Jumbotron"),
       _vm._v(" "),
+      _vm.loaded
+        ? _c("div", { staticClass: "search" }, [
+            _c("div", { staticClass: "container" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row" },
+                _vm._l(_vm.genres, function(genre, index) {
+                  return _c(
+                    "div",
+                    {
+                      key: index,
+                      staticClass: "col-xs-12 col-md-4 col-lg-2 mb-3",
+                      attrs: { "data-aos": "zoom-in" }
+                    },
+                    [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "genre-label w-100 text-center p-3",
+                          attrs: { for: genre.slug }
+                        },
+                        [_vm._v(_vm._s(genre.name))]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.slug,
+                            expression: "slug"
+                          }
+                        ],
+                        attrs: {
+                          type: "radio",
+                          name: genre.name,
+                          id: genre.slug
+                        },
+                        domProps: {
+                          value: genre.slug,
+                          checked: _vm._q(_vm.slug, genre.slug)
+                        },
+                        on: {
+                          change: [
+                            function($event) {
+                              _vm.slug = genre.slug
+                            },
+                            function($event) {
+                              return _vm.searchMusicians(_vm.slug)
+                            }
+                          ]
+                        }
+                      })
+                    ]
+                  )
+                }),
+                0
+              )
+            ])
+          ])
+        : _c("Loader"),
+      _vm._v(" "),
       _c("div", { staticClass: "pattern-home" }),
       _vm._v(" "),
       _c(
@@ -41068,11 +41133,11 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
           _vm._m(1),
           _vm._v(" "),
-          _vm._m(2)
+          _vm._m(2),
+          _vm._v(" "),
+          _vm._m(3)
         ],
         1
       )
@@ -41081,6 +41146,23 @@ var render = function() {
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "d-flex flex-column align-items-center justify-content-center"
+      },
+      [
+        _c("h2", { staticClass: "numbers-title mb-5" }, [
+          _vm._v("Scegli un genere!")
+        ])
+      ]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

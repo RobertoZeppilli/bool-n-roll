@@ -15,9 +15,24 @@ class HomeController extends Controller
     public function index() {
 
         $user = Auth::user();
-        $musician = Musician::where('user_id', Auth::id())->with('messages', 'reviews')->first();
+        $musician = Musician::where('user_id', Auth::id())->first();
 
-        return view('admin.welcome', compact('musician', 'user')); 
+        $newMessage = [];
+
+        if($user->musician && count($musician->messages) > 0) {
+            foreach($musician->messages as $message) {
+                if($message->readed === 0) {
+                    array_push($newMessage, $musician->messages);
+                }
+            }
+        }
+        // $messages = [];
+
+        // for($i = 0; $i < count($musician); $i++) {
+        //     array_push($messages ,$musician->messages);
+        // }
+
+        return view('admin.welcome', compact('musician', 'user', 'newMessage')); 
     }
 
 

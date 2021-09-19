@@ -76,6 +76,24 @@
                                             <i class="fas fa-user-alt"></i> Profilo
                                         </a>
                                     @endif
+
+                                    @php
+                                        $newMessage = [];
+                                        if(Auth::user()->musician) {
+                                            foreach(Auth::user()->musician->messages as $message) {
+                                                if($message->readed === 0) {
+                                                    array_push($newMessage, Auth::user()->musician->messages);
+                                                }
+                                            }  
+                                        }
+                                    @endphp
+                                    @if (Auth::user()->musician && count(Auth::user()->musician->messages) > 0)
+                                        <a href="/admin/musicians/{{Auth::user()->musician->slug}}/messages" class="message-drop dropdown-item custom-drop title-orange"><i class="fas fa-envelope"></i> Messaggi
+                                            @if (count($newMessage) != 0)
+                                                <small class="message-count-number-drop animate__animated animate__zoomIn">{{ count($newMessage) }}</small>
+                                            @endif
+                                        </a> 
+                                     @endif
                                     <a class="dropdown-item custom-drop title-orange" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

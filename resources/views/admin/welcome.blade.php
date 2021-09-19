@@ -35,8 +35,15 @@
                     <i class="far fa-envelope card-image-top fa-4x text-center title-petrol"></i>
                     <div class="card-body text-center ">
                       <h5 class="card-title">Messaggi</h5>
+                     
                       <p class="bg-pale title-petrol py-2 rounded">Qui troverai tutti i messaggi in entrata.</p>
-                      <a class="btn btn-petrol text-white" href="{{ route('admin.musicians.messages', $user->musician->slug) }}">Messaggi</a>
+                     
+                      <a class="btn btn-petrol message-count text-white" href="{{ route('admin.musicians.messages', $user->musician->slug) }}">
+                        Messaggi
+                        @if (count($newMessage) != 0)
+                            <small class="message-count-number animate__animated animate__zoomIn">{{ count($newMessage) }}</small>
+                        @endif
+                    </a>
                     </div>
                 </div>
             </div>

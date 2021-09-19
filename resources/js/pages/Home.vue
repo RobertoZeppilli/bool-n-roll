@@ -1,6 +1,38 @@
 <template>
   <div class="overflow">
     <Jumbotron />
+    <div class="search" v-if="loaded">
+      <div class="container">
+        <div class="d-flex flex-column align-items-center justify-content-center">
+          <h2 class="numbers-title mb-5">Scegli un genere!</h2>
+          <!-- <p class="platinum">Verrai portato alla pagina musicisti</p> -->
+        </div>
+        <div class="row">
+          <div
+            v-for="(genre, index) in genres"
+            :key="index"
+            class="col-xs-12 col-md-4 col-lg-2 mb-3"
+            data-aos="zoom-in"
+          
+          >
+            <label
+              class="genre-label w-100 text-center p-3"
+              :for="genre.slug"
+              >{{ genre.name }}</label
+            >
+            <input
+              @change="searchMusicians(slug)"
+              v-model="slug"
+              type="radio"
+              :value="genre.slug"
+              :name="genre.name"
+              :id="genre.slug"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <Loader v-else />
     <div class="pattern-home"></div>
 
     <div class="container">
@@ -187,15 +219,21 @@ import { Carousel, Slide } from "vue-carousel";
 
 import VueLoadImage from "vue-load-image";
 
+import Loader from '../components/Loader';
+
 export default {
   name: "Home",
 
   data() {
     return {
       musicians: [],
+      filteredMusicians: [],
+      genres: [],
       activePaginateColor: "#ec5e25",
       paginateColor: "rgba(236, 93, 37, 0.363)",
       today: dayjs().format("YYYY-MM-DD HH:mm:ss"),
+      slug: "",
+      loaded: false
     };
   },
 
@@ -204,6 +242,7 @@ export default {
     Carousel,
     Slide,
     VueLoadImage,
+    Loader
   },
 
   methods: {
@@ -219,17 +258,52 @@ export default {
         });
     },
 
+    searchMusicians(slug) {
+      axios
+        .get(`http://127.0.0.1:8000/api/musicians/${slug}`)
+        .then((res) => {
+          res.data.forEach((el) => {
+            this.filteredMusicians = el.musicians;
+            this.$router.push({
+              name: "musicians",
+              params: { slug: this.slug },
+            });
+          });
+          //   console.log(this.musicians);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+
+    clicked(slug) {
+      console.log(slug);
+    },
+
     getAverageVotes(reviews) {
       const sum = reviews.reduce((acc, review) => (acc += review.vote), 0);
       return Math.ceil(sum / reviews.length);
+    },
+
+    getGenres() {
+      axios
+        .get("http://127.0.0.1:8000/api/genres")
+        .then((res) => {
+          this.genres = res.data;
+          // console.log( this.genres )
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 
   created() {
     this.getSponsoredMusicians();
-
+    this.getGenres();
     // console.log(this.getSponsor);
   },
+
 
   mounted() {
     setTimeout(function () {
@@ -259,6 +333,8 @@ export default {
         updateCount();
       });
     }, 1500);
+
+    setTimeout(() => (this.loaded = true), 2000);
   },
 };
 </script>

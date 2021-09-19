@@ -17757,8 +17757,68 @@ a.title-orange:hover {
   font-size: 1.3rem;
 }
 
+.search {
+  padding: 30px 0;
+}
+
 .sponsor-bio {
   font-size: 0.5rem;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+.genre-label {
+  border-radius: 0.35rem;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f08799, #ec5e25, #f7af1a, #08a38f);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.genre-label:hover {
+  transform: translateY(-10%);
+}
+
+.message-count {
+  position: relative;
+}
+
+.message-count-number {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: red;
+  color: #fff;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+}
+
+.message-drop {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.message-drop:hover .message-count-number-drop {
+  background-color: #fff;
+  color: #ec5e25;
+}
+
+.message-count-number-drop {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #ec5e25;
+  color: #fff;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (min-width: 768px) {

@@ -251,10 +251,74 @@ a.title-orange {
 .heading-title {
   font-size: 1.3rem;
 }
-
+.search {
+  padding: 30px 0;
+  // background-color: yellow;
+}
 .sponsor-bio {
   font-size: .5rem;
 }
+
+input[type="radio"] {
+  display: none;
+}
+
+.genre-label {
+  // background-color: $myPetrol;
+  border-radius: .35rem;
+  background: -webkit-linear-gradient(to right, #f08799, #ec5e25, #f7af1a, #08a38f);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f08799, #ec5e25, #f7af1a, #08a38f); 
+  color: #fff;
+  cursor: pointer;
+  // padding: 1rem;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    
+    transform: translateY(-10%);
+  }
+}
+
+.message-count {
+  position: relative;
+
+}
+.message-count-number {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: red;
+  color: #fff;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+}
+
+.message-drop {
+  position: relative;
+  transition: all .3s ease-in-out;
+  &:hover {
+    .message-count-number-drop {
+      background-color: #fff;
+      color: $logoColor;
+    }
+  }
+}
+
+.message-count-number-drop {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: $logoColor;
+  color: #fff;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (min-width: 768px) {
   .showreel {
     display: flex;
