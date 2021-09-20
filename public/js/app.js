@@ -40309,7 +40309,7 @@ var staticRenderFns = [
     return _c(
       "div",
       {
-        staticClass: "vh-100 d-flex justify-content-center align-items-center"
+        staticClass: "h-custom d-flex justify-content-center align-items-center"
       },
       [
         _c(
@@ -40960,7 +40960,7 @@ var render = function() {
                       _c(
                         "label",
                         {
-                          staticClass: "genre-label w-100 text-center p-3",
+                          staticClass: "btn-grad w-100 text-center p-3",
                           attrs: { for: genre.slug }
                         },
                         [_vm._v(_vm._s(genre.name))]

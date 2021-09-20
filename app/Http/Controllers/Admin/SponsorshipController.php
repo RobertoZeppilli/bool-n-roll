@@ -85,7 +85,7 @@ class SponsorshipController extends Controller
             ]);
 
 
-            return back()->with('success_message', 'Transazione avvenuta con successo. L\'ID è: ' . $transaction->id);
+            return view('admin.musicians.sponsorConfirmPage')->with('success_message', 'Transazione avvenuta con successo. L\'ID è: ' . $transaction->id);
         } else {
             $errorString = "";
 

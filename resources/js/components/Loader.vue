@@ -1,5 +1,5 @@
 <template>
-  <div class="vh-100 d-flex justify-content-center align-items-center">
+  <div class="h-custom d-flex justify-content-center align-items-center">
     <div class="lds-facebook d-flex justify-content-center align-items-center">
       <div></div>
       <div></div>

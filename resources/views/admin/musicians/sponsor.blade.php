@@ -6,11 +6,7 @@
 
 @section('content')
     <div class="container py-5">
-        @if (session('success_message'))
-            <div class="alert alert-success animate__animated animate__zoomIn" style="width: max-content;">
-                <small>{{ session('success_message')}}</small>
-            </div>
-        @endif
+        
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>

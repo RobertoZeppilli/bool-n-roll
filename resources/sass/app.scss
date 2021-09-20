@@ -294,6 +294,9 @@ input[type="radio"] {
   width: 20px;
 }
 
+.h-custom {
+  height: 50vh;
+}
 .message-drop {
   position: relative;
   transition: all .3s ease-in-out;
@@ -526,4 +529,33 @@ a {
 
 .img-sponsor {
   object-fit: cover;
+}
+
+
+
+.btn-grad {
+  background: -webkit-linear-gradient(to right, #f08799, #ec5e25, #f7af1a, #08a38f);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f08799, #ec5e25, #f7af1a, #08a38f);
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.5s ease-in-out;
+  background-size: 200% auto;
+  color: white;
+  border-radius: .35rem;
+  // box-shadow: 0 0 20px #eee;
+  display: block;
+  a {
+    color: #fff;
+    font-weight: bolder;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &:hover {
+      background-position: right center;
+      color: #fff;
+      text-decoration: none;  
+  }
 }

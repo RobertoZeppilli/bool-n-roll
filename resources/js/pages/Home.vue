@@ -16,7 +16,7 @@
           
           >
             <label
-              class="genre-label w-100 text-center p-3"
+              class="btn-grad w-100 text-center p-3"
               :for="genre.slug"
               >{{ genre.name }}</label
             >

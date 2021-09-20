@@ -17797,6 +17797,10 @@ input[type=radio] {
   width: 20px;
 }
 
+.h-custom {
+  height: 50vh;
+}
+
 .message-drop {
   position: relative;
   transition: all 0.3s ease-in-out;
@@ -18012,5 +18016,33 @@ a {
 .img-sponsor {
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.btn-grad {
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f08799, #ec5e25, #f7af1a, #08a38f);
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.5s ease-in-out;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 0.35rem;
+  display: block;
+}
+
+.btn-grad a {
+  color: #fff;
+  font-weight: bolder;
+}
+
+.btn-grad a:hover {
+  text-decoration: none;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
 }
 
