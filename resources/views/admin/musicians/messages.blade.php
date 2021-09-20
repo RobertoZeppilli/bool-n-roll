@@ -26,7 +26,9 @@
                         </div>
                         @if ($message->readed != 0)
                             <p class="card-text message text-left">{{ $message->message }}</p>
+                            <small class="text-success small-position">Letto</small>
                         @else
+                            <small class="text-danger small-position">Non letto</small>
                             <form method="POST" action="{{ route('admin.read', $message->id) }}">
                                 @csrf 
                                 @method('PUT')

@@ -14,6 +14,8 @@ use App\Sponsorship;
 
 use Braintree;
 
+use Illuminate\Support\Carbon;
+
 use App\Message;
 
 use Illuminate\Support\Facades\Storage;
@@ -211,6 +213,8 @@ class MusicianController extends Controller
 
     public function showMessagePage() {
         $user = Auth::user();
+
+        
         return view('admin.musicians.messages', compact('user'));
     }
     
@@ -234,9 +238,10 @@ class MusicianController extends Controller
 {
     $message = Message::where('id', $request->id)->first();
     $message->readed = 1;
+    $message->updated_at = Carbon::now('Europe/Rome');
     $message->update();
 
-    return redirect()->back()->with('message', 'visita updated');
+    return redirect()->back();
 }
     
 

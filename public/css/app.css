@@ -18018,6 +18018,11 @@ a {
      object-fit: cover;
 }
 
+.small-position {
+  position: absolute;
+  top: 20px;
+}
+
 .btn-grad {
   /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #f08799, #ec5e25, #f7af1a, #08a38f);
