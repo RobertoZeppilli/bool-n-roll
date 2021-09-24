@@ -10,5 +10,11 @@ export default {
   name: "ExampleComponent",
 
   methods: {},
+
+  created() {
+    $(document).ready(function(){
+            $(this).scrollTop(0);
+    });
+  }
 };
 </script>

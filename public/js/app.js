@@ -1990,7 +1990,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ExampleComponent",
-  methods: {}
+  methods: {},
+  created: function created() {
+    $(document).ready(function () {
+      $(this).scrollTop(0);
+    });
+  }
 });
 
 /***/ }),
@@ -2005,10 +2010,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Loader */ "./resources/js/components/Loader.vue");
-//
-//
-//
-//
 //
 //
 //
@@ -2192,6 +2193,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getMusicians(this.$route.params.slug);
+    $(document).ready(function () {
+      $(this).scrollTop(0);
+    });
   },
   mounted: function mounted() {
     var _this3 = this;
@@ -2199,6 +2203,91 @@ __webpack_require__.r(__webpack_exports__);
     setTimeout(function () {
       return _this3.loaded = true;
     }, 2000);
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/GenresSearch.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/GenresSearch.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "GenreSearch",
+  methods: {
+    getGenres: function getGenres() {
+      var _this = this;
+
+      axios.get("http://127.0.0.1:8000/api/genres").then(function (res) {
+        _this.genres = res.data; // console.log( this.genres )
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    searchMusicians: function searchMusicians(slug) {
+      var _this2 = this;
+
+      axios.get("http://127.0.0.1:8000/api/musicians/".concat(slug)).then(function (res) {
+        res.data.forEach(function (el) {
+          _this2.searchedMusicians = el.musicians;
+
+          _this2.$router.push({
+            name: "musicians",
+            params: {
+              slug: _this2.slug
+            }
+          });
+        }); //   console.log(this.musicians);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  },
+  data: function data() {
+    return {
+      genres: [],
+      searchedMusicians: [],
+      slug: ""
+    };
+  },
+  mounted: function mounted() {
+    this.getGenres();
   }
 });
 
@@ -2682,6 +2771,120 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/AllMusicians.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/AllMusicians.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_Loader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Loader */ "./resources/js/components/Loader.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "AllMusicians",
+  data: function data() {
+    return {
+      musicians: [],
+      loaded: false
+    };
+  },
+  methods: {
+    allMusicians: function allMusicians() {
+      var _this = this;
+
+      axios.get("http://127.0.0.1:8000/api/musicians").then(function (res) {
+        _this.musicians = res.data;
+        _this.loaded = true;
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    getAverageVotes: function getAverageVotes(reviews) {
+      var sum = reviews.reduce(function (acc, review) {
+        return acc += review.vote;
+      }, 0);
+      return Math.ceil(sum / reviews.length);
+    }
+  },
+  components: {
+    Loader: _components_Loader__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  created: function created() {
+    //   setTimeout(() => (this.loaded = true), 1000);
+    this.allMusicians();
+    $(document).ready(function () {
+      $(this).scrollTop(0);
+    });
+  },
+  mounted: function mounted() {
+    $(document).ready(function () {
+      $(this).scrollTop(0);
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Home.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Home.vue?vue&type=script&lang=js& ***!
@@ -2692,13 +2895,14 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Jumbotron__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Jumbotron */ "./resources/js/components/Jumbotron.vue");
-/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dayjs */ "./node_modules/dayjs/dayjs.min.js");
-/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dayjs__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-carousel */ "./node_modules/vue-carousel/dist/vue-carousel.min.js");
-/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_carousel__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var vue_load_image__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-load-image */ "./node_modules/vue-load-image/dist/vue-load-image.js");
-/* harmony import */ var vue_load_image__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_load_image__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _components_Loader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Loader */ "./resources/js/components/Loader.vue");
+/* harmony import */ var _components_GenresSearch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/GenresSearch */ "./resources/js/components/GenresSearch.vue");
+/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dayjs */ "./node_modules/dayjs/dayjs.min.js");
+/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(dayjs__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-carousel */ "./node_modules/vue-carousel/dist/vue-carousel.min.js");
+/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_carousel__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vue_load_image__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-load-image */ "./node_modules/vue-load-image/dist/vue-load-image.js");
+/* harmony import */ var vue_load_image__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_load_image__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _components_Loader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Loader */ "./resources/js/components/Loader.vue");
 //
 //
 //
@@ -2891,26 +3095,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -2922,20 +3107,21 @@ __webpack_require__.r(__webpack_exports__);
     return {
       musicians: [],
       filteredMusicians: [],
-      genres: [],
+      // genres: [],
       activePaginateColor: "#ec5e25",
       paginateColor: "rgba(236, 93, 37, 0.363)",
-      today: dayjs__WEBPACK_IMPORTED_MODULE_1___default()().format("YYYY-MM-DD HH:mm:ss"),
-      slug: "",
+      today: dayjs__WEBPACK_IMPORTED_MODULE_2___default()().format("YYYY-MM-DD HH:mm:ss"),
+      // slug: "",
       loaded: false
     };
   },
   components: {
     Jumbotron: _components_Jumbotron__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Carousel: vue_carousel__WEBPACK_IMPORTED_MODULE_2__["Carousel"],
-    Slide: vue_carousel__WEBPACK_IMPORTED_MODULE_2__["Slide"],
-    VueLoadImage: vue_load_image__WEBPACK_IMPORTED_MODULE_3___default.a,
-    Loader: _components_Loader__WEBPACK_IMPORTED_MODULE_4__["default"]
+    GenresSearch: _components_GenresSearch__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Carousel: vue_carousel__WEBPACK_IMPORTED_MODULE_3__["Carousel"],
+    Slide: vue_carousel__WEBPACK_IMPORTED_MODULE_3__["Slide"],
+    VueLoadImage: vue_load_image__WEBPACK_IMPORTED_MODULE_4___default.a,
+    Loader: _components_Loader__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   methods: {
     getSponsoredMusicians: function getSponsoredMusicians() {
@@ -2948,24 +3134,23 @@ __webpack_require__.r(__webpack_exports__);
         console.log(err);
       });
     },
-    searchMusicians: function searchMusicians(slug) {
-      var _this2 = this;
-
-      axios.get("http://127.0.0.1:8000/api/musicians/".concat(slug)).then(function (res) {
-        res.data.forEach(function (el) {
-          _this2.filteredMusicians = el.musicians;
-
-          _this2.$router.push({
-            name: "musicians",
-            params: {
-              slug: _this2.slug
-            }
-          });
-        }); //   console.log(this.musicians);
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    },
+    // searchMusicians(slug) {
+    //   axios
+    //     .get(`http://127.0.0.1:8000/api/musicians/${slug}`)
+    //     .then((res) => {
+    //       res.data.forEach((el) => {
+    //         this.filteredMusicians = el.musicians;
+    //         this.$router.push({
+    //           name: "musicians",
+    //           params: { slug: this.slug },
+    //         });
+    //       });
+    //       //   console.log(this.musicians);
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // },
     clicked: function clicked(slug) {
       console.log(slug);
     },
@@ -2974,24 +3159,29 @@ __webpack_require__.r(__webpack_exports__);
         return acc += review.vote;
       }, 0);
       return Math.ceil(sum / reviews.length);
-    },
-    getGenres: function getGenres() {
-      var _this3 = this;
+    } // getGenres() {
+    //   axios
+    //     .get("http://127.0.0.1:8000/api/genres")
+    //     .then((res) => {
+    //       this.genres = res.data;
+    //       // console.log( this.genres )
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // },
 
-      axios.get("http://127.0.0.1:8000/api/genres").then(function (res) {
-        _this3.genres = res.data; // console.log( this.genres )
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    }
   },
   created: function created() {
+    var _this2 = this;
+
     this.getSponsoredMusicians();
-    this.getGenres(); // console.log(this.getSponsor);
+    setTimeout(function () {
+      return _this2.loaded = true;
+    }, 2000); // this.getGenres();
+    // console.log(this.getSponsor);
   },
   mounted: function mounted() {
-    var _this4 = this;
-
     setTimeout(function () {
       var counters = document.querySelectorAll(".counter");
       var speed = 200; // The lower the slower
@@ -3015,10 +3205,7 @@ __webpack_require__.r(__webpack_exports__);
 
         updateCount();
       });
-    }, 1500);
-    setTimeout(function () {
-      return _this4.loaded = true;
-    }, 2000);
+    }, 2500);
   }
 });
 
@@ -3232,6 +3419,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getMusician(this.$route.params.slug); // this.$emit('prova', this.reviews);
+
+    $(document).ready(function () {
+      $(this).scrollTop(0);
+    });
   },
   mounted: function mounted() {
     var _this2 = this;
@@ -40198,6 +40389,104 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/GenresSearch.vue?vue&type=template&id=1bfde503&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/GenresSearch.vue?vue&type=template&id=1bfde503& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "py-5" }, [
+    _c("div", { staticClass: "container" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "row" },
+        _vm._l(_vm.genres, function(genre, index) {
+          return _c(
+            "div",
+            {
+              key: index,
+              staticClass: "col-xs-12 col-md-4 col-lg-2 mb-3",
+              attrs: { "data-aos": "zoom-in" }
+            },
+            [
+              _c(
+                "label",
+                {
+                  staticClass: "btn-grad w-100 text-center p-3",
+                  attrs: { for: genre.slug }
+                },
+                [_vm._v(_vm._s(genre.name))]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.slug,
+                    expression: "slug"
+                  }
+                ],
+                attrs: { type: "radio", name: genre.name, id: genre.slug },
+                domProps: {
+                  value: genre.slug,
+                  checked: _vm._q(_vm.slug, genre.slug)
+                },
+                on: {
+                  change: [
+                    function($event) {
+                      _vm.slug = genre.slug
+                    },
+                    function($event) {
+                      return _vm.searchMusicians(_vm.slug)
+                    }
+                  ]
+                }
+              })
+            ]
+          )
+        }),
+        0
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "d-flex flex-column align-items-center justify-content-center"
+      },
+      [
+        _c("h2", { staticClass: "numbers-title mb-5" }, [
+          _vm._v("Scegli un genere!")
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Jumbotron.vue?vue&type=template&id=0b8439d1&":
 /*!************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Jumbotron.vue?vue&type=template&id=0b8439d1& ***!
@@ -40919,6 +41208,148 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/AllMusicians.vue?vue&type=template&id=ce1d752c&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/AllMusicians.vue?vue&type=template&id=ce1d752c& ***!
+  \**********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("h2", { staticClass: "text-center numbers-title py-5" }, [
+        _vm._v("Tutti i musicisti iscritti!")
+      ]),
+      _vm._v(" "),
+      _vm.loaded
+        ? _c(
+            "div",
+            { staticClass: "row" },
+            _vm._l(_vm.musicians, function(musician) {
+              return _c(
+                "div",
+                {
+                  key: musician.id,
+                  staticClass: "d-flex justify-content-between width flex-wrap"
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "flip-card",
+                      attrs: { "data-aos": "zoom-in" }
+                    },
+                    [
+                      _c("div", { staticClass: "flip-card-inner" }, [
+                        _c("div", { staticClass: "flip-card-front" }, [
+                          _c("img", {
+                            staticClass: "profile-pic",
+                            attrs: {
+                              src: "/storage/" + musician.cover,
+                              alt: musician.stagename
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "flip-card-back" },
+                          [
+                            _c("div", [
+                              _c("small", { staticClass: "text-white p-2" }, [
+                                _vm._v(
+                                  _vm._s(
+                                    musician.reviews.length == 1
+                                      ? musician.reviews.length + " recensione"
+                                      : musician.reviews.length + " recensioni"
+                                  )
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn btn-orange text-white",
+                                attrs: {
+                                  to: {
+                                    name: "musician",
+                                    params: { slug: musician.slug }
+                                  }
+                                }
+                              },
+                              [_vm._v("Vai al profilo")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              { staticClass: "d-block py-2" },
+                              _vm._l(5, function(index) {
+                                return _c("i", {
+                                  key: index,
+                                  staticClass: "fa-star",
+                                  class:
+                                    index <=
+                                    _vm.getAverageVotes(musician.reviews)
+                                      ? "fas"
+                                      : "far"
+                                })
+                              }),
+                              0
+                            )
+                          ],
+                          1
+                        )
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "text-center w-100 py-2" }, [
+                    _c("h4", [_vm._v(_vm._s(musician.stagename))])
+                  ])
+                ]
+              )
+            }),
+            0
+          )
+        : _c("Loader", { staticClass: "vh-100" }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "text-center mb-5" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-yellow text-white",
+              attrs: { to: { name: "home" } }
+            },
+            [_vm._v("Indietro")]
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Home.vue?vue&type=template&id=b3c5cf30&scoped=true&":
 /*!**************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Home.vue?vue&type=template&id=b3c5cf30&scoped=true& ***!
@@ -40941,67 +41372,15 @@ var render = function() {
       _c("Jumbotron"),
       _vm._v(" "),
       _vm.loaded
-        ? _c("div", { staticClass: "search" }, [
-            _c("div", { staticClass: "container" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "row" },
-                _vm._l(_vm.genres, function(genre, index) {
-                  return _c(
-                    "div",
-                    {
-                      key: index,
-                      staticClass: "col-xs-12 col-md-4 col-lg-2 mb-3",
-                      attrs: { "data-aos": "zoom-in" }
-                    },
-                    [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "btn-grad w-100 text-center p-3",
-                          attrs: { for: genre.slug }
-                        },
-                        [_vm._v(_vm._s(genre.name))]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.slug,
-                            expression: "slug"
-                          }
-                        ],
-                        attrs: {
-                          type: "radio",
-                          name: genre.name,
-                          id: genre.slug
-                        },
-                        domProps: {
-                          value: genre.slug,
-                          checked: _vm._q(_vm.slug, genre.slug)
-                        },
-                        on: {
-                          change: [
-                            function($event) {
-                              _vm.slug = genre.slug
-                            },
-                            function($event) {
-                              return _vm.searchMusicians(_vm.slug)
-                            }
-                          ]
-                        }
-                      })
-                    ]
-                  )
-                }),
-                0
-              )
-            ])
-          ])
+        ? _c(
+            "div",
+            {
+              staticClass:
+                "d-flex flex-column justify-content-around align-items-center"
+            },
+            [_c("GenresSearch")],
+            1
+          )
         : _c("Loader"),
       _vm._v(" "),
       _c("div", { staticClass: "pattern-home" }),
@@ -41133,11 +41512,41 @@ var render = function() {
             1
           ),
           _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
           _vm._m(1),
           _vm._v(" "),
-          _vm._m(2),
+          _c(
+            "div",
+            {
+              staticClass:
+                "link-musicians mb-5 d-flex flex-column align-items-center justify-content-center",
+              attrs: { "data-aos": "zoom-in" }
+            },
+            [
+              _c("h4", { staticClass: "platinum mb-2 text-center" }, [
+                _vm._v("Cerca tra tutti i musicisti!")
+              ]),
+              _vm._v(" "),
+              _c("i", {
+                staticClass:
+                  "fas fa-chevron-down mb-2 fa-2x title-orange animate__animated animate__pulse animate__infinite"
+              }),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                {
+                  staticClass: "btn-grad text-white",
+                  staticStyle: { width: "max-content" },
+                  attrs: { to: { name: "all-musicians" } }
+                },
+                [_vm._v("Vedi tutti i musicisti")]
+              )
+            ],
+            1
+          ),
           _vm._v(" "),
-          _vm._m(3)
+          _vm._m(2)
         ],
         1
       )
@@ -41146,23 +41555,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "d-flex flex-column align-items-center justify-content-center"
-      },
-      [
-        _c("h2", { staticClass: "numbers-title mb-5" }, [
-          _vm._v("Scegli un genere!")
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -41264,7 +41656,7 @@ var staticRenderFns = [
           attrs: {
             "data-aos": "zoom-in",
             "data-aos-duration": "1000",
-            "data-aos-delay": "1000"
+            "data-aos-delay": "500"
           }
         },
         [
@@ -41282,7 +41674,7 @@ var staticRenderFns = [
           attrs: {
             "data-aos": "fade-left",
             "data-aos-duration": "1000",
-            "data-aos-delay": "1000"
+            "data-aos-delay": "500"
           }
         },
         [
@@ -41311,7 +41703,7 @@ var staticRenderFns = [
           attrs: {
             "data-aos": "zoom-in",
             "data-aos-duration": "1000",
-            "data-aos-delay": "1000"
+            "data-aos-delay": "500"
           }
         },
         [
@@ -41329,7 +41721,7 @@ var staticRenderFns = [
           attrs: {
             "data-aos": "fade-left",
             "data-aos-duration": "1000",
-            "data-aos-delay": "1000"
+            "data-aos-delay": "500"
           }
         },
         [
@@ -41719,7 +42111,7 @@ var render = function() {
               ])
             ])
           ])
-        : _c("Loader")
+        : _c("Loader", { staticClass: "vh-100" })
     ],
     1
   )
@@ -57559,6 +57951,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/GenresSearch.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/GenresSearch.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _GenresSearch_vue_vue_type_template_id_1bfde503___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GenresSearch.vue?vue&type=template&id=1bfde503& */ "./resources/js/components/GenresSearch.vue?vue&type=template&id=1bfde503&");
+/* harmony import */ var _GenresSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GenresSearch.vue?vue&type=script&lang=js& */ "./resources/js/components/GenresSearch.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _GenresSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _GenresSearch_vue_vue_type_template_id_1bfde503___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _GenresSearch_vue_vue_type_template_id_1bfde503___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/GenresSearch.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/GenresSearch.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/GenresSearch.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GenresSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./GenresSearch.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/GenresSearch.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GenresSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/GenresSearch.vue?vue&type=template&id=1bfde503&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/GenresSearch.vue?vue&type=template&id=1bfde503& ***!
+  \*********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GenresSearch_vue_vue_type_template_id_1bfde503___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./GenresSearch.vue?vue&type=template&id=1bfde503& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/GenresSearch.vue?vue&type=template&id=1bfde503&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GenresSearch_vue_vue_type_template_id_1bfde503___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GenresSearch_vue_vue_type_template_id_1bfde503___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Jumbotron.vue":
 /*!***********************************************!*\
   !*** ./resources/js/components/Jumbotron.vue ***!
@@ -57848,6 +58309,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ReviewForm_vue_vue_type_template_id_44a63ae7___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ReviewForm_vue_vue_type_template_id_44a63ae7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/AllMusicians.vue":
+/*!*********************************************!*\
+  !*** ./resources/js/pages/AllMusicians.vue ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AllMusicians_vue_vue_type_template_id_ce1d752c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AllMusicians.vue?vue&type=template&id=ce1d752c& */ "./resources/js/pages/AllMusicians.vue?vue&type=template&id=ce1d752c&");
+/* harmony import */ var _AllMusicians_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AllMusicians.vue?vue&type=script&lang=js& */ "./resources/js/pages/AllMusicians.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AllMusicians_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AllMusicians_vue_vue_type_template_id_ce1d752c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AllMusicians_vue_vue_type_template_id_ce1d752c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/AllMusicians.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/AllMusicians.vue?vue&type=script&lang=js&":
+/*!**********************************************************************!*\
+  !*** ./resources/js/pages/AllMusicians.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AllMusicians_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./AllMusicians.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/AllMusicians.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AllMusicians_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/AllMusicians.vue?vue&type=template&id=ce1d752c&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/pages/AllMusicians.vue?vue&type=template&id=ce1d752c& ***!
+  \****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AllMusicians_vue_vue_type_template_id_ce1d752c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./AllMusicians.vue?vue&type=template&id=ce1d752c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/AllMusicians.vue?vue&type=template&id=ce1d752c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AllMusicians_vue_vue_type_template_id_ce1d752c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AllMusicians_vue_vue_type_template_id_ce1d752c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -58269,10 +58799,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_MusicianProfile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/MusicianProfile */ "./resources/js/pages/MusicianProfile.vue");
 /* harmony import */ var _pages_MessageConfirm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/MessageConfirm */ "./resources/js/pages/MessageConfirm.vue");
 /* harmony import */ var _pages_ReviewConfirm__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/ReviewConfirm */ "./resources/js/pages/ReviewConfirm.vue");
-/* harmony import */ var _pages_NotFound__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/NotFound */ "./resources/js/pages/NotFound.vue");
+/* harmony import */ var _pages_AllMusicians__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/AllMusicians */ "./resources/js/pages/AllMusicians.vue");
+/* harmony import */ var _pages_NotFound__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/NotFound */ "./resources/js/pages/NotFound.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 
 
 
@@ -58285,6 +58817,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/',
     name: 'home',
     component: _pages_Home__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }, {
+    path: '/musicians',
+    name: 'all-musicians',
+    component: _pages_AllMusicians__WEBPACK_IMPORTED_MODULE_7__["default"]
   }, {
     path: '/musicians/:slug',
     name: 'musicians',
@@ -58304,7 +58840,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: '*',
     name: 'not-found',
-    component: _pages_NotFound__WEBPACK_IMPORTED_MODULE_7__["default"]
+    component: _pages_NotFound__WEBPACK_IMPORTED_MODULE_8__["default"]
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);

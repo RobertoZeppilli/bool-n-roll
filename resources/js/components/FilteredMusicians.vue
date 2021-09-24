@@ -49,6 +49,7 @@
       </div>
     </div>
     <div class="container py-5">
+      
       <h2>
         Risultati per:
         <span class="badge_profile badge badge-purple text-white">{{
@@ -71,8 +72,6 @@
                 />
               </div>
               <div class="flip-card-back">
-                
-                
                 <div>
                   <small class="text-white p-2">{{
                     musician.reviews.length == 1
@@ -95,15 +94,12 @@
                     "
                   ></i>
                 </span>
-
-                
               </div>
             </div>
           </div>
           <div class="text-center w-100 py-2">
-            <h4 >{{ musician.stagename }}</h4>
+            <h4>{{ musician.stagename }}</h4>
           </div>
-          
         </div>
       </div>
       <Loader v-else />
@@ -130,6 +126,7 @@ export default {
       starVote: "",
       reviewAmount: "",
       loaded: false,
+      
     };
   },
 
@@ -165,6 +162,8 @@ export default {
         });
     },
 
+    
+
     getAverageVotes(reviews) {
       const sum = reviews.reduce((acc, review) => (acc += review.vote), 0);
       return Math.ceil(sum / reviews.length);
@@ -185,6 +184,10 @@ export default {
 
   created() {
     this.getMusicians(this.$route.params.slug);
+    
+    $(document).ready(function () {
+      $(this).scrollTop(0);
+    });
   },
   mounted() {
     setTimeout(() => (this.loaded = true), 2000);
@@ -193,6 +196,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-
 </style>

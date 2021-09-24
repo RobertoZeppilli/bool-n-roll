@@ -19,6 +19,12 @@ class MusicianController extends Controller
         return response()->json($musician);
     }
 
+    public function index() {
+        $musicians = Musician::inRandomOrder()->get();
+
+        return response()->json($musicians);
+    }
+
     public function showSponsoredMusicians()
     {
         $sponsoredMusicians = Musician::has('sponsorships')->with('reviews', 'genres')->get();

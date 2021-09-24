@@ -17757,10 +17757,6 @@ a.title-orange:hover {
   font-size: 1.3rem;
 }
 
-.search {
-  padding: 30px 0;
-}
-
 .sponsor-bio {
   font-size: 0.5rem;
 }
@@ -18033,6 +18029,7 @@ a {
   background-size: 200% auto;
   color: white;
   border-radius: 0.35rem;
+  cursor: pointer;
   display: block;
 }
 

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Genre;
 use App\Sponsorship;
-
+use App\Review;
 use Braintree;
 
 use Illuminate\Support\Carbon;
@@ -59,7 +59,7 @@ class MusicianController extends Controller
      */
     public function index()
     {
-        // return Musician::where('user_id', Auth::id())->first();
+        
     }
 
     /**
@@ -220,6 +220,8 @@ class MusicianController extends Controller
     
     public function showReviewPage() {
         $user = Auth::user();
+        
+
         return view('admin.musicians.reviews', compact('user'));
     }
 

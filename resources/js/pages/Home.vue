@@ -1,38 +1,12 @@
 <template>
   <div class="overflow">
     <Jumbotron />
-    <div class="search" v-if="loaded">
-      <div class="container">
-        <div class="d-flex flex-column align-items-center justify-content-center">
-          <h2 class="numbers-title mb-5">Scegli un genere!</h2>
-          <!-- <p class="platinum">Verrai portato alla pagina musicisti</p> -->
-        </div>
-        <div class="row">
-          <div
-            v-for="(genre, index) in genres"
-            :key="index"
-            class="col-xs-12 col-md-4 col-lg-2 mb-3"
-            data-aos="zoom-in"
-          
-          >
-            <label
-              class="btn-grad w-100 text-center p-3"
-              :for="genre.slug"
-              >{{ genre.name }}</label
-            >
-            <input
-              @change="searchMusicians(slug)"
-              v-model="slug"
-              type="radio"
-              :value="genre.slug"
-              :name="genre.name"
-              :id="genre.slug"
-            />
-          </div>
-        </div>
-      </div>
+    <div v-if="loaded" class="d-flex flex-column justify-content-around align-items-center">
+      <GenresSearch />
+      
     </div>
     <Loader v-else />
+
     <div class="pattern-home"></div>
 
     <div class="container">
@@ -153,7 +127,7 @@
           class="showreel-img-1"
           data-aos="zoom-in"
           data-aos-duration="1000"
-          data-aos-delay="1000"
+          data-aos-delay="500"
         >
           <img style="width: 350px" src="/images/musiccassa.svg" alt="" />
         </div>
@@ -161,7 +135,7 @@
         <div
           data-aos="fade-left"
           data-aos-duration="1000"
-          data-aos-delay="1000"
+          data-aos-delay="500"
           class="showreel-text showreel-text-1 text-center py-3"
         >
           <h3 class="py-2">Contatta il tuo musicista preferito!</h3>
@@ -175,12 +149,18 @@
         </div>
       </div>
 
+      <div class="link-musicians mb-5 d-flex flex-column align-items-center justify-content-center" data-aos="zoom-in">
+        <h4 class="platinum mb-2 text-center">Cerca tra tutti i musicisti!</h4>
+        <i class="fas fa-chevron-down mb-2 fa-2x title-orange animate__animated animate__pulse animate__infinite"></i>
+        <router-link class="btn-grad text-white" style="width: max-content;" :to="{ name:'all-musicians' }">Vedi tutti i musicisti</router-link>
+      </div>
+
       <div class="showreel showreel-2 py-5">
         <div
           class="showreel-img-2"
           data-aos="zoom-in"
           data-aos-duration="1000"
-          data-aos-delay="1000"
+          data-aos-delay="500"
         >
           <img style="width: 350px" src="/images/musichpone.svg" alt="" />
         </div>
@@ -188,7 +168,7 @@
         <div
           data-aos="fade-left"
           data-aos-duration="1000"
-          data-aos-delay="1000"
+          data-aos-delay="500"
           class="text-center py-3 showreel-text showreel-text-2"
         >
           <h3 class="py-2">
@@ -213,6 +193,8 @@
 <script>
 import Jumbotron from "../components/Jumbotron";
 
+import GenresSearch from "../components/GenresSearch";
+
 import dayjs from "dayjs";
 
 import { Carousel, Slide } from "vue-carousel";
@@ -228,17 +210,18 @@ export default {
     return {
       musicians: [],
       filteredMusicians: [],
-      genres: [],
+      // genres: [],
       activePaginateColor: "#ec5e25",
       paginateColor: "rgba(236, 93, 37, 0.363)",
       today: dayjs().format("YYYY-MM-DD HH:mm:ss"),
-      slug: "",
+      // slug: "",
       loaded: false
     };
   },
 
   components: {
     Jumbotron,
+    GenresSearch,
     Carousel,
     Slide,
     VueLoadImage,
@@ -258,23 +241,23 @@ export default {
         });
     },
 
-    searchMusicians(slug) {
-      axios
-        .get(`http://127.0.0.1:8000/api/musicians/${slug}`)
-        .then((res) => {
-          res.data.forEach((el) => {
-            this.filteredMusicians = el.musicians;
-            this.$router.push({
-              name: "musicians",
-              params: { slug: this.slug },
-            });
-          });
-          //   console.log(this.musicians);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
+    // searchMusicians(slug) {
+    //   axios
+    //     .get(`http://127.0.0.1:8000/api/musicians/${slug}`)
+    //     .then((res) => {
+    //       res.data.forEach((el) => {
+    //         this.filteredMusicians = el.musicians;
+    //         this.$router.push({
+    //           name: "musicians",
+    //           params: { slug: this.slug },
+    //         });
+    //       });
+    //       //   console.log(this.musicians);
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // },
 
     clicked(slug) {
       console.log(slug);
@@ -285,22 +268,24 @@ export default {
       return Math.ceil(sum / reviews.length);
     },
 
-    getGenres() {
-      axios
-        .get("http://127.0.0.1:8000/api/genres")
-        .then((res) => {
-          this.genres = res.data;
-          // console.log( this.genres )
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
+    // getGenres() {
+    //   axios
+    //     .get("http://127.0.0.1:8000/api/genres")
+    //     .then((res) => {
+    //       this.genres = res.data;
+    //       // console.log( this.genres )
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // },
   },
 
   created() {
     this.getSponsoredMusicians();
-    this.getGenres();
+
+    setTimeout(() => (this.loaded = true), 2000);
+    // this.getGenres();
     // console.log(this.getSponsor);
   },
 
@@ -332,9 +317,9 @@ export default {
 
         updateCount();
       });
-    }, 1500);
+    }, 2500);
 
-    setTimeout(() => (this.loaded = true), 2000);
+    
   },
 };
 </script>
@@ -364,15 +349,5 @@ export default {
   // margin: 10px 0;
 }
 
-@media (max-width: 700px) {
-  // .counters .container {
-  //   grid-template-columns: repeat(2, 1fr);
-  // }
 
-  // .counters .container > div:nth-of-type(1),
-  // .counters .container > div:nth-of-type(2) {
-  //   // border-bottom: 1px lightskyblue solid;
-  //   padding-bottom: 20px;
-  // }
-}
 </style>

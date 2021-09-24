@@ -21,6 +21,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::namespace('Api')->group( function() {
 
     Route::get('/genres', 'GenreController@index');
+
+    Route::get('/musicians', 'MusicianController@index');
     
     Route::get('musicians/{genreSlug}', 'GenreController@filterMusicians');
 

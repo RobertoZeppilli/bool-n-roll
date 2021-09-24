@@ -108,7 +108,7 @@
         </div>
       </div>
     </div>
-    <Loader v-else />
+    <Loader class="vh-100" v-else />
   </div>
 </template>
 
@@ -174,6 +174,9 @@ export default {
   created() {
     this.getMusician(this.$route.params.slug);
     // this.$emit('prova', this.reviews);
+    $(document).ready(function(){
+            $(this).scrollTop(0);
+    });
   },
   mounted() {
     setTimeout(() => (this.loaded = true), 2000);

@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import MusicianProfile from './pages/MusicianProfile';
 import MessageConfirm from './pages/MessageConfirm';
 import ReviewConfirm from './pages/ReviewConfirm';
+import AllMusicians from './pages/AllMusicians';
 
 import NotFound from './pages/NotFound';
 
@@ -18,6 +19,11 @@ const router = new VueRouter({
             path: '/',
             name: 'home',
             component: Home
+        },
+        {
+            path: '/musicians',
+            name: 'all-musicians',
+            component: AllMusicians
         },
         {
             path: '/musicians/:slug',
