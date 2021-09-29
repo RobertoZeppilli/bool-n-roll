@@ -3371,6 +3371,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3389,7 +3445,11 @@ __webpack_require__.r(__webpack_exports__);
       show: false,
       review: false,
       reviews: [],
-      loaded: false
+      loaded: false,
+      bio: true,
+      servizi: false,
+      tipologia: false,
+      generi: false
     };
   },
   methods: {
@@ -3410,6 +3470,29 @@ __webpack_require__.r(__webpack_exports__);
     getSurnameFirstLetter: function getSurnameFirstLetter(surname) {
       var firstLetter = surname[0] + ".";
       return firstLetter;
+    },
+    getPage: function getPage(name) {
+      if (name == "bio") {
+        this.bio = true;
+        this.servizi = false;
+        this.tipologia = false;
+        this.generi = false;
+      } else if (name == "servizi") {
+        this.servizi = true;
+        this.bio = false;
+        this.tipologia = false;
+        this.generi = false;
+      } else if (name == "tipologia") {
+        this.tipologia = true;
+        this.bio = false;
+        this.servizi = false;
+        this.generi = false;
+      } else if (name == 'generi') {
+        this.generi = true;
+        this.tipologia = false;
+        this.bio = false;
+        this.servizi = false;
+      }
     }
   },
   computed: {
@@ -8025,6 +8108,25 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 // module
 exports.push([module.i, ".container[data-v-7b364602] {\n  height: calc(100vh - 76px);\n}\n.container .thumbs_container[data-v-7b364602] {\n  border-radius: 150px;\n  height: 150px;\n  width: 150px;\n  background-color: #c6d8d3;\n}\n.container .thumbs_container .fa-thumbs-up[data-v-7b364602] {\n  font-size: 50px;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/MusicianProfile.vue?vue&type=style&index=0&id=5a8cefdf&lang=scss&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/MusicianProfile.vue?vue&type=style&index=0&id=5a8cefdf&lang=scss&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -39405,6 +39507,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/MusicianProfile.vue?vue&type=style&index=0&id=5a8cefdf&lang=scss&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/MusicianProfile.vue?vue&type=style&index=0&id=5a8cefdf&lang=scss&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./MusicianProfile.vue?vue&type=style&index=0&id=5a8cefdf&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/MusicianProfile.vue?vue&type=style&index=0&id=5a8cefdf&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/ReviewConfirm.vue?vue&type=style&index=0&id=624a598f&lang=scss&scoped=true&":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/ReviewConfirm.vue?vue&type=style&index=0&id=624a598f&lang=scss&scoped=true& ***!
@@ -41520,7 +41652,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "link-musicians mb-5 d-flex flex-column align-items-center justify-content-center",
+                "link-musicians py-5 d-flex flex-column align-items-center justify-content-center",
               attrs: { "data-aos": "zoom-in" }
             },
             [
@@ -41840,10 +41972,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/MusicianProfile.vue?vue&type=template&id=5a8cefdf&":
-/*!*************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/MusicianProfile.vue?vue&type=template&id=5a8cefdf& ***!
-  \*************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/MusicianProfile.vue?vue&type=template&id=5a8cefdf&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/MusicianProfile.vue?vue&type=template&id=5a8cefdf&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -41868,81 +42000,174 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "position d-flex align-items-center justify-content-center"
+                      "\n            position\n            d-flex\n            align-items-center\n            justify-content-center\n            flex-column\n          "
                   },
                   [
                     _c("img", {
                       staticClass: "profile-img",
                       attrs: { src: "/storage/" + _vm.musician.cover, alt: "" }
-                    })
+                    }),
+                    _vm._v(" "),
+                    _c("h1", [_vm._v(_vm._s(_vm.musician.stagename))])
                   ]
                 ),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "pt-100 text-center" },
-                  [
-                    _c("h1", { staticClass: "my-5" }, [
-                      _vm._v(_vm._s(_vm.musician.stagename))
-                    ]),
-                    _vm._v(" "),
-                    _vm._l(_vm.musician.genres, function(genre, index) {
-                      return _c(
+                _c("div", { staticClass: "pt-100" }, [
+                  _c("div", [
+                    _c("div", { staticClass: "prova text-center" }, [
+                      _c(
                         "span",
                         {
-                          key: index,
-                          staticClass:
-                            "badge_profile badge badge-purple text-white mr-2"
+                          staticClass: "window-badge",
+                          class: { active: _vm.bio },
+                          on: {
+                            click: function($event) {
+                              return _vm.getPage("bio")
+                            }
+                          }
                         },
-                        [_vm._v(_vm._s(genre.name) + "\n          ")]
+                        [_vm._v("Bio")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          staticClass: "window-badge",
+                          class: { active: _vm.servizi },
+                          on: {
+                            click: function($event) {
+                              return _vm.getPage("servizi")
+                            }
+                          }
+                        },
+                        [_vm._v("\n                Servizi\n              ")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          staticClass: "window-badge",
+                          class: { active: _vm.tipologia },
+                          on: {
+                            click: function($event) {
+                              return _vm.getPage("tipologia")
+                            }
+                          }
+                        },
+                        [_vm._v("\n                Tipologia\n              ")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          staticClass: "window-badge",
+                          class: { active: _vm.generi },
+                          on: {
+                            click: function($event) {
+                              return _vm.getPage("generi")
+                            }
+                          }
+                        },
+                        [_vm._v("\n                Generi\n              ")]
                       )
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "my-5" }, [
-                      _c(
-                        "h4",
-                        {
-                          staticClass:
-                            "text-center title-petrol text-uppercase font-weight-bold"
-                        },
-                        [_vm._v("\n              Bio\n            ")]
-                      ),
-                      _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.musician.bio))])
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "my-5" }, [
-                      _c(
-                        "h4",
-                        {
-                          staticClass:
-                            "title-wine text-uppercase font-weight-bold"
-                        },
-                        [
-                          _vm._v(
-                            "\n              I nostri servizi\n            "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.musician.services))])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "my-5" }, [
-                      _c(
-                        "h4",
-                        {
-                          staticClass:
-                            "title-pink text-uppercase font-weight-bold"
-                        },
-                        [_vm._v("\n              Tipologia\n            ")]
-                      ),
-                      _vm._v(" "),
-                      _c("p", [_vm._v(_vm._s(_vm.musician.typology))])
-                    ])
-                  ],
-                  2
-                ),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "window",
+                        class: {
+                          center: _vm.generi || _vm.tipologia || _vm.servizi
+                        }
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.bio,
+                                expression: "bio"
+                              }
+                            ],
+                            staticClass: "pt-3"
+                          },
+                          [_c("p", [_vm._v(_vm._s(_vm.musician.bio))])]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.tipologia,
+                                expression: "tipologia"
+                              }
+                            ]
+                          },
+                          [
+                            _c("p", { staticClass: "typology" }, [
+                              _vm._v(_vm._s(_vm.musician.typology))
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.servizi,
+                                expression: "servizi"
+                              }
+                            ]
+                          },
+                          [
+                            _c("p", { staticClass: "services" }, [
+                              _vm._v(_vm._s(_vm.musician.services))
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.generi,
+                                expression: "generi"
+                              }
+                            ]
+                          },
+                          _vm._l(_vm.musician.genres, function(genre, index) {
+                            return _c(
+                              "span",
+                              {
+                                key: index,
+                                staticClass:
+                                  "badge_profile badge badge-purple text-white mr-2"
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(genre.name) + "\n                "
+                                )
+                              ]
+                            )
+                          }),
+                          0
+                        )
+                      ]
+                    )
+                  ])
+                ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "row" }, [
                   _c(
@@ -42025,7 +42250,7 @@ var render = function() {
                                     ? "sui "
                                     : "su "
                                 ) +
-                                " " +
+                                "\n            " +
                                 _vm._s(_vm.musician.stagename) +
                                 "\n          "
                             )
@@ -58566,9 +58791,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _MusicianProfile_vue_vue_type_template_id_5a8cefdf___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MusicianProfile.vue?vue&type=template&id=5a8cefdf& */ "./resources/js/pages/MusicianProfile.vue?vue&type=template&id=5a8cefdf&");
+/* harmony import */ var _MusicianProfile_vue_vue_type_template_id_5a8cefdf_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MusicianProfile.vue?vue&type=template&id=5a8cefdf&scoped=true& */ "./resources/js/pages/MusicianProfile.vue?vue&type=template&id=5a8cefdf&scoped=true&");
 /* harmony import */ var _MusicianProfile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MusicianProfile.vue?vue&type=script&lang=js& */ "./resources/js/pages/MusicianProfile.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _MusicianProfile_vue_vue_type_style_index_0_id_5a8cefdf_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MusicianProfile.vue?vue&type=style&index=0&id=5a8cefdf&lang=scss&scoped=true& */ "./resources/js/pages/MusicianProfile.vue?vue&type=style&index=0&id=5a8cefdf&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -58576,13 +58803,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _MusicianProfile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _MusicianProfile_vue_vue_type_template_id_5a8cefdf___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _MusicianProfile_vue_vue_type_template_id_5a8cefdf___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _MusicianProfile_vue_vue_type_template_id_5a8cefdf_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _MusicianProfile_vue_vue_type_template_id_5a8cefdf_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "5a8cefdf",
   null
   
 )
@@ -58608,19 +58835,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/pages/MusicianProfile.vue?vue&type=template&id=5a8cefdf&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/pages/MusicianProfile.vue?vue&type=template&id=5a8cefdf& ***!
-  \*******************************************************************************/
+/***/ "./resources/js/pages/MusicianProfile.vue?vue&type=style&index=0&id=5a8cefdf&lang=scss&scoped=true&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/pages/MusicianProfile.vue?vue&type=style&index=0&id=5a8cefdf&lang=scss&scoped=true& ***!
+  \**********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicianProfile_vue_vue_type_style_index_0_id_5a8cefdf_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./MusicianProfile.vue?vue&type=style&index=0&id=5a8cefdf&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/MusicianProfile.vue?vue&type=style&index=0&id=5a8cefdf&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicianProfile_vue_vue_type_style_index_0_id_5a8cefdf_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicianProfile_vue_vue_type_style_index_0_id_5a8cefdf_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicianProfile_vue_vue_type_style_index_0_id_5a8cefdf_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicianProfile_vue_vue_type_style_index_0_id_5a8cefdf_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/MusicianProfile.vue?vue&type=template&id=5a8cefdf&scoped=true&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/pages/MusicianProfile.vue?vue&type=template&id=5a8cefdf&scoped=true& ***!
+  \*******************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicianProfile_vue_vue_type_template_id_5a8cefdf___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./MusicianProfile.vue?vue&type=template&id=5a8cefdf& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/MusicianProfile.vue?vue&type=template&id=5a8cefdf&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicianProfile_vue_vue_type_template_id_5a8cefdf___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicianProfile_vue_vue_type_template_id_5a8cefdf_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./MusicianProfile.vue?vue&type=template&id=5a8cefdf&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/MusicianProfile.vue?vue&type=template&id=5a8cefdf&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicianProfile_vue_vue_type_template_id_5a8cefdf_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicianProfile_vue_vue_type_template_id_5a8cefdf___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MusicianProfile_vue_vue_type_template_id_5a8cefdf_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

@@ -17,6 +17,9 @@
 @import 'general.scss';
 @import 'sponsorships.scss';
 @import '_select.scss';
+@import '_btn.scss';
+@import '_flipCard.scss';
+
 
 
 
@@ -45,28 +48,6 @@ p.platinum {
   font-size: 1.5rem;
 }
 
-// select.form-control.mb-2 {
-//   width: 350px;
-// }
-
-.mySelect {
-  transition: all .3s ease-in-out;
-  outline: none !important;
-  border-color: $logoColor;
-  color: $logoColor;
-
-  &:focus,
-  &:hover {
-    border-color: $logoColor;
-    // box-shadow: 0 0 0 0.2rem rgb(48 26 71 / 50%);
-    transform: scale(1.01);
-    // border-color: darken($logoColor, 15%);
-    color: $logoColor;
-    outline: none !important;
-    box-shadow: none;
-    
-  }
-}
 
 .form-control {
   &:hover,
@@ -77,39 +58,10 @@ p.platinum {
 }
 
 
-.numbers-title {
-  position: relative;
- 
-  text-align: center;
-  &:after {
-    content: '';
-   
-background: -webkit-linear-gradient(to right, #f08799, #ec5e25, #f7af1a, #08a38f);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #f08799, #ec5e25, #f7af1a, #08a38f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-    position: absolute;
-   
-    
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    animation: fillIn;
-    animation-duration: 5s;
-    height: 10px;
-    z-index: -1;
-    border-radius: 8px;
-  }
-}
 
-@keyframes fillIn {
-  from {width: 0;}
-  to {width: 100%;}
-}
 
-// .mySelect {
-//   border: 1px solid $logoColor;
-//   color: $logoColor;
-// }
+
 
 .--custom {
   width: 400px;
@@ -137,7 +89,6 @@ background: linear-gradient(to right, #f08799, #ec5e25, #f7af1a, #08a38f); /* W3
 .musician-img {
   min-height: 300px;
   width: 100%;
-  // object-fit: contain;
   img {
     width: 100%;
     height: 100%;
@@ -157,9 +108,7 @@ aside {
   background-color: red;
 }
 
-.fa-star {
-  color: $myYellow;
-}
+
 
 
 
@@ -178,17 +127,13 @@ a.title-orange {
   position: absolute;
   top: 50%;
   left: 50%;
-
   transform: translate(-50%, -50%);
   z-index: 13;
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 300px;
   height: 200px;
-
-  
 }
 
 .social-footer {
@@ -200,87 +145,9 @@ a.title-orange {
   }
 }
 
-.bg-orange {
-  background-color: $logoColor;
-}
 
 
 
-@media screen and (max-width: 768px) {
-  .custom-margin {
-    margin-left: 0;
-    margin-top: 15px;
-  }
-
-  .dropdown-menu.custom-border {
-    border: none;
-    
-  }
-
-  .form-group-resp {
-    width: 150px;
-
-    label, select {
-      font-size: 8px;
-    }
-  }
-  .width {
-    width: calc(100% / 2 - 2rem) !important;
-    margin: 1rem;
-  }
-  
-}
-
-@media screen and (max-width: 576px) {
-  .width {
-    width: 100% !important;
-    // margin: 1rem;
-    margin: 0;
-  }
-  .flip-card {
-    width: 100% !important;
-    height: 500px !important; 
-  }
-}
-.sponsor-size {
-  font-size: .5rem;
-}
-.form-text {
-  font-size: 1.3rem;
-}
-.heading-title {
-  font-size: 1.3rem;
-}
-// .search {
-//   padding: 30px 0;
-//   // background-color: yellow;
-// }
-// .search {
-//   height: 600px;
-// }
-.sponsor-bio {
-  font-size: .5rem;
-}
-
-input[type="radio"] {
-  display: none;
-}
-
-.genre-label {
-  // background-color: $myPetrol;
-  border-radius: .35rem;
-  background: -webkit-linear-gradient(to right, #f08799, #ec5e25, #f7af1a, #08a38f);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #f08799, #ec5e25, #f7af1a, #08a38f); 
-  color: #fff;
-  cursor: pointer;
-  // padding: 1rem;
-  transition: all .2s ease-in-out;
-
-  &:hover {
-    
-    transform: translateY(-10%);
-  }
-}
 
 .message-count {
   position: relative;
@@ -325,10 +192,194 @@ input[type="radio"] {
   justify-content: center;
 }
 
+.window-badge {
+  font-size: 10px;
+}
+
+.showreel-img-1,
+.showreel-img-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-trigger {
+  cursor: pointer;
+  color: $logoColor;
+  &:hover {
+    text-decoration: none;
+    color: darken($logoColor, 15%);
+  }
+}
+
+.btn-orange.btn-rounded {
+  border-radius: 0 0 2px 2px;
+  padding: 10px 0;
+  
+}
+
+a {
+  text-decoration: none !important;
+}
+.badge-purple-sm {
+  background-color: $myPurple;
+  padding: 5px;
+  color: #fff;
+  border-radius: 5px;
+  margin: 0 5px;
+  font-size: 10px;
+}
+
+
+.rounded-img {
+  border-radius: 3px 3px 0 0;
+  
+}
+
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.hide-footer {
+  display: none;
+}
+.overflow {
+  overflow-x: hidden;
+}
+
+.width {
+  width: calc(100% / 3 - 2rem);
+  margin: 1rem;
+  border-radius: 10px;
+}
+
+
+.img-sponsor {
+  object-fit: cover;
+}
+
+.small-position {
+  position: absolute;
+  top: 20px;
+}
+
+
+.prova {
+  margin-top: 100px;
+  width: max-content;
+  background-color: #fff;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  align-items: center;
+
+  span {
+    padding: 10px;
+
+    cursor: pointer;
+  }
+}
+
+.window {
+  padding: 10px;
+  min-height: 400px;
+  background-color: #fff;
+  border-radius: 0 20px 20px 20px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+.center {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .typology {
+    font-size: 3rem;
+  }
+  
+}
+.active {
+  color: #ec5e25;
+  
+}
+
+
+// media queries 
+@media screen and (max-width: 768px) {
+  .custom-margin {
+    margin-left: 0;
+    margin-top: 15px;
+  }
+
+  .dropdown-menu.custom-border {
+    border: none;
+    
+  }
+
+  .form-group-resp {
+    width: 150px;
+
+    label, select {
+      font-size: 8px;
+    }
+  }
+  .width {
+    width: calc(100% / 2 - 2rem) !important;
+    margin: 1rem;
+  }
+  
+}
+
+@media screen and (max-width: 576px) {
+  .width {
+    width: 100% !important;
+    margin: 0;
+  }
+  .flip-card {
+    width: 100% !important;
+    height: 500px !important; 
+  }
+}
+.sponsor-size {
+  font-size: .5rem;
+}
+.form-text {
+  font-size: 1.3rem;
+}
+.heading-title {
+  font-size: 1.3rem;
+}
+.sponsor-bio {
+  font-size: .5rem;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.genre-label {
+  border-radius: .35rem;
+  background: -webkit-linear-gradient(to right, #f08799, #ec5e25, #f7af1a, #08a38f);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f08799, #ec5e25, #f7af1a, #08a38f); 
+  color: #fff;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    
+    transform: translateY(-10%);
+  }
+}
+
 @media screen and (min-width: 768px) {
   .showreel {
     display: flex;
     justify-content: space-between;
+  }
+  .window-badge {
+    font-size: 20px;
   }
   .sponsor-bio {
     font-size: .9rem;
@@ -369,201 +420,10 @@ input[type="radio"] {
     order: 2;
   }
 
-  // .custom-drop {
-  //   padding: 0 10px;
-  // }
+  
   .dropdown-item.custom-drop {
     padding: 10px;
   }
 
   
-}
-
-.showreel-img-1,
-.showreel-img-2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.toggle-trigger {
-  cursor: pointer;
-  color: $logoColor;
-  &:hover {
-    text-decoration: none;
-    color: darken($logoColor, 15%);
-  }
-}
-
-.btn-orange.btn-rounded {
-  border-radius: 0 0 2px 2px;
-  padding: 10px 0;
-  
-}
-
-a {
-  text-decoration: none !important;
-}
-.badge-purple-sm {
-  background-color: $myPurple;
-  padding: 5px;
-  color: #fff;
-  border-radius: 5px;
-  margin: 0 5px;
-  font-size: 10px;
-}
-// .sponsored-card {
-//   box-shadow:0px 2px 8px #37474f;
-// }
-
-.rounded-img {
-  border-radius: 3px 3px 0 0;
-  
-}
-
-// .musician-img-profile {
-//   height: 250px;
-//   width: 250px;
-//   object-fit: cover;
-//   position: relative;
-  
-//   img {
-//     height: 100%;
-    
-//     width: 100%;
-//     object-fit: cover;
-//     transition: all 1.2s ease-in-out;
-//     &:hover {
-//       transform: scale(0.8);
-      
-//     }
-    
-//   }
-// }
-.profile-pic {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-
-.flip-card {
-  background-color: transparent;
-  border-radius: 10px;
-  width: 350px;
-  height: 350px;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
-}
-
-/* This container is needed to position the front and back side */
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-  border-radius: 10px;
-  
-}
-
-.hide-footer {
-  display: none;
-}
-
-/* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-/* Position the front and back side */
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
-  border-radius: 10px;
-  
-}
-
-/* Style the front side (fallback if image is missing) */
-.flip-card-front {
-  background-color: #bbb;
-  color: black;
-  overflow: hidden;
-
-  img {
-    object-fit: cover;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-}
-.overflow {
-  overflow-x: hidden;
-}
-
-// #footer {
-  
-//   padding-top: 100px;
-// }
-/* Style the back side */
-.flip-card-back {
-  background-color: $myPetrol;
-  color: #fff;
-  font-weight: bold;
-  transform: rotateY(180deg);
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  align-items: center;
-  backface-visibility: hidden;
-  border-radius: 10px;
-}
-
-.width {
-  width: calc(100% / 3 - 2rem);
-  margin: 1rem;
-  border-radius: 10px;
-}
-
-
-.img-sponsor {
-  object-fit: cover;
-}
-
-.small-position {
-  position: absolute;
-  top: 20px;
-}
-
-
-.btn-grad {
-  background: -webkit-linear-gradient(to right, #f08799, #ec5e25, #f7af1a, #08a38f);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #f08799, #ec5e25, #f7af1a, #08a38f);
-  padding: 15px 45px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: all 0.5s ease-in-out;
-  background-size: 200% auto;
-  color: white;
-  border-radius: .35rem;
-  cursor: pointer;
-  // box-shadow: 0 0 20px #eee;
-  display: block;
-  a {
-    color: #fff;
-    font-weight: bolder;
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  &:hover {
-      background-position: right center;
-      color: #fff;
-      text-decoration: none;  
-  }
 }

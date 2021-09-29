@@ -1,183 +1,5 @@
-// genres badge color
-.badge-purple {
-    background-color: $myPurple;
-    padding: 10px;
-}
-
-// custom background color
-.bg-pale {
-    background-color: $myWhite;
-}
-
-// welcome buttons colors & hovers
-.btn-orange {
-    background-color: $logoColor;
-    transition: all .3s ease-in-out;
-    &:hover {
-        background-color: darken($logoColor, 15%);
-    }
-    &:focus {
-        box-shadow: none;
-    }
-}
-.btn-purple {
-    background-color: $myPurple;
-    transition: all .3s ease-in-out;
-    &:hover {
-        background-color: darken($myPurple, 15%);
-    }
-    &:focus {
-        box-shadow: none;
-    }
-}
-.btn-petrol {
-    background-color: $myPetrol;
-    transition: all .3s ease-in-out;
-    &:hover {
-        background-color: darken($myPetrol, 15%);
-    }
-    &:focus {
-        box-shadow: none;
-    }
-}
-.btn-wine {
-    background-color: $myWine;
-    transition: all .3s ease-in-out;
-    &:hover {
-        background-color: darken($myWine, 15%);
-    }
-    &:focus {
-        box-shadow: none;
-    }
-}
-.btn-pink {
-    background-color: $myPink;
-    transition: all .3s ease-in-out;
-    &:hover {
-        background-color: darken($myPink, 15%);
-    }
-    &:focus {
-        box-shadow: none;
-    }
-}
-.btn-yellow {
-    background-color: $myYellow;
-    transition: all .3s ease-in-out;
-    &:hover {
-        background-color: darken($myYellow, 15%);
-    }
-    &:focus {
-        box-shadow: none;
-    }
-}
-.btn-green {
-    background-color: $myGreen;
-    transition: all .3s ease-in-out;
-    &:hover {
-        background-color: darken($myGreen, 15%);
-    }
-    &:focus {
-        box-shadow: none;
-    }
-}
-.btn-danger {
-    &:focus {
-        box-shadow: none;
-    }
-}
-
-// title colors 
-.title-purple {
-    color: $myPurple;
-}
-.title-yellow {
-    color: $myYellow;
-    font-weight: bold;
-}
-.title-pink {
-    color: $myPink;
-    font-weight: bold;
-}
-.title-green {
-    color: $myGreen;
-    font-weight: bold;
-}
-.title-petrol {
-    color: $myPetrol;
-    font-weight: bold;
-}
-.title-wine {
-    color: $myWine;
-    font-weight: bold;
-}
-.title-orange {
-    color: $logoColor;
-    font-weight: bold;    
-}
-.title-soft-green {
-    color: #54E0C7;
-}
-.register-link.title-orange {
-    transition: all .5s ease-in-out;
-    &:hover{
-        color: $logoColor;
-        transform: scale(0.8);
-    }
-}
-
-a.title-orange {
-    &:hover {
-        color: darken($logoColor, 15%);
-    }
-}
-.btn-orange {
-    &:hover {
-        background-color: darken($logoColor, 15%);
-    }
-}
-// login/register links
-.login-link {
-    background-color: $logoColor;
-    a {
-        &:hover {
-            text-decoration: none;
-        }
-    }
-    &:hover {
-        background-color: darken($logoColor, 15%);
-        text-decoration: none;
-    }
-}
-.register-link {
-    border: 1px solid $logoColor;
-    background-color: transparent;
-}
-
-
-a.title-yellow,
-a.title-pink,
-a.title-petrol {
-    transition: all .3s ease-in-out;
-    &:hover {
-        color: #fff;
-        text-decoration: none;
-    }
-}
-
-// sponsorships colors
-.gold {
-    color: $gold;
-}
-.platinum {
-    color: darken($platino, 5%);
-}
-.diamond {
-    color: $myWhite;
-}
-
-.star {
-    color: $myYellow;
-}
+@import '_colors.scss';
+@import '_ui.scss';
 
 .myHover {
     transition: all .3s ease-in-out;
@@ -214,12 +36,7 @@ a.title-petrol {
     }
     
 }
-// .pattern-home {
-//     background-image: url("/images/pattern3.jpg");
-//     background-size: cover;
-//     background-position: center top;
-//     height: 200px;
-// }
+
   
 .profile-img {
     border-radius: 10px;
@@ -239,7 +56,6 @@ a.title-petrol {
 }
 
 .layover-pattern {
-    // z-index: 4;
     &:before {
         content: '';
         position: absolute;
@@ -248,8 +64,6 @@ a.title-petrol {
         height: 100%;
         width: 100%;
         background-color: rgb(0, 0, 0, 0.6);
-        // padding: 10px;
-        // border-radius: 10px;
     }
 }
 
@@ -306,13 +120,8 @@ a.title-petrol {
     right: 30px;
     z-index: 99;
     font-size: 50px;
-    // border: none;
-    // outline: none;
-    // background: none;
-    // background-color: red;
     color: $logoColor;
     cursor: pointer;
-    // padding: 15px;
     border-radius: 4px;
     transition: all .3s ease-in-out;
 

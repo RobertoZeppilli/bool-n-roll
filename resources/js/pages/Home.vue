@@ -149,7 +149,7 @@
         </div>
       </div>
 
-      <div class="link-musicians mb-5 d-flex flex-column align-items-center justify-content-center" data-aos="zoom-in">
+      <div class="link-musicians py-5 d-flex flex-column align-items-center justify-content-center" data-aos="zoom-in">
         <h4 class="platinum mb-2 text-center">Cerca tra tutti i musicisti!</h4>
         <i class="fas fa-chevron-down mb-2 fa-2x title-orange animate__animated animate__pulse animate__infinite"></i>
         <router-link class="btn-grad text-white" style="width: max-content;" :to="{ name:'all-musicians' }">Vedi tutti i musicisti</router-link>

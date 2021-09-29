@@ -5,19 +5,32 @@
       <div class="container-xl main_page d-flex">
         <div class="container myContainer">
           <div
-            class="position d-flex align-items-center justify-content-center"
+            class="
+              position
+              d-flex
+              align-items-center
+              justify-content-center
+              flex-column
+            "
           >
             <img
               class="profile-img"
               :src="'/storage/' + musician.cover"
               alt=""
             />
+            <h1>{{ musician.stagename }}</h1>
+            <!-- <span
+              v-for="(genre, index) in musician.genres"
+              :key="index"
+              class="badge_profile badge badge-purple text-white mr-2"
+              >{{ genre.name }}
+            </span> -->
             <!-- <img  class="profile-img" src="images/avatar.png" alt="" /> -->
           </div>
           <!-- <div  class="position d-flex align-items-center justify-content-center">
         </div> -->
-          <div class="pt-100 text-center">
-            <h1 class="my-5">{{ musician.stagename }}</h1>
+          <div class="pt-100">
+            <!-- <h1 class="my-5">{{ musician.stagename }}</h1>
             <span
               v-for="(genre, index) in musician.genres"
               :key="index"
@@ -43,6 +56,46 @@
                 Tipologia
               </h4>
               <p>{{ musician.typology }}</p>
+            </div> -->
+            <!-- <div>
+              <span class="prova2">Bio</span>
+            </div> -->
+            <div>
+              <div class="prova text-center">
+                <span class="window-badge" :class="{ active: bio }" @click="getPage('bio')">Bio</span>
+                <span class="window-badge" :class="{ active: servizi }" @click="getPage('servizi')">
+                  Servizi
+                </span>
+                <span
+                class="window-badge"
+                  :class="{ active: tipologia }"
+                  @click="getPage('tipologia')"
+                >
+                  Tipologia
+                </span>
+                <span class="window-badge" :class="{ active: generi }" @click="getPage('generi')">
+                  Generi
+                </span>
+              </div>
+              <div :class="{ 'center' : generi || tipologia || servizi }" class="window">
+                <div class="pt-3" v-show="bio">
+                  <p>{{ musician.bio }}</p>
+                </div>
+                <div v-show="tipologia">
+                  <p class="typology">{{ musician.typology }}</p>
+                </div>
+                <div v-show="servizi">
+                  <p class="services">{{ musician.services }}</p>
+                </div>
+                <div v-show="generi">
+                  <span
+                    v-for="(genre, index) in musician.genres"
+                    :key="index"
+                    class="badge_profile badge badge-purple text-white mr-2"
+                    >{{ genre.name }}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -63,13 +116,14 @@
               >
                 Scrivi una recensione
               </button>
-              <ReviewForm  :musicianId="musician.id" v-if="review" />
+              <ReviewForm :musicianId="musician.id" v-if="review" />
             </div>
           </div>
 
           <div v-if="musician.reviews.length > 0" class="mt-5">
             <h3 data-aos="fade-right" class="pb-1">
-              Recensioni {{ musician.typology == 'Band' ? 'sui ' : 'su ' }} {{ musician.stagename }}
+              Recensioni {{ musician.typology == "Band" ? "sui " : "su " }}
+              {{ musician.stagename }}
             </h3>
             <div
               v-for="review in sortedReviews"
@@ -94,7 +148,9 @@
                 </div>
                 <p class="font-italic">{{ review.review }}</p>
                 <p class="m-0 p-0 text-right">
-                  <small>Ricevuta il {{ getSendDate(review.created_at) }}</small>
+                  <small
+                    >Ricevuta il {{ getSendDate(review.created_at) }}</small
+                  >
                 </p>
               </div>
             </div>
@@ -136,6 +192,11 @@ export default {
       review: false,
       reviews: [],
       loaded: false,
+
+      bio: true,
+      servizi: false,
+      tipologia: false,
+      generi: false
     };
   },
 
@@ -163,6 +224,30 @@ export default {
       let firstLetter = surname[0] + ".";
       return firstLetter;
     },
+
+    getPage(name) {
+      if (name == "bio") {
+        this.bio = true;
+        this.servizi = false;
+        this.tipologia = false;
+        this.generi = false;
+      } else if (name == "servizi") {
+        this.servizi = true;
+        this.bio = false;
+        this.tipologia = false;
+        this.generi = false;
+      } else if (name == "tipologia") {
+        this.tipologia = true;
+        this.bio = false;
+        this.servizi = false;
+        this.generi = false;
+      } else if (name == 'generi') {
+        this.generi = true;
+        this.tipologia = false;
+        this.bio = false;
+        this.servizi = false;
+      }
+    },
   },
 
   computed: {
@@ -174,8 +259,8 @@ export default {
   created() {
     this.getMusician(this.$route.params.slug);
     // this.$emit('prova', this.reviews);
-    $(document).ready(function(){
-            $(this).scrollTop(0);
+    $(document).ready(function () {
+      $(this).scrollTop(0);
     });
   },
   mounted() {
@@ -183,3 +268,48 @@ export default {
   },
 };
 </script>
+
+
+<style lang="scss" scoped>
+// .prova {
+//   margin-top: 100px;
+//   width: max-content;
+//   // background-color: rgba(0,0,0,0.5);
+//   // color: #fff;
+//   background-color: #fff;
+//   border-radius: 10px 10px 0 0;
+//   display: flex;
+//   // justify-content: space-between;
+//   align-items: center;
+
+//   h5 {
+//     padding: 10px;
+
+//     cursor: pointer;
+//     margin-bottom: 0;
+//   }
+// }
+
+// .window {
+//   padding: 10px;
+//   min-height: 400px;
+//   background-color: #fff;
+//   border-radius: 0 20px 20px 20px;
+//   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+// }
+// .center {
+//   height: 100%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+
+//   .typology {
+//     font-size: 3rem;
+//   }
+  
+// }
+// .active {
+//   color: #ec5e25;
+  
+// }
+</style>
